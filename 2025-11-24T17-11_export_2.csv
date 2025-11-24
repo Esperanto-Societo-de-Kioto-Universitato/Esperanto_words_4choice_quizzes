@@ -1,6 +1,0 @@
-﻿,user,group_id,seed,correct,total,accuracy,points,raw_points,accuracy_bonus,ts
-0,test,test_group,1,5,10,0.5,50,40,10,2025-01-01 0:00:00
-1,MontaInterno,pronoun:beginner_1+beginner_2+intermediate_1+intermediate_2+intermediate_3+advanced_1+advanced_2+advanced_3+advanced_4+advanced_5:g1,1,10,10,1,210,190,20,2025-11-24 13:23:18
-2,MontaInterno,other:beginner_1+beginner_2+intermediate_1+intermediate_2+advanced_1+advanced_2+advanced_3+advanced_4:g1,1,7,8,0.875,126,112,14,2025-11-24 15:53:16
-3,MontaInterno,other:beginner_1+beginner_2+intermediate_1+intermediate_2+advanced_1+advanced_2+advanced_3+advanced_4:g1,1,8,8,1,152,136,16,2025-11-24 15:53:49
-4,MontaInterno,adjective:beginner_1:g1,1,19,22,0.8636363636363636,390,352,38,2025-11-24 16:06:56
