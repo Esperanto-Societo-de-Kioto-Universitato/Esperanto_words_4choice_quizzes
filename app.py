@@ -79,14 +79,17 @@ def load_scores():
         return []
     try:
         # ワークシート "Scores" からデータを読み込む
-        # キャッシュを無効化して最新データを取得 (ttl=0)
-        df = conn.read(worksheet="Scores", ttl=0)
+        # API制限（1分間に60リクエスト）を回避するため、キャッシュ有効時間を設定
+        # ttl=60秒（1分間は再取得せずキャッシュを使う）
+        df = conn.read(worksheet="Scores", ttl=60)
         if df.empty:
             return []
         # DataFrameを辞書のリストに変換
         return df.to_dict(orient="records")
     except Exception as e:
-        st.error(f"ランキングデータの読み込みに失敗しました: {e}")
+        # エラー時はユーザーに通知せず静かに空リストを返す（頻繁なエラー表示を防ぐ）
+        # st.error(f"ランキングデータの読み込みに失敗しました: {e}")
+        print(f"Ranking load error: {e}")
         return []
 
 def save_score(record: dict):
@@ -95,7 +98,8 @@ def save_score(record: dict):
     if conn is None:
         return False
     try:
-        # 現在のデータを読み込む（空の場合は空の DataFrame を生成）
+        # 現在のデータを読み込む（書き込み時は最新状態が必要なので ttl=0）
+        # ただし、頻繁な書き込みは想定していないため、ここでのAPI消費は許容する
         df = conn.read(worksheet="Scores", ttl=0)
         if df is None or df.empty:
             df = pd.DataFrame()
@@ -106,6 +110,10 @@ def save_score(record: dict):
 
         # 更新（追記）
         conn.update(worksheet="Scores", data=updated_df)
+        
+        # 保存成功後、キャッシュをクリアして次の読み込みで最新が反映されるようにする
+        st.cache_data.clear()
+        
         return True
     except Exception as e:
         st.error(f"スコアの保存に失敗しました: {e}")
