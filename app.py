@@ -1182,7 +1182,7 @@ def main():
         # 音声プレイヤーは下に配置（不正解時の復習用）
         if audio_key:
             st.markdown("---")
-            st.caption("🔊 発音を確認")
+            st.caption(f"🔊 発音を確認【{audio_key}】")
             audio_player(audio_key, autoplay=True, question_index=q_index)
         return
 
@@ -1202,7 +1202,8 @@ def main():
     # 音声プレイヤーは4択ボタンの下に配置
     if audio_key:
         st.markdown("---")
-        st.caption("🔊 発音を聞く（自動再生）")
+        # デバッグ: 現在の音声キーを表示（問題特定後に削除可能）
+        st.caption(f"🔊 発音を聞く（自動再生）【{audio_key}】")
         audio_player(audio_key, autoplay=True, question_index=q_index)
 
     if clicked_index is not None:
