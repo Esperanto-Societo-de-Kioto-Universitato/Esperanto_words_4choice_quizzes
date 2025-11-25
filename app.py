@@ -372,16 +372,18 @@ def find_audio(akey: str):
     return None, None
 
 
-def audio_player(akey: str, autoplay: bool = True):
+def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
     data, mime = find_audio(akey)
     if not data:
         st.info("音声ファイルなし")
         return
-    audio_id = f"audio-{uuid.uuid4().hex}"
+    # 問題ごとにユニークなIDを生成（question_indexを含めて確実に区別）
+    audio_id = f"audio-q{question_index}-{uuid.uuid4().hex[:8]}"
     b64 = base64.b64encode(data).decode("utf-8")
 
     # HTML/JS template
     # モバイル対応: Web Audio API + ユーザージェスチャー追跡
+    # iPhone Firefox対策: 前のオーディオを明示的に停止
     tmpl = Template(
         """
         <style>
@@ -502,6 +504,27 @@ def audio_player(akey: str, autoplay: bool = True):
         <audio id="$audio_id" src="data:$mime;base64,$b64" preload="auto" playsinline></audio>
         <script>
           (function() {
+            // iPhone Firefox対策: 前のオーディオ要素をすべて停止・破棄
+            // これにより、古い音声が再生されることを防ぐ
+            const currentQuestionIndex = $question_index;
+
+            // 既存のすべてのaudio要素を検索して停止
+            document.querySelectorAll('audio').forEach((oldAudio) => {
+              if (oldAudio.id !== '$audio_id') {
+                try {
+                  oldAudio.pause();
+                  oldAudio.currentTime = 0;
+                  oldAudio.src = '';  // ソースをクリア
+                  oldAudio.load();    // リソースを解放
+                } catch (e) {
+                  console.log('Failed to stop old audio:', e);
+                }
+              }
+            });
+
+            // グローバルに現在の問題番号を記録
+            window._currentEsperantoQuestionIndex = currentQuestionIndex;
+
             const a = document.getElementById('$audio_id');
             const btn = document.getElementById('$audio_id-play');
             const bar = document.getElementById('$audio_id-bar');
@@ -582,10 +605,26 @@ def audio_player(akey: str, autoplay: bool = True):
               time.textContent = fmt(cur) + " / " + fmt(dur);
             }
 
+            // ボタンを通常状態に戻す関数
+            function resetBtnStyle() {
+              btn.style.background = '';
+              btn.style.color = '';
+              btn.style.animation = '';
+              btn.style.width = '';
+              btn.style.minWidth = '';
+              btn.style.fontSize = '';
+              btn.style.fontWeight = '';
+            }
+
             btn.onclick = () => {
               if (a.paused) {
-                a.play();
-                btn.textContent = "⏸";
+                a.play().then(() => {
+                  resetBtnStyle();
+                  btn.textContent = "⏸";
+                  sessionStorage.setItem('esperanto_audio_unlocked', 'true');
+                }).catch((err) => {
+                  console.warn("Play failed:", err);
+                });
               } else {
                 a.pause();
                 btn.textContent = "▶︎";
@@ -617,6 +656,12 @@ def audio_player(akey: str, autoplay: bool = True):
             updateBar();
 
             function attemptPlay() {
+              // iPhone Firefox対策: 現在の問題番号と一致しない場合は再生しない
+              if (window._currentEsperantoQuestionIndex !== currentQuestionIndex) {
+                console.log('Skipping play for old question:', currentQuestionIndex, 'current:', window._currentEsperantoQuestionIndex);
+                return Promise.resolve(false);
+              }
+
               return a.play().then(() => {
                   btn.textContent = "⏸";
                   // モバイルで一度再生成功したらフラグを立てる
@@ -632,33 +677,54 @@ def audio_player(akey: str, autoplay: bool = True):
             function setupAutoplayUnlock() {
               if (!$autoplay_bool) return;
 
-              // モバイル判定
+              // モバイル判定（iOS特別扱い）
+              const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
               const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
               // まず再生を試みる（PCでもモバイルでも）
               setTimeout(() => {
+                // 再度チェック: この時点でまだ現在の問題か確認
+                if (window._currentEsperantoQuestionIndex !== currentQuestionIndex) {
+                  console.log('Question changed, skipping autoplay');
+                  return;
+                }
+
                 attemptPlay().then((ok) => {
                   if (ok) {
                     // 成功 -> ボタンをノーマル状態に
                     btn.style.background = '';
                     btn.style.color = '';
                     btn.style.animation = '';
+                    btn.style.width = '';
+                    btn.style.minWidth = '';
+                    btn.textContent = "⏸";
                     return;
                   }
 
                   // 失敗した場合
                   if (isMobile) {
-                    // モバイルで失敗 -> 目立つ再生ボタンを表示
+                    // モバイルで失敗 -> 目立つ大きな再生ボタンを表示
                     btn.style.background = '#009900';
                     btn.style.color = '#fff';
-                    btn.style.animation = 'pulse 1s infinite';
-                    btn.textContent = "🔊 タップ";
+                    btn.style.width = '100%';
+                    btn.style.minWidth = '100%';
+                    btn.style.fontSize = '18px';
+                    btn.style.fontWeight = 'bold';
+
+                    if (isIOS) {
+                      // iOSの場合は特に目立たせる（自動再生が難しいため）
+                      btn.textContent = "🔊 ここをタップして発音を聞く";
+                      btn.style.animation = 'pulse 0.8s infinite';
+                    } else {
+                      btn.textContent = "🔊 タップして再生";
+                      btn.style.animation = 'pulse 1s infinite';
+                    }
 
                     // スタイルを動的に追加
                     if (!document.getElementById('pulse-style')) {
                       const style = document.createElement('style');
                       style.id = 'pulse-style';
-                      style.textContent = '@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }';
+                      style.textContent = '@keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.02); opacity: 0.9; } }';
                       document.head.appendChild(style);
                     }
 
@@ -684,6 +750,7 @@ def audio_player(akey: str, autoplay: bool = True):
         mime=mime,
         b64=b64,
         autoplay_bool=str(autoplay).lower(),
+        question_index=question_index,
     )
     st.components.v1.html(html, height=190)
 
@@ -980,21 +1047,17 @@ def main():
         return
 
     question = questions[q_index]
-    st.subheader(f"Q{q_index+1}/{len(questions)}: {question['prompt']}")
     audio_key = question["options"][question["answer_index"]]["audio_key"]
-    if audio_key:
-        # ユーザー要望により、結果画面（不正解時）でも音声を再生する（復習のため）
-        audio_player(audio_key, autoplay=True)
 
-    # 固定サイズボタン（2x2）で見やすく配置
+    # スマホ対応: 回答ボタンのスタイル（PCとモバイルで高さを変える）
     st.markdown(
         """
         <style>
-        /* すべての回答ボタンを固定サイズに統一 */
+        /* PC用: 回答ボタンを固定サイズに統一 */
         .stButton button {
-            height: 140px;
-            min-height: 140px;
-            max-height: 140px;
+            height: 120px;
+            min-height: 120px;
+            max-height: 120px;
             width: 100% !important;
             white-space: normal;
             overflow: hidden;
@@ -1006,10 +1069,24 @@ def main():
             text-align: center;
             padding: 8px;
         }
+        /* スマホ用: より小さい高さ */
+        @media (max-width: 768px) {
+            .stButton button {
+                height: 80px;
+                min-height: 80px;
+                max-height: 80px;
+                font-size: 14px;
+                padding: 4px;
+            }
+        }
         </style>
         """,
         unsafe_allow_html=True,
     )
+
+    # 出題単語（一番上に大きく表示）
+    st.subheader(f"Q{q_index+1}/{len(questions)}: {question['prompt']}")
+
     # 結果表示モードの場合
     if st.session_state.showing_result:
         # 結果を表示
@@ -1018,19 +1095,20 @@ def main():
         else:
             st.error(st.session_state.last_result_msg)
 
-        # 選択肢ボタンは無効化して表示（あるいは非表示でもよいが、レイアウト維持のため無効化表示が望ましい）
-        # ここではシンプルに「次へ」ボタンを表示する
-
-        # 自動再生されない場合のために、ここでも音声再生ボタンなどを置く手もあるが、
-        # 上部の audio_player はそのまま残るのでOK。
-
+        # 「次へ」ボタン
         if st.button("次へ進む", type="primary", use_container_width=True, key=f"next_btn_{st.session_state.q_index}"):
             st.session_state.q_index += 1
             st.session_state.showing_result = False
             st.rerun()
+
+        # 音声プレイヤーは下に配置（不正解時の復習用）
+        if audio_key:
+            st.markdown("---")
+            st.caption("🔊 発音を確認")
+            audio_player(audio_key, autoplay=True, question_index=q_index)
         return
 
-    # 回答待ちモード
+    # 回答待ちモード: 4択ボタンを出題単語の直下に配置
     option_labels = [f"{opt['japanese']}" for opt in question["options"]]
     clicked_index = None
     for row_start in range(0, len(option_labels), 2):
@@ -1042,6 +1120,12 @@ def main():
             with cols[j]:
                 if st.button(option_labels[idx], key=f"opt-{q_index}-{idx}", use_container_width=True, type="primary"):
                     clicked_index = idx
+
+    # 音声プレイヤーは4択ボタンの下に配置
+    if audio_key:
+        st.markdown("---")
+        st.caption("🔊 発音を聞く（自動再生）")
+        audio_player(audio_key, autoplay=True, question_index=q_index)
 
     if clicked_index is not None:
         is_correct = clicked_index == question["answer_index"]
