@@ -486,8 +486,16 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
           width: 60px;
           text-align: center;
         }
+        .audio-debug-label {
+          font-size: 11px;
+          color: #666;
+          margin-bottom: 4px;
+          font-family: monospace;
+        }
         </style>
         <div class="audio-card">
+          <!-- デバッグ: このiframe内の音声が何かを表示 -->
+          <div class="audio-debug-label">🎵 iframe内音声: <strong>$debug_audio_key</strong> (Q$question_index)</div>
           <div class="audio-top">
             <button class="audio-btn" id="$audio_id-play">▶︎</button>
             <div class="audio-bar" id="$audio_id-bar">
@@ -595,6 +603,23 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
               } catch (e) {}
               return true;
             }
+
+            // ★重要: 自分が最新でなくなったら自分自身を非表示にする
+            function hideIfNotLatest() {
+              if (!isLatest()) {
+                const card = document.querySelector('.audio-card');
+                if (card) {
+                  card.style.display = 'none';
+                  console.log('[Esperanto Audio] Hiding old iframe:', debugAudioKey);
+                }
+              }
+            }
+
+            // 定期的にチェック（最初の1秒間）
+            const hideCheckInterval = setInterval(() => {
+              hideIfNotLatest();
+            }, 100);
+            setTimeout(() => clearInterval(hideCheckInterval), 1000);
 
             const btn = document.getElementById('$audio_id-play');
             const bar = document.getElementById('$audio_id-bar');
