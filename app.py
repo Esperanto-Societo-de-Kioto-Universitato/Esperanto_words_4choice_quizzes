@@ -548,7 +548,7 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
             // これにより、古いiframeがplay()を呼んでも無視される
             parentWin._esperantoBlockOldAudio = myTimestamp;
 
-            // 古いオーディオを全て破棄する関数
+            // 古いオーディオと古いiframeのカードを全て破棄・非表示にする関数
             function destroyAllOtherAudio() {
               let destroyed = 0;
               try {
@@ -556,6 +556,17 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
                 iframes.forEach((iframe) => {
                   try {
                     const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+
+                    // ★重要: 古いiframe内のaudio-cardを即座に非表示
+                    const otherCards = iframeDoc.querySelectorAll('.audio-card');
+                    otherCards.forEach((card) => {
+                      // 自分のiframeでなければ非表示
+                      if (iframeDoc !== document) {
+                        card.style.display = 'none';
+                        console.log('[Esperanto Audio] Hiding other iframe card');
+                      }
+                    });
+
                     const audios = iframeDoc.querySelectorAll('audio');
                     audios.forEach((audio) => {
                       if (audio.id !== currentAudioId) {
@@ -608,18 +619,33 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
             function hideIfNotLatest() {
               if (!isLatest()) {
                 const card = document.querySelector('.audio-card');
-                if (card) {
+                if (card && card.style.display !== 'none') {
                   card.style.display = 'none';
                   console.log('[Esperanto Audio] Hiding old iframe:', debugAudioKey);
                 }
+                // 音声も停止
+                if (a) {
+                  a.pause();
+                  a.src = '';
+                }
+                return true; // 非表示にした
               }
+              return false;
             }
 
-            // 定期的にチェック（最初の1秒間）
+            // ★永続的に監視（1秒後も継続、ただし頻度を下げる）
+            let checkCount = 0;
             const hideCheckInterval = setInterval(() => {
-              hideIfNotLatest();
+              checkCount++;
+              if (hideIfNotLatest()) {
+                // 非表示にしたらインターバル停止
+                clearInterval(hideCheckInterval);
+              }
+              // 10秒後も生き残っていたら停止（メモリリーク防止）
+              if (checkCount > 100) {
+                clearInterval(hideCheckInterval);
+              }
             }, 100);
-            setTimeout(() => clearInterval(hideCheckInterval), 1000);
 
             const btn = document.getElementById('$audio_id-play');
             const bar = document.getElementById('$audio_id-bar');
