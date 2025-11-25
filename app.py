@@ -536,6 +536,10 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
             parentWin._esperantoLatestTimestamp = myTimestamp;
             parentWin._esperantoCurrentAudioId = currentAudioId;
 
+            // ★重要: 古いaudioの再生を即座にブロックするフラグ
+            // これにより、古いiframeがplay()を呼んでも無視される
+            parentWin._esperantoBlockOldAudio = myTimestamp;
+
             // 古いオーディオを全て破棄する関数
             function destroyAllOtherAudio() {
               let destroyed = 0;
@@ -579,11 +583,15 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
             // 即座に古いオーディオを破棄
             destroyAllOtherAudio();
 
-            // 最新チェック
+            // 最新チェック（より厳密に）
             function isLatest() {
               try {
+                // タイムスタンプチェック
                 if (parentWin._esperantoLatestTimestamp > myTimestamp) return false;
+                // AudioIDチェック
                 if (parentWin._esperantoCurrentAudioId !== currentAudioId) return false;
+                // ブロックフラグチェック（自分より新しいものがブロックを設定していたら停止）
+                if (parentWin._esperantoBlockOldAudio > myTimestamp) return false;
               } catch (e) {}
               return true;
             }
@@ -810,12 +818,32 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
 
             // 自動再生の実行
             if ($autoplay_bool) {
-              // 少し遅延を入れてDOMの準備を待つ
+              // iPhone Firefox対策: 段階的な遅延と複数回チェック
+              // モバイルかどうかで遅延時間を変える
+              const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+              const delay = isMobile ? 150 : 50;  // モバイルは長めに待つ
+
               setTimeout(() => {
-                if (isLatest()) {
+                // 1回目のチェック
+                if (!isLatest()) {
+                  console.log('[Esperanto Audio] Autoplay skipped (check 1):', debugAudioKey);
+                  return;
+                }
+
+                // モバイルの場合、さらに少し待ってから再度チェック
+                if (isMobile) {
+                  setTimeout(() => {
+                    // 2回目のチェック
+                    if (!isLatest()) {
+                      console.log('[Esperanto Audio] Autoplay skipped (check 2):', debugAudioKey);
+                      return;
+                    }
+                    attemptAutoplay();
+                  }, 100);
+                } else {
                   attemptAutoplay();
                 }
-              }, 50);
+              }, delay);
             }
           })();
         </script>
