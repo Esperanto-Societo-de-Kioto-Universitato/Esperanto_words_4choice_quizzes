@@ -501,16 +501,19 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
             <label><input type="checkbox" id="$audio_id-loop"> ループ</label>
           </div>
         </div>
-        <audio id="$audio_id" src="data:$mime;base64,$b64" preload="auto" playsinline></audio>
+        <!-- audio要素は遅延生成するため、ここでは作成しない -->
+        <div id="$audio_id-container"></div>
         <script>
           (function() {
-            // iPhone Firefox対策: タイムスタンプベースの排他制御
-            // 問題を速く回答したときの競合状態（Race Condition）を防ぐ
+            // iPhone Firefox対策: 根本的解決
+            // audio要素を最初から作らず、再生時に動的生成することで
+            // 古いaudioが先に再生される問題を防ぐ
             const currentQuestionIndex = $question_index;
             const currentAudioId = '$audio_id';
-            const myTimestamp = Date.now();  // このスクリプトが実行された時刻
+            const audioSrc = 'data:$mime;base64,$b64';
+            const myTimestamp = Date.now();
 
-            // 親ウィンドウにアクセス（Streamlit本体のスコープ）
+            // 親ウィンドウにアクセス
             let parentWin;
             try {
               parentWin = window.parent || window;
@@ -520,12 +523,10 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
 
             // 親ウィンドウにタイムスタンプを設定（最新のものが常に勝つ）
             parentWin._esperantoLatestTimestamp = myTimestamp;
-            parentWin._esperantoCurrentQuestionIndex = currentQuestionIndex;
             parentWin._esperantoCurrentAudioId = currentAudioId;
 
-            // 古いオーディオを即座に停止する関数
-            function stopAllOtherAudio() {
-              // 親ウィンドウ内の全iframeを検索して停止
+            // 古いオーディオを全て破棄する関数
+            function destroyAllOtherAudio() {
               try {
                 const iframes = parentWin.document.querySelectorAll('iframe');
                 iframes.forEach((iframe) => {
@@ -535,108 +536,69 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
                     audios.forEach((audio) => {
                       if (audio.id !== currentAudioId) {
                         audio.pause();
-                        audio.currentTime = 0;
-                        // srcをクリアして完全に無効化
                         audio.src = '';
-                        audio.load();
+                        audio.remove();  // DOMから完全に削除
                       }
                     });
-                  } catch (e) {
-                    // クロスオリジンエラーは無視
-                  }
-                });
-              } catch (e) {
-                console.log('Failed to stop audio in iframes:', e);
-              }
-
-              // 現在のiframe内のaudio要素も停止（自分以外）
-              document.querySelectorAll('audio').forEach((oldAudio) => {
-                if (oldAudio.id !== currentAudioId) {
-                  try {
-                    oldAudio.pause();
-                    oldAudio.currentTime = 0;
-                    oldAudio.src = '';
-                    oldAudio.load();
                   } catch (e) {}
+                });
+              } catch (e) {}
+              
+              // 現在のiframe内も
+              document.querySelectorAll('audio').forEach((audio) => {
+                if (audio.id !== currentAudioId) {
+                  audio.pause();
+                  audio.src = '';
+                  audio.remove();
                 }
               });
             }
 
-            // 即座に古いオーディオを停止
-            stopAllOtherAudio();
+            // 即座に古いオーディオを破棄
+            destroyAllOtherAudio();
 
-            // このaudioが最新かどうかをチェックする関数
-            function isLatestAudio() {
+            // 最新チェック
+            function isLatest() {
               try {
-                // タイムスタンプで比較（自分より新しいものがあれば自分は古い）
-                if (parentWin._esperantoLatestTimestamp > myTimestamp) {
-                  return false;
-                }
-                // audioIdでも確認
-                if (parentWin._esperantoCurrentAudioId !== currentAudioId) {
-                  return false;
-                }
+                if (parentWin._esperantoLatestTimestamp > myTimestamp) return false;
+                if (parentWin._esperantoCurrentAudioId !== currentAudioId) return false;
               } catch (e) {}
               return true;
             }
 
-            const a = document.getElementById('$audio_id');
             const btn = document.getElementById('$audio_id-play');
             const bar = document.getElementById('$audio_id-bar');
             const prog = document.getElementById('$audio_id-prog');
             const time = document.getElementById('$audio_id-time');
-
             const rateBar = document.getElementById('$audio_id-ratebar');
             const rateProg = document.getElementById('$audio_id-rateprog');
             const rateHandle = document.getElementById('$audio_id-ratehandle');
             const rateVal = document.getElementById('$audio_id-rateval');
             const loopCb = document.getElementById('$audio_id-loop');
+            const container = document.getElementById('$audio_id-container');
 
             const rateMin = 0.5;
             const rateMax = 2.0;
 
-            // --- Persistence Logic ---
-            // Load settings from sessionStorage
+            // audio要素（遅延生成）
+            let a = null;
+            let audioCreated = false;
+
+            // 設定の読み込み
             let savedRate = parseFloat(sessionStorage.getItem('esperanto_audio_rate'));
             let savedLoop = sessionStorage.getItem('esperanto_audio_loop') === 'true';
-
             if (isNaN(savedRate)) savedRate = 1.0;
 
-            // Apply settings
-            function applyRate(val) {
-                const r = Math.min(rateMax, Math.max(rateMin, val));
-                a.playbackRate = r;
-                a.defaultPlaybackRate = r;
-
-                // Update UI
-                const pct = ((r - rateMin) / (rateMax - rateMin)) * 100;
-                rateProg.style.width = pct + '%';
-                rateHandle.style.left = pct + '%';
-                rateVal.textContent = r.toFixed(2) + 'x';
-
-                // Save persistence
-                sessionStorage.setItem('esperanto_audio_rate', r);
+            // UI更新関数
+            function updateRateUI(r) {
+              const pct = ((r - rateMin) / (rateMax - rateMin)) * 100;
+              rateProg.style.width = pct + '%';
+              rateHandle.style.left = pct + '%';
+              rateVal.textContent = r.toFixed(2) + 'x';
             }
-
-            applyRate(savedRate);
-
-            a.loop = savedLoop;
+            updateRateUI(savedRate);
             loopCb.checked = savedLoop;
 
-            loopCb.addEventListener('change', () => {
-                a.loop = loopCb.checked;
-                sessionStorage.setItem('esperanto_audio_loop', loopCb.checked);
-            });
-
-            // --- Rate Control UI ---
-            rateBar.onclick = (e) => {
-              const rect = rateBar.getBoundingClientRect();
-              const pct = (e.clientX - rect.left) / rect.width;
-              const val = rateMin + pct * (rateMax - rateMin);
-              applyRate(val);
-            };
-
-            // --- Time Display & Progress ---
             function fmt(t) {
               if (!isFinite(t) || isNaN(t)) return "0:00";
               const m = Math.floor(t/60);
@@ -645,22 +607,19 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
             }
 
             function updateBar() {
+              if (!a) return;
               const dur = a.duration;
               const cur = a.currentTime;
-
-              // Retry getting duration if not available yet (common with base64)
               if (!isFinite(dur) || isNaN(dur)) {
-                  time.textContent = fmt(cur) + " / --:--";
-                  prog.style.width = '0%';
-                  return;
+                time.textContent = fmt(cur) + " / --:--";
+                prog.style.width = '0%';
+                return;
               }
-
               const pct = (cur / dur) * 100;
               prog.style.width = pct + '%';
               time.textContent = fmt(cur) + " / " + fmt(dur);
             }
 
-            // ボタンを通常状態に戻す関数
             function resetBtnStyle() {
               btn.style.background = '';
               btn.style.color = '';
@@ -671,9 +630,83 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
               btn.style.fontWeight = '';
             }
 
+            // audio要素を動的に生成する関数
+            function createAudio() {
+              if (audioCreated) return a;
+              
+              // 最新チェック - 古いならaudioを作らない
+              if (!isLatest()) {
+                console.log('Not creating audio - not latest:', currentAudioId);
+                return null;
+              }
+
+              // 生成直前にもう一度他のaudioを破棄
+              destroyAllOtherAudio();
+
+              a = document.createElement('audio');
+              a.id = currentAudioId;
+              a.preload = 'auto';
+              a.setAttribute('playsinline', '');
+              a.src = audioSrc;
+              container.appendChild(a);
+              audioCreated = true;
+
+              // 設定を適用
+              a.playbackRate = savedRate;
+              a.defaultPlaybackRate = savedRate;
+              a.loop = savedLoop;
+
+              // イベントリスナー
+              a.addEventListener('timeupdate', updateBar);
+              a.addEventListener('loadedmetadata', updateBar);
+              a.addEventListener('durationchange', updateBar);
+              a.addEventListener('ended', () => {
+                if (!a.loop) {
+                  btn.textContent = "▶︎";
+                  a.currentTime = 0;
+                  updateBar();
+                }
+              });
+
+              return a;
+            }
+
+            // レートバーのクリック
+            rateBar.onclick = (e) => {
+              const rect = rateBar.getBoundingClientRect();
+              const pct = (e.clientX - rect.left) / rect.width;
+              const val = rateMin + pct * (rateMax - rateMin);
+              const r = Math.min(rateMax, Math.max(rateMin, val));
+              savedRate = r;
+              sessionStorage.setItem('esperanto_audio_rate', r);
+              updateRateUI(r);
+              if (a) {
+                a.playbackRate = r;
+                a.defaultPlaybackRate = r;
+              }
+            };
+
+            loopCb.addEventListener('change', () => {
+              savedLoop = loopCb.checked;
+              sessionStorage.setItem('esperanto_audio_loop', loopCb.checked);
+              if (a) a.loop = loopCb.checked;
+            });
+
+            bar.onclick = (e) => {
+              if (!a || !a.duration) return;
+              const rect = bar.getBoundingClientRect();
+              const pct = (e.clientX - rect.left) / rect.width;
+              a.currentTime = Math.max(0, Math.min(1, pct)) * a.duration;
+              updateBar();
+            };
+
+            // ボタンクリック
             btn.onclick = () => {
-              if (a.paused) {
-                a.play().then(() => {
+              const audio = createAudio();
+              if (!audio) return;
+              
+              if (audio.paused) {
+                audio.play().then(() => {
                   resetBtnStyle();
                   btn.textContent = "⏸";
                   sessionStorage.setItem('esperanto_audio_unlocked', 'true');
@@ -681,133 +714,77 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
                   console.warn("Play failed:", err);
                 });
               } else {
-                a.pause();
+                audio.pause();
                 btn.textContent = "▶︎";
               }
             };
 
-            a.addEventListener('timeupdate', updateBar);
-            a.addEventListener('loadedmetadata', updateBar);
-            a.addEventListener('durationchange', updateBar); // Extra event for duration availability
-
-            a.addEventListener('ended', () => {
-               if (!a.loop) {
-                   btn.textContent = "▶︎";
-                   a.currentTime = 0;
-                   updateBar();
-               }
-            });
-
-            bar.onclick = (e) => {
-              const rect = bar.getBoundingClientRect();
-              const pct = (e.clientX - rect.left) / rect.width;
-              if (a.duration) {
-                a.currentTime = Math.max(0, Math.min(1, pct)) * a.duration;
-              }
-              updateBar();
-            };
-
-            // Initial update
-            updateBar();
-
-            function attemptPlay() {
-              // iPhone Firefox対策: タイムスタンプで最新かどうかチェック
-              if (!isLatestAudio()) {
-                console.log('Skipping play - not latest audio:', currentAudioId, 'ts:', myTimestamp);
-                // 古いaudioなので再生せず、むしろ停止しておく
-                a.pause();
-                a.src = '';
-                return Promise.resolve(false);
+            // 自動再生を試みる
+            function attemptAutoplay() {
+              // 最新チェック
+              if (!isLatest()) {
+                console.log('Autoplay cancelled - not latest:', currentAudioId);
+                return;
               }
 
-              // 再生前にもう一度他のaudioを停止
-              stopAllOtherAudio();
+              const audio = createAudio();
+              if (!audio) return;
 
-              return a.play().then(() => {
-                  // 再生開始後も最新かチェック（再生中に新しいのが来た場合）
-                  if (!isLatestAudio()) {
-                    console.log('Stopping play - newer audio arrived');
-                    a.pause();
-                    return false;
-                  }
-                  btn.textContent = "⏸";
-                  sessionStorage.setItem('esperanto_audio_unlocked', 'true');
-                  return true;
+              // 再度最新チェック（createAudio中に変わった可能性）
+              if (!isLatest()) {
+                console.log('Autoplay cancelled after create - not latest');
+                audio.pause();
+                audio.src = '';
+                return;
+              }
+
+              audio.play().then(() => {
+                // 再生開始後も最新チェック
+                if (!isLatest()) {
+                  console.log('Stopping - newer audio arrived');
+                  audio.pause();
+                  return;
+                }
+                resetBtnStyle();
+                btn.textContent = "⏸";
+                sessionStorage.setItem('esperanto_audio_unlocked', 'true');
               }).catch((err) => {
-                  console.warn("Auto play blocked, waiting for user gesture", err);
-                  btn.textContent = "▶︎";
-                  return false;
+                console.warn("Autoplay blocked:", err);
+                btn.textContent = "▶︎";
+                
+                // モバイルで失敗した場合の目立つボタン
+                const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+                const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                
+                if (isMobile) {
+                  btn.style.background = '#009900';
+                  btn.style.color = '#fff';
+                  btn.style.width = '100%';
+                  btn.style.minWidth = '100%';
+                  btn.style.fontSize = '18px';
+                  btn.style.fontWeight = 'bold';
+                  btn.textContent = isIOS ? "🔊 ここをタップして発音を聞く" : "🔊 タップして再生";
+                  btn.style.animation = 'pulse 1s infinite';
+                  
+                  if (!document.getElementById('pulse-style')) {
+                    const style = document.createElement('style');
+                    style.id = 'pulse-style';
+                    style.textContent = '@keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.02); opacity: 0.9; } }';
+                    document.head.appendChild(style);
+                  }
+                }
               });
             }
 
-            function setupAutoplayUnlock() {
-              if (!$autoplay_bool) return;
-
-              // モバイル判定（iOS特別扱い）
-              const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-              const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-              // まず再生を試みる（PCでもモバイルでも）
-              // 遅延を短くして競合を減らす（ただしDOMの準備は必要）
+            // 自動再生の実行
+            if ($autoplay_bool) {
+              // 少し遅延を入れてDOMの準備を待つ
               setTimeout(() => {
-                // タイムスタンプで最新かチェック
-                if (!isLatestAudio()) {
-                  console.log('Autoplay cancelled - not latest audio');
-                  return;
+                if (isLatest()) {
+                  attemptAutoplay();
                 }
-
-                attemptPlay().then((ok) => {
-                  if (ok) {
-                    // 成功 -> ボタンをノーマル状態に
-                    btn.style.background = '';
-                    btn.style.color = '';
-                    btn.style.animation = '';
-                    btn.style.width = '';
-                    btn.style.minWidth = '';
-                    btn.textContent = "⏸";
-                    return;
-                  }
-
-                  // 失敗した場合
-                  if (isMobile) {
-                    // モバイルで失敗 -> 目立つ大きな再生ボタンを表示
-                    btn.style.background = '#009900';
-                    btn.style.color = '#fff';
-                    btn.style.width = '100%';
-                    btn.style.minWidth = '100%';
-                    btn.style.fontSize = '18px';
-                    btn.style.fontWeight = 'bold';
-
-                    if (isIOS) {
-                      // iOSの場合は特に目立たせる（自動再生が難しいため）
-                      btn.textContent = "🔊 ここをタップして発音を聞く";
-                      btn.style.animation = 'pulse 0.8s infinite';
-                    } else {
-                      btn.textContent = "🔊 タップして再生";
-                      btn.style.animation = 'pulse 1s infinite';
-                    }
-
-                    // スタイルを動的に追加
-                    if (!document.getElementById('pulse-style')) {
-                      const style = document.createElement('style');
-                      style.id = 'pulse-style';
-                      style.textContent = '@keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.02); opacity: 0.9; } }';
-                      document.head.appendChild(style);
-                    }
-
-                    // このボタン自体のクリックでも再生を試みる（既に btn.onclick で設定済み）
-                  } else {
-                    // PCでブロックされた場合のフォールバック
-                    const handler = () => {
-                      attemptPlay();
-                    };
-                    document.addEventListener('click', handler, { once: true });
-                  }
-                });
-              }, 100);  // 少し長めの遅延でDOMの準備を待つ
+              }, 50);
             }
-
-            setupAutoplayUnlock();
           })();
         </script>
         """
