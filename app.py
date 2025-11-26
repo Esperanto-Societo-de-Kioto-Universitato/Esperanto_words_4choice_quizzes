@@ -20,15 +20,15 @@ SCORE_FILE = Path("scores.json")
 BASE_POINTS = 10
 STAGE_MULTIPLIER = {
     "beginner": 1.0,
-    "intermediate": 1.5,
-    "advanced": 2.0,
+    "intermediate": 1.3,  # 格差縮小: 1.5→1.3
+    "advanced": 1.6,      # 格差縮小: 2.0→1.6
 }
-# 連続正解ボーナス: 2問目以降の連続正解1回あたり加算
-STREAK_BONUS = 2.0
-# 最終精度ボーナス: accuracy * 問題数 * この値
-ACCURACY_BONUS_PER_Q = 2.0
-# 殿堂入りライン (20000点に引き上げ)
-HOF_THRESHOLD = 20000
+# 連続正解ボーナス: 2問目以降の連続正解1回あたり加算 (さらに半減: 1.0→0.5)
+STREAK_BONUS = 0.5
+# 最終精度ボーナス: accuracy * 問題数 * この値 (増加: 4.0→5.0)
+ACCURACY_BONUS_PER_Q = 5.0
+# 殿堂入りライン
+HOF_THRESHOLD = 1000000
 
 POS_JP = {
     "noun": "名詞",
@@ -983,7 +983,7 @@ def main():
     st.write("品詞×レベルでグルーピングした単語から出題します。シードを変えるとグループ分けと順番が変わります。")
     with st.expander("スコア計算ルール"):
         st.markdown(
-            f"- 基礎点: {BASE_POINTS} × レベル倍率 (初級1.0 / 中級1.5 / 上級2.0)\\n"
+            f"- 基礎点: {BASE_POINTS} × レベル倍率 (初級1.0 / 中級1.3 / 上級1.6)\\n"
             f"- 連続正解ボーナス: 2問目以降の連続正解1回につき +{STREAK_BONUS}\\n"
             f"- 精度ボーナス: 最終正答率 × 問題数 × {ACCURACY_BONUS_PER_Q}\\n"
             "- グループを出し切ると結果画面でボーナス込みの合計を表示します。"
@@ -1035,12 +1035,12 @@ def main():
     # 1. クイズ中（questionsがあり、結果画面でない）はAPIを呼ばない（キャッシュ使用）
     # 2. ホーム画面、結果画面、スコア保存直後はAPIを呼ぶ
     should_load = (
-        not st.session_state.questions or 
-        st.session_state.showing_result or 
+        not st.session_state.questions or
+        st.session_state.showing_result or
         st.session_state.score_saved or
         not st.session_state.cached_scores
     )
-    
+
     if should_load:
         scores = load_scores()
         st.session_state.cached_scores = scores
