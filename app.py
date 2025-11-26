@@ -372,11 +372,41 @@ def find_audio(akey: str):
     return None, None
 
 
+def inject_audio_signal(session_id: str, target_audio_key: str):
+    """
+    Signal Iframe:
+    Writes the target audio key to LocalStorage immediately.
+    This runs in a separate, lightweight iframe that loads faster than the heavy audio player.
+    Old iframes (ghosts) will see this change in LocalStorage and kill themselves.
+    """
+    signal_script = f"""
+    <script>
+        (function() {{
+            try {{
+                const sessionId = '{session_id}';
+                const targetKey = '{target_audio_key}';
+                const storageKey = 'esperanto_audio_target_' + sessionId;
+                localStorage.setItem(storageKey, targetKey);
+                console.log('[Signal] Set target:', targetKey);
+            }} catch(e) {{
+                console.error('[Signal] Error:', e);
+            }}
+        }})();
+    </script>
+    """
+    # height=0 で不可視のiframeを注入
+    st.components.v1.html(signal_script, height=0)
+
+
 def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
     data, mime = find_audio(akey)
     if not data:
         st.info("音声ファイルなし")
         return
+    
+    # セッションIDを取得
+    session_id = st.session_state.get("session_id", "default")
+    
     # 問題ごとにユニークなIDを生成（question_indexを含めて確実に区別）
     unique_suffix = uuid.uuid4().hex[:8]
     audio_id = f"audio-q{question_index}-{unique_suffix}"
@@ -387,7 +417,7 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
 
     # HTML/JS template
     # モバイル対応: Web Audio API + ユーザージェスチャー追跡
-    # iPhone Firefox対策: 前のオーディオを明示的に停止 + Blob URL + isConnectedチェック
+    # iPhone Firefox対策: LocalStorageによる同期 + Signal Iframe
     tmpl = Template(
         """
         <style>
@@ -517,19 +547,21 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
         <div id="$audio_id-container"></div>
         <script>
           (function() {
-            // iPhone Firefox対策: 根本的解決
-            // 1. isConnected チェックでDOMから外れたら即停止
-            // 2. Blob URLを使用してキャッシュ問題を回避
-            // 3. unload/pagehide イベントで明示的停止
+            // iPhone Firefox対策: LocalStorage同期 + Signal Iframe
+            // 1. LocalStorageを監視し、ターゲット単語が自分でない場合は即停止
+            // 2. isConnected チェックも併用
+            // 3. Blob URL使用
             
             const currentQuestionIndex = $question_index;
             const currentAudioId = '$audio_id';
             const debugAudioKey = '$debug_audio_key';
             const mimeType = '$mime';
             const b64Data = '$b64';
+            const sessionId = '$session_id';
+            const storageKey = 'esperanto_audio_target_' + sessionId;
             const myTimestamp = Date.now();
 
-            // Blob URLの生成 (Data URIより信頼性が高い)
+            // Blob URLの生成
             function b64ToBlob(b64Data, contentType='', sliceSize=512) {
               const byteCharacters = atob(b64Data);
               const byteArrays = [];
@@ -548,25 +580,7 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
             const audioBlob = b64ToBlob(b64Data, mimeType);
             const audioUrl = URL.createObjectURL(audioBlob);
 
-            // デバッグログ
-            console.log('[Esperanto Audio] Init:', debugAudioKey, 'Q' + currentQuestionIndex, currentAudioId);
-
-            // 親ウィンドウにアクセス
-            let parentWin;
-            try {
-              parentWin = window.parent || window;
-            } catch (e) {
-              parentWin = window;
-            }
-
-            // 親ウィンドウに現在の単語名も保存（デバッグ用）
-            parentWin._esperantoCurrentWord = debugAudioKey;
-
-            // 親ウィンドウにタイムスタンプを設定（最新のものが常に勝つ）
-            parentWin._esperantoLatestTimestamp = myTimestamp;
-            parentWin._esperantoCurrentAudioId = currentAudioId;
-            parentWin._esperantoBlockOldAudio = myTimestamp;
-            parentWin._esperantoCorrectWord = debugAudioKey;
+            console.log('[Esperanto Audio] Init:', debugAudioKey, 'Session:', sessionId);
 
             // 自分自身を非表示にする関数
             function hideMyself() {
@@ -574,76 +588,37 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
               if (card) {
                 card.style.display = 'none';
               }
-              // 音声も停止
               if (a) {
                 a.pause();
                 a.src = '';
-                a.load(); // 重要: リソースを解放
+                a.load();
               }
-              // Blob URLの解放
               if (audioUrl) {
                 URL.revokeObjectURL(audioUrl);
               }
             }
 
-            // クリーンアップ関数の登録
-            if (!parentWin._esperantoCleanupFunctions) {
-              parentWin._esperantoCleanupFunctions = [];
-            }
-            // 古いクリーンアップ関数を全て実行
-            const oldFunctions = parentWin._esperantoCleanupFunctions.slice();
-            oldFunctions.forEach((fn) => {
-              try { fn(); } catch (e) {}
-            });
-            parentWin._esperantoCleanupFunctions = [hideMyself];
-
-            // 即座に古いオーディオを破棄
-            function destroyAllOtherAudio() {
-              // iframe内の他audio
-              document.querySelectorAll('audio').forEach((audio) => {
-                if (audio.id !== currentAudioId) {
-                  audio.pause();
-                  audio.src = '';
-                  audio.remove();
-                }
-              });
-              // 親ウィンドウ経由での他iframe探索はCORS制限で失敗することが多いが念のため
-              try {
-                const iframes = parentWin.document.querySelectorAll('iframe');
-                iframes.forEach(iframe => {
-                   if (iframe !== window.frameElement) {
-                       // アクセスできない可能性が高いが...
-                       try {
-                           iframe.contentWindow.postMessage({type: 'stopAudio'}, '*');
-                       } catch(e) {}
-                   }
-                });
-              } catch(e) {}
-            }
-            destroyAllOtherAudio();
-
-            // 最新チェック（より厳密に）
+            // 最新チェック（LocalStorageベース）
             function isLatest() {
-              // 1. DOM接続チェック (最重要: iPhone Firefox対策)
-              // iframeがDOMから削除されていたら、即座に停止すべき
+              // 1. DOM接続チェック
               if (!document.documentElement.isConnected) {
-                  console.log('[Esperanto Audio] Iframe disconnected from DOM');
                   return false;
               }
               
+              // 2. LocalStorageチェック (最強の同期手段)
               try {
-                // 2. 単語名チェック
-                if (parentWin._esperantoCorrectWord && parentWin._esperantoCorrectWord !== debugAudioKey) {
-                  return false;
-                }
-                // 3. タイムスタンプチェック
-                if (parentWin._esperantoLatestTimestamp > myTimestamp) return false;
-                // 4. AudioIDチェック
-                if (parentWin._esperantoCurrentAudioId !== currentAudioId) return false;
-              } catch (e) {
-                  // 親ウィンドウにアクセスできない場合も、安全のため停止
-                  return false;
+                  const target = localStorage.getItem(storageKey);
+                  // targetが存在し、かつ自分と異なる場合は古いとみなす
+                  // (targetがまだセットされていない場合は、Signal Iframeが遅れている可能性があるので許容するか、
+                  //  あるいは安全側に倒して停止するか。ここでは安全側に倒すが、初期ロード時の競合に注意)
+                  if (target && target !== debugAudioKey) {
+                      console.log('[Esperanto Audio] Stale detected via LS. Target:', target, 'Me:', debugAudioKey);
+                      return false;
+                  }
+              } catch(e) {
+                  console.error(e);
               }
+              
               return true;
             }
 
@@ -655,7 +630,7 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
                 return false;
             }
 
-            // 監視ループ
+            // 監視ループ (100ms間隔)
             const checkInterval = setInterval(() => {
               if (checkAndStop()) {
                 clearInterval(checkInterval);
@@ -854,7 +829,8 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
 
             if ($autoplay_bool) {
               const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-              const delay = isMobile ? 150 : 50;
+              // Signal IframeがLocalStorageを更新するのを待つため、少し遅延を増やす
+              const delay = isMobile ? 300 : 50;
               setTimeout(() => {
                 if (isLatest()) {
                    if (isMobile) {
@@ -876,6 +852,7 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
         autoplay_bool=str(autoplay).lower(),
         question_index=question_index,
         debug_audio_key=debug_audio_key,
+        session_id=session_id,
     )
     # st.components.v1.html()はkeyパラメータをサポートしていない
     st.components.v1.html(html, height=190)
@@ -1022,7 +999,360 @@ def main():
         unsafe_allow_html=True
     )
 
+def init_state():
+    st.session_state.setdefault("user_name", "")
+    st.session_state.setdefault("seed", 1)
+    st.session_state.setdefault("group_id", None)
+    st.session_state.setdefault("questions", [])
+    st.session_state.setdefault("q_index", 0)
+    st.session_state.setdefault("correct", 0)
+    st.session_state.setdefault("points", 0.0)
+    st.session_state.setdefault("streak", 0)
+    st.session_state.setdefault("answers", [])
+    st.session_state.setdefault("playback_rate", 1.0)
+    st.session_state.setdefault("loop_enabled", False)
+    st.session_state.setdefault("score_saved", False)
+    st.session_state.setdefault("last_saved_key", None)
+    st.session_state.setdefault("score_load_error", None)
+    # UI State
+    st.session_state.setdefault("showing_result", False)
+    st.session_state.setdefault("last_result_msg", "")
+    st.session_state.setdefault("last_is_correct", False)
+    st.session_state.setdefault("last_correct_answer", "")
+    st.session_state.setdefault("score_saved", False)
+    if "session_id" not in st.session_state:
+        st.session_state.session_id = str(uuid.uuid4())
+
+
+def start_quiz(group, rng):
+    questions = vg.build_questions_for_group(group, rng=rng, min_options=2, max_options=4)
+    st.session_state.questions = questions
+    st.session_state.q_index = 0
+    st.session_state.correct = 0
+    st.session_state.points = 0.0
+    st.session_state.streak = 0
+    st.session_state.answers = []
+    st.session_state.score_saved = False
+    st.session_state.last_saved_key = None
+    st.session_state.showing_result = False
+
+
+def main():
+    init_state()
+
+    st.set_page_config(
+        page_title="エスペラント単語クイズ",
+        page_icon="💚",
+        layout="centered",
+        initial_sidebar_state="expanded",
+    )
+
+    # エスペラント・グリーン (#009900) を基調としたテーマ設定
+    st.markdown(
+        """
+        <style>
+        /* プライマリボタン（st.button type="primary"）の色変更 */
+        div.stButton > button[kind="primary"] {
+            background-color: #009900 !important;
+            border-color: #009900 !important;
+            color: white !important;
+        }
+        div.stButton > button[kind="primary"]:hover {
+            background-color: #007700 !important;
+            border-color: #007700 !important;
+        }
+        div.stButton > button[kind="primary"]:active {
+            background-color: #005500 !important;
+            border-color: #005500 !important;
+        }
+        /* 通常ボタンのボーダーなども緑系に */
+        div.stButton > button[kind="secondary"] {
+            border-color: #009900 !important;
+        }
+        /* タイトルスタイル */
+        .main-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #009900;
+            margin-bottom: 10px;
+            white-space: nowrap; /* Prevent wrapping */
+        }
+        </style>
+        <div class="main-title">エスペラント単語４択クイズ</div>
+        """,
+        unsafe_allow_html=True
+    )
+
     st.write("品詞×レベルでグルーピングした単語から出題します。シードを変えるとグループ分けと順番が変わります。")
+    with st.expander("スコア計算ルール"):
+        st.markdown(
+            f"- 基礎点: {BASE_POINTS} × レベル倍率 (初級1.0 / 中級1.5 / 上級2.0)\\n"
+            f"- 連続正解ボーナス: 2問目以降の連続正解1回につき +{STREAK_BONUS}\\n"
+            f"- 精度ボーナス: 最終正答率 × 問題数 × {ACCURACY_BONUS_PER_Q}\\n"
+            "- グループを出し切ると結果画面でボーナス込みの合計を表示します。"
+        )
+
+    with st.sidebar:
+        st.header("設定")
+        # keyを指定することでステート管理をStreamlitに任せる
+        user_name = st.text_input("ユーザー名 (スコア保存用)", key="user_name")
+        seed = st.number_input("ランダムシード (1-8192)", min_value=1, max_value=8192, step=1, key="seed")
+        # st.session_state.seed = seed # key="seed"にしたので不要
+        # st.session_state.shuffle_every_time = st.checkbox("毎回ランダムに並べる（シード無視）", value=st.session_state.shuffle_every_time)
+        groups = load_groups(seed)
+        pos_list = sorted({g.pos for g in groups})
+        pos_label_map = {p: POS_JP.get(p, p) for p in pos_list}
+        pos_choice = st.selectbox("品詞を選択", pos_list, format_func=lambda p: pos_label_map.get(p, p), key="pos_select")
+        group_options = [g for g in groups if g.pos == pos_choice]
+        group_labels = [format_group_label(g) for g in group_options]
+        choice = st.selectbox("グループを選択", group_labels)
+        selected_group = group_options[group_labels.index(choice)] if group_options else None
+        if st.button("クイズ開始", disabled=not selected_group, use_container_width=True):
+            # 出題順は常にランダム（シードはグループ分けのみに使用）
+            rng = random.Random()
+            start_quiz(selected_group, rng=rng)
+            st.session_state.group_id = selected_group.id
+
+        st.markdown("---")
+        # ホームに戻るボタンをクイズ開始ボタンと同様に横幅可変にし、見た目を揃える
+        if st.button("🏠 ホームに戻る", use_container_width=True, type="primary", key="home-btn"):
+            st.session_state.questions = []
+            st.session_state.group_id = None
+            st.session_state.q_index = 0
+            st.session_state.correct = 0
+            st.session_state.points = 0.0
+            st.session_state.streak = 0
+            st.session_state.answers = []
+            st.session_state.showing_result = False
+            st.session_state.score_saved = False
+            st.session_state.last_saved_key = None
+            st.rerun()
+
+    scores = load_scores()
+    if st.session_state.get("score_load_error"):
+        st.warning(st.session_state.score_load_error)
+    if st.session_state.user_name and scores:
+        user_total = sum(r.get("points", 0) for r in scores if r.get("user") == st.session_state.user_name)
+        st.info(f"現在の累積得点（{st.session_state.user_name}）: {user_total:.1f}")
+
+    if not st.session_state.questions:
+        st.info("左のサイドバーからグループを選び、クイズを開始してください。")
+        if scores:
+            st.subheader("ランキング")
+            show_rankings(scores)
+        return
+
+    q_index = st.session_state.q_index
+    questions = st.session_state.questions
+    if q_index >= len(questions):
+        # 終了画面
+        correct = st.session_state.correct
+        total = len(questions)
+        accuracy = correct / total if total else 0
+        raw_points = st.session_state.points
+        accuracy_bonus = accuracy * total * ACCURACY_BONUS_PER_Q
+        points = raw_points + accuracy_bonus
+        st.subheader("結果")
+        st.metric("正答率", f"{accuracy*100:.1f}%")
+        st.metric("得点", f"{points:.1f}")
+        if st.session_state.user_name:
+            user_total = sum(r.get("points", 0) for r in scores if r.get("user") == st.session_state.user_name)
+            st.metric("累積得点", f"{user_total + points:.1f}（今回{points:.1f}加算前 {user_total:.1f}）")
+        st.write(f"正解 {correct} / {total}")
+        st.write(f"内訳: 基礎+難易度 {raw_points:.1f} / 精度ボーナス {accuracy_bonus:.1f}")
+        if st.session_state.user_name:
+            existing_users = {r.get("user") for r in load_scores()}
+            if st.session_state.user_name in existing_users:
+                st.info("このユーザー名は既にスコアがあります。累積に加算します。")
+            if st.session_state.score_saved:
+                st.success("スコアを保存しました！")
+            else:
+                if st.button("スコアを保存", key="save_score_btn"):
+                    now = datetime.datetime.utcnow().isoformat()
+                    record = {
+                        "user": st.session_state.user_name,
+                        "group_id": st.session_state.group_id,
+                        "seed": st.session_state.seed,
+                        "correct": correct,
+                        "total": total,
+                        "accuracy": accuracy,
+                        "points": points,
+                        "raw_points": raw_points,
+                        "accuracy_bonus": accuracy_bonus,
+                        "ts": now,
+                    }
+                    # UserStats更新（累積）
+                    update_user_stats(st.session_state.user_name, points, now)
+
+                    # Scores更新（ログ）
+                    if save_score(record):
+                        st.session_state.score_saved = True
+                        st.rerun()
+                    else:
+                        st.error("保存に失敗しました。秘密情報（secrets）の設定を確認してください。")
+
+        scores = load_scores()
+        if scores:
+            st.write("最近のスコア")
+            st.dataframe(scores)
+            st.subheader("ランキング")
+            show_rankings(load_rankings())
+
+        # 復習セクション
+        st.subheader("復習")
+        wrong = []
+        correct_list = []
+        for ans in st.session_state.answers:
+            q = st.session_state.questions[ans["q_idx"]]
+            selected = ans["selected"]
+            correct_idx = ans["correct"]
+            entry = {
+                "prompt": q["prompt"],
+                "selected": q["options"][selected]["japanese"] if selected is not None else "",
+                "answer": q["options"][correct_idx]["japanese"],
+                "answer_eo": q["options"][correct_idx]["esperanto"],
+            }
+            if selected == correct_idx:
+                correct_list.append(entry)
+            else:
+                wrong.append(entry)
+
+        if wrong:
+            st.markdown("### 間違えた問題")
+            for w in wrong:
+                st.write(f"- {w['prompt']}: 正解「{w['answer']} / {w['answer_eo']}」、あなたの回答「{w['selected']}」")
+        if correct_list:
+            st.markdown("### 正解した問題（確認用）")
+            for c in correct_list:
+                st.write(f"- {c['prompt']}: {c['answer']} / {c['answer_eo']}")
+        if st.button("もう一度同じグループで再挑戦", key="retry_btn"):
+            group = next((g for g in load_groups(st.session_state.seed) if g.id == st.session_state.group_id), None)
+            if group:
+                rng = random.Random()
+                start_quiz(group, rng=rng)
+                st.rerun()
+        return
+
+    question = questions[q_index]
+    audio_key = question["options"][question["answer_index"]]["audio_key"]
+    
+    # Signal Iframeを注入して、LocalStorageを即座に更新
+    # これにより、古いiframe（ゴースト）が自分が古いことを検知して停止する
+    if audio_key:
+        inject_audio_signal(st.session_state.session_id, audio_key)
+
+    # スマホ対応: 回答ボタンのスタイル（PCとモバイルで高さを変える）
+    st.markdown(
+        """
+        <style>
+        /* PC用: 回答ボタンを固定サイズに統一 */
+        .stButton button {
+            height: 120px;
+            min-height: 120px;
+            max-height: 120px;
+            width: 100% !important;
+            white-space: normal;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8px;
+        }
+        /* スマホ用: より小さい高さ */
+        @media (max-width: 768px) {
+            .stButton button {
+                height: 80px;
+                min-height: 80px;
+                max-height: 80px;
+                font-size: 14px;
+                padding: 4px;
+            }
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    # 出題単語（一番上に大きく表示）
+    st.subheader(f"Q{q_index+1}/{len(questions)}: {question['prompt']}")
+
+    # 結果表示モードの場合
+    if st.session_state.showing_result:
+        # 結果を表示
+        if st.session_state.last_is_correct:
+            st.success(st.session_state.last_result_msg)
+        else:
+            st.error(st.session_state.last_result_msg)
+
+        # 「次へ」ボタン
+        if st.button("次へ進む", type="primary", use_container_width=True, key=f"next_btn_{st.session_state.q_index}"):
+            st.session_state.q_index += 1
+            st.session_state.showing_result = False
+            st.rerun()
+
+        # 音声プレイヤーは下に配置（不正解時の復習用）
+        if audio_key:
+            st.markdown("---")
+            st.caption(f"🔊 発音を確認【{audio_key}】")
+            audio_player(audio_key, autoplay=True, question_index=q_index)
+        return
+
+    # 回答待ちモード: 4択ボタンを出題単語の直下に配置
+    option_labels = [f"{opt['japanese']}" for opt in question["options"]]
+    clicked_index = None
+    for row_start in range(0, len(option_labels), 2):
+        cols = st.columns([1, 1], gap="medium")
+        for j in range(2):
+            idx = row_start + j
+            if idx >= len(option_labels):
+                continue
+            with cols[j]:
+                if st.button(option_labels[idx], key=f"opt-{q_index}-{idx}", use_container_width=True, type="primary"):
+                    clicked_index = idx
+
+    # 音声プレイヤーは4択ボタンの下に配置
+    if audio_key:
+        st.markdown("---")
+        # デバッグ: 現在の音声キーを表示（問題特定後に削除可能）
+        st.caption(f"🔊 発音を聞く（自動再生）【{audio_key}】")
+        audio_player(audio_key, autoplay=True, question_index=q_index)
+
+    if clicked_index is not None:
+        is_correct = clicked_index == question["answer_index"]
+        st.session_state.answers.append(
+            {
+                "q_idx": q_index,
+                "q": question["prompt"],
+                "selected": clicked_index,
+                "correct": question["answer_index"],
+            }
+        )
+
+        if is_correct:
+            # 正解時は即座に次へ（ユーザー要望）
+            st.session_state.correct += 1
+            factor = get_stage_factor(question["stages"])
+            st.session_state.streak += 1
+            streak_bonus = max(0, st.session_state.streak - 1) * STREAK_BONUS
+            st.session_state.points += BASE_POINTS * factor + streak_bonus
+
+            st.session_state.q_index += 1
+            st.session_state.showing_result = False
+            st.rerun()
+        else:
+            # 不正解時は正解を表示して一時停止
+            msg = f"不正解。正解: {option_labels[question['answer_index']]}"
+            st.session_state.streak = 0
+
+            # 結果表示モードへ移行
+            st.session_state.showing_result = True
+            st.session_state.last_result_msg = msg
+            st.session_state.last_is_correct = False
+            st.session_state.last_correct_answer = option_labels[question['answer_index']]
+            st.rerun()
     with st.expander("スコア計算ルール"):
         st.markdown(
             f"- 基礎点: {BASE_POINTS} × レベル倍率 (初級1.0 / 中級1.5 / 上級2.0)\n"
@@ -1174,6 +1504,11 @@ def main():
 
     question = questions[q_index]
     audio_key = question["options"][question["answer_index"]]["audio_key"]
+    
+    # Signal Iframeを注入して、LocalStorageを即座に更新
+    # これにより、古いiframe（ゴースト）が自分が古いことを検知して停止する
+    if audio_key:
+        inject_audio_signal(st.session_state.session_id, audio_key)
 
     # スマホ対応: 回答ボタンのスタイル（PCとモバイルで高さを変える）
     st.markdown(

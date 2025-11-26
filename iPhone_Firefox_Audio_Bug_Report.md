@@ -51,7 +51,7 @@
 
 ### 3. 親ウィンドウスコープでのグローバル変数管理
 - **目的**: iframe間で状態を共有
-- **実装**: 
+- **実装**:
   ```javascript
   let parentWin = window.parent || window;
   parentWin._esperantoLatestTimestamp = myTimestamp;
@@ -64,7 +64,7 @@
 - **実装**:
   ```javascript
   parentWin._esperantoBlockOldAudio = myTimestamp;
-  
+
   function isLatest() {
     if (parentWin._esperantoLatestTimestamp > myTimestamp) return false;
     if (parentWin._esperantoCurrentAudioId !== currentAudioId) return false;
@@ -153,12 +153,12 @@
   if (!parentWin._esperantoCleanupFunctions) {
     parentWin._esperantoCleanupFunctions = [];
   }
-  
+
   function hideMyself() {
     document.querySelector('.audio-card').style.display = 'none';
     if (a) { a.pause(); a.src = ''; }
   }
-  
+
   // 古いクリーンアップ関数を全て実行
   oldFunctions.forEach(fn => fn());
   parentWin._esperantoCleanupFunctions = [hideMyself];
@@ -188,7 +188,7 @@
 - **実装**:
   ```javascript
   parentWin._esperantoCorrectWord = debugAudioKey;
-  
+
   function isLatest() {
     if (parentWin._esperantoCorrectWord !== debugAudioKey) return false;
     // ...
