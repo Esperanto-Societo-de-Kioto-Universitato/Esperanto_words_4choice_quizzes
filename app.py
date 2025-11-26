@@ -387,7 +387,7 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
 
     # HTML/JS template
     # モバイル対応: Web Audio API + ユーザージェスチャー追跡
-    # iPhone Firefox対策: 前のオーディオを明示的に停止
+    # iPhone Firefox対策: 前のオーディオを明示的に停止 + Blob URL + isConnectedチェック
     tmpl = Template(
         """
         <style>
@@ -518,13 +518,35 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
         <script>
           (function() {
             // iPhone Firefox対策: 根本的解決
-            // audio要素を最初から作らず、再生時に動的生成することで
-            // 古いaudioが先に再生される問題を防ぐ
+            // 1. isConnected チェックでDOMから外れたら即停止
+            // 2. Blob URLを使用してキャッシュ問題を回避
+            // 3. unload/pagehide イベントで明示的停止
+            
             const currentQuestionIndex = $question_index;
             const currentAudioId = '$audio_id';
-            const debugAudioKey = '$debug_audio_key';  // デバッグ用: 単語名
-            const audioSrc = 'data:$mime;base64,$b64';
+            const debugAudioKey = '$debug_audio_key';
+            const mimeType = '$mime';
+            const b64Data = '$b64';
             const myTimestamp = Date.now();
+
+            // Blob URLの生成 (Data URIより信頼性が高い)
+            function b64ToBlob(b64Data, contentType='', sliceSize=512) {
+              const byteCharacters = atob(b64Data);
+              const byteArrays = [];
+              for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+                const slice = byteCharacters.slice(offset, offset + sliceSize);
+                const byteNumbers = new Array(slice.length);
+                for (let i = 0; i < slice.length; i++) {
+                  byteNumbers[i] = slice.charCodeAt(i);
+                }
+                const byteArray = new Uint8Array(byteNumbers);
+                byteArrays.push(byteArray);
+              }
+              return new Blob(byteArrays, {type: contentType});
+            }
+            
+            const audioBlob = b64ToBlob(b64Data, mimeType);
+            const audioUrl = URL.createObjectURL(audioBlob);
 
             // デバッグログ
             console.log('[Esperanto Audio] Init:', debugAudioKey, 'Q' + currentQuestionIndex, currentAudioId);
@@ -543,166 +565,106 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
             // 親ウィンドウにタイムスタンプを設定（最新のものが常に勝つ）
             parentWin._esperantoLatestTimestamp = myTimestamp;
             parentWin._esperantoCurrentAudioId = currentAudioId;
-
-            // ★重要: 古いaudioの再生を即座にブロックするフラグ
-            // これにより、古いiframeがplay()を呼んでも無視される
             parentWin._esperantoBlockOldAudio = myTimestamp;
-
-            // ★★★ 最終手段: 親ウィンドウに正しい音声データを保存 ★★★
-            // 古いiframeが再生しようとしても、親ウィンドウの音声データを使うことで
-            // 常に正しい音声が再生される
-            parentWin._esperantoCorrectAudioSrc = audioSrc;
             parentWin._esperantoCorrectWord = debugAudioKey;
-
-            // ★★★ 新アプローチ: 親ウィンドウにクリーンアップ関数リストを管理 ★★★
-            // 各iframeが自分自身を非表示にする関数を登録
-            // 新しいiframeが来たら、古い関数を全て呼び出して非表示にする
-            if (!parentWin._esperantoCleanupFunctions) {
-              parentWin._esperantoCleanupFunctions = [];
-            }
 
             // 自分自身を非表示にする関数
             function hideMyself() {
               const card = document.querySelector('.audio-card');
               if (card) {
                 card.style.display = 'none';
-                console.log('[Esperanto Audio] hideMyself called for:', debugAudioKey);
               }
               // 音声も停止
               if (a) {
                 a.pause();
                 a.src = '';
+                a.load(); // 重要: リソースを解放
+              }
+              // Blob URLの解放
+              if (audioUrl) {
+                URL.revokeObjectURL(audioUrl);
               }
             }
 
-            // 古いクリーンアップ関数を全て実行（自分より前のiframeを全て非表示に）
+            // クリーンアップ関数の登録
+            if (!parentWin._esperantoCleanupFunctions) {
+              parentWin._esperantoCleanupFunctions = [];
+            }
+            // 古いクリーンアップ関数を全て実行
             const oldFunctions = parentWin._esperantoCleanupFunctions.slice();
             oldFunctions.forEach((fn) => {
               try { fn(); } catch (e) {}
             });
-            // リストをクリアして自分の関数だけを登録
             parentWin._esperantoCleanupFunctions = [hideMyself];
 
-            console.log('[Esperanto Audio] Registered cleanup, cleared', oldFunctions.length, 'old functions');
-
-            // ★★★ 初期化直後の即座チェック ★★★
-            // 新しいiframeが来た直後に古いiframeが自分を隠すため
-            // 数ms後に再度チェック（新しいiframeが変数を設定した後）
-            setTimeout(() => {
-              if (parentWin._esperantoCorrectWord && parentWin._esperantoCorrectWord !== debugAudioKey) {
-                console.log('[Esperanto Audio] Delayed check: hiding old iframe', debugAudioKey, 'current:', parentWin._esperantoCorrectWord);
-                hideMyself();
-              }
-            }, 10);
-            setTimeout(() => {
-              if (parentWin._esperantoCorrectWord && parentWin._esperantoCorrectWord !== debugAudioKey) {
-                console.log('[Esperanto Audio] Delayed check 2: hiding old iframe', debugAudioKey, 'current:', parentWin._esperantoCorrectWord);
-                hideMyself();
-              }
-            }, 50);
-
-            // 古いオーディオと古いiframeのカードを全て破棄・非表示にする関数（従来方式も併用）
+            // 即座に古いオーディオを破棄
             function destroyAllOtherAudio() {
-              let destroyed = 0;
-              try {
-                const iframes = parentWin.document.querySelectorAll('iframe');
-                iframes.forEach((iframe) => {
-                  try {
-                    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-
-                    // ★重要: 古いiframe内のaudio-cardを即座に非表示
-                    const otherCards = iframeDoc.querySelectorAll('.audio-card');
-                    otherCards.forEach((card) => {
-                      // 自分のiframeでなければ非表示
-                      if (iframeDoc !== document) {
-                        card.style.display = 'none';
-                        console.log('[Esperanto Audio] Hiding other iframe card');
-                      }
-                    });
-
-                    const audios = iframeDoc.querySelectorAll('audio');
-                    audios.forEach((audio) => {
-                      if (audio.id !== currentAudioId) {
-                        const word = audio.getAttribute('data-word') || audio.id;
-                        console.log('[Esperanto Audio] Destroying:', word);
-                        audio.pause();
-                        audio.src = '';
-                        audio.remove();  // DOMから完全に削除
-                        destroyed++;
-                      }
-                    });
-                  } catch (e) {}
-                });
-              } catch (e) {}
-
-              // 現在のiframe内も
+              // iframe内の他audio
               document.querySelectorAll('audio').forEach((audio) => {
                 if (audio.id !== currentAudioId) {
-                  const word = audio.getAttribute('data-word') || audio.id;
-                  console.log('[Esperanto Audio] Destroying (local):', word);
                   audio.pause();
                   audio.src = '';
                   audio.remove();
-                  destroyed++;
                 }
               });
-
-              if (destroyed > 0) {
-                console.log('[Esperanto Audio] Total destroyed:', destroyed, 'for new word:', debugAudioKey);
-              }
+              // 親ウィンドウ経由での他iframe探索はCORS制限で失敗することが多いが念のため
+              try {
+                const iframes = parentWin.document.querySelectorAll('iframe');
+                iframes.forEach(iframe => {
+                   if (iframe !== window.frameElement) {
+                       // アクセスできない可能性が高いが...
+                       try {
+                           iframe.contentWindow.postMessage({type: 'stopAudio'}, '*');
+                       } catch(e) {}
+                   }
+                });
+              } catch(e) {}
             }
-
-            // 即座に古いオーディオを破棄
             destroyAllOtherAudio();
 
-            // 最新チェック（より厳密に - 単語名チェックも追加）
+            // 最新チェック（より厳密に）
             function isLatest() {
+              // 1. DOM接続チェック (最重要: iPhone Firefox対策)
+              // iframeがDOMから削除されていたら、即座に停止すべき
+              if (!document.documentElement.isConnected) {
+                  console.log('[Esperanto Audio] Iframe disconnected from DOM');
+                  return false;
+              }
+              
               try {
-                // ★★★ 最重要: 単語名チェック ★★★
-                // 親ウィンドウの現在の単語と自分の単語が異なれば古い
+                // 2. 単語名チェック
                 if (parentWin._esperantoCorrectWord && parentWin._esperantoCorrectWord !== debugAudioKey) {
                   return false;
                 }
-                // タイムスタンプチェック
+                // 3. タイムスタンプチェック
                 if (parentWin._esperantoLatestTimestamp > myTimestamp) return false;
-                // AudioIDチェック
+                // 4. AudioIDチェック
                 if (parentWin._esperantoCurrentAudioId !== currentAudioId) return false;
-                // ブロックフラグチェック（自分より新しいものがブロックを設定していたら停止）
-                if (parentWin._esperantoBlockOldAudio > myTimestamp) return false;
-              } catch (e) {}
+              } catch (e) {
+                  // 親ウィンドウにアクセスできない場合も、安全のため停止
+                  return false;
+              }
               return true;
             }
 
-            // ★重要: 自分が最新でなくなったら自分自身を非表示にする
-            function hideIfNotLatest() {
-              if (!isLatest()) {
-                hideMyself();  // 新しいクリーンアップ関数を使用
-                return true; // 非表示にした
-              }
-              return false;
+            function checkAndStop() {
+                if (!isLatest()) {
+                    hideMyself();
+                    return true;
+                }
+                return false;
             }
 
-            // ★より積極的な監視: 最初の500msは高頻度（30ms）、その後は低頻度（200ms）
-            let checkCount = 0;
-            const fastCheckInterval = setInterval(() => {
-              checkCount++;
-              if (hideIfNotLatest()) {
-                clearInterval(fastCheckInterval);
-                return;
+            // 監視ループ
+            const checkInterval = setInterval(() => {
+              if (checkAndStop()) {
+                clearInterval(checkInterval);
               }
-              // 500ms後は低頻度チェックに切り替え
-              if (checkCount > 16) {  // 30ms * 16 ≈ 500ms
-                clearInterval(fastCheckInterval);
-                // 低頻度チェックを開始
-                let slowCount = 0;
-                const slowCheckInterval = setInterval(() => {
-                  slowCount++;
-                  if (hideIfNotLatest() || slowCount > 50) {  // 最大10秒
-                    clearInterval(slowCheckInterval);
-                  }
-                }, 200);
-              }
-            }, 30);
+            }, 100);
+
+            // ページ遷移/アンロード時のクリーンアップ
+            window.addEventListener('unload', hideMyself);
+            window.addEventListener('pagehide', hideMyself);
 
             const btn = document.getElementById('$audio_id-play');
             const bar = document.getElementById('$audio_id-bar');
@@ -718,16 +680,13 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
             const rateMin = 0.5;
             const rateMax = 2.0;
 
-            // audio要素（遅延生成）
             let a = null;
             let audioCreated = false;
 
-            // 設定の読み込み
             let savedRate = parseFloat(sessionStorage.getItem('esperanto_audio_rate'));
             let savedLoop = sessionStorage.getItem('esperanto_audio_loop') === 'true';
             if (isNaN(savedRate)) savedRate = 1.0;
 
-            // UI更新関数
             function updateRateUI(r) {
               const pct = ((r - rateMin) / (rateMax - rateMin)) * 100;
               rateProg.style.width = pct + '%';
@@ -768,54 +727,28 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
               btn.style.fontWeight = '';
             }
 
-            // audio要素を動的に生成する関数
             function createAudio() {
               if (audioCreated) return a;
-
-              // 最新チェック - 古いならaudioを作らない
               if (!isLatest()) {
-                console.log('[Esperanto Audio] Not creating - not latest:', debugAudioKey);
                 hideMyself();
                 return null;
               }
-
-              // ★★★ 二重チェック: 親ウィンドウの単語と自分の単語が一致するか確認 ★★★
-              try {
-                if (parentWin._esperantoCorrectWord && parentWin._esperantoCorrectWord !== debugAudioKey) {
-                  console.log('[Esperanto Audio] Word mismatch! Expected:', parentWin._esperantoCorrectWord, 'Got:', debugAudioKey);
-                  hideMyself();
-                  return null;
-                }
-              } catch (e) {}
-
-              // 生成直前にもう一度他のaudioを破棄
-              destroyAllOtherAudio();
-
-              console.log('[Esperanto Audio] Creating audio element for:', debugAudioKey);
 
               a = document.createElement('audio');
               a.id = currentAudioId;
               a.preload = 'auto';
               a.setAttribute('playsinline', '');
-              // data属性で単語名を保存（デバッグ用）
-              a.setAttribute('data-word', debugAudioKey);
-              a.setAttribute('data-question', currentQuestionIndex);
-              a.src = audioSrc;
+              a.src = audioUrl; // Blob URLを使用
               container.appendChild(a);
               audioCreated = true;
 
-              // 設定を適用
               a.playbackRate = savedRate;
               a.defaultPlaybackRate = savedRate;
               a.loop = savedLoop;
 
-              // イベントリスナー
               a.addEventListener('timeupdate', updateBar);
               a.addEventListener('loadedmetadata', updateBar);
               a.addEventListener('durationchange', updateBar);
-              a.addEventListener('play', () => {
-                console.log('[Esperanto Audio] PLAYING:', debugAudioKey, 'expected:', parentWin._esperantoCurrentWord);
-              });
               a.addEventListener('ended', () => {
                 if (!a.loop) {
                   btn.textContent = "▶︎";
@@ -827,7 +760,6 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
               return a;
             }
 
-            // レートバーのクリック
             rateBar.onclick = (e) => {
               const rect = rateBar.getBoundingClientRect();
               const pct = (e.clientX - rect.left) / rect.width;
@@ -856,21 +788,16 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
               updateBar();
             };
 
-            // ボタンクリック
             btn.onclick = () => {
-              // ★最新チェック - 古いiframeのボタンは無効化
               if (!isLatest()) {
-                console.log('[Esperanto Audio] Button click ignored - not latest:', debugAudioKey);
-                hideMyself();  // 自分を非表示にする
+                hideMyself();
                 return;
               }
-
               const audio = createAudio();
               if (!audio) return;
 
               if (audio.paused) {
                 audio.play().then(() => {
-                  // 再生成功後も最新チェック
                   if (!isLatest()) {
                     audio.pause();
                     hideMyself();
@@ -878,7 +805,6 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
                   }
                   resetBtnStyle();
                   btn.textContent = "⏸";
-                  sessionStorage.setItem('esperanto_audio_unlocked', 'true');
                 }).catch((err) => {
                   console.warn("Play failed:", err);
                 });
@@ -888,45 +814,24 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
               }
             };
 
-            // 自動再生を試みる
             function attemptAutoplay() {
-              // 最新チェック
-              if (!isLatest()) {
-                console.log('[Esperanto Audio] Autoplay cancelled - not latest:', debugAudioKey);
-                return;
-              }
+              if (!isLatest()) return;
 
-              console.log('[Esperanto Audio] Attempting autoplay for:', debugAudioKey);
               const audio = createAudio();
               if (!audio) return;
 
-              // 再度最新チェック（createAudio中に変わった可能性）
-              if (!isLatest()) {
-                console.log('[Esperanto Audio] Autoplay cancelled after create - not latest:', debugAudioKey);
-                audio.pause();
-                audio.src = '';
-                return;
-              }
-
               audio.play().then(() => {
-                // 再生開始後も最新チェック
                 if (!isLatest()) {
-                  console.log('[Esperanto Audio] Stopping after play() - newer audio arrived:', debugAudioKey);
                   audio.pause();
                   return;
                 }
-                console.log('[Esperanto Audio] Autoplay SUCCESS:', debugAudioKey);
                 resetBtnStyle();
                 btn.textContent = "⏸";
-                sessionStorage.setItem('esperanto_audio_unlocked', 'true');
               }).catch((err) => {
                 console.warn("[Esperanto Audio] Autoplay blocked:", debugAudioKey, err);
                 btn.textContent = "▶︎";
-
-                // モバイルで失敗した場合の目立つボタン
-                const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+                
                 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
                 if (isMobile) {
                   btn.style.background = '#009900';
                   btn.style.color = '#fff';
@@ -934,9 +839,9 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
                   btn.style.minWidth = '100%';
                   btn.style.fontSize = '18px';
                   btn.style.fontWeight = 'bold';
-                  btn.textContent = isIOS ? "🔊 ここをタップして発音を聞く" : "🔊 タップして再生";
+                  btn.textContent = "🔊 タップして再生";
                   btn.style.animation = 'pulse 1s infinite';
-
+                  
                   if (!document.getElementById('pulse-style')) {
                     const style = document.createElement('style');
                     style.id = 'pulse-style';
@@ -947,32 +852,16 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
               });
             }
 
-            // 自動再生の実行
             if ($autoplay_bool) {
-              // iPhone Firefox対策: 段階的な遅延と複数回チェック
-              // モバイルかどうかで遅延時間を変える
               const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-              const delay = isMobile ? 150 : 50;  // モバイルは長めに待つ
-
+              const delay = isMobile ? 150 : 50;
               setTimeout(() => {
-                // 1回目のチェック
-                if (!isLatest()) {
-                  console.log('[Esperanto Audio] Autoplay skipped (check 1):', debugAudioKey);
-                  return;
-                }
-
-                // モバイルの場合、さらに少し待ってから再度チェック
-                if (isMobile) {
-                  setTimeout(() => {
-                    // 2回目のチェック
-                    if (!isLatest()) {
-                      console.log('[Esperanto Audio] Autoplay skipped (check 2):', debugAudioKey);
-                      return;
-                    }
-                    attemptAutoplay();
-                  }, 100);
-                } else {
-                  attemptAutoplay();
+                if (isLatest()) {
+                   if (isMobile) {
+                       setTimeout(() => { if (isLatest()) attemptAutoplay(); }, 100);
+                   } else {
+                       attemptAutoplay();
+                   }
                 }
               }, delay);
             }
