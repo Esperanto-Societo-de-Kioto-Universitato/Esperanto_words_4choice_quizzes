@@ -807,24 +807,31 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
 
               if (status === 'old') {
                 // 古い音声 → 何もしない（既にhideMyselfされるはず）
+                console.log('[Audio] Skipping old audio:', debugAudioKey);
                 return;
               }
 
-              if (status === 'pending') {
-                // まだLocalStorageが更新されていない → 少し待ってリトライ
-                // ただし無限ループ防止のため、最大1秒まで
-                return;
-              }
+              // 【重要な変更】
+              // 'latest' または 'pending' → 再生を試みる
+              // pendingの場合でも再生を試みる理由:
+              // - Signal Iframeの実行がAudio Playerより遅れることがある（特にモバイル）
+              // - pendingで待機し続けると、タイムアウト後も再生されない問題が発生
+              // - 再生開始後にoldと判定されたら停止するので、誤った音声が流れ続けることはない
+              console.log('[Audio] Attempting autoplay:', debugAudioKey, 'status:', status);
 
-              // status === 'latest' → 再生実行
               const audio = createAudio();
               if (!audio) return;
 
               audio.play().then(() => {
-                if (checkLatestStatus() !== 'latest') {
+                // 再生開始後に再度チェック（古いなら停止）
+                const postPlayStatus = checkLatestStatus();
+                if (postPlayStatus === 'old') {
+                  console.log('[Audio] Stopping after play (now old):', debugAudioKey);
                   audio.pause();
+                  hideMyself();
                   return;
                 }
+                console.log('[Audio] Playing successfully:', debugAudioKey);
                 resetBtnStyle();
                 btn.textContent = "⏸";
               }).catch((err) => {
@@ -857,14 +864,17 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
 
               function tryPlay() {
                 const status = checkLatestStatus();
+                console.log('[Audio] tryPlay attempt', retries, 'status:', status, 'audio:', debugAudioKey);
 
                 if (status === 'old') {
-                  // 古い → 諦める
+                  // 古い → 諦める（別の音声が再生されるはず）
+                  console.log('[Audio] Giving up (old):', debugAudioKey);
                   return;
                 }
 
                 if (status === 'latest') {
                   // 最新確定 → 再生
+                  console.log('[Audio] Confirmed latest, playing:', debugAudioKey);
                   attemptAutoplay();
                   return;
                 }
@@ -876,7 +886,7 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
                 } else {
                   // タイムアウト: LocalStorageがまだ更新されていないが、
                   // 自分が最新である可能性が高いので再生を試みる
-                  // （PCではSignal Iframeが遅れることはほぼないので問題なし）
+                  console.log('[Audio] Timeout, attempting anyway:', debugAudioKey);
                   attemptAutoplay();
                 }
               }
@@ -885,15 +895,16 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
             }
 
             if ($autoplay_bool) {
-              // PC: 50ms後に即再生（Signal Iframeは十分速い）
-              // Mobile: リトライ付きで確実に再生（最大500ms待機）
-              const initialDelay = isMobile ? 100 : 50;
+              // PC: 30ms後に即再生（Signal Iframeは十分速い）
+              // Mobile: リトライ付きで確実に再生
+              const initialDelay = isMobile ? 80 : 30;
               setTimeout(() => {
                 if (isMobile) {
-                  // モバイル: 50ms間隔で最大10回リトライ (= 最大500ms)
-                  autoplayWithRetry(10, 50);
+                  // モバイル: 40ms間隔で最大15回リトライ (= 最大600ms)
+                  // これでSignal Iframeが確実に実行される時間を確保
+                  autoplayWithRetry(15, 40);
                 } else {
-                  // PC: シンプルに即再生
+                  // PC: シンプルに即再生（速度重視）
                   attemptAutoplay();
                 }
               }, initialDelay);
