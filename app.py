@@ -548,6 +548,7 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
             // 1. LocalStorageを監視し、ターゲット単語が自分でない場合は即停止
             // 2. isConnected チェックも併用
             // 3. Blob URL使用
+            // 4. 【改善】自分が最新の場合はリトライして確実に再生
 
             const currentQuestionIndex = $question_index;
             const currentAudioId = '$audio_id';
@@ -557,6 +558,7 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
             const sessionId = '$session_id';
             const storageKey = 'esperanto_audio_target_' + sessionId;
             const myTimestamp = Date.now();
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
             // Blob URLの生成
             function b64ToBlob(b64Data, contentType='', sliceSize=512) {
@@ -594,30 +596,41 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
             }
 
             // 最新チェック（LocalStorageベース）
-            function isLatest() {
+            // 戻り値: 'latest' = 自分が最新, 'old' = 古い, 'pending' = まだ判定できない
+            function checkLatestStatus() {
               // 1. DOM接続チェック
               if (!document.documentElement.isConnected) {
-                  return false;
+                  return 'old';
               }
 
-              // 2. LocalStorageチェック (最強の同期手段)
+              // 2. LocalStorageチェック
               try {
                   const target = localStorage.getItem(storageKey);
-                  // targetが存在し、かつ自分と異なる場合は古いとみなす
-                  // (targetがまだセットされていない場合は、Signal Iframeが遅れている可能性があるので許容するか、
-                  //  あるいは安全側に倒して停止するか。ここでは安全側に倒すが、初期ロード時の競合に注意)
-                  if (target && target !== debugAudioKey) {
-                      return false;
+                  if (!target) {
+                      // まだSignal Iframeが更新していない → 待機
+                      return 'pending';
+                  }
+                  if (target === debugAudioKey) {
+                      // 自分が最新！
+                      return 'latest';
+                  } else {
+                      // 別の音声がターゲット → 古い
+                      return 'old';
                   }
               } catch(e) {
                   console.error(e);
+                  return 'pending';
               }
+            }
 
-              return true;
+            // 後方互換のためのラッパー
+            function isLatest() {
+              return checkLatestStatus() === 'latest';
             }
 
             function checkAndStop() {
-                if (!isLatest()) {
+                const status = checkLatestStatus();
+                if (status === 'old') {
                     hideMyself();
                     return true;
                 }
@@ -698,10 +711,13 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
 
             function createAudio() {
               if (audioCreated) return a;
-              if (!isLatest()) {
+
+              const status = checkLatestStatus();
+              if (status === 'old') {
                 hideMyself();
                 return null;
               }
+              // 'latest' または 'pending' なら作成を許可
 
               a = document.createElement('audio');
               a.id = currentAudioId;
@@ -758,16 +774,19 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
             };
 
             btn.onclick = () => {
-              if (!isLatest()) {
+              const status = checkLatestStatus();
+              if (status === 'old') {
                 hideMyself();
                 return;
               }
+              // pending または latest の場合は再生を許可
+              // （ボタンクリック時はユーザーの明示的操作なので、pendingでも許可）
               const audio = createAudio();
               if (!audio) return;
 
               if (audio.paused) {
                 audio.play().then(() => {
-                  if (!isLatest()) {
+                  if (checkLatestStatus() === 'old') {
                     audio.pause();
                     hideMyself();
                     return;
@@ -784,13 +803,25 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
             };
 
             function attemptAutoplay() {
-              if (!isLatest()) return;
+              const status = checkLatestStatus();
 
+              if (status === 'old') {
+                // 古い音声 → 何もしない（既にhideMyselfされるはず）
+                return;
+              }
+
+              if (status === 'pending') {
+                // まだLocalStorageが更新されていない → 少し待ってリトライ
+                // ただし無限ループ防止のため、最大1秒まで
+                return;
+              }
+
+              // status === 'latest' → 再生実行
               const audio = createAudio();
               if (!audio) return;
 
               audio.play().then(() => {
-                if (!isLatest()) {
+                if (checkLatestStatus() !== 'latest') {
                   audio.pause();
                   return;
                 }
@@ -800,7 +831,6 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
                 console.warn("[Esperanto Audio] Autoplay blocked:", debugAudioKey, err);
                 btn.textContent = "▶︎";
 
-                const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
                 if (isMobile) {
                   btn.style.background = '#009900';
                   btn.style.color = '#fff';
@@ -821,15 +851,52 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
               });
             }
 
-            if ($autoplay_bool) {
-              const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-              // Signal IframeがLocalStorageを更新するのを待つため、少し遅延を増やす
-              const delay = isMobile ? 300 : 50;
-              setTimeout(() => {
-                if (isLatest()) {
-                   attemptAutoplay();
+            // リトライ付き自動再生（Signal Iframeを待つ）
+            function autoplayWithRetry(maxRetries, interval) {
+              let retries = 0;
+
+              function tryPlay() {
+                const status = checkLatestStatus();
+
+                if (status === 'old') {
+                  // 古い → 諦める
+                  return;
                 }
-              }, delay);
+
+                if (status === 'latest') {
+                  // 最新確定 → 再生
+                  attemptAutoplay();
+                  return;
+                }
+
+                // pending → リトライ
+                retries++;
+                if (retries < maxRetries) {
+                  setTimeout(tryPlay, interval);
+                } else {
+                  // タイムアウト: LocalStorageがまだ更新されていないが、
+                  // 自分が最新である可能性が高いので再生を試みる
+                  // （PCではSignal Iframeが遅れることはほぼないので問題なし）
+                  attemptAutoplay();
+                }
+              }
+
+              tryPlay();
+            }
+
+            if ($autoplay_bool) {
+              // PC: 50ms後に即再生（Signal Iframeは十分速い）
+              // Mobile: リトライ付きで確実に再生（最大500ms待機）
+              const initialDelay = isMobile ? 100 : 50;
+              setTimeout(() => {
+                if (isMobile) {
+                  // モバイル: 50ms間隔で最大10回リトライ (= 最大500ms)
+                  autoplayWithRetry(10, 50);
+                } else {
+                  // PC: シンプルに即再生
+                  attemptAutoplay();
+                }
+              }, initialDelay);
             }
           })();
         </script>
