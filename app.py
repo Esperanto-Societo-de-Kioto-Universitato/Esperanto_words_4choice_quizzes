@@ -372,8 +372,9 @@ def find_audio(akey: str):
 def inject_audio_signal(session_id: str, target_audio_key: str):
     """
     Signal Iframe:
-    Audio Playerより先にLocalStorageを更新する補助的な役割。
-    Audio Player自身も書き込むので、これは保険的な意味合い。
+    Writes the target audio key to LocalStorage immediately.
+    This runs in a separate, lightweight iframe that loads faster than the heavy audio player.
+    Old iframes (ghosts) will see this change in LocalStorage and kill themselves.
     """
     signal_script = f"""
     <script>
@@ -382,10 +383,8 @@ def inject_audio_signal(session_id: str, target_audio_key: str):
                 const sessionId = '{session_id}';
                 const targetKey = '{target_audio_key}';
                 const storageKey = 'esperanto_audio_target_' + sessionId;
-                // 二重書き込みで確実性を上げる
                 localStorage.setItem(storageKey, targetKey);
                 localStorage.setItem(storageKey, targetKey);
-                console.log('[Signal] Wrote:', targetKey);
             }} catch(e) {{
                 console.error('[Signal] Error:', e);
             }}
@@ -545,20 +544,10 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
         <div id="$audio_id-container"></div>
         <script>
           (function() {
-            // 【新方式】Audio Player自身がLocalStorageを管理
-            //
-            // 問題: Signal IframeとAudio Playerの実行順序が保証されない
-            // 解決策: Audio Player自身が起動時にLocalStorageに書き込み、
-            //         少し待った後に読み取って、自分の値が残っていれば再生
-            //
-            // ロジック:
-            // 1. 起動時に自分のaudio_keyをLocalStorageに書き込む
-            // 2. 少し待つ（他のiframeが上書きする時間を確保）
-            // 3. LocalStorageを読み取り、自分の値なら再生、違えば停止
-            //
-            // これにより:
-            // - 古いiframe A: 書き込み→待機→読み取り→「B」がある→停止
-            // - 新しいiframe B: 書き込み→待機→読み取り→「B」がある→再生
+            // iPhone Firefox対策: LocalStorage同期 + Signal Iframe
+            // 1. LocalStorageを監視し、ターゲット単語が自分でない場合は即停止
+            // 2. isConnected チェックも併用
+            // 3. Blob URL使用
 
             const currentQuestionIndex = $question_index;
             const currentAudioId = '$audio_id';
@@ -567,16 +556,7 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
             const b64Data = '$b64';
             const sessionId = '$session_id';
             const storageKey = 'esperanto_audio_target_' + sessionId;
-            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-            // 【重要】起動直後にLocalStorageに書き込む
-            // これにより「最後に起動したiframe」が勝つ
-            try {
-              localStorage.setItem(storageKey, debugAudioKey);
-              console.log('[Audio] Wrote to localStorage:', debugAudioKey);
-            } catch(e) {
-              console.error('[Audio] LocalStorage write failed:', e);
-            }
+            const myTimestamp = Date.now();
 
             // Blob URLの生成
             function b64ToBlob(b64Data, contentType='', sliceSize=512) {
@@ -613,28 +593,31 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
               }
             }
 
-            // 最新チェック（シンプル版）
-            // 自分がLocalStorageに書いた値がまだ残っているか確認
+            // 最新チェック（LocalStorageベース）
             function isLatest() {
-              // DOM接続チェック
+              // 1. DOM接続チェック
               if (!document.documentElement.isConnected) {
                   return false;
               }
 
-              // LocalStorageチェック
+              // 2. LocalStorageチェック (最強の同期手段)
               try {
                   const target = localStorage.getItem(storageKey);
-                  // 自分のaudio_keyと一致すれば最新
-                  return target === debugAudioKey;
+                  // targetが存在し、かつ自分と異なる場合は古いとみなす
+                  // (targetがまだセットされていない場合は、Signal Iframeが遅れている可能性があるので許容するか、
+                  //  あるいは安全側に倒して停止するか。ここでは安全側に倒すが、初期ロード時の競合に注意)
+                  if (target && target !== debugAudioKey) {
+                      return false;
+                  }
               } catch(e) {
                   console.error(e);
-                  return false;
               }
+
+              return true;
             }
 
             function checkAndStop() {
                 if (!isLatest()) {
-                    console.log('[Audio] Not latest, stopping:', debugAudioKey);
                     hideMyself();
                     return true;
                 }
@@ -715,7 +698,6 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
 
             function createAudio() {
               if (audioCreated) return a;
-              // 最新でなければ停止
               if (!isLatest()) {
                 hideMyself();
                 return null;
@@ -780,7 +762,6 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
                 hideMyself();
                 return;
               }
-
               const audio = createAudio();
               if (!audio) return;
 
@@ -803,32 +784,23 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
             };
 
             function attemptAutoplay() {
-              if (!isLatest()) {
-                console.log('[Audio] Not latest, stopping:', debugAudioKey);
-                hideMyself();
-                return;
-              }
-
-              console.log('[Audio] Attempting autoplay:', debugAudioKey);
+              if (!isLatest()) return;
 
               const audio = createAudio();
               if (!audio) return;
 
               audio.play().then(() => {
-                // 再生開始後に再度チェック
                 if (!isLatest()) {
-                  console.log('[Audio] Became old after play, stopping:', debugAudioKey);
                   audio.pause();
-                  hideMyself();
                   return;
                 }
-                console.log('[Audio] Playing:', debugAudioKey);
                 resetBtnStyle();
                 btn.textContent = "⏸";
               }).catch((err) => {
                 console.warn("[Esperanto Audio] Autoplay blocked:", debugAudioKey, err);
                 btn.textContent = "▶︎";
 
+                const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
                 if (isMobile) {
                   btn.style.background = '#009900';
                   btn.style.color = '#fff';
@@ -850,20 +822,12 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
             }
 
             if ($autoplay_bool) {
-              // 【新方式】
-              // 起動時に既にLocalStorageに自分のaudio_keyを書き込んでいる
-              // 少し待って、まだ自分の値が残っていれば再生
-              // 
-              // モバイル: 150ms待つ（他のiframeが上書きする時間を確保）
-              // PC: 30ms待つ（高速維持）
-              const delay = isMobile ? 150 : 30;
+              const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+              // Signal IframeがLocalStorageを更新するのを待つため、少し遅延を増やす
+              const delay = isMobile ? 300 : 50;
               setTimeout(() => {
                 if (isLatest()) {
-                  console.log('[Audio] Still latest after wait, playing:', debugAudioKey);
-                  attemptAutoplay();
-                } else {
-                  console.log('[Audio] Overwritten by newer iframe, stopping:', debugAudioKey);
-                  hideMyself();
+                   attemptAutoplay();
                 }
               }, delay);
             }
