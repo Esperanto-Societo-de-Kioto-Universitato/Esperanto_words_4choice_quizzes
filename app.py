@@ -369,12 +369,15 @@ def find_audio(akey: str):
     return None, None
 
 
-def inject_audio_signal(session_id: str, target_audio_key: str):
+def inject_audio_signal(session_id: str, target_audio_key: str, sequence: int):
     """
     Signal Iframe:
-    Writes the target audio key to LocalStorage immediately.
+    Writes the target audio key AND sequence number to LocalStorage immediately.
     This runs in a separate, lightweight iframe that loads faster than the heavy audio player.
     Old iframes (ghosts) will see this change in LocalStorage and kill themselves.
+
+    シーケンス番号により、古いSignal Iframeが後から実行されても
+    新しいシーケンスを上書きしないようにする。
     """
     signal_script = f"""
     <script>
@@ -382,9 +385,22 @@ def inject_audio_signal(session_id: str, target_audio_key: str):
             try {{
                 const sessionId = '{session_id}';
                 const targetKey = '{target_audio_key}';
-                const storageKey = 'esperanto_audio_target_' + sessionId;
-                localStorage.setItem(storageKey, targetKey);
-                localStorage.setItem(storageKey, targetKey);
+                const mySequence = {sequence};
+                const storageKeyAudio = 'esperanto_audio_target_' + sessionId;
+                const storageKeySeq = 'esperanto_audio_seq_' + sessionId;
+
+                // 現在のシーケンスを読み取り
+                const currentSeq = parseInt(localStorage.getItem(storageKeySeq) || '0', 10);
+
+                // 自分のシーケンスが現在より大きい場合のみ書き込む
+                // これにより、古いSignal Iframeが後から実行されても上書きしない
+                if (mySequence > currentSeq) {{
+                    localStorage.setItem(storageKeySeq, mySequence.toString());
+                    localStorage.setItem(storageKeyAudio, targetKey);
+                    console.log('[Signal] Updated:', targetKey, 'seq:', mySequence);
+                }} else {{
+                    console.log('[Signal] Skipped (old seq):', targetKey, 'mySeq:', mySequence, 'currentSeq:', currentSeq);
+                }}
             }} catch(e) {{
                 console.error('[Signal] Error:', e);
             }}
@@ -395,7 +411,7 @@ def inject_audio_signal(session_id: str, target_audio_key: str):
     st.components.v1.html(signal_script, height=0)
 
 
-def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
+def audio_player(akey: str, autoplay: bool = True, question_index: int = 0, sequence: int = 0):
     data, mime = find_audio(akey)
     if not data:
         st.info("音声ファイルなし")
@@ -411,6 +427,9 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
 
     # デバッグ用: audio_keyを埋め込む（コンソールログで確認可能）
     debug_audio_key = akey
+
+    # シーケンス番号をJavaScriptに渡す
+    audio_sequence = sequence
 
     # HTML/JS template
     # モバイル対応: Web Audio API + ユーザージェスチャー追跡
@@ -544,11 +563,18 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
         <div id="$audio_id-container"></div>
         <script>
           (function() {
-            // iPhone Firefox対策: LocalStorage同期 + Signal Iframe
-            // 1. LocalStorageを監視し、ターゲット単語が自分でない場合は即停止
-            // 2. isConnected チェックも併用
-            // 3. Blob URL使用
-            // 4. 【改善】自分が最新の場合はリトライして確実に再生
+            // iPhone Firefox対策: LocalStorage同期 + Signal Iframe + シーケンス番号
+            //
+            // 【シーケンス番号方式】
+            // - Python側で問題ごとにシーケンス番号を管理
+            // - Signal IframeとAudio Playerの両方に同じシーケンス番号を渡す
+            // - LocalStorageには「audio_key」と「sequence」の両方を保存
+            // - Audio Playerは「自分のsequence >= LocalStorageのsequence」かつ
+            //   「自分のaudio_key == LocalStorageのaudio_key」なら再生
+            //
+            // これにより:
+            // - 古いiframeは古いシーケンス番号を持つ → 常に停止
+            // - 新しいiframeは最新のシーケンス番号を持つ → 再生
 
             const currentQuestionIndex = $question_index;
             const currentAudioId = '$audio_id';
@@ -556,8 +582,9 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
             const mimeType = '$mime';
             const b64Data = '$b64';
             const sessionId = '$session_id';
-            const storageKey = 'esperanto_audio_target_' + sessionId;
-            const myTimestamp = Date.now();
+            const mySequence = $audio_sequence;
+            const storageKeyAudio = 'esperanto_audio_target_' + sessionId;
+            const storageKeySeq = 'esperanto_audio_seq_' + sessionId;
             const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
             // Blob URLの生成
@@ -595,7 +622,7 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
               }
             }
 
-            // 最新チェック（LocalStorageベース）
+            // 最新チェック（シーケンス番号ベース）
             // 戻り値: 'latest' = 自分が最新, 'old' = 古い, 'pending' = まだ判定できない
             function checkLatestStatus() {
               // 1. DOM接続チェック
@@ -603,20 +630,38 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
                   return 'old';
               }
 
-              // 2. LocalStorageチェック
+              // 2. LocalStorageチェック（シーケンス番号とaudio_keyの両方）
               try {
-                  const target = localStorage.getItem(storageKey);
-                  if (!target) {
-                      // まだSignal Iframeが更新していない → 待機
+                  const targetSeq = parseInt(localStorage.getItem(storageKeySeq) || '0', 10);
+                  const targetAudio = localStorage.getItem(storageKeyAudio);
+
+                  // シーケンス番号がまだ設定されていない
+                  if (targetSeq === 0 && !targetAudio) {
                       return 'pending';
                   }
-                  if (target === debugAudioKey) {
-                      // 自分が最新！
-                      return 'latest';
-                  } else {
-                      // 別の音声がターゲット → 古い
+
+                  // 自分のシーケンスが古い → 確実に古い
+                  if (mySequence < targetSeq) {
+                      console.log('[Audio] Old sequence:', debugAudioKey, 'mySeq:', mySequence, 'targetSeq:', targetSeq);
                       return 'old';
                   }
+
+                  // 自分のシーケンスが同じか新しい場合
+                  if (mySequence >= targetSeq) {
+                      // audio_keyも一致するなら最新
+                      if (targetAudio === debugAudioKey) {
+                          return 'latest';
+                      }
+                      // audio_keyが違う場合、Signal Iframeがまだ更新していない可能性
+                      // シーケンスが同じでaudio_keyが違う → pending（Signal待ち）
+                      if (mySequence === targetSeq) {
+                          return 'pending';
+                      }
+                      // シーケンスが新しい → 自分が最新（Signal Iframeより先に実行された）
+                      return 'latest';
+                  }
+
+                  return 'pending';
               } catch(e) {
                   console.error(e);
                   return 'pending';
@@ -631,6 +676,7 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
             function checkAndStop() {
                 const status = checkLatestStatus();
                 if (status === 'old') {
+                    console.log('[Audio] Stopping old iframe:', debugAudioKey, 'seq:', mySequence);
                     hideMyself();
                     return true;
                 }
@@ -921,6 +967,7 @@ def audio_player(akey: str, autoplay: bool = True, question_index: int = 0):
         question_index=question_index,
         debug_audio_key=debug_audio_key,
         session_id=session_id,
+        audio_sequence=audio_sequence,
     )
     # st.components.v1.html()はkeyパラメータをサポートしていない
     st.components.v1.html(html, height=190)
@@ -951,6 +998,9 @@ def init_state():
     st.session_state.setdefault("last_correct_answer", "")
     st.session_state.setdefault("score_saved", False)
     st.session_state.setdefault("cached_scores", [])
+    # Audio sequence: 問題が変わるたびにインクリメント
+    # これにより古いiframeを確実に識別できる
+    st.session_state.setdefault("audio_sequence", 0)
     if "session_id" not in st.session_state:
         st.session_state.session_id = str(uuid.uuid4())
 
@@ -966,6 +1016,8 @@ def start_quiz(group, rng):
     st.session_state.score_saved = False
     st.session_state.last_saved_key = None
     st.session_state.showing_result = False
+    # クイズ開始時にシーケンスをインクリメント
+    st.session_state.audio_sequence = st.session_state.get("audio_sequence", 0) + 1
 
 
 def main():
@@ -1232,10 +1284,15 @@ def main():
     question = questions[q_index]
     audio_key = question["options"][question["answer_index"]]["audio_key"]
 
+    # 問題が変わるたびにシーケンスをインクリメント
+    # q_indexとaudio_keyの組み合わせでユニークなシーケンスを生成
+    # これにより、同じ問題でもrerunごとに新しいシーケンスになる
+    current_sequence = st.session_state.get("audio_sequence", 0) + q_index + 1
+
     # Signal Iframeを注入して、LocalStorageを即座に更新
     # これにより、古いiframe（ゴースト）が自分が古いことを検知して停止する
     if audio_key:
-        inject_audio_signal(st.session_state.session_id, audio_key)
+        inject_audio_signal(st.session_state.session_id, audio_key, current_sequence)
 
     # スマホ対応: 回答ボタンのスタイル（PCとモバイルで高さを変える）
     st.markdown(
@@ -1292,8 +1349,8 @@ def main():
         # 音声プレイヤーは下に配置（不正解時の復習用）
         if audio_key:
             st.markdown("---")
-            st.caption(f"🔊 発音を確認【{audio_key}】")
-            audio_player(audio_key, autoplay=True, question_index=q_index)
+            st.caption(f"🔊 発音を確認【{audio_key}】(seq:{current_sequence})")
+            audio_player(audio_key, autoplay=True, question_index=q_index, sequence=current_sequence)
         return
 
     # 回答待ちモード: 4択ボタンを出題単語の直下に配置
@@ -1312,9 +1369,9 @@ def main():
     # 音声プレイヤーは4択ボタンの下に配置
     if audio_key:
         st.markdown("---")
-        # デバッグ: 現在の音声キーを表示（問題特定後に削除可能）
-        st.caption(f"🔊 発音を聞く（自動再生）【{audio_key}】")
-        audio_player(audio_key, autoplay=True, question_index=q_index)
+        # デバッグ: 現在の音声キーとシーケンス番号を表示
+        st.caption(f"🔊 発音を聞く（自動再生）【{audio_key}】(seq:{current_sequence})")
+        audio_player(audio_key, autoplay=True, question_index=q_index, sequence=current_sequence)
 
     if clicked_index is not None:
         is_correct = clicked_index == question["answer_index"]
