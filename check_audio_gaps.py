@@ -22,7 +22,7 @@ def find_missing(csv_path: Path, audio_dir: Path):
 
 def main():
     parser = argparse.ArgumentParser(description="音声ファイルの欠損を洗い出し、任意で再生成します。")
-    parser.add_argument("--csv", type=Path, default=Path("merged_esperanto_vocab_completed.csv"))
+parser.add_argument("--csv", type=Path, default=Path("2890 Gravaj Esperantaj Vortoj kun Signifoj en la Japana, Ĉina kaj Korea_251129_plajnova.csv"))
     parser.add_argument("--audio-dir", type=Path, default=Path("audio"))
     parser.add_argument("--voice", type=str, default="spomenka")
     parser.add_argument("--regen", action="store_true", help="欠損分をRHVoiceで生成する")

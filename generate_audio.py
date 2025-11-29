@@ -6,7 +6,7 @@ from pathlib import Path
 from vocab_grouping import _default_audio_key
 
 # --- 設定項目 ---
-CSV_FILE_PATH = 'merged_esperanto_vocab_completed.csv'
+CSV_FILE_PATH = '2890 Gravaj Esperantaj Vortoj kun Signifoj en la Japana, Ĉina kaj Korea_251129_plajnova.csv'
 OUTPUT_DIR = 'audio'
 RHVOICE_VOICE = 'spomenka'
 AUDIO_EXTENSION = '.wav'

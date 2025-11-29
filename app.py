@@ -9,7 +9,8 @@ import pandas as pd
 import vocab_grouping as vg
 
 # パス設定
-CSV_PATH = Path("merged_esperanto_vocab_completed.csv")
+# 語彙データ（日本語を含む多言語版）
+CSV_PATH = Path("2890 Gravaj Esperantaj Vortoj kun Signifoj en la Japana, Ĉina kaj Korea_251129_plajnova.csv")
 AUDIO_DIR = Path("audio")
 SCORE_FILE = Path("scores.json")
 
@@ -24,6 +25,8 @@ STAGE_MULTIPLIER = {
 STREAK_BONUS = 0.5
 # 最終精度ボーナス: accuracy * 問題数 * この値 (増加: 4.0→5.0)
 ACCURACY_BONUS_PER_Q = 5.0
+# スパルタモード時の得点係数（通常の約7割）
+SPARTAN_SCORE_MULTIPLIER = 0.7
 # 殿堂入りライン
 HOF_THRESHOLD = 1000000
 
@@ -47,6 +50,12 @@ STAGE_JP = {
     "beginner": "初級",
     "intermediate": "中級",
     "advanced": "上級",
+}
+
+# 出題方向
+QUIZ_DIRECTIONS = {
+    "eo_to_ja": "エスペラント → 日本語",
+    "ja_to_eo": "日本語 → エスペラント",
 }
 
 
@@ -184,13 +193,13 @@ def load_rankings():
 
 
 def get_stage_factor(stages):
-    for label in stages:
-        if "advanced" in label:
-            return STAGE_MULTIPLIER["advanced"]
-        if "intermediate" in label:
-            return STAGE_MULTIPLIER["intermediate"]
-        if "beginner" in label:
-            return STAGE_MULTIPLIER["beginner"]
+    # Use the highest stage present; order of labels should not affect scoring.
+    if any("advanced" in label for label in stages):
+        return STAGE_MULTIPLIER["advanced"]
+    if any("intermediate" in label for label in stages):
+        return STAGE_MULTIPLIER["intermediate"]
+    if any("beginner" in label for label in stages):
+        return STAGE_MULTIPLIER["beginner"]
     return 1.0
 
 
@@ -366,7 +375,7 @@ def find_audio(akey: str):
     return None, None
 
 
-def simple_audio_player(akey: str, question_index: int = 0):
+def simple_audio_player(akey: str, question_index: int = 0, instance: str = "default"):
     """
     シンプルな st.audio() ベースのプレイヤー
     - Streamlitがコンポーネントライフサイクルを管理するため、ゴーストiframe問題が発生しない
@@ -383,7 +392,10 @@ def simple_audio_player(akey: str, question_index: int = 0):
         "audio/ogg": "audio/ogg",
     }
     audio_format = format_map.get(mime, "audio/wav")
-    st.audio(data, format=audio_format, autoplay=True)
+    # Streamlitのaudio要素は同一パラメータだと重複IDエラーになるため、start_timeを微妙にずらして差分を持たせる
+    # instance を基に小さなオフセットを与える
+    offset = (abs(hash(f"{instance}-{question_index}")) % 1000) / 1_000_000
+    st.audio(data, format=audio_format, autoplay=True, start_time=offset)
 
 
 def init_state():
@@ -393,12 +405,20 @@ def init_state():
     st.session_state.setdefault("questions", [])
     st.session_state.setdefault("q_index", 0)
     st.session_state.setdefault("correct", 0)
-    st.session_state.setdefault("points", 0.0)
+    st.session_state.setdefault("main_points", 0.0)
+    st.session_state.setdefault("spartan_points", 0.0)
     st.session_state.setdefault("streak", 0)
     st.session_state.setdefault("answers", [])
     st.session_state.setdefault("score_saved", False)
     st.session_state.setdefault("last_saved_key", None)
     st.session_state.setdefault("score_load_error", None)
+    st.session_state.setdefault("spartan_mode", False)
+    st.session_state.setdefault("spartan_pending", [])
+    st.session_state.setdefault("in_spartan_round", False)
+    st.session_state.setdefault("spartan_current_q_idx", None)
+    st.session_state.setdefault("spartan_attempts", 0)
+    st.session_state.setdefault("spartan_correct_count", 0)
+    st.session_state.setdefault("quiz_direction", "eo_to_ja")
     # UI State
     st.session_state.setdefault("showing_result", False)
     st.session_state.setdefault("last_result_msg", "")
@@ -412,12 +432,18 @@ def start_quiz(group, rng):
     st.session_state.questions = questions
     st.session_state.q_index = 0
     st.session_state.correct = 0
-    st.session_state.points = 0.0
+    st.session_state.main_points = 0.0
+    st.session_state.spartan_points = 0.0
     st.session_state.streak = 0
     st.session_state.answers = []
     st.session_state.score_saved = False
     st.session_state.last_saved_key = None
     st.session_state.showing_result = False
+    st.session_state.spartan_pending = []
+    st.session_state.in_spartan_round = False
+    st.session_state.spartan_current_q_idx = None
+    st.session_state.spartan_attempts = 0
+    st.session_state.spartan_correct_count = 0
 
 
 def main():
@@ -534,6 +560,18 @@ def main():
         group_labels = [format_group_label(g) for g in group_options]
         choice = st.selectbox("グループを選択", group_labels)
         selected_group = group_options[group_labels.index(choice)] if group_options else None
+        st.checkbox(
+            "スパルタモード（全問後に間違えた問題だけ正解するまでランダム出題・得点0.7倍）",
+            key="spartan_mode",
+            disabled=bool(st.session_state.questions),
+        )
+        st.selectbox(
+            "出題方向",
+            options=list(QUIZ_DIRECTIONS.keys()),
+            format_func=lambda k: QUIZ_DIRECTIONS[k],
+            key="quiz_direction",
+            disabled=bool(st.session_state.questions),
+        )
         if st.button("クイズ開始", disabled=not selected_group, use_container_width=True):
             # 出題順は常にランダム（シードはグループ分けのみに使用）
             rng = random.Random()
@@ -547,12 +585,18 @@ def main():
             st.session_state.group_id = None
             st.session_state.q_index = 0
             st.session_state.correct = 0
-            st.session_state.points = 0.0
+            st.session_state.main_points = 0.0
+            st.session_state.spartan_points = 0.0
             st.session_state.streak = 0
             st.session_state.answers = []
             st.session_state.showing_result = False
             st.session_state.score_saved = False
             st.session_state.last_saved_key = None
+            st.session_state.spartan_pending = []
+            st.session_state.in_spartan_round = False
+            st.session_state.spartan_current_q_idx = None
+            st.session_state.spartan_attempts = 0
+            st.session_state.spartan_correct_count = 0
             st.rerun()
 
             st.session_state.score_saved = False
@@ -583,6 +627,20 @@ def main():
         user_total = sum(r.get("points", 0) for r in scores if r.get("user") == st.session_state.user_name)
         st.info(f"現在の累積得点（{st.session_state.user_name}）: {user_total:.1f}")
 
+    # 古いセッション（フィールド欠落）を検出してリセット
+    if st.session_state.questions:
+        q0 = st.session_state.questions[0]
+        if "prompt" not in q0 or "options" not in q0 or "answer_index" not in q0:
+            st.session_state.questions = []
+            st.session_state.q_index = 0
+            st.session_state.correct = 0
+            st.session_state.main_points = 0.0
+            st.session_state.spartan_points = 0.0
+            st.session_state.streak = 0
+            st.session_state.answers = []
+            st.session_state.showing_result = False
+            st.warning("問題データを再生成します。サイドバーで再度『クイズ開始』を押してください。")
+
     if not st.session_state.questions:
         st.info("左のサイドバーからグループを選び、クイズを開始してください。")
         if scores:
@@ -592,22 +650,53 @@ def main():
 
     q_index = st.session_state.q_index
     questions = st.session_state.questions
-    if q_index >= len(questions):
-        # 終了画面
+    # スパルタモードへの遷移判定
+    if (
+        q_index >= len(questions)
+        and st.session_state.spartan_mode
+        and st.session_state.spartan_pending
+    ):
+        st.session_state.in_spartan_round = True
+    if (
+        st.session_state.in_spartan_round
+        and not st.session_state.spartan_pending
+    ):
+        st.session_state.in_spartan_round = False
+
+    # 結果画面（通常モード or スパルタ未発動）
+    if q_index >= len(questions) and not st.session_state.in_spartan_round:
         correct = st.session_state.correct
         total = len(questions)
         accuracy = correct / total if total else 0
-        raw_points = st.session_state.points
+        # スパルタ部の精度・ボーナス
+        sp_attempts = st.session_state.spartan_attempts
+        sp_correct = st.session_state.spartan_correct_count
+        sp_accuracy = sp_correct / sp_attempts if sp_attempts else 0
+
+        raw_points_main = st.session_state.main_points
+        raw_points_spartan = st.session_state.spartan_points
+        raw_points_total = raw_points_main + raw_points_spartan
         accuracy_bonus = accuracy * total * ACCURACY_BONUS_PER_Q
-        points = raw_points + accuracy_bonus
+        accuracy_bonus_spartan = sp_accuracy * sp_attempts * ACCURACY_BONUS_PER_Q
+        base_points_total = raw_points_total + accuracy_bonus + accuracy_bonus_spartan
+        spartan_scaled = (raw_points_spartan + accuracy_bonus_spartan) * SPARTAN_SCORE_MULTIPLIER
+        points = raw_points_main + accuracy_bonus + spartan_scaled
         st.subheader("結果")
         st.metric("正答率", f"{accuracy*100:.1f}%")
         st.metric("得点", f"{points:.1f}")
+        if st.session_state.spartan_mode:
+            st.caption(f"スパルタモード: 復習分を通常の{SPARTAN_SCORE_MULTIPLIER*100:.0f}%で加算")
+            if sp_attempts:
+                st.caption(f"スパルタ精度: {sp_accuracy*100:.1f}% ({sp_correct}/{sp_attempts})")
         if st.session_state.user_name:
             user_total = sum(r.get("points", 0) for r in scores if r.get("user") == st.session_state.user_name)
             st.metric("累積得点", f"{user_total + points:.1f}（今回{points:.1f}加算前 {user_total:.1f}）")
         st.write(f"正解 {correct} / {total}")
-        st.write(f"内訳: 基礎+難易度 {raw_points:.1f} / 精度ボーナス {accuracy_bonus:.1f}")
+        st.write(
+            f"内訳: 本編 基礎+難易度 {raw_points_main:.1f} / 精度ボーナス {accuracy_bonus:.1f}"
+            f" / スパルタ 基礎+難易度 {raw_points_spartan:.1f} / 精度ボーナス {accuracy_bonus_spartan:.1f}"
+            f" → 加算 {spartan_scaled:.1f}（{SPARTAN_SCORE_MULTIPLIER*100:.0f}%）"
+        )
         if st.session_state.user_name:
             existing_users = {r.get("user") for r in load_scores()}
             if st.session_state.user_name in existing_users:
@@ -625,8 +714,18 @@ def main():
                         "total": total,
                         "accuracy": accuracy,
                         "points": points,
-                        "raw_points": raw_points,
+                        "raw_points_total": raw_points_total,
+                        "raw_points_main": raw_points_main,
+                        "raw_points_spartan": raw_points_spartan,
+                        "accuracy_bonus_main": accuracy_bonus,
+                        "accuracy_bonus_spartan": accuracy_bonus_spartan,
+                        "spartan_scaled_points": spartan_scaled,
+                        "spartan_attempts": sp_attempts,
+                        "spartan_correct": sp_correct,
+                        "spartan_accuracy": sp_accuracy,
                         "accuracy_bonus": accuracy_bonus,
+                        "spartan_mode": st.session_state.spartan_mode,
+                        "direction": st.session_state.quiz_direction,
                         "ts": now,
                     }
                     # UserStats更新（累積）
@@ -650,15 +749,23 @@ def main():
         st.subheader("復習")
         wrong = []
         correct_list = []
+        direction_review = st.session_state.quiz_direction
         for ans in st.session_state.answers:
             q = st.session_state.questions[ans["q_idx"]]
             selected = ans["selected"]
             correct_idx = ans["correct"]
+            selected_text = ""
+            if selected is not None:
+                selected_text = q["options"][selected]["japanese"] if direction_review == "eo_to_ja" else q["options"][selected]["esperanto"]
+            answer_text = q["options"][correct_idx]["japanese"]
+            answer_eo = q["options"][correct_idx]["esperanto"]
             entry = {
                 "prompt": q["prompt"],
-                "selected": q["options"][selected]["japanese"] if selected is not None else "",
-                "answer": q["options"][correct_idx]["japanese"],
-                "answer_eo": q["options"][correct_idx]["esperanto"],
+                "selected": selected_text,
+                "answer": answer_text,
+                "answer_eo": answer_eo,
+                "phase": ans.get("phase", "main"),
+                "audio_key": q["options"][correct_idx]["audio_key"],
             }
             if selected == correct_idx:
                 correct_list.append(entry)
@@ -668,11 +775,19 @@ def main():
         if wrong:
             st.markdown("### 間違えた問題")
             for w in wrong:
-                st.write(f"- {w['prompt']}: 正解「{w['answer']} / {w['answer_eo']}」、あなたの回答「{w['selected']}」")
+                st.write(f"- {w['prompt']}: 正解「{w['answer']} / {w['answer_eo']}」、あなたの回答「{w['selected']}」 ({w['phase']})")
+                if w.get("audio_key"):
+                    data, mime = find_audio(w["audio_key"])
+                    if data:
+                        st.audio(data, format=mime, start_time=0)
         if correct_list:
             st.markdown("### 正解した問題（確認用）")
             for c in correct_list:
-                st.write(f"- {c['prompt']}: {c['answer']} / {c['answer_eo']}")
+                st.write(f"- {c['prompt']}: {c['answer']} / {c['answer_eo']} ({c['phase']})")
+                if c.get("audio_key"):
+                    data, mime = find_audio(c["audio_key"])
+                    if data:
+                        st.audio(data, format=mime, start_time=0)
         if st.button("もう一度同じグループで再挑戦", key="retry_btn"):
             group = next((g for g in load_groups(st.session_state.seed) if g.id == st.session_state.group_id), None)
             if group:
@@ -681,15 +796,35 @@ def main():
                 st.rerun()
         return
 
-    question = questions[q_index]
-    audio_key = question["options"][question["answer_index"]]["audio_key"]
+    # 出題対象の選択（通常/スパルタ）
+    in_spartan = st.session_state.in_spartan_round
+    if in_spartan:
+        pending = st.session_state.spartan_pending
+        if not pending:
+            st.session_state.in_spartan_round = False
+            st.rerun()
+        if (
+            st.session_state.spartan_current_q_idx is None
+            or st.session_state.spartan_current_q_idx not in pending
+        ):
+            st.session_state.spartan_current_q_idx = random.choice(pending)
+        current_q_idx = st.session_state.spartan_current_q_idx
+    else:
+        current_q_idx = q_index
+
+    question = questions[current_q_idx]
+    audio_key = question["options"][question["answer_index"]].get("audio_key")
+    direction = st.session_state.quiz_direction
 
     # スマホ対応: 回答ボタンのスタイル（PCとモバイルで高さを変える）
+    # 日本語→エスペラント方向ではフォントを少し大きめにする
+    base_font = "24px" if direction == "ja_to_eo" else "16px"
+    mobile_font = "20px" if direction == "ja_to_eo" else "14px"
     st.markdown(
-        """
+        f"""
         <style>
         /* PC用: 回答ボタンを固定サイズに統一 */
-        .stButton button {
+        .stButton button {{
             height: 120px;
             min-height: 120px;
             max-height: 120px;
@@ -697,55 +832,88 @@ def main():
             white-space: normal;
             overflow: hidden;
             text-overflow: ellipsis;
-            font-size: 16px;
+            font-size: {base_font} !important;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             padding: 8px;
-        }
+        }}
+        /* ボタン内部のテキストにも適用（Streamlitが入れるラッパー用） */
+        .stButton button p, .stButton button div, .stButton button span {{
+            font-size: {base_font} !important;
+            line-height: 1.3;
+        }}
         /* スマホ用: より小さい高さ */
-        @media (max-width: 768px) {
-            .stButton button {
+        @media (max-width: 768px) {{
+            .stButton button {{
                 height: 80px;
                 min-height: 80px;
                 max-height: 80px;
-                font-size: 14px;
+                font-size: {mobile_font} !important;
                 padding: 4px;
-            }
-        }
+            }}
+            .stButton button p, .stButton button div, .stButton button span {{
+                font-size: {mobile_font} !important;
+                line-height: 1.2;
+            }}
+        }}
         </style>
         """,
         unsafe_allow_html=True,
     )
 
     # 出題単語（一番上に大きく表示）
-    st.subheader(f"Q{q_index+1}/{len(questions)}: {question['prompt']}")
+    if direction == "ja_to_eo":
+        prompt_display = question["options"][question["answer_index"]]["japanese"]
+        option_labels = [opt["esperanto"] for opt in question["options"]]
+    else:
+        prompt_display = question["prompt"]
+        option_labels = [opt["japanese"] for opt in question["options"]]
+        # エス→日では問題文の音声を出題時に自動再生（下部には重複表示しない）
+        if audio_key:
+            st.caption(f"🔊 発音を聞く（問題文・自動再生）【{audio_key}】")
+            simple_audio_player(audio_key, question_index=q_index, instance="prompt")
+
+    if in_spartan:
+        st.subheader(f"スパルタ復習 残り{len(st.session_state.spartan_pending)}問 / 全{len(questions)}問")
+        st.caption("間違えた問題のみをランダムに出題しています。正解でリストから消えます。")
+        title_prefix = "復習"
+    else:
+        title_prefix = f"Q{q_index+1}/{len(questions)}"
+    st.subheader(f"{title_prefix}: {prompt_display}")
 
     # 結果表示モードの場合
-    if st.session_state.showing_result:
+    showing_result = st.session_state.showing_result
+    if showing_result:
         # 結果を表示
         if st.session_state.last_is_correct:
             st.success(st.session_state.last_result_msg)
         else:
             st.error(st.session_state.last_result_msg)
 
-        # 「次へ」ボタン
-        if st.button("次へ進む", type="primary", use_container_width=True, key=f"next_btn_{st.session_state.q_index}"):
-            st.session_state.q_index += 1
-            st.session_state.showing_result = False
-            st.rerun()
-
-        # 音声プレイヤーは下に配置（不正解時の復習用）
+        # 問題文の音声（結果画面でのみ再生）
         if audio_key:
             st.markdown("---")
-            st.caption(f"🔊 発音を確認【{audio_key}】")
-            simple_audio_player(audio_key, question_index=q_index)
+            st.caption(f"🔊 発音を確認（自動再生）【{audio_key}】")
+            simple_audio_player(audio_key, question_index=q_index, instance="result")
+
+        # 「次へ」ボタン
+        if st.button("次へ進む", type="primary", use_container_width=True, key=f"next_btn_{st.session_state.q_index}_{'sp' if in_spartan else 'main'}"):
+            if in_spartan:
+                st.session_state.showing_result = False
+                st.session_state.spartan_current_q_idx = None
+            else:
+                st.session_state.q_index += 1
+                st.session_state.showing_result = False
+            st.rerun()
         return
 
-    # 回答待ちモード: 4択ボタンを出題単語の直下に配置
-    option_labels = [f"{opt['japanese']}" for opt in question["options"]]
+    # 回答待ちモード: 4択ボタンを出題直下に配置（出題方向でラベル切り替え）
     clicked_index = None
+    # 4択の各選択肢の音声は常に表示（方向に関わらず）
+    show_audio = True
+
     for row_start in range(0, len(option_labels), 2):
         cols = st.columns([1, 1], gap="medium")
         for j in range(2):
@@ -753,42 +921,63 @@ def main():
             if idx >= len(option_labels):
                 continue
             with cols[j]:
-                if st.button(option_labels[idx], key=f"opt-{q_index}-{idx}", use_container_width=True, type="primary"):
+                button_key = f"opt-{current_q_idx}-{idx}-{'sp' if in_spartan else 'main'}"
+                if st.button(option_labels[idx], key=button_key, use_container_width=True, type="primary"):
                     clicked_index = idx
+                if show_audio:
+                    opt_audio = question["options"][idx]["audio_key"]
+                    if opt_audio:
+                        data, mime = find_audio(opt_audio)
+                        if data:
+                            st.audio(data, format=mime, start_time=0)
 
-    # 音声プレイヤーは4択ボタンの下に配置
-    if audio_key:
-        st.markdown("---")
-        # デバッグ: 現在の音声キーを表示（問題特定後に削除可能）
-        st.caption(f"🔊 発音を聞く（自動再生）【{audio_key}】")
-        simple_audio_player(audio_key, question_index=q_index)
 
     if clicked_index is not None:
         is_correct = clicked_index == question["answer_index"]
+        if in_spartan:
+            st.session_state.spartan_attempts += 1
         st.session_state.answers.append(
             {
-                "q_idx": q_index,
+                "q_idx": current_q_idx,
                 "q": question["prompt"],
                 "selected": clicked_index,
                 "correct": question["answer_index"],
+                "phase": "spartan" if in_spartan else "main",
             }
         )
 
         if is_correct:
             # 正解時は即座に次へ（ユーザー要望）
-            st.session_state.correct += 1
             factor = get_stage_factor(question["stages"])
             st.session_state.streak += 1
             streak_bonus = max(0, st.session_state.streak - 1) * STREAK_BONUS
-            st.session_state.points += BASE_POINTS * factor + streak_bonus
+            earned = BASE_POINTS * factor + streak_bonus
 
-            st.session_state.q_index += 1
-            st.session_state.showing_result = False
+            if not in_spartan:
+                st.session_state.main_points += earned
+                st.session_state.correct += 1
+                st.session_state.q_index += 1
+                st.session_state.showing_result = False
+            else:
+                st.session_state.spartan_points += earned
+                st.session_state.spartan_correct_count += 1
+                # 復習リストから除外して次のランダムへ
+                st.session_state.spartan_pending = [
+                    idx for idx in st.session_state.spartan_pending if idx != current_q_idx
+                ]
+                st.session_state.spartan_current_q_idx = None
+                st.session_state.showing_result = False
+                if not st.session_state.spartan_pending:
+                    st.session_state.in_spartan_round = False
             st.rerun()
         else:
             # 不正解時は正解を表示して一時停止
             msg = f"不正解。正解: {option_labels[question['answer_index']]}"
             st.session_state.streak = 0
+            # 初回フェーズでの誤答はスパルタ対象に追加
+            if st.session_state.spartan_mode and not in_spartan:
+                if current_q_idx not in st.session_state.spartan_pending:
+                    st.session_state.spartan_pending.append(current_q_idx)
 
             # 結果表示モードへ移行
             st.session_state.showing_result = True

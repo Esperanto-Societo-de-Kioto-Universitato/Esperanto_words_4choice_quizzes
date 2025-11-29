@@ -1,5 +1,5 @@
 # 目的
-`merged_esperanto_vocab_completed.csv` を元に、エスペラント→日本語の「最高の4択学習アプリ」を構築する。対象は日本語版のみ。`Unified_Level` を習得レベル管理に使う。
+`2890 Gravaj Esperantaj Vortoj kun Signifoj en la Japana, Ĉina kaj Korea_251129_plajnova.csv` を元に、エスペラント→日本語の「最高の4択学習アプリ」を構築する。対象は日本語版のみ。`Unified_Level` を習得レベル管理に使う。
 
 # 成果物の要件
 - グループ分けロジック（品詞→レベル→サブレベル→20–30語目標のランダム分割、シード対応）
@@ -10,7 +10,7 @@
 - サンプル実行・検証手順
 
 # データと前提
-- CSV: `merged_esperanto_vocab_completed.csv` 列: Esperanto, Japanese_Trans, Unified_Level ほか。
+- CSV: `2890 Gravaj Esperantaj Vortoj kun Signifoj en la Japana, Ĉina kaj Korea_251129_plajnova.csv` 列: Esperanto, Japanese_Trans, Unified_Level ほか。
 - 品詞判定は語尾＋例外辞書で行う。personal_pronoun と pronoun は統合して1品詞として扱う。それ以外の品詞混在は不可。
 - ランダムシードは 1–8192 を推奨し、グループ分けと出題順に再現性を持たせる。
 

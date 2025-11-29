@@ -44,7 +44,7 @@
 
 ### 2. データ処理ロジック (`vocab_grouping.py`)
 CSVデータを読み込み、学習に適したグループに分割するロジックを担当します。
-- **入力データ**: `merged_esperanto_vocab_completed.csv`（約3000語）。
+- **入力データ**: `2890 Gravaj Esperantaj Vortoj kun Signifoj en la Japana, Ĉina kaj Korea_251129_plajnova.csv`（約3000語）。
 - **品詞分類**:
     - 語尾（`-o`:名詞, `-a`:形容詞, `-i`:動詞, `-e`:副詞）による自動判定。
     - 代名詞、相関詞、前置詞などは定義済みリストと照合して分類します。

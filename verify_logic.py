@@ -3,8 +3,11 @@ import vocab_grouping as vg
 from pathlib import Path
 import random
 
+CSV_DEFAULT = Path("2890 Gravaj Esperantaj Vortoj kun Signifoj en la Japana, Ĉina kaj Korea_251129_plajnova.csv")
+
+
 def verify_coverage():
-    csv_path = Path("merged_esperanto_vocab_completed.csv")
+    csv_path = CSV_DEFAULT
     df = pd.read_csv(csv_path)
     total_csv_words = len(df)
     print(f"Total words in CSV: {total_csv_words}")
@@ -34,7 +37,7 @@ def verify_coverage():
             print(f"  OK: All CSV rows are present exactly once.")
 
 def verify_randomness():
-    csv_path = Path("merged_esperanto_vocab_completed.csv")
+    csv_path = CSV_DEFAULT
     
     # 1. Check if split_by_level is deterministic (same groups/levels for different seeds?)
     # Note: build_groups uses the seed for split_into_groups, so the *groups* will change.
@@ -116,7 +119,7 @@ def verify_randomness():
         print(f"WARNING: Group size {len(g1.entries)} but generated {len(q1)} questions.")
 
 def verify_audio_existence():
-    csv_path = Path("merged_esperanto_vocab_completed.csv")
+    csv_path = CSV_DEFAULT
     audio_dir = Path("audio")
     df = pd.read_csv(csv_path)
     

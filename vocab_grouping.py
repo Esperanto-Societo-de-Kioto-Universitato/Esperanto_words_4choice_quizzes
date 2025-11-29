@@ -573,7 +573,7 @@ def main():
     parser.add_argument(
         "--csv",
         type=Path,
-        default=Path("merged_esperanto_vocab_completed.csv"),
+        default=Path("2890 Gravaj Esperantaj Vortoj kun Signifoj en la Japana, Ĉina kaj Korea_251129_plajnova.csv"),
         help="Path to the vocabulary CSV.",
     )
     parser.add_argument(
