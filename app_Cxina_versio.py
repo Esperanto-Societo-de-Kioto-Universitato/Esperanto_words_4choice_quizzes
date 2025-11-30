@@ -633,7 +633,7 @@ def main():
 
         st.markdown("---")
         st.markdown(
-            "[📘 例句测验在此](https://esperantowords4choicequizzes-tiexjo7fx5elylbsywxgxz.streamlit.app/)"
+            "[📘 例句测验在此](https://esperantowords4choicequizzes-fwvq3dnm2jq85gbaztjlyy.streamlit.app/)"
         )
 
     # スコア読み込み戦略:
