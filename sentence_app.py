@@ -628,6 +628,11 @@ def main():
             st.session_state.cached_scores = load_scores()
             st.rerun()
 
+        st.markdown("---")
+        st.markdown(
+            "[💚 単語クイズはこちら](https://esperantowords4choicequizzes-bzgev2astlasx4app3futb.streamlit.app/)"
+        )
+
     # スコア読み込み
     should_load = (
         not st.session_state.questions

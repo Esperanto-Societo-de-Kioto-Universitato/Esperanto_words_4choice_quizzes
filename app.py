@@ -625,6 +625,11 @@ def main():
             st.session_state.score_load_error = None
             st.rerun()
 
+        st.markdown("---")
+        st.markdown(
+            "[📘 例文クイズはこちら](https://esperantowords4choicequizzes-tiexjo7fx5elylbsywxgxz.streamlit.app/)"
+        )
+
     # スコア読み込み戦略:
     # 1. クイズ中（questionsがあり、結果画面でない）はAPIを呼ばない（キャッシュ使用）
     # 2. ホーム画面、結果画面、スコア保存直後はAPIを呼ぶ
