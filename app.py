@@ -556,6 +556,7 @@ def main():
                     f"- 基礎点: {BASE_POINTS} × レベル倍率 (初級1.0 / 中級1.3 / 上級1.6)",
                     f"- 連続正解ボーナス: 2問目以降の連続正解1回につき +{STREAK_BONUS}",
                     f"- 精度ボーナス: 最終正答率 × 問題数 × {ACCURACY_BONUS_PER_Q}",
+                    "- スパルタ精度ボーナス: なし（復習分は基礎+難易度のみを0.7倍で加算）",
                     "- グループを出し切ると結果画面でボーナス込みの合計を表示します。",
                 ]
             )
@@ -619,12 +620,9 @@ def main():
             st.session_state.spartan_current_q_idx = None
             st.session_state.spartan_attempts = 0
             st.session_state.spartan_correct_count = 0
-            st.rerun()
-
-            st.session_state.score_saved = False
-            st.session_state.last_saved_key = None
             # ホームに戻る時はスコアを再読み込み
             st.session_state.cached_scores = load_scores(force_refresh=True)
+            st.session_state.score_load_error = None
             st.rerun()
 
     # スコア読み込み戦略:
@@ -649,7 +647,14 @@ def main():
         scores = st.session_state.cached_scores
 
     if st.session_state.get("score_load_error"):
-        st.warning(st.session_state.score_load_error)
+        col_warn, col_btn = st.columns([4, 1])
+        col_warn.warning(st.session_state.score_load_error)
+        col_warn.caption("認証・通信エラー時のみ再試行してください。")
+        if col_btn.button("再読み込み", key="retry_scores_vocab"):
+            st.cache_data.clear()
+            st.session_state.cached_scores = load_scores(force_refresh=True)
+            st.session_state.score_load_error = None
+            st.rerun()
     # サイドバーでユーザー名が入力されていれば累積を案内（scores読み込み後）
     user_total_vocab = None
     user_total_overall = None
@@ -734,7 +739,7 @@ def main():
         correct = st.session_state.correct
         total = len(questions)
         accuracy = correct / total if total else 0
-        # スパルタ部の精度・ボーナス
+        # スパルタ部の精度
         sp_attempts = st.session_state.spartan_attempts
         sp_correct = st.session_state.spartan_correct_count
         sp_accuracy = sp_correct / sp_attempts if sp_attempts else 0
@@ -743,31 +748,30 @@ def main():
         raw_points_spartan = st.session_state.spartan_points
         raw_points_total = raw_points_main + raw_points_spartan
         accuracy_bonus = accuracy * total * ACCURACY_BONUS_PER_Q
-        accuracy_bonus_spartan = sp_accuracy * sp_attempts * ACCURACY_BONUS_PER_Q
-        base_points_total = raw_points_total + accuracy_bonus + accuracy_bonus_spartan
-        spartan_scaled = (raw_points_spartan + accuracy_bonus_spartan) * SPARTAN_SCORE_MULTIPLIER
+        spartan_scaled = raw_points_spartan * SPARTAN_SCORE_MULTIPLIER
         points = raw_points_main + accuracy_bonus + spartan_scaled
         st.subheader("結果")
         st.metric("正答率", f"{accuracy*100:.1f}%")
         st.metric("得点", f"{points:.1f}")
         if st.session_state.spartan_mode and sp_attempts:
-            st.caption(f"スパルタモード: 復習分を通常の{SPARTAN_SCORE_MULTIPLIER*100:.0f}%で加算")
+            st.caption(f"スパルタモード: 復習分を通常の{SPARTAN_SCORE_MULTIPLIER*100:.0f}%で加算（精度ボーナスなし）")
             st.caption(f"スパルタ精度: {sp_accuracy*100:.1f}% ({sp_correct}/{sp_attempts})")
         st.write(f"正解 {correct} / {total}")
         st.write(
             f"内訳: 本編 基礎+難易度 {raw_points_main:.1f} / 精度ボーナス {accuracy_bonus:.1f}"
-            f" / スパルタ 基礎+難易度 {raw_points_spartan:.1f} / 精度ボーナス {accuracy_bonus_spartan:.1f}"
+            f" / スパルタ 基礎+難易度 {raw_points_spartan:.1f}（精度ボーナスなし）"
             f" → 加算 {spartan_scaled:.1f}（{SPARTAN_SCORE_MULTIPLIER*100:.0f}%）"
         )
         st.caption("音声で再確認できます。")
         if st.session_state.user_name:
-            existing_users = {r.get("user") for r in load_scores()}
+            existing_users = {r.get("user") for r in scores} if scores else set()
             if st.session_state.user_name in existing_users:
                 st.info("このユーザー名は既にスコアがあります。累積に加算します。")
             if st.session_state.score_saved:
                 st.success("スコアを保存しました！")
             else:
-                if st.button("スコアを保存", key="save_score_btn"):
+                st.caption("保存するとランキングにも反映されます。失敗したらもう一度お試しください。")
+                if st.button("スコアを保存", key="save_score_btn", use_container_width=True):
                     now = datetime.datetime.utcnow().isoformat()
                     record = {
                         "user": st.session_state.user_name,
@@ -781,7 +785,7 @@ def main():
                         "raw_points_main": raw_points_main,
                         "raw_points_spartan": raw_points_spartan,
                         "accuracy_bonus_main": accuracy_bonus,
-                        "accuracy_bonus_spartan": accuracy_bonus_spartan,
+                        "accuracy_bonus_spartan": 0.0,
                         "spartan_scaled_points": spartan_scaled,
                         "spartan_attempts": sp_attempts,
                         "spartan_correct": sp_correct,
@@ -801,17 +805,34 @@ def main():
                     else:
                         st.error("保存に失敗しました。秘密情報（secrets）の設定を確認してください。")
 
-        scores = load_scores()
         if scores:
-            st.write("最近のスコア")
-            # 列順を軽く整える（存在する列のみ）
-            import pandas as pd
-            preferred_cols = ["ts", "user", "points", "accuracy", "correct", "total", "group_id", "seed", "direction", "spartan_mode"]
-            df_recent = pd.DataFrame(scores)
-            cols = [c for c in preferred_cols if c in df_recent.columns]
-            if cols:
-                df_recent = df_recent[cols + [c for c in df_recent.columns if c not in cols]]
-            st.dataframe(df_recent, hide_index=True, use_container_width=True)
+            with st.expander("最近のスコア", expanded=False):
+                # 列順を軽く整える（存在する列のみ）
+                import pandas as pd
+                preferred_cols = [
+                    "ts",
+                    "user",
+                    "points",
+                    "accuracy",
+                    "correct",
+                    "total",
+                    "group_id",
+                    "seed",
+                    "direction",
+                    "spartan_mode",
+                    "raw_points_main",
+                    "raw_points_spartan",
+                    "spartan_scaled_points",
+                    "spartan_attempts",
+                    "spartan_correct",
+                    "spartan_accuracy",
+                    "accuracy_bonus_main",
+                ]
+                df_recent = pd.DataFrame(scores)
+                cols = [c for c in preferred_cols if c in df_recent.columns] if not df_recent.empty else []
+                if cols:
+                    df_recent = df_recent[cols + [c for c in df_recent.columns if c not in cols]]
+                st.dataframe(df_recent, hide_index=True, use_container_width=True)
             st.subheader("ランキング")
             show_rankings(load_rankings())
 
@@ -972,6 +993,25 @@ def main():
         title_prefix = f"Q{q_index+1}/{len(questions)}"
     title_html = f"<h3 class='question-title'>{title_prefix}: {prompt_display}</h3>"
     st.markdown(title_html, unsafe_allow_html=True)
+    # 進捗インジケータ（モバイルで邪魔にならないよう小さめ）
+    total_questions = len(questions)
+    correct_so_far = st.session_state.correct
+    remaining = len(st.session_state.spartan_pending) if in_spartan else max(total_questions - st.session_state.q_index, 0)
+    st.markdown(
+        """
+        <style>
+        .mini-metrics {font-size: 12px; line-height: 1.2; margin-top: -4px; color: #0b6623;}
+        .mini-metrics strong {font-size: 14px; color: #0e8a2c;}
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+    col_left, _ = st.columns([2, 5], gap="small")
+    with col_left:
+        cols_prog = st.columns([1, 1, 1], gap="small")
+        cols_prog[0].markdown(f"<div class='mini-metrics'>正解数<br><strong>{correct_so_far}/{total_questions}</strong></div>", unsafe_allow_html=True)
+        cols_prog[1].markdown(f"<div class='mini-metrics'>連続正解<br><strong>{st.session_state.streak}回</strong></div>", unsafe_allow_html=True)
+        cols_prog[2].markdown(f"<div class='mini-metrics'>残り<br><strong>{remaining}問</strong></div>", unsafe_allow_html=True)
 
     # 結果表示モードの場合
     showing_result = st.session_state.showing_result

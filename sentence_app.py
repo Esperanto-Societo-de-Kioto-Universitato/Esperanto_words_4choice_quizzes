@@ -19,8 +19,8 @@ STREAK_BONUS_SCALE = 1.5
 ACCURACY_BONUS_PER_Q = 5.0 * 1.5  # 文章は精度ボーナスも1.5倍
 SPARTAN_SCORE_MULTIPLIER = 0.7
 SCORES_SHEET = "Scores"
-USER_STATS_SHEET = "UserStatsSentence"
-USER_STATS_MAIN = "UserStats"  # 単語と共通累積
+USER_STATS_SHEET = "UserStatsSentence"  # 文章専用の累積
+USER_STATS_MAIN = "UserStats"  # 単語と共通累積（全体）
 HOF_THRESHOLD = 1000000
 
 
@@ -196,13 +196,24 @@ def _update_stats(sheet_name: str, user: str, points: float, ts: str):
     conn = get_connection()
     if conn is None:
         return False
+
+    expected_cols = ["user", "total_points", "last_updated"]
+
     try:
         try:
             stats_df = conn.read(worksheet=sheet_name, ttl=0)
-        except Exception:
-            stats_df = pd.DataFrame(columns=["user", "total_points", "last_updated"])
+        except Exception as e:
+            # シートが存在しない場合などは新規に作る想定で空DFにする
+            print(f"[stats] read failed ({sheet_name}): {e}")
+            stats_df = pd.DataFrame(columns=expected_cols)
         if stats_df is None or stats_df.empty:
-            stats_df = pd.DataFrame(columns=["user", "total_points", "last_updated"])
+            stats_df = pd.DataFrame(columns=expected_cols)
+
+        # 余分な列を排除し、欠損は0で埋める
+        stats_df = stats_df.reindex(columns=expected_cols, fill_value="")
+        if "total_points" in stats_df.columns:
+            stats_df["total_points"] = pd.to_numeric(stats_df["total_points"], errors="coerce").fillna(0.0)
+
         if user in stats_df.get("user", []).values:
             idx = stats_df.index[stats_df["user"] == user][0]
             current_total = float(stats_df.at[idx, "total_points"])
@@ -211,10 +222,22 @@ def _update_stats(sheet_name: str, user: str, points: float, ts: str):
         else:
             new_row = pd.DataFrame([{"user": user, "total_points": points, "last_updated": ts}])
             stats_df = pd.concat([stats_df, new_row], ignore_index=True)
-        conn.update(worksheet=sheet_name, data=stats_df)
+
+        try:
+            conn.update(worksheet=sheet_name, data=stats_df)
+        except Exception as e:
+            # シートが存在しない/ロックなどで失敗した場合、空シート作成を試みてから再挑戦
+            try:
+                st.info(f"{sheet_name} シートを初期化します。")
+                blank_df = pd.DataFrame(columns=expected_cols)
+                conn.update(worksheet=sheet_name, data=blank_df)
+                conn.update(worksheet=sheet_name, data=stats_df)
+            except Exception as e2:
+                st.error(f"累積スコアの保存に失敗しました ({sheet_name})。シートの存在・権限・フィルタ/保護設定を確認してください: {type(e2).__name__}: {e2}")
+                return False
         return True
     except Exception as e:
-        st.error(f"累積スコアの保存に失敗しました: {e}")
+        st.error(f"累積スコアの保存に失敗しました ({sheet_name}): {type(e).__name__}: {e}")
         return False
 
 
@@ -330,10 +353,10 @@ def rank_dict(d, top_n=None):
     return items[:top_n] if top_n else items
 
 
-def show_rankings(stats_data):
+def show_rankings(stats_data, key_suffix: str = ""):
     with st.expander("Debug: Raw UserStats Data"):
         st.write("Raw Data:", stats_data)
-        if st.button("Clear Cache & Rerun", key="clear_cache_sentence"):
+        if st.button("Clear Cache & Rerun", key=f"clear_cache_sentence{key_suffix}"):
             st.cache_data.clear()
             st.rerun()
 
@@ -488,7 +511,7 @@ def main():
                     f"- 基礎点: レベル + 11.5（例: Lv5→16.5点）",
                     f"- 連続正解ボーナス: 2問目以降の連続正解1回につき +{STREAK_BONUS * STREAK_BONUS_SCALE}",
                     f"- 精度ボーナス: 最終正答率 × 問題数 × {ACCURACY_BONUS_PER_Q}",
-                    "- スパルタモード: 復習分は0.7倍で加算",
+                    "- スパルタモード: 復習分は0.7倍で加算（精度ボーナスなし）",
                     "- 同じ問題数なら単語版よりおおむね1.5倍スコアが伸びる想定です。",
                 ]
             )
@@ -555,7 +578,7 @@ def main():
             key="show_option_audio",
             help="オフにすると選択肢ごとの音声プレイヤーを非表示にして軽量化します。",
         )
-        st.caption("出題方向にかかわらず、音声はトグルONで選択肢に表示されます。")
+        st.caption("出題方向にかかわらず、音声はトグルONで選択肢に表示されます。モバイルで重い場合はOFF推奨。")
 
         if st.button("クイズ開始", use_container_width=True):
             rng = random.Random()
@@ -628,7 +651,14 @@ def main():
     else:
         scores = st.session_state.cached_scores
     if st.session_state.get("score_load_error"):
-        st.warning(st.session_state.score_load_error)
+        col_warn, col_btn = st.columns([4, 1])
+        col_warn.warning(st.session_state.score_load_error)
+        col_warn.caption("認証・通信エラー時のみ再試行してください。")
+        if col_btn.button("再読み込み", key="retry_scores_sentence"):
+            st.cache_data.clear()
+            st.session_state.cached_scores = load_scores(force_refresh=True)
+            st.session_state.score_load_error = None
+            st.rerun()
 
     # サイドバーでユーザー名が入力されていれば累積を案内（scores読み込み後）
     if st.session_state.sentence_user_name and scores:
@@ -699,11 +729,11 @@ def main():
         sentence_rank = load_rankings()
         if sentence_rank:
             st.subheader("ランキング")
-            show_rankings(sentence_rank)
+            show_rankings(sentence_rank, key_suffix="_sentence")
         main_rank = load_main_rankings()
         if main_rank:
             st.subheader("ランキング（全体）")
-            show_rankings(main_rank)
+            show_rankings(main_rank, key_suffix="_main")
         return
 
     direction = st.session_state.direction
@@ -724,11 +754,13 @@ def main():
         accuracy = st.session_state.correct / total if total else 0
         acc_bonus = accuracy * total * ACCURACY_BONUS_PER_Q
         raw_main = st.session_state.points_main
+        raw_spartan_raw = st.session_state.points_spartan_raw
         raw_spartan_scaled = st.session_state.points_spartan_scaled
         sp_attempts = st.session_state.spartan_attempts
         sp_correct = st.session_state.spartan_correct_count
         sp_accuracy = sp_correct / sp_attempts if sp_attempts else 0
-        points = st.session_state.points_raw + acc_bonus
+        base_points = raw_main + raw_spartan_scaled
+        points = base_points + acc_bonus
         st.subheader("結果")
         st.metric("正答率", f"{accuracy*100:.1f}%")
         st.metric("得点", f"{points:.1f}")
@@ -755,17 +787,17 @@ def main():
         st.caption("音声で再確認できます。")
         st.write(f"正解 {st.session_state.correct}/{total}")
         st.write(
-            f"内訳: 本編 基礎+ストリーク {raw_main:.1f} / スパルタ {raw_spartan_scaled:.1f}（0.7倍込） / 精度ボーナス {acc_bonus:.1f}"
+            f"内訳: 本編 基礎+ストリーク {raw_main:.1f} / スパルタ {raw_spartan_scaled:.1f}（精度ボーナスなし・0.7倍込） / 精度ボーナス {acc_bonus:.1f}"
         )
         if st.session_state.spartan_mode and sp_attempts:
-            st.caption(f"スパルタモード: 復習分を通常の{SPARTAN_SCORE_MULTIPLIER*100:.0f}%で加算")
+            st.caption(f"スパルタモード: 復習分を通常の{SPARTAN_SCORE_MULTIPLIER*100:.0f}%で加算（精度ボーナスなし）")
             st.caption(f"スパルタ精度: {sp_accuracy*100:.1f}% ({sp_correct}/{sp_attempts})")
         if st.session_state.sentence_user_name:
             st.caption("同じユーザー名のスコアがある場合は累積に加算します。")
-        if st.session_state.sentence_user_name:
             if st.session_state.score_saved:
                 st.success("スコアを保存しました！")
             else:
+                st.caption("保存するとランキングに反映されます。失敗したらもう一度お試しください。")
                 if st.button("スコアを保存", use_container_width=True):
                     now = datetime.datetime.utcnow().isoformat()
                     record = {
@@ -778,35 +810,68 @@ def main():
                         "total": total,
                         "accuracy": accuracy,
                         "points": points,
-                        "raw_points": st.session_state.points_raw,
+                        "raw_points": base_points,
+                        "points_main": raw_main,
+                        "points_spartan_raw": raw_spartan_raw,
+                        "points_spartan_scaled": raw_spartan_scaled,
+                        "spartan_attempts": sp_attempts,
+                        "spartan_correct": sp_correct,
+                        "spartan_accuracy": sp_accuracy,
+                        "spartan_mode": st.session_state.spartan_mode,
+                        "direction": direction,
+                        "accuracy_bonus_spartan": 0.0,
                         "accuracy_bonus": acc_bonus,
                         "ts": now,
                     }
-                    if save_score(record):
-                        update_user_stats(st.session_state.sentence_user_name, points, now)
-                        update_user_stats_main(st.session_state.sentence_user_name, points, now)
-                        st.session_state.score_saved = True
-                        st.rerun()
-                    else:
+                    log_saved = save_score(record)
+                    if not log_saved:
                         st.error("保存に失敗しました。secrets を確認してください。")
-        recent = load_scores()
+                    else:
+                        ok_sentence = update_user_stats(st.session_state.sentence_user_name, points, now)
+                        ok_main = update_user_stats_main(st.session_state.sentence_user_name, points, now)
+                        if ok_sentence and ok_main:
+                            st.session_state.score_saved = True
+                            st.rerun()
+                        else:
+                            st.warning("スコアログは保存しましたが、累積スコアの反映に失敗しました。少し時間をおいて再試行してください。")
+        recent = scores  # 既に読み込んだデータを再利用
         if recent:
-            st.write("最近のスコア（文章）")
-            # 列順を軽く整える（存在する列のみ）
-            preferred_cols = ["ts", "user", "points", "accuracy", "correct", "total", "topic", "subtopic", "levels", "mode"]
-            cols = [c for c in preferred_cols if c in recent[0].keys()]
-            df_recent = pd.DataFrame(recent)
-            if cols:
-                df_recent = df_recent[cols + [c for c in df_recent.columns if c not in cols]]
-            st.dataframe(df_recent, hide_index=True, use_container_width=True)
+            with st.expander("最近のスコア（文章）", expanded=False):
+                # 列順を軽く整える（存在する列のみ）
+                preferred_cols = [
+                    "ts",
+                    "user",
+                    "points",
+                    "accuracy",
+                    "correct",
+                    "total",
+                    "topic",
+                    "subtopic",
+                    "levels",
+                    "direction",
+                    "spartan_mode",
+                    "points_main",
+                    "points_spartan_raw",
+                    "points_spartan_scaled",
+                    "spartan_attempts",
+                    "spartan_correct",
+                    "spartan_accuracy",
+                    "accuracy_bonus",
+                    "mode",
+                ]
+                df_recent = pd.DataFrame(recent)
+                cols = [c for c in preferred_cols if c in df_recent.columns] if not df_recent.empty else []
+                if cols:
+                    df_recent = df_recent[cols + [c for c in df_recent.columns if c not in cols]]
+                st.dataframe(df_recent, hide_index=True, use_container_width=True)
         ranking = load_rankings()
         if ranking:
             st.subheader("ランキング")
-            show_rankings(ranking)
+            show_rankings(ranking, key_suffix="_sentence")
         main_rank = load_main_rankings()
         if main_rank:
             st.subheader("ランキング（全体）")
-            show_rankings(main_rank)
+            show_rankings(main_rank, key_suffix="_main")
         st.subheader("復習")
         wrong = []
         correct_list = []
@@ -892,6 +957,25 @@ def main():
         st.caption(f"スパルタ復習 残り{len(st.session_state.spartan_pending)}問 / 全{len(questions)}問")
         st.caption("間違えた問題のみをランダムに出題しています。正解でリストから消えます。")
     st.markdown(f"<h3 class='question-title'>{title_prefix}: {prompt_text}</h3>", unsafe_allow_html=True)
+    # 進捗インジケータ（モバイルで邪魔にならない小サイズ）
+    total_questions = len(questions)
+    correct_so_far = st.session_state.correct
+    remaining = len(st.session_state.spartan_pending) if in_spartan else max(total_questions - st.session_state.q_index, 0)
+    st.markdown(
+        """
+        <style>
+        .mini-metrics {font-size: 12px; line-height: 1.2; margin-top: -4px; color: #0b6623;}
+        .mini-metrics strong {font-size: 14px; color: #0e8a2c;}
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+    col_left, _ = st.columns([2, 5], gap="small")
+    with col_left:
+        cols_prog = st.columns([1, 1, 1], gap="small")
+        cols_prog[0].markdown(f"<div class='mini-metrics'>正解数<br><strong>{correct_so_far}/{total_questions}</strong></div>", unsafe_allow_html=True)
+        cols_prog[1].markdown(f"<div class='mini-metrics'>連続正解<br><strong>{st.session_state.streak}回</strong></div>", unsafe_allow_html=True)
+        cols_prog[2].markdown(f"<div class='mini-metrics'>残り<br><strong>{remaining}問</strong></div>", unsafe_allow_html=True)
     if direction == "eo_to_ja" and not st.session_state.showing_result:
         play_phrase_audio(
             question["options"][question["answer_index"]]["phrase_id"],
@@ -941,7 +1025,7 @@ def main():
                         opt["phrase_id"],
                         opt["phrase"],
                         autoplay=False,
-                        caption="🔊 発音を聞く",
+                        caption="🔊",
                         instance=f"option-{current_q_idx}-{idx}",
                     )
 
