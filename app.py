@@ -492,6 +492,12 @@ def main():
             margin-bottom: 10px;
             white-space: nowrap; /* Prevent wrapping */
         }
+        .question-title {
+            font-size: 22px !important;
+            line-height: 1.3 !important;
+            margin-top: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
         </style>
         <div class="main-title">エスペラント単語４択クイズ</div>
         """,
@@ -886,8 +892,8 @@ def main():
     # 日本語の意味表示（eo_to_ja）は文字数が多いので少し小さめに
     # 長い日本語が入る eo_to_ja では少しフォントを落とす
     if direction == "eo_to_ja":
-        base_font = "20px"
-        mobile_font = "18px"
+        base_font = "18px"
+        mobile_font = "16px"
     else:
         base_font = "24px"
         mobile_font = "20px"
@@ -935,6 +941,12 @@ def main():
                 line-height: 1.35 !important;
             }}
         }}
+        .question-title {{
+            font-size: { "20px" if direction == "ja_to_eo" else "22px" } !important;
+            line-height: 1.3 !important;
+            margin-top: 0.5rem;
+            margin-bottom: 0.75rem;
+        }}
         </style>
         """,
         unsafe_allow_html=True,
@@ -958,7 +970,8 @@ def main():
         title_prefix = "復習"
     else:
         title_prefix = f"Q{q_index+1}/{len(questions)}"
-    st.subheader(f"{title_prefix}: {prompt_display}")
+    title_html = f"<h3 class='question-title'>{title_prefix}: {prompt_display}</h3>"
+    st.markdown(title_html, unsafe_allow_html=True)
 
     # 結果表示モードの場合
     showing_result = st.session_state.showing_result

@@ -366,30 +366,33 @@ def main():
         layout="centered",
     )
 
+    direction = st.session_state.get("direction", "ja_to_eo")
+    base_font = "18px" if direction == "eo_to_ja" else "24px"
+    mobile_font = "16px" if direction == "eo_to_ja" else "20px"
     st.markdown(
-        """
+        f"""
         <style>
-        div.stButton > button[kind="primary"] {
+        div.stButton > button[kind="primary"] {{
             background-color: #009900 !important;
             border-color: #009900 !important;
             color: white !important;
-            font-size: 24px !important;
+            font-size: {base_font} !important;
             font-weight: 700 !important;
             line-height: 1.35 !important;
-        }
-        div.stButton > button[kind="primary"]:hover {
+        }}
+        div.stButton > button[kind="primary"]:hover {{
             background-color: #007700 !important;
             border-color: #007700 !important;
-        }
-        div.stButton > button[kind="primary"]:active {
+        }}
+        div.stButton > button[kind="primary"]:active {{
             background-color: #005500 !important;
             border-color: #005500 !important;
-        }
+        }}
         /* 通常ボタンのボーダーなども緑系に */
-        div.stButton > button[kind="secondary"] {
+        div.stButton > button[kind="secondary"] {{
             border-color: #009900 !important;
-        }
-        .stButton button {
+        }}
+        .stButton button {{
             height: 120px;
             min-height: 120px;
             max-height: 120px;
@@ -397,7 +400,7 @@ def main():
             white-space: normal;
             overflow: hidden;
             text-overflow: ellipsis;
-            font-size: 24px !important;
+            font-size: {base_font} !important;
             font-weight: 700 !important;
             line-height: 1.35 !important;
             display: flex;
@@ -405,35 +408,41 @@ def main():
             justify-content: center;
             text-align: center;
             padding: 12px;
-        }
+        }}
         /* ボタン内部のdiv/spanにも同じフォントサイズを強制 */
-        .stButton button * {
-            font-size: 24px !important;
+        .stButton button * {{
+            font-size: {base_font} !important;
             font-weight: 700 !important;
             line-height: 1.35 !important;
-        }
-        @media (max-width: 768px) {
-            .stButton button {
+        }}
+        @media (max-width: 768px) {{
+            .stButton button {{
                 height: 80px;
                 min-height: 80px;
                 max-height: 80px;
-                font-size: 20px !important;
+                font-size: {mobile_font} !important;
                 font-weight: 700 !important;
                 padding: 8px;
-            }
-            .stButton button * {
-                font-size: 20px !important;
+            }}
+            .stButton button * {{
+                font-size: {mobile_font} !important;
                 font-weight: 700 !important;
                 line-height: 1.35 !important;
-            }
-        }
-        .main-title {
+            }}
+        }}
+        .main-title {{
             font-size: 24px;
             font-weight: bold;
             color: #009900;
             margin-bottom: 10px;
             white-space: nowrap;
-        }
+        }}
+        .question-title {{
+            font-size: {"20px" if direction == "ja_to_eo" else "22px"} !important;
+            line-height: 1.3 !important;
+            margin-top: 0.5rem;
+            margin-bottom: 0.75rem;
+        }}
         </style>
         <div class="main-title">エスペラント例文４択クイズ</div>
         """,
@@ -882,7 +891,7 @@ def main():
     if in_spartan:
         st.caption(f"スパルタ復習 残り{len(st.session_state.spartan_pending)}問 / 全{len(questions)}問")
         st.caption("間違えた問題のみをランダムに出題しています。正解でリストから消えます。")
-    st.subheader(f"{title_prefix}: {prompt_text}")
+    st.markdown(f"<h3 class='question-title'>{title_prefix}: {prompt_text}</h3>", unsafe_allow_html=True)
     if direction == "eo_to_ja" and not st.session_state.showing_result:
         play_phrase_audio(
             question["options"][question["answer_index"]]["phrase_id"],
