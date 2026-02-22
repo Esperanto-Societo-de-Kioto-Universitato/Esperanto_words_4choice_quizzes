@@ -22,11 +22,39 @@ SCORES_SHEET = "Scores"
 USER_STATS_SHEET = "UserStatsSentence"  # 文章専用の累積
 USER_STATS_MAIN = "UserStats"  # 単語と共通累積（全体）
 HOF_THRESHOLD = 1000000
+MOBILE_UA_TOKENS = (
+    "iphone",
+    "ipad",
+    "ipod",
+    "android",
+    "mobile",
+)
 
 
 @st.cache_data
 def load_phrase_df():
     return pd.read_csv(PHRASE_CSV)
+
+
+def is_mobile_client() -> bool:
+    """ヘッダ(Client Hints含む) + URLパラメータでモバイル判定する。"""
+    try:
+        headers = st.context.headers
+    except Exception:
+        headers = {}
+    normalized = {str(k).lower(): str(v).lower() for k, v in dict(headers).items()}
+    ua = normalized.get("user-agent", "")
+    ch_mobile = normalized.get("sec-ch-ua-mobile", "")
+    ch_platform = normalized.get("sec-ch-ua-platform", "")
+    qp_mobile = str(st.query_params.get("mobile", "")).strip().lower()
+
+    if qp_mobile in {"1", "true", "yes", "on"}:
+        return True
+    if ch_mobile in {"?1", "1", "true"}:
+        return True
+    if any(token in ch_platform for token in ("android", "ios", "iphone", "ipad")):
+        return True
+    return any(token in ua for token in MOBILE_UA_TOKENS)
 
 
 def get_connection():
@@ -68,12 +96,14 @@ def play_phrase_audio(
     autoplay: bool = False,
     caption: str = "",
     instance: str = "default",
+    show_caption: bool = True,
 ):
     data, mime, key = find_phrase_audio(phrase_id, phrase)
     if not data:
         return
     cap = caption or f"🔊 発音を聞く【{key}】"
-    st.caption(cap)
+    if show_caption:
+        st.caption(cap)
     offset = (abs(hash(f"{instance}-{phrase_id}-{key}-{random.random()}")) % 1000000) / 1_000_000 + 1e-6
     st.audio(data, format=mime, start_time=offset, autoplay=autoplay)
 
@@ -389,12 +419,65 @@ def main():
         layout="centered",
     )
 
+    is_mobile = is_mobile_client()
+    if "mobile_compact_ui" not in st.session_state:
+        st.session_state.mobile_compact_ui = is_mobile
+    if "compact_hide_option_audio" not in st.session_state:
+        st.session_state.compact_hide_option_audio = True
+    if "compact_hide_prompt_audio" not in st.session_state:
+        st.session_state.compact_hide_prompt_audio = True
+    if "mobile_ultra_compact" not in st.session_state:
+        st.session_state.mobile_ultra_compact = is_mobile
+    if "mobile_hide_streamlit_chrome" not in st.session_state:
+        st.session_state.mobile_hide_streamlit_chrome = is_mobile
+
+    compact_ui = bool(st.session_state.mobile_compact_ui)
+    ultra_compact_ui = compact_ui and bool(st.session_state.mobile_ultra_compact)
     direction = st.session_state.get("direction", "ja_to_eo")
     base_font = "18px" if direction == "eo_to_ja" else "24px"
-    mobile_font = "16px" if direction == "eo_to_ja" else "20px"
+    mobile_font = (
+        "13px"
+        if (ultra_compact_ui and direction == "eo_to_ja")
+        else (
+            "15px"
+            if ultra_compact_ui
+            else (
+                "14px"
+                if (compact_ui and direction == "eo_to_ja")
+                else ("16px" if compact_ui else ("16px" if direction == "eo_to_ja" else "20px"))
+            )
+        )
+    )
+    mobile_button_height = "50px" if ultra_compact_ui else ("56px" if compact_ui else "72px")
+    mobile_button_padding = "3px" if ultra_compact_ui else ("4px" if compact_ui else "6px")
+    mobile_main_title_font = "18px" if ultra_compact_ui else ("20px" if compact_ui else "24px")
+    mobile_question_font = (
+        "15px" if ultra_compact_ui else ("17px" if compact_ui else ("20px" if direction == "ja_to_eo" else "22px"))
+    )
+    mobile_page_top_padding = "0.15rem" if ultra_compact_ui else ("0.35rem" if compact_ui else "0.9rem")
+    mobile_page_bottom_padding = "0.2rem" if ultra_compact_ui else ("0.4rem" if compact_ui else "0.7rem")
+    show_main_title = not (compact_ui and bool(st.session_state.get("questions")))
+    main_title_html = "<div class='main-title'>エスペラント例文４択クイズ</div>" if show_main_title else ""
+    mobile_chrome_css = (
+        """
+            header[data-testid="stHeader"] {display: none !important;}
+            div[data-testid="stToolbar"] {display: none !important;}
+            #MainMenu {visibility: hidden !important;}
+            footer {display: none !important;}
+        """
+        if st.session_state.mobile_hide_streamlit_chrome
+        else ""
+    )
     st.markdown(
         f"""
         <style>
+        @media (max-width: 768px) {{
+            {mobile_chrome_css}
+            .block-container {{
+                padding-top: {mobile_page_top_padding} !important;
+                padding-bottom: {mobile_page_bottom_padding} !important;
+            }}
+        }}
         div.stButton > button[kind="primary"] {{
             background-color: #009900 !important;
             border-color: #009900 !important;
@@ -440,17 +523,24 @@ def main():
         }}
         @media (max-width: 768px) {{
             .stButton button {{
-                height: 80px;
-                min-height: 80px;
-                max-height: 80px;
+                height: {mobile_button_height};
+                min-height: {mobile_button_height};
+                max-height: {mobile_button_height};
                 font-size: {mobile_font} !important;
                 font-weight: 700 !important;
-                padding: 8px;
+                padding: {mobile_button_padding};
             }}
             .stButton button * {{
                 font-size: {mobile_font} !important;
                 font-weight: 700 !important;
                 line-height: 1.35 !important;
+            }}
+            .stButton {{
+                margin-bottom: 0.2rem !important;
+            }}
+            p {{
+                margin-block-start: 0.2rem;
+                margin-block-end: 0.2rem;
             }}
         }}
         .main-title {{
@@ -466,8 +556,62 @@ def main():
             margin-top: 0.5rem;
             margin-bottom: 0.75rem;
         }}
+        @media (max-width: 768px) {{
+            .main-title {{
+                font-size: {mobile_main_title_font} !important;
+                margin-bottom: 0.3rem !important;
+            }}
+            .question-title {{
+                font-size: {mobile_question_font} !important;
+                line-height: 1.25 !important;
+                margin-top: 0.2rem !important;
+                margin-bottom: 0.45rem !important;
+            }}
+            .question-box.tight {{
+                max-height: 16dvh;
+                overflow-y: auto;
+                margin-bottom: 0.25rem;
+                padding-right: 2px;
+            }}
+            .question-box.tight .question-title {{
+                margin-top: 0 !important;
+                margin-bottom: 0 !important;
+            }}
+            .compact-progress {{
+                font-size: 12px;
+                color: #0b6623;
+                margin: 0.1rem 0 0.3rem 0;
+            }}
+            .compact-progress strong {{
+                color: #0e8a2c;
+            }}
+            .stButton button p, .stButton button span, .stButton button div {{
+                line-height: 1.2 !important;
+            }}
+            .question-audio-hint {{
+                font-size: 11px;
+                color: #0b6623;
+                margin-bottom: 0.15rem;
+            }}
+        }}
+        @media (max-width: 420px) {{
+            .question-box.tight {{
+                max-height: 14dvh;
+            }}
+            .stButton button {{
+                height: 46px !important;
+                min-height: 46px !important;
+                max-height: 46px !important;
+                padding: 3px !important;
+                font-size: 12px !important;
+            }}
+            .stButton button * {{
+                font-size: 12px !important;
+                line-height: 1.2 !important;
+            }}
+        }}
         </style>
-        <div class="main-title">エスペラント例文４択クイズ</div>
+        {main_title_html}
         """,
         unsafe_allow_html=True,
     )
@@ -476,6 +620,21 @@ def main():
     st.markdown(
         """
         <script>
+        (function() {
+            try {
+                const isNarrow = window.innerWidth <= 768;
+                const params = new URLSearchParams(window.location.search);
+                const already = sessionStorage.getItem("mobile_query_bootstrapped") === "1";
+                if (isNarrow && params.get("mobile") !== "1" && !already) {
+                    params.set("mobile", "1");
+                    sessionStorage.setItem("mobile_query_bootstrapped", "1");
+                    const target = window.location.pathname + "?" + params.toString() + window.location.hash;
+                    window.location.replace(target);
+                    return;
+                }
+            } catch (_) {}
+        })();
+
         (function() {
             if (window._esperantoAudioUnlocked) return;
             const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -503,19 +662,21 @@ def main():
         unsafe_allow_html=True,
     )
 
-    st.write("トピック別の例文から4択で出題します。単語版よりも得点係数を約1.5倍に調整しています。")
-    with st.expander("スコア計算ルール"):
-        st.markdown(
-            "\n".join(
-                [
-                    f"- 基礎点: レベル + 11.5（例: Lv5→16.5点）",
-                    f"- 連続正解ボーナス: 2問目以降の連続正解1回につき +{STREAK_BONUS * STREAK_BONUS_SCALE}",
-                    f"- 精度ボーナス: 最終正答率 × 問題数 × {ACCURACY_BONUS_PER_Q}",
-                    "- スパルタモード: 復習分は0.7倍で加算（精度ボーナスなし）",
-                    "- 同じ問題数なら単語版よりおおむね1.5倍スコアが伸びる想定です。",
-                ]
+    show_intro_block = not (compact_ui and bool(st.session_state.get("questions")))
+    if show_intro_block:
+        st.write("トピック別の例文から4択で出題します。単語版よりも得点係数を約1.5倍に調整しています。")
+        with st.expander("スコア計算ルール"):
+            st.markdown(
+                "\n".join(
+                    [
+                        f"- 基礎点: レベル + 11.5（例: Lv5→16.5点）",
+                        f"- 連続正解ボーナス: 2問目以降の連続正解1回につき +{STREAK_BONUS * STREAK_BONUS_SCALE}",
+                        f"- 精度ボーナス: 最終正答率 × 問題数 × {ACCURACY_BONUS_PER_Q}",
+                        "- スパルタモード: 復習分は0.7倍で加算（精度ボーナスなし）",
+                        "- 同じ問題数なら単語版よりおおむね1.5倍スコアが伸びる想定です。",
+                    ]
+                )
             )
-        )
 
     # 状態初期化
     st.session_state.setdefault("questions", [])
@@ -541,6 +702,9 @@ def main():
     st.session_state.setdefault("spartan_attempts", 0)
     st.session_state.setdefault("spartan_correct_count", 0)
     st.session_state.setdefault("show_option_audio", True)
+    st.session_state.setdefault("mobile_compact_ui", is_mobile)
+    st.session_state.setdefault("compact_hide_option_audio", True)
+    st.session_state.setdefault("compact_hide_prompt_audio", True)
 
     df = load_phrase_df()
     groups = build_groups(df)
@@ -578,7 +742,37 @@ def main():
             key="show_option_audio",
             help="オフにすると選択肢ごとの音声プレイヤーを非表示にして軽量化します。",
         )
+        st.checkbox(
+            "スマホ最適化UI（設問+4択を1画面優先）",
+            key="mobile_compact_ui",
+            help="モバイルではON推奨。デスクトップ表示には影響しません。",
+        )
+        if st.session_state.mobile_compact_ui:
+            st.checkbox(
+                "スマホ最適化時は選択肢の音声を自動で隠す",
+                key="compact_hide_option_audio",
+                help="問題文の音声は維持しつつ、選択肢ごとの音声表示だけ抑制して縦スクロールを減らします。",
+            )
+            st.checkbox(
+                "スマホ最適化時は問題文音声プレイヤーを隠す",
+                key="compact_hide_prompt_audio",
+                help="設問+4択を1画面に収めやすくします。必要時のみOFFにして表示してください。",
+            )
+            st.checkbox(
+                "超圧縮モード（小画面向け）",
+                key="mobile_ultra_compact",
+                help="設問エリア・ボタンをさらに圧縮します。",
+            )
+            st.checkbox(
+                "スマホ時に上部メニュー類を隠す",
+                key="mobile_hide_streamlit_chrome",
+                help="縦領域を増やします。通常操作に戻したい場合はOFFにしてください。",
+            )
         st.caption("出題方向にかかわらず、音声はトグルONで選択肢に表示されます。モバイルで重い場合はOFF推奨。")
+        st.caption(
+            f"端末判定: {'モバイル' if is_mobile else 'デスクトップ'} / "
+            f"最適化UI: {'ON' if st.session_state.mobile_compact_ui else 'OFF'}"
+        )
 
         if st.button("クイズ開始", use_container_width=True):
             rng = random.Random()
@@ -957,38 +1151,58 @@ def main():
         prompt_text = question["prompt_eo"]
     else:
         prompt_text = question["prompt_ja"]
+    compact_question_ui = bool(st.session_state.get("mobile_compact_ui", False))
     title_prefix = "復習" if in_spartan else f"Q{q_idx+1}/{len(questions)}"
-    if in_spartan:
+    if in_spartan and not compact_question_ui:
         st.caption(f"スパルタ復習 残り{len(st.session_state.spartan_pending)}問 / 全{len(questions)}問")
         st.caption("間違えた問題のみをランダムに出題しています。正解でリストから消えます。")
-    st.markdown(f"<h3 class='question-title'>{title_prefix}: {prompt_text}</h3>", unsafe_allow_html=True)
+    question_box_cls = "question-box tight" if ultra_compact_ui else "question-box"
+    st.markdown(
+        f"<div class='{question_box_cls}'><h3 class='question-title'>{title_prefix}: {prompt_text}</h3></div>",
+        unsafe_allow_html=True,
+    )
     # 進捗インジケータ（モバイルで邪魔にならない小サイズ）
     total_questions = len(questions)
     correct_so_far = st.session_state.correct
     remaining = len(st.session_state.spartan_pending) if in_spartan else max(total_questions - st.session_state.q_index, 0)
-    st.markdown(
-        """
-        <style>
-        .mini-metrics {font-size: 12px; line-height: 1.2; margin-top: -4px; color: #0b6623;}
-        .mini-metrics strong {font-size: 14px; color: #0e8a2c;}
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
-    col_left, _ = st.columns([2, 5], gap="small")
-    with col_left:
-        cols_prog = st.columns([1, 1, 1], gap="small")
-        cols_prog[0].markdown(f"<div class='mini-metrics'>正解数<br><strong>{correct_so_far}/{total_questions}</strong></div>", unsafe_allow_html=True)
-        cols_prog[1].markdown(f"<div class='mini-metrics'>連続正解<br><strong>{st.session_state.streak}回</strong></div>", unsafe_allow_html=True)
-        cols_prog[2].markdown(f"<div class='mini-metrics'>残り<br><strong>{remaining}問</strong></div>", unsafe_allow_html=True)
-    if direction == "eo_to_ja" and not st.session_state.showing_result:
-        play_phrase_audio(
-            question["options"][question["answer_index"]]["phrase_id"],
-            question["options"][question["answer_index"]]["phrase"],
-            autoplay=True,
-            caption="🔊 発音を聞く（問題文・自動再生）",
-            instance=f"prompt-{q_idx}",
+    if compact_question_ui:
+        st.markdown(
+            f"<div class='compact-progress'>"
+            f"正解 <strong>{correct_so_far}/{total_questions}</strong> ・ "
+            f"連続 <strong>{st.session_state.streak}回</strong> ・ "
+            f"残り <strong>{remaining}問</strong>"
+            f"</div>",
+            unsafe_allow_html=True,
         )
+    else:
+        st.markdown(
+            """
+            <style>
+            .mini-metrics {font-size: 12px; line-height: 1.2; margin-top: -4px; color: #0b6623;}
+            .mini-metrics strong {font-size: 14px; color: #0e8a2c;}
+            </style>
+            """,
+            unsafe_allow_html=True,
+        )
+        col_left, _ = st.columns([2, 5], gap="small")
+        with col_left:
+            cols_prog = st.columns([1, 1, 1], gap="small")
+            cols_prog[0].markdown(f"<div class='mini-metrics'>正解数<br><strong>{correct_so_far}/{total_questions}</strong></div>", unsafe_allow_html=True)
+            cols_prog[1].markdown(f"<div class='mini-metrics'>連続正解<br><strong>{st.session_state.streak}回</strong></div>", unsafe_allow_html=True)
+            cols_prog[2].markdown(f"<div class='mini-metrics'>残り<br><strong>{remaining}問</strong></div>", unsafe_allow_html=True)
+    if direction == "eo_to_ja" and not st.session_state.showing_result:
+        hide_prompt_audio = compact_question_ui and st.session_state.get("compact_hide_prompt_audio", True)
+        if not hide_prompt_audio:
+            play_phrase_audio(
+                question["options"][question["answer_index"]]["phrase_id"],
+                question["options"][question["answer_index"]]["phrase"],
+                autoplay=True,
+                caption="🔊 発音を聞く（問題文・自動再生）",
+                instance=f"prompt-{q_idx}",
+                show_caption=not compact_question_ui,
+            )
+        elif compact_question_ui:
+            st.markdown("<div class='question-audio-hint'>🔇 問題文音声はスマホ最適化で非表示</div>", unsafe_allow_html=True)
 
     if st.session_state.showing_result:
         if st.session_state.last_is_correct:
@@ -1014,9 +1228,13 @@ def main():
         return
 
     option_labels = [opt["phrase"] if direction == "ja_to_eo" else opt["japanese"] for opt in question["options"]]
+    show_option_audio = st.session_state.get("show_option_audio", True)
+    if compact_question_ui and st.session_state.get("compact_hide_option_audio", True):
+        show_option_audio = False
     clicked = None
+    opt_gap = "small" if compact_question_ui else "medium"
     for row_start in range(0, len(option_labels), 2):
-        cols = st.columns(2, gap="medium")
+        cols = st.columns(2, gap=opt_gap)
         for j in range(2):
             idx = row_start + j
             if idx >= len(option_labels):
@@ -1025,13 +1243,14 @@ def main():
                 if st.button(option_labels[idx], key=f"opt-{current_q_idx}-{idx}", use_container_width=True, type="primary"):
                     clicked = idx
                 opt = question["options"][idx]
-                if st.session_state.get("show_option_audio", True):
+                if show_option_audio:
                     play_phrase_audio(
                         opt["phrase_id"],
                         opt["phrase"],
                         autoplay=False,
                         caption="🔊",
                         instance=f"option-{current_q_idx}-{idx}",
+                        show_caption=not compact_question_ui,
                     )
 
     if clicked is not None:
