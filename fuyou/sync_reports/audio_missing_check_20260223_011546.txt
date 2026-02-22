@@ -1,0 +1,18 @@
+word_csv=2890 Gravaj Esperantaj Vortoj kun Signifoj en la Japana, Ĉina kaj Korea_251129_plajnova.csv
+phrase_csv=phrases_eo_en_ja_zh_ko_ru_fulfilled_251130.csv
+word_rows=2890 strict_missing=0
+phrase_rows=5000 strict_missing_with_prefix_fallback=0
+app.py word_audio_missing_via_find_audio=0
+app_Cxina_versio.py word_audio_missing_via_find_audio=0
+app_Korea_versio.py word_audio_missing_via_find_audio=0
+sentence_app.py phrase_items=5000 missing_via_find_phrase_audio=0
+sentence_app_Cxina_versio.py phrase_items=5000 missing_via_find_phrase_audio=0
+sentence_app_Korea_versio.py phrase_items=5000 missing_via_find_phrase_audio=0
+---word_missing_sample---
+---phrase_missing_sample---
+---app.py_word_missing_sample---
+---app_Cxina_versio.py_word_missing_sample---
+---app_Korea_versio.py_word_missing_sample---
+---sentence_app.py_phrase_missing_sample---
+---sentence_app_Cxina_versio.py_phrase_missing_sample---
+---sentence_app_Korea_versio.py_phrase_missing_sample---

@@ -1,0 +1,12 @@
+canonical_csv=phrases_eo_en_ja_zh_ko_ru_fulfilled_251130.csv
+audio_dir=Esperanto例文5000文_収録音声
+expected_rows=5000
+actual_before=5000
+ok_exact_prefixes_after_sync=5000
+renamed_count=0
+orphan_moved_count=0
+missing_prefix_count_before=0
+hard_missing_after_sync=0
+---RENAMED---
+---MOVED_ORPHAN---
+---MISSING_AFTER---

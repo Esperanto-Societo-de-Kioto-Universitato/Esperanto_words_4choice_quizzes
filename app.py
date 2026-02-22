@@ -1227,8 +1227,8 @@ def main():
         st.markdown(
             """
             <style>
-            .mini-metrics {font-size: 24px; line-height: 1.2; margin-top: -4px; color: #0b6623;}
-            .mini-metrics strong {font-size: 14px; color: #0e8a2c;}
+            .mini-metrics {font-size: 14px; line-height: 1.2; margin-top: 0; color: #0b6623;}
+            .mini-metrics strong {font-size: 16px; color: #0e8a2c;}
             </style>
             """,
             unsafe_allow_html=True,

@@ -78,15 +78,23 @@ def _phrase_audio_key(phrase_id: int, phrase: str) -> str:
 @st.cache_data(show_spinner=False, max_entries=1024)
 def find_phrase_audio(phrase_id: int, phrase: str):
     key = _phrase_audio_key(phrase_id, phrase)
-    for ext, mime in [(".wav", "audio/wav"), (".mp3", "audio/mpeg"), (".ogg", "audio/ogg")]:
+    audio_formats = [(".wav", "audio/wav"), (".mp3", "audio/mpeg"), (".ogg", "audio/ogg")]
+    for ext, mime in audio_formats:
         fp = PHRASE_AUDIO_DIR / f"{key}{ext}"
         if fp.exists():
             return fp.read_bytes(), mime, key
     legacy_key = key.replace("_", "")
-    for ext, mime in [(".wav", "audio/wav"), (".mp3", "audio/mpeg"), (".ogg", "audio/ogg")]:
+    for ext, mime in audio_formats:
         fp = PHRASE_AUDIO_DIR / f"{legacy_key}{ext}"
         if fp.exists():
             return fp.read_bytes(), mime, legacy_key
+    # 어순/표기가 갱신되어도 같은 PhraseID 기존 음성을 재사용한다
+    prefix = f"{int(phrase_id) - 155:04d}_"
+    for ext, mime in audio_formats:
+        matches = sorted(PHRASE_AUDIO_DIR.glob(f"{prefix}*{ext}"))
+        if matches:
+            fp = matches[0]
+            return fp.read_bytes(), mime, fp.stem
     return None, None, key
 
 
@@ -1175,8 +1183,8 @@ def main():
         st.markdown(
             """
             <style>
-            .mini-metrics {font-size: 24px; line-height: 1.2; margin-top: -4px; color: #0b6623;}
-            .mini-metrics strong {font-size: 14px; color: #0e8a2c;}
+            .mini-metrics {font-size: 14px; line-height: 1.2; margin-top: 0; color: #0b6623;}
+            .mini-metrics strong {font-size: 16px; color: #0e8a2c;}
             </style>
             """,
             unsafe_allow_html=True,
