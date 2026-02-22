@@ -1250,7 +1250,7 @@ def main():
         with col_left:
             cols_prog = st.columns([1, 1, 1], gap="small")
             cols_prog[0].markdown(f"<div class='mini-metrics'>正解数<br><strong>{correct_so_far}/{total_questions}</strong></div>", unsafe_allow_html=True)
-            cols_prog[1].markdown(f"<div class='mini-metrics'>連続正解<br><strong>{st.session_state.streak}回</strong></div>", unsafe_allow_html=True)
+            cols_prog[1].markdown(f"<div class='mini-metrics'>連続正解 <strong>{st.session_state.streak}回</strong></div>", unsafe_allow_html=True)
             cols_prog[2].markdown(f"<div class='mini-metrics'>残り<br><strong>{remaining}問</strong></div>", unsafe_allow_html=True)
 
     # 結果表示モードの場合

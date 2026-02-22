@@ -1256,7 +1256,7 @@ def main():
         with col_left:
             cols_prog = st.columns([1, 1, 1], gap="small")
             cols_prog[0].markdown(f"<div class='mini-metrics'>正确数<br><strong>{correct_so_far}/{total_questions}</strong></div>", unsafe_allow_html=True)
-            cols_prog[1].markdown(f"<div class='mini-metrics'>连续答对<br><strong>{st.session_state.streak}次</strong></div>", unsafe_allow_html=True)
+            cols_prog[1].markdown(f"<div class='mini-metrics'>连续答对 <strong>{st.session_state.streak}次</strong></div>", unsafe_allow_html=True)
             cols_prog[2].markdown(f"<div class='mini-metrics'>剩余<br><strong>{remaining}题</strong></div>", unsafe_allow_html=True)
 
     # 结果表示モードの場合
