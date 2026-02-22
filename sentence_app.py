@@ -429,7 +429,7 @@ def main():
     if "mobile_ultra_compact" not in st.session_state:
         st.session_state.mobile_ultra_compact = is_mobile
     if "mobile_hide_streamlit_chrome" not in st.session_state:
-        st.session_state.mobile_hide_streamlit_chrome = is_mobile
+        st.session_state.mobile_hide_streamlit_chrome = False
 
     compact_ui = bool(st.session_state.mobile_compact_ui)
     ultra_compact_ui = compact_ui and bool(st.session_state.mobile_ultra_compact)
@@ -460,7 +460,6 @@ def main():
     main_title_html = "<div class='main-title'>エスペラント例文４択クイズ</div>" if show_main_title else ""
     mobile_chrome_css = (
         """
-            header[data-testid="stHeader"] {display: none !important;}
             div[data-testid="stToolbar"] {display: none !important;}
             #MainMenu {visibility: hidden !important;}
             footer {display: none !important;}
@@ -927,11 +926,11 @@ def main():
         st.caption("単語版に近い操作感で、例文の4択クイズを遊べます。")
         sentence_rank = load_rankings()
         if sentence_rank:
-            st.subheader("ランキング（文章のみ）")
+            st.subheader("ランキング")
             show_rankings(sentence_rank, key_suffix="_sentence")
         main_rank = load_main_rankings()
         if main_rank:
-            st.subheader("ランキング（全体: 単語+文章）")
+            st.subheader("ランキング（全体）")
             show_rankings(main_rank, key_suffix="_main")
         return
 
@@ -1065,11 +1064,11 @@ def main():
                 st.dataframe(df_recent, hide_index=True, use_container_width=True)
         ranking = load_rankings()
         if ranking:
-            st.subheader("ランキング（文章のみ）")
+            st.subheader("ランキング")
             show_rankings(ranking, key_suffix="_sentence")
         main_rank = load_main_rankings()
         if main_rank:
-            st.subheader("ランキング（全体: 単語+文章）")
+            st.subheader("ランキング（全体）")
             show_rankings(main_rank, key_suffix="_main")
         st.subheader("復習")
         wrong = []

@@ -506,7 +506,7 @@ def main():
     if "mobile_ultra_compact" not in st.session_state:
         st.session_state.mobile_ultra_compact = is_mobile
     if "mobile_hide_streamlit_chrome" not in st.session_state:
-        st.session_state.mobile_hide_streamlit_chrome = is_mobile
+        st.session_state.mobile_hide_streamlit_chrome = False
 
     compact_ui = bool(st.session_state.mobile_compact_ui)
     ultra_compact_ui = compact_ui and bool(st.session_state.mobile_ultra_compact)
@@ -539,7 +539,6 @@ def main():
     main_title_html = "<div class='main-title'>世界语单词四选一测验</div>" if show_main_title else ""
     mobile_chrome_css = (
         """
-            header[data-testid="stHeader"] {display: none !important;}
             div[data-testid="stToolbar"] {display: none !important;}
             #MainMenu {visibility: hidden !important;}
             footer {display: none !important;}
