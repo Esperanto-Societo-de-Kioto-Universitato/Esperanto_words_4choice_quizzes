@@ -8,12 +8,12 @@ from streamlit_gsheets import GSheetsConnection
 
 import vocab_grouping as vg
 
-# パス設定（単独アプリとして実行）
+# パス설정（単独アプリとして実行）
 BASE_DIR = Path(__file__).resolve().parent
 PHRASE_CSV = BASE_DIR / "phrases_eo_en_ja_zh_ko_ru_fulfilled_251130.csv"
 PHRASE_AUDIO_DIR = BASE_DIR / "Esperanto例文5000文_収録音声"
 
-# スコア設定
+# スコア설정
 STREAK_BONUS = 0.5
 STREAK_BONUS_SCALE = 1.5
 ACCURACY_BONUS_PER_Q = 5.0 * 1.5  # 文章は精度ボーナスも1.5倍
@@ -37,7 +37,7 @@ def load_phrase_df():
 
 
 def is_mobile_client() -> bool:
-    """ヘッダ(Client Hints含む) + URLパラメータでモバイル判定する。"""
+    """헤더(Client Hints 포함) + URL 파라미터로 모바일 여부를 판정한다."""
     try:
         headers = st.context.headers
     except Exception:
@@ -61,7 +61,7 @@ def get_connection():
     try:
         return st.connection("gsheets", type=GSheetsConnection)
     except Exception as e:
-        st.error(f"Google Sheets 接続の初期化に失敗しました: {e}")
+        st.error(f"Google Sheets 연결 초기화에 실패했습니다: {e}")
         return None
 
 
@@ -101,7 +101,7 @@ def play_phrase_audio(
     data, mime, key = find_phrase_audio(phrase_id, phrase)
     if not data:
         return
-    cap = caption or f"🔊 発音を聞く【{key}】"
+    cap = caption or f"🔊 발음을 듣기【{key}】"
     if show_caption:
         st.caption(cap)
     offset = (abs(hash(f"{instance}-{phrase_id}-{key}-{random.random()}")) % 1000000) / 1_000_000 + 1e-6
@@ -117,7 +117,7 @@ def _get_col(df: pd.DataFrame, candidates):
 
 def build_groups(df: pd.DataFrame):
     col_eo = _get_col(df, ["Esperanto", "Phrase"])
-    col_ja = _get_col(df, ["日本語", "Japanese"])
+    col_ja = _get_col(df, ["한국어", "Korean"])
     col_level = _get_col(df, ["LevelID", "Level"])
     col_topic = _get_col(df, ["TopicName_EN", "Topic"])
     col_subtopic = _get_col(df, ["SubtopicName_EN", "Subtopic"])
@@ -178,7 +178,7 @@ def build_questions(entries, levels, rng: random.Random):
 def load_scores(force_refresh: bool = False):
     conn = get_connection()
     if conn is None:
-        st.session_state.score_load_error = "Google Sheets 接続を初期化できませんでした。"
+        st.session_state.score_load_error = "Google Sheets 연결을 초기화할 수 없습니다."
         return []
     try:
         df = conn.read(worksheet=SCORES_SHEET, ttl=0 if force_refresh else 60)
@@ -188,7 +188,7 @@ def load_scores(force_refresh: bool = False):
         records = df.to_dict(orient="records")
         return [r for r in records if r.get("mode") == "sentence"] or []
     except Exception as e:
-        st.session_state.score_load_error = f"ランキングの取得に失敗しました: {e}"
+        st.session_state.score_load_error = f"랭킹을 불러오지 못했습니다: {e}"
         return []
 
 
@@ -218,7 +218,7 @@ def save_score(record: dict):
         conn.update(worksheet=SCORES_SHEET, data=updated)
         return True
     except Exception as e:
-        st.error(f"スコアの保存に失敗しました: {e}")
+        st.error(f"점수 저장에 실패했습니다: {e}")
         return False
 
 
@@ -258,16 +258,16 @@ def _update_stats(sheet_name: str, user: str, points: float, ts: str):
         except Exception as e:
             # シートが存在しない/ロックなどで失敗した場合、空シート作成を試みてから再挑戦
             try:
-                st.info(f"{sheet_name} シートを初期化します。")
+                st.info(f"{sheet_name} 시트를 초기화합니다.")
                 blank_df = pd.DataFrame(columns=expected_cols)
                 conn.update(worksheet=sheet_name, data=blank_df)
                 conn.update(worksheet=sheet_name, data=stats_df)
             except Exception as e2:
-                st.error(f"累積スコアの保存に失敗しました ({sheet_name})。シートの存在・権限・フィルタ/保護設定を確認してください: {type(e2).__name__}: {e2}")
+                st.error(f"누적 점수 저장에 실패했습니다 ({sheet_name}). 시트 존재 여부, 권한, 필터/보호 설정을 확인하세요: {type(e2).__name__}: {e2}")
                 return False
         return True
     except Exception as e:
-        st.error(f"累積スコアの保存に失敗しました ({sheet_name}): {type(e).__name__}: {e}")
+        st.error(f"누적 점수 저장에 실패했습니다 ({sheet_name}): {type(e).__name__}: {e}")
         return False
 
 
@@ -391,15 +391,15 @@ def show_rankings(stats_data, key_suffix: str = ""):
             st.rerun()
 
     totals, totals_today, totals_month, hof = summarize_rankings_from_stats(stats_data)
-    tabs = st.tabs(["累積", "本日", "今月", f"殿堂（{HOF_THRESHOLD}点以上）"])
+    tabs = st.tabs(["누적", "오늘", "이번 달", f"명예의 전당({HOF_THRESHOLD}점 이상)"])
 
     def to_df(d):
         if not d:
-            return pd.DataFrame(columns=["順位", "ユーザー", "得点"])
+            return pd.DataFrame(columns=["순위", "사용자", "점수"])
         items = sorted(d.items(), key=lambda x: x[1], reverse=True)
         data = []
         for i, (u, p) in enumerate(items, 1):
-            data.append({"順位": i, "ユーザー": u, "得点": f"{p:.1f}"})
+            data.append({"순위": i, "사용자": u, "점수": f"{p:.1f}"})
         return pd.DataFrame(data)
 
     with tabs[0]:
@@ -414,7 +414,7 @@ def show_rankings(stats_data, key_suffix: str = ""):
 
 def main():
     st.set_page_config(
-        page_title="エスペラント例文クイズ",
+        page_title="에스페란토 예문 퀴즈",
         page_icon="📘",
         layout="centered",
     )
@@ -457,7 +457,7 @@ def main():
     mobile_page_top_padding = "0.15rem" if ultra_compact_ui else ("0.35rem" if compact_ui else "0.9rem")
     mobile_page_bottom_padding = "0.2rem" if ultra_compact_ui else ("0.4rem" if compact_ui else "0.7rem")
     show_main_title = not (compact_ui and bool(st.session_state.get("questions")))
-    main_title_html = "<div class='main-title'>エスペラント例文４択クイズ</div>" if show_main_title else ""
+    main_title_html = "<div class='main-title'>에스페란토 예문 4지선다 퀴즈</div>" if show_main_title else ""
     mobile_chrome_css = (
         """
             header[data-testid="stHeader"] {display: none !important;}
@@ -494,7 +494,6 @@ def main():
             background-color: #005500 !important;
             border-color: #005500 !important;
         }}
-        /* 通常ボタンのボーダーなども緑系に */
         div.stButton > button[kind="secondary"] {{
             border-color: #009900 !important;
         }}
@@ -515,7 +514,6 @@ def main():
             text-align: center;
             padding: 12px;
         }}
-        /* ボタン内部のdiv/spanにも同じフォントサイズを強制 */
         .stButton button * {{
             font-size: {base_font} !important;
             font-weight: 700 !important;
@@ -664,16 +662,16 @@ def main():
 
     show_intro_block = not (compact_ui and bool(st.session_state.get("questions")))
     if show_intro_block:
-        st.write("トピック別の例文から4択で出題します。単語版よりも得点係数を約1.5倍に調整しています。")
-        with st.expander("スコア計算ルール"):
+        st.write("주제별 예문에서 4지선다로 출제합니다. 단어 버전보다 점수 계수를 약 1.5배로 조정했습니다.")
+        with st.expander("점수 계산 규칙"):
             st.markdown(
                 "\n".join(
                     [
-                        f"- 基礎点: レベル + 11.5（例: Lv5→16.5点）",
-                        f"- 連続正解ボーナス: 2問目以降の連続正解1回につき +{STREAK_BONUS * STREAK_BONUS_SCALE}",
-                        f"- 精度ボーナス: 最終正答率 × 問題数 × {ACCURACY_BONUS_PER_Q}",
-                        "- スパルタモード: 復習分は0.7倍で加算（精度ボーナスなし）",
-                        "- 同じ問題数なら単語版よりおおむね1.5倍スコアが伸びる想定です。",
+                        f"- 기본점: 레벨 + 11.5(예: Lv5→16.5점)",
+                        f"- 연속 정답 보너스: 2문제째부터 연속 정답 1회당 +{STREAK_BONUS * STREAK_BONUS_SCALE}",
+                        f"- 정확도 보너스: 최종 정답률 × 문제수 × {ACCURACY_BONUS_PER_Q}",
+                        "- 스파르타 모드: 복습 분량은 0.7배로 합산(정확도 보너스 없음)",
+                        "- 같은 문제수라면 단어 버전보다 약 1.5배 점수가 오르는 설정입니다.",
                     ]
                 )
             )
@@ -710,8 +708,8 @@ def main():
     groups = build_groups(df)
 
     with st.sidebar:
-        st.header("設定")
-        st.text_input("ユーザー名（表示用）", key="sentence_user_name")
+        st.header("설정")
+        st.text_input("사용자명(표시용)", key="sentence_user_name")
         topic_options = sorted(set(k[0] for k in groups.keys()))
         topic = st.selectbox("Topic", topic_options)
         subtopics = sorted([k[1] for k in groups.keys() if k[0] == topic])
@@ -720,66 +718,66 @@ def main():
         levels = list(range(1, 11))
         default_levels = [1, 2, 3, 4, 5]
         selected_levels = st.multiselect(
-            "出題レベル (1-10, 複数選択可)",
+            "출제 레벨 (1-10, 복수 선택 가능)",
             levels,
             default=default_levels,
         )
         direction = st.radio(
-            "出題方向",
-            options=[("ja_to_eo", "日本語 → エスペラント"), ("eo_to_ja", "エスペラント → 日本語")],
+            "출제 방향",
+            options=[("ja_to_eo", "한국어 → 에스페란토"), ("eo_to_ja", "에스페란토 → 한국어")],
             format_func=lambda x: x[1],
             index=0 if st.session_state.direction == "ja_to_eo" else 1,
         )[0]
         st.session_state.direction = direction
         st.checkbox(
-            "スパルタモード（全問後に間違えた問題だけ正解するまでランダム出題・得点0.7倍）",
+            "스파르타 모드(모든 문제 후 틀린 것만 정답할 때까지 무작위 출제 · 점수 0.7배)",
             key="spartan_mode",
             disabled=bool(st.session_state.questions),
         )
         st.checkbox(
-            "選択肢の音声を表示",
+            "선택지의 음성을 표시",
             value=st.session_state.show_option_audio,
             key="show_option_audio",
-            help="オフにすると選択肢ごとの音声プレイヤーを非表示にして軽量化します。",
+            help="OFF로 하면 선택지별 오디오 플레이어를 숨겨 가볍게 합니다.",
         )
         st.checkbox(
-            "スマホ最適化UI（設問+4択を1画面優先）",
+            "모바일 최적화 UI(문항+4지선다를 한 화면 우선)",
             key="mobile_compact_ui",
-            help="モバイルではON推奨。デスクトップ表示には影響しません。",
+            help="모바일에서는 ON 권장. 데스크톱 표시에는 영향이 없습니다.",
         )
         if st.session_state.mobile_compact_ui:
             st.checkbox(
-                "スマホ最適化時は選択肢の音声を自動で隠す",
+                "모바일 최적화 시 선택지 음성을 자동으로 숨기기",
                 key="compact_hide_option_audio",
-                help="問題文の音声は維持しつつ、選択肢ごとの音声表示だけ抑制して縦スクロールを減らします。",
+                help="문항 음성은 유지하고, 선택지별 음성만 숨겨 세로 스크롤을 줄입니다.",
             )
             st.checkbox(
-                "スマホ最適化時は問題文音声プレイヤーを隠す",
+                "모바일 최적화 시 문제문 음성 플레이어 숨기기",
                 key="compact_hide_prompt_audio",
-                help="設問+4択を1画面に収めやすくします。必要時のみOFFにして表示してください。",
+                help="문항+4지선다를 한 화면에 담기 쉽게 합니다. 필요할 때만 OFF로 바꿔 표시하세요.",
             )
             st.checkbox(
-                "超圧縮モード（小画面向け）",
+                "초압축 모드(소형 화면용)",
                 key="mobile_ultra_compact",
-                help="設問エリア・ボタンをさらに圧縮します。",
+                help="문항 영역과 버튼을 더 압축합니다.",
             )
             st.checkbox(
-                "スマホ時に上部メニュー類を隠す",
+                "모바일에서 상단 메뉴 숨기기",
                 key="mobile_hide_streamlit_chrome",
-                help="縦領域を増やします。通常操作に戻したい場合はOFFにしてください。",
+                help="세로 공간을 늘립니다. 원래대로 돌리려면 OFF로 바꾸세요.",
             )
-        st.caption("出題方向にかかわらず、音声はトグルONで選択肢に表示されます。モバイルで重い場合はOFF推奨。")
+        st.caption("출제 방향과 상관없이 토글을 켜면 선택지에 음성이 표시됩니다. 모바일에서 무거우면 OFF를 권장합니다.")
         st.caption(
-            f"端末判定: {'モバイル' if is_mobile else 'デスクトップ'} / "
-            f"最適化UI: {'ON' if st.session_state.mobile_compact_ui else 'OFF'}"
+            f"기기 판정: {'모바일' if is_mobile else '데스크톱'} / "
+            f"최적화 UI: {'ON' if st.session_state.mobile_compact_ui else 'OFF'}"
         )
 
-        if st.button("クイズ開始", use_container_width=True):
+        if st.button("퀴즈 시작", use_container_width=True):
             rng = random.Random()
             entries = groups.get((topic, subtopic), [])
             qs = build_questions(entries, selected_levels, rng)
             if len(qs) < 4:
-                st.warning("4問以上になるようにレベルを増やしてください。")
+                st.warning("4문제 이상이 되도록 레벨을 늘려주세요.")
             else:
                 st.session_state.questions = qs
                 st.session_state.q_index = 0
@@ -802,7 +800,7 @@ def main():
                 st.rerun()
 
         st.markdown("---")
-        if st.button("🏠 ホームに戻る", use_container_width=True, type="primary"):
+        if st.button("🏠 홈으로 돌아가기", use_container_width=True, type="primary"):
             st.session_state.questions = []
             st.session_state.q_index = 0
             st.session_state.correct = 0
@@ -824,7 +822,7 @@ def main():
 
         st.markdown("---")
         st.markdown(
-            "[💚 単語クイズはこちら](https://esperantowords4choicequizzes-bzgev2astlasx4app3futb.streamlit.app/)"
+            "[💚 단어 퀴즈는 여기](https://esperantowords4choicequizzes-korea-versio.streamlit.app/)"
         )
 
     # スコア読み込み
@@ -852,8 +850,8 @@ def main():
     if st.session_state.get("score_load_error"):
         col_warn, col_btn = st.columns([4, 1])
         col_warn.warning(st.session_state.score_load_error)
-        col_warn.caption("認証・通信エラー時のみ再試行してください。")
-        if col_btn.button("再読み込み", key="retry_scores_sentence"):
+        col_warn.caption("인증·통신 오류일 때만 다시 시도하세요.")
+        if col_btn.button("다시 불러오기", key="retry_scores_sentence"):
             st.cache_data.clear()
             st.session_state.cached_scores = load_scores(force_refresh=True)
             st.session_state.score_load_error = None
@@ -866,7 +864,7 @@ def main():
             user_total_sentence = sum(
                 r.get("points", 0) for r in scores if r.get("user") == st.session_state.sentence_user_name
             )
-            st.info(f"現在の累積（文章）: {user_total_sentence:.1f}")
+            st.info(f"현재 누적(예문): {user_total_sentence:.1f}")
             # 全体累積（UserStats優先、なければ全モードのログから集計）
             overall_points = None
             # クイズ中はネットアクセスを避け、キャッシュまたは空にする
@@ -896,9 +894,9 @@ def main():
                 overall_points = log_total_all
             else:
                 overall_points = max(overall_points, log_total_all)
-            st.info(f"現在の累積（全体）: {overall_points:.1f}")
+            st.info(f"현재 누적(전체): {overall_points:.1f}")
             if abs((log_total_sentence + log_total_vocab) - overall_points) > 0.5:
-                st.warning("累積（単語＋文章）と全体の合計に差分があります。少し時間をおいて再読み込みしてください。")
+                st.warning("누적(단어+예문)과 전체 합계에 차이가 있습니다. 잠시 후 다시 불러와 주세요.")
 
     questions = st.session_state.questions
     if questions:
@@ -919,19 +917,19 @@ def main():
             st.session_state.spartan_current_q_idx = None
             st.session_state.spartan_attempts = 0
             st.session_state.spartan_correct_count = 0
-            st.warning("問題データを再生成します。サイドバーで再度『クイズ開始』を押してください。")
+            st.warning("문제 데이터를 다시 생성합니다. 사이드바에서 다시 '퀴즈 시작'을 눌러주세요.")
             return
 
     if not questions:
-        st.info("サイドバーでトピック/サブトピックとレベルを選んで開始してください。")
-        st.caption("単語版に近い操作感で、例文の4択クイズを遊べます。")
+        st.info("사이드바에서 주제/하위 주제와 레벨을 선택해 시작하세요.")
+        st.caption("단어 버전과 비슷한 조작감으로 예문 4지선다 퀴즈를 즐길 수 있습니다.")
         sentence_rank = load_rankings()
         if sentence_rank:
-            st.subheader("ランキング")
+            st.subheader("랭킹(예문 전용)")
             show_rankings(sentence_rank, key_suffix="_sentence")
         main_rank = load_main_rankings()
         if main_rank:
-            st.subheader("ランキング（全体）")
+            st.subheader("랭킹(전체: 단어+예문)")
             show_rankings(main_rank, key_suffix="_main")
         return
 
@@ -960,9 +958,9 @@ def main():
         sp_accuracy = sp_correct / sp_attempts if sp_attempts else 0
         base_points = raw_main + raw_spartan_scaled
         points = base_points + acc_bonus
-        st.subheader("結果")
-        st.metric("正答率", f"{accuracy*100:.1f}%")
-        st.metric("得点", f"{points:.1f}")
+        st.subheader("결과")
+        st.metric("정답률", f"{accuracy*100:.1f}%")
+        st.metric("점수", f"{points:.1f}")
         if st.session_state.sentence_user_name:
             # 全体累積はUserStats優先、ログ合計を優先度2で使用
             overall_points = None
@@ -982,22 +980,22 @@ def main():
                 overall_points = log_total_all
             else:
                 overall_points = max(overall_points, log_total_all)
-            st.metric("累積（今回加算後）", f"{overall_points + points:.1f}")
-        st.caption("音声で再確認できます。")
-        st.write(f"正解 {st.session_state.correct}/{total}")
+            st.metric("누적(이번 반영 후)", f"{overall_points + points:.1f}")
+        st.caption("음성으로 다시 확인할 수 있습니다.")
+        st.write(f"정답 {st.session_state.correct}/{total}")
         st.write(
-            f"内訳: 本編 基礎+ストリーク {raw_main:.1f} / スパルタ {raw_spartan_scaled:.1f}（精度ボーナスなし・0.7倍込） / 精度ボーナス {acc_bonus:.1f}"
+            f"내역: 본편 기본+스트릭 {raw_main:.1f} / 스파르타 {raw_spartan_scaled:.1f}(정확도 보너스 없음·0.7배 포함) / 정확도 보너스 {acc_bonus:.1f}"
         )
         if st.session_state.spartan_mode and sp_attempts:
-            st.caption(f"スパルタモード: 復習分を通常の{SPARTAN_SCORE_MULTIPLIER*100:.0f}%で加算（精度ボーナスなし）")
-            st.caption(f"スパルタ精度: {sp_accuracy*100:.1f}% ({sp_correct}/{sp_attempts})")
+            st.caption(f"스파르타 모드: 복습분을 일반의{SPARTAN_SCORE_MULTIPLIER*100:.0f}%로 합산(정확도 보너스 없음)")
+            st.caption(f"스파르타 정확도: {sp_accuracy*100:.1f}% ({sp_correct}/{sp_attempts})")
         if st.session_state.sentence_user_name:
-            st.caption("同じユーザー名のスコアがある場合は累積に加算します。")
+            st.caption("같은 사용자명의 점수가 있으면 누적에 합산합니다.")
             if st.session_state.score_saved:
-                st.success("スコアを保存しました！")
+                st.success("점수를 저장했습니다!")
             else:
-                st.caption("保存するとランキングに反映されます。失敗したらもう一度お試しください。")
-                if st.button("スコアを保存", use_container_width=True):
+                st.caption("저장하면 랭킹에 반영됩니다. 실패하면 다시 시도해주세요.")
+                if st.button("점수 저장", use_container_width=True):
                     now = datetime.datetime.utcnow().isoformat()
                     record = {
                         "user": st.session_state.sentence_user_name,
@@ -1024,7 +1022,7 @@ def main():
                     }
                     log_saved = save_score(record)
                     if not log_saved:
-                        st.error("保存に失敗しました。secrets を確認してください。")
+                        st.error("저장에 실패했습니다. secrets 설정을 확인해주세요.")
                     else:
                         ok_sentence = update_user_stats(st.session_state.sentence_user_name, points, now)
                         ok_main = update_user_stats_main(st.session_state.sentence_user_name, points, now)
@@ -1032,10 +1030,10 @@ def main():
                             st.session_state.score_saved = True
                             st.rerun()
                         else:
-                            st.warning("スコアログは保存しましたが、累積スコアの反映に失敗しました。少し時間をおいて再試行してください。")
+                            st.warning("점수 로그는 저장했지만 누적 반영에 실패했습니다. 잠시 후 다시 시도해주세요.")
         recent = scores  # 既に読み込んだデータを再利用
         if recent:
-            with st.expander("最近のスコア（文章）", expanded=False):
+            with st.expander("최근 점수(예문)", expanded=False):
                 # 列順を軽く整える（存在する列のみ）
                 preferred_cols = [
                     "ts",
@@ -1065,13 +1063,13 @@ def main():
                 st.dataframe(df_recent, hide_index=True, use_container_width=True)
         ranking = load_rankings()
         if ranking:
-            st.subheader("ランキング")
+            st.subheader("랭킹(예문 전용)")
             show_rankings(ranking, key_suffix="_sentence")
         main_rank = load_main_rankings()
         if main_rank:
-            st.subheader("ランキング（全体）")
+            st.subheader("랭킹(전체: 단어+예문)")
             show_rankings(main_rank, key_suffix="_main")
-        st.subheader("復習")
+        st.subheader("복습")
         wrong = []
         correct_list = []
         for ans in st.session_state.answers:
@@ -1098,20 +1096,20 @@ def main():
                 wrong.append(entry)
 
         if wrong:
-            st.markdown("### 間違えた問題")
-            st.caption("音声で再確認できます。")
+            st.markdown("### 틀린 문제")
+            st.caption("음성으로 다시 확인할 수 있습니다.")
             for w in wrong:
                 st.write(f"- {w['prompt_ja']} / {w['prompt_eo']}")
-                st.write(f"　正解「{w['answer_ja']} / {w['answer']}」、あなたの回答「{w['selected_ja']} / {w['selected']}」")
-                play_phrase_audio(w["phrase_id"], w["answer"], autoplay=False, caption="🔊 発音を確認")
+                st.write(f"　정답「{w['answer_ja']} / {w['answer']}」、당신의 답변「{w['selected_ja']} / {w['selected']}」")
+                play_phrase_audio(w["phrase_id"], w["answer"], autoplay=False, caption="🔊 발음 확인")
         if correct_list:
-            st.markdown("### 正解した問題（確認用）")
-            st.caption("音声で確認だけできます。")
+            st.markdown("### 정답한 문제(확인용)")
+            st.caption("음성으로 확인만 가능합니다.")
             for c in correct_list:
                 st.write(f"- {c['prompt_ja']} / {c['prompt_eo']}: {c['answer_ja']} / {c['answer']}")
-                play_phrase_audio(c["phrase_id"], c["answer"], autoplay=False, caption="🔊 発音を確認")
+                play_phrase_audio(c["phrase_id"], c["answer"], autoplay=False, caption="🔊 발음 확인")
 
-        if st.button("同じ設定で再挑戦"):
+        if st.button("같은 설정으로 다시 도전"):
             st.session_state.q_index = 0
             st.session_state.correct = 0
             st.session_state.points_raw = 0.0
@@ -1152,25 +1150,24 @@ def main():
     else:
         prompt_text = question["prompt_ja"]
     compact_question_ui = bool(st.session_state.get("mobile_compact_ui", False))
-    title_prefix = "復習" if in_spartan else f"Q{q_idx+1}/{len(questions)}"
+    title_prefix = "복습" if in_spartan else f"Q{q_idx+1}/{len(questions)}"
     if in_spartan and not compact_question_ui:
-        st.caption(f"スパルタ復習 残り{len(st.session_state.spartan_pending)}問 / 全{len(questions)}問")
-        st.caption("間違えた問題のみをランダムに出題しています。正解でリストから消えます。")
+        st.caption(f"스파르타 복습 남은 {len(st.session_state.spartan_pending)}문제 / 총{len(questions)}문제")
+        st.caption("틀린 문제만 무작위로 출제합니다. 정답하면 목록에서 사라집니다.")
     question_box_cls = "question-box tight" if ultra_compact_ui else "question-box"
     st.markdown(
         f"<div class='{question_box_cls}'><h3 class='question-title'>{title_prefix}: {prompt_text}</h3></div>",
         unsafe_allow_html=True,
     )
-    # 進捗インジケータ（モバイルで邪魔にならない小サイズ）
     total_questions = len(questions)
     correct_so_far = st.session_state.correct
     remaining = len(st.session_state.spartan_pending) if in_spartan else max(total_questions - st.session_state.q_index, 0)
     if compact_question_ui:
         st.markdown(
             f"<div class='compact-progress'>"
-            f"正解 <strong>{correct_so_far}/{total_questions}</strong> ・ "
-            f"連続 <strong>{st.session_state.streak}回</strong> ・ "
-            f"残り <strong>{remaining}問</strong>"
+            f"정답 <strong>{correct_so_far}/{total_questions}</strong> ・ "
+            f"연속 <strong>{st.session_state.streak}회</strong> ・ "
+            f"남은 <strong>{remaining}문제</strong>"
             f"</div>",
             unsafe_allow_html=True,
         )
@@ -1187,9 +1184,9 @@ def main():
         col_left, _ = st.columns([2, 5], gap="small")
         with col_left:
             cols_prog = st.columns([1, 1, 1], gap="small")
-            cols_prog[0].markdown(f"<div class='mini-metrics'>正解数<br><strong>{correct_so_far}/{total_questions}</strong></div>", unsafe_allow_html=True)
-            cols_prog[1].markdown(f"<div class='mini-metrics'>連続正解<br><strong>{st.session_state.streak}回</strong></div>", unsafe_allow_html=True)
-            cols_prog[2].markdown(f"<div class='mini-metrics'>残り<br><strong>{remaining}問</strong></div>", unsafe_allow_html=True)
+            cols_prog[0].markdown(f"<div class='mini-metrics'>정답 수<br><strong>{correct_so_far}/{total_questions}</strong></div>", unsafe_allow_html=True)
+            cols_prog[1].markdown(f"<div class='mini-metrics'>연속 정답<br><strong>{st.session_state.streak}회</strong></div>", unsafe_allow_html=True)
+            cols_prog[2].markdown(f"<div class='mini-metrics'>남은 문제<br><strong>{remaining}문제</strong></div>", unsafe_allow_html=True)
     if direction == "eo_to_ja" and not st.session_state.showing_result:
         hide_prompt_audio = compact_question_ui and st.session_state.get("compact_hide_prompt_audio", True)
         if not hide_prompt_audio:
@@ -1197,12 +1194,12 @@ def main():
                 question["options"][question["answer_index"]]["phrase_id"],
                 question["options"][question["answer_index"]]["phrase"],
                 autoplay=True,
-                caption="🔊 発音を聞く（問題文・自動再生）",
+                caption="🔊 발음 듣기(문제문·자동 재생)",
                 instance=f"prompt-{q_idx}",
                 show_caption=not compact_question_ui,
             )
         elif compact_question_ui:
-            st.markdown("<div class='question-audio-hint'>🔇 問題文音声はスマホ最適化で非表示</div>", unsafe_allow_html=True)
+            st.markdown("<div class='question-audio-hint'>🔇 문제문 음성은 모바일 최적화에서 숨김</div>", unsafe_allow_html=True)
 
     if st.session_state.showing_result:
         if st.session_state.last_is_correct:
@@ -1214,10 +1211,10 @@ def main():
             correct_opt["phrase_id"],
             correct_opt["phrase"],
             autoplay=True,
-            caption="🔊 正解の発音（自動再生）",
+            caption="🔊 정답 발음(자동 재생)",
             instance=f"result-{q_idx}",
         )
-        if st.button("次へ", type="primary", use_container_width=True):
+        if st.button("다음", type="primary", use_container_width=True):
             if in_spartan:
                 st.session_state.showing_result = False
                 st.session_state.spartan_current_q_idx = None
@@ -1295,7 +1292,7 @@ def main():
             st.session_state.streak = 0
             correct_opt = question["options"][question["answer_index"]]
             correct_text = correct_opt["japanese"] if direction == "eo_to_ja" else correct_opt["phrase"]
-            st.session_state.last_result_msg = f"不正解。正解: {correct_text}"
+            st.session_state.last_result_msg = f"오답. 정답: {correct_text}"
             st.session_state.last_is_correct = False
             if st.session_state.spartan_mode and not in_spartan:
                 if current_q_idx not in st.session_state.spartan_pending:
