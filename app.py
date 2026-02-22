@@ -507,25 +507,25 @@ def main():
     direction_for_style = st.session_state.get("quiz_direction", "eo_to_ja")
     base_font = "18px" if direction_for_style == "eo_to_ja" else "24px"
     mobile_font = (
-        "14px"
+        "34px"
         if (ultra_compact_ui and direction_for_style == "eo_to_ja")
         else (
-            "16px"
+            "38px"
             if ultra_compact_ui
             else (
-                "15px"
+                "32px"
                 if (compact_ui and direction_for_style == "eo_to_ja")
-                else ("17px" if compact_ui else ("16px" if direction_for_style == "eo_to_ja" else "20px"))
+                else ("36px" if compact_ui else ("24px" if direction_for_style == "eo_to_ja" else "30px"))
             )
         )
     )
-    mobile_button_height = "54px" if ultra_compact_ui else ("60px" if compact_ui else "72px")
-    mobile_button_padding = "4px" if ultra_compact_ui else ("5px" if compact_ui else "6px")
+    mobile_button_height = "160px" if ultra_compact_ui else ("180px" if compact_ui else "200px")
+    mobile_button_padding = "10px" if ultra_compact_ui else ("12px" if compact_ui else "14px")
     mobile_main_title_font = "18px" if ultra_compact_ui else ("20px" if compact_ui else "24px")
     mobile_question_font = (
-        "17px"
+        "44px"
         if ultra_compact_ui
-        else ("19px" if compact_ui else ("20px" if direction_for_style == "ja_to_eo" else "22px"))
+        else ("50px" if compact_ui else ("56px" if direction_for_style == "ja_to_eo" else "60px"))
     )
     mobile_page_top_padding = "0.15rem" if ultra_compact_ui else ("0.35rem" if compact_ui else "0.9rem")
     mobile_page_bottom_padding = "0.2rem" if ultra_compact_ui else ("0.4rem" if compact_ui else "0.7rem")
@@ -641,17 +641,18 @@ def main():
                 margin-bottom: 0.45rem !important;
             }}
             .question-box.tight {{
-                max-height: 16dvh;
-                overflow-y: auto;
-                margin-bottom: 0.25rem;
-                padding-right: 2px;
+                max-height: none;
+                overflow: visible;
+                margin-bottom: 0.35rem;
+                padding-top: 0.35rem;
+                padding-right: 0;
             }}
             .question-box.tight .question-title {{
-                margin-top: 0 !important;
-                margin-bottom: 0 !important;
+                margin-top: 0.25rem !important;
+                margin-bottom: 0.2rem !important;
             }}
             .compact-progress {{
-                font-size: 12px;
+                font-size: 24px;
                 color: #0b6623;
                 margin: 0.1rem 0 0.3rem 0;
             }}
@@ -659,25 +660,25 @@ def main():
                 color: #0e8a2c;
             }}
             .question-audio-hint {{
-                font-size: 11px;
+                font-size: 22px;
                 color: #0b6623;
                 margin-bottom: 0.15rem;
             }}
         }}
         @media (max-width: 420px) {{
             .question-box.tight {{
-                max-height: 14dvh;
+                max-height: none;
             }}
             .stButton button {{
-                height: 52px !important;
-                min-height: 52px !important;
-                max-height: 52px !important;
-                padding: 4px !important;
-                font-size: 14px !important;
+                height: 132px !important;
+                min-height: 132px !important;
+                max-height: 132px !important;
+                padding: 8px !important;
+                font-size: 30px !important;
             }}
-            .stButton button p, .stButton button div, .stButton button span {{
-                font-size: 14px !important;
-                line-height: 1.25 !important;
+            .stButton button p, .stButton button div, .stButton button span, .stButton button * {{
+                font-size: 30px !important;
+                line-height: 1.3 !important;
             }}
         }}
         </style>
@@ -1226,7 +1227,7 @@ def main():
         st.markdown(
             """
             <style>
-            .mini-metrics {font-size: 12px; line-height: 1.2; margin-top: -4px; color: #0b6623;}
+            .mini-metrics {font-size: 24px; line-height: 1.2; margin-top: -4px; color: #0b6623;}
             .mini-metrics strong {font-size: 14px; color: #0e8a2c;}
             </style>
             """,
