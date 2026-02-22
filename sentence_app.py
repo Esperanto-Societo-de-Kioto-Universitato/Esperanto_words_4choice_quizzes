@@ -456,11 +456,24 @@ def main():
             )
         )
     )
-    mobile_button_height = "160px" if ultra_compact_ui else ("180px" if compact_ui else "200px")
-    mobile_button_padding = "10px" if ultra_compact_ui else ("12px" if compact_ui else "14px")
+    mobile_button_height = "148px" if ultra_compact_ui else ("168px" if compact_ui else "188px")
+    mobile_button_padding = "8px" if ultra_compact_ui else ("10px" if compact_ui else "12px")
     mobile_main_title_font = "18px" if ultra_compact_ui else ("20px" if compact_ui else "24px")
     mobile_question_font = (
-        "44px" if ultra_compact_ui else ("50px" if compact_ui else ("56px" if direction == "ja_to_eo" else "60px"))
+        "38px" if ultra_compact_ui else ("44px" if compact_ui else ("50px" if direction == "ja_to_eo" else "54px"))
+    )
+    mobile_option_font = (
+        "51px"
+        if (ultra_compact_ui and direction == "eo_to_ja")
+        else (
+            "57px"
+            if ultra_compact_ui
+            else (
+                "48px"
+                if (compact_ui and direction == "eo_to_ja")
+                else ("54px" if compact_ui else ("36px" if direction == "eo_to_ja" else "45px"))
+            )
+        )
     )
     mobile_page_top_padding = "0.15rem" if ultra_compact_ui else ("0.35rem" if compact_ui else "0.9rem")
     mobile_page_bottom_padding = "0.2rem" if ultra_compact_ui else ("0.4rem" if compact_ui else "0.7rem")
@@ -533,12 +546,12 @@ def main():
                 height: {mobile_button_height};
                 min-height: {mobile_button_height};
                 max-height: {mobile_button_height};
-                font-size: {mobile_font} !important;
+                font-size: {mobile_option_font} !important;
                 font-weight: 700 !important;
                 padding: {mobile_button_padding};
             }}
             .stButton button * {{
-                font-size: {mobile_font} !important;
+                font-size: {mobile_option_font} !important;
                 font-weight: 700 !important;
                 line-height: 1.35 !important;
             }}
@@ -607,14 +620,14 @@ def main():
                 max-height: none;
             }}
             .stButton button {{
-                height: 132px !important;
-                min-height: 132px !important;
-                max-height: 132px !important;
+                height: 124px !important;
+                min-height: 124px !important;
+                max-height: 124px !important;
                 padding: 8px !important;
-                font-size: 30px !important;
+                font-size: 45px !important;
             }}
             .stButton button p, .stButton button div, .stButton button span, .stButton button * {{
-                font-size: 30px !important;
+                font-size: 45px !important;
                 line-height: 1.3 !important;
             }}
         }}
@@ -1186,8 +1199,12 @@ def main():
         st.markdown(
             """
             <style>
-            .mini-metrics {font-size: 14px; line-height: 1.2; margin-top: 0; color: #0b6623;}
-            .mini-metrics strong {font-size: 16px; color: #0e8a2c;}
+            .mini-metrics {font-size: 24px; line-height: 1.2; margin-top: -4px; color: #0b6623;}
+            .mini-metrics strong {font-size: 14px; color: #0e8a2c;}
+            @media (max-width: 768px) {
+                .mini-metrics {font-size: 14px; margin-top: 0;}
+                .mini-metrics strong {font-size: 16px;}
+            }
             </style>
             """,
             unsafe_allow_html=True,
