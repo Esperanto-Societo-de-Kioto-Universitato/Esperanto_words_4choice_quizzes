@@ -1,0 +1,22 @@
+idx	Esperanto	Column	Old	New	Reason
+303	deputi	Korean_Trans	대표를선출하거나대리로임명하다	대표를 선출하거나 대리로 임명하다	공백 누락을 수정하여 의미를 명확화.
+309	devi	Chinese_Trans	必须	必须，应当；想必，一定	devi의 당위/추정 용법을 보완.
+309	devi	Korean_Trans	반드시 하다, 의무가 있다	…해야 한다, 의무가 있다; …임에 틀림없다	devi의 당위/추정 용법을 보완.
+318	dika	Korean_Trans	두꺼운	두꺼운, 굵은, 뚱뚱한	dika의 두꺼운/굵은/뚱뚱한 의미를 보완.
+339	doktoro	Korean_Trans	박사 학위를 소지한 사람	박사; (일반) 의사를 부르는 호칭	박사 + 일반적 의사 호칭 용법을 보완.
+345	doni	Chinese_Trans	给	给，给予；交给；带来	doni의 기본 동사 뜻을 확장 보완.
+346	dormi	Chinese_Trans	睡	睡；（转）休眠，沉睡	전의적 “휴면” 의미를 보완.
+346	dormi	Korean_Trans	잠을 자다	잠을 자다; (전) 휴면하다	전의적 “휴면” 의미를 보완.
+354	dum	Korean_Trans	어떤 일이 진행되는 동안의 시간	…하는 동안; …하는 한편	dum의 접속 용법을 명시.
+358	ebria	Korean_Trans	술취한	술에 취한; (전) 도취된	전의적 의미를 보완.
+361	efektiva	Chinese_Trans	实际，确实；正式	实际的，现实的；事实上的	efektiva의 핵심 의미로 정리.
+371	ekskursi	Chinese_Trans	远足	远足；（转）离题，旁逸	전의적 의미(옆길로 샘)를 보완.
+371	ekskursi	Korean_Trans	소풍가다	소풍 가다; (전) (이야기가) 옆길로 새다	전의적 의미를 보완.
+373	eksplodi	Korean_Trans	갑자기 폭발하거나 터지다	폭발하다, 파열하다; (전) 격분하다, 돌발하다	전의적 의미(격분/돌발)를 보완.
+374	ekspluati	Korean_Trans	남을 부당하게 이용해 이익을 얻다	개발하다, 활용하다; 착취하다, 혹사하다	ekspluati의 중립/부정 양 의미를 반영.
+377	ekster	Korean_Trans	…의밖에, 외부에	…의 밖에, …외에, …이외에	ekster의 “밖에/이외에” 용법을 보완.
+385	el	Chinese_Trans	从…中；出于	从…中，从…里出来；由…制成	el의 핵심 전치사 용법을 보완.
+386	elefanto	Chinese_Trans	象属动物	象，大象	불자연한 분류어형 표현을 자연화.
+390	elemento	Chinese_Trans	元素；成分；原理，初步	要素，成分；原理，基础；（化）元素；自然力，环境	elemento의 다의성을 JA에 맞춰 보완.
+393	eminenta	Chinese_Trans	卓越，杰出；优质，优良	卓越的，杰出的；高位的，著名的	eminenta의 의미를 정확화.
+396	enigmo	Chinese_Trans	谜语	谜语；（转）难解之物	전의적 의미(불가해한 것)를 보완.

@@ -1,0 +1,44 @@
+Batch	PhraseID	Column	EO	RU	Expected	Current	MatchedExpected	ReverseJudgement	Notes
+2	287	한국어	Pardonu, sed ĝi estas la lasta	Извините, но это последний.	죄송하지만, 이게 마지막이에요.	죄송하지만, 이게 마지막이에요.	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+4	456	日本語	Parolu kun mi en la mandarena ĉina lingvo	Говорите со мной на мандаринском диалекте китайского.	標準中国語（マンダリン）で話してください。	標準中国語（マンダリン）で話してください。	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+4	456	中文	Parolu kun mi en la mandarena ĉina lingvo	Говорите со мной на мандаринском диалекте китайского.	请用普通话和我交流。	请用普通话和我交流。	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+4	456	한국어	Parolu kun mi en la mandarena ĉina lingvo	Говорите со мной на мандаринском диалекте китайского.	저와 표준 중국어(만다린)로 대화해 주세요.	저와 표준 중국어(만다린)로 대화해 주세요.	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+5	582	한국어	Mi malamas vin	Я тебя ненавижу.	당신을 미워해요.	당신을 미워해요.	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+5	630	中文	Bonvolu teni la pordon malfermitan por mi	Пожалуйста, придержите дверь открытой для меня.	请帮我把门扶着开着。	请帮我把门扶着开着。	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+6	661	日本語	Vi malpravas	Ты не прав.	あなたは間違っています。	あなたは間違っています。	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+7	803	한국어	Oni enrompis mian aŭton	Мою машину вскрыли.	제 차에 누가 침입했어요.	제 차에 누가 침입했어요.	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+7	821	한국어	Vi devus turni vin al la perditaĵejo	Вам следовало бы обратиться в бюро находок.	분실물 보관소를 확인해 보세요.	분실물 보관소를 확인해 보세요.	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+7	827	한국어	Ĉu vi turniĝis al la perditaĵejo?	Вы обращались в бюро находок?	분실물 보관소를 확인해 보셨나요?	분실물 보관소를 확인해 보셨나요?	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+8	877	中文	Ĉu mi povas prezenti al vi mian fianĉon?	Могу я представить вам своего жениха?	我可以向你介绍一下我的未婚夫吗？	我可以向你介绍一下我的未婚夫吗？	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+9	1025	日本語	Vi estas tre ĉarma	Ты очень милая.	とても魅力的ですね。	とても魅力的ですね。	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+9	1025	中文	Vi estas tre ĉarma	Ты очень милая.	你非常有魅力。	你非常有魅力。	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+9	1025	한국어	Vi estas tre ĉarma	Ты очень милая.	당신은 정말 매력적이네요.	당신은 정말 매력적이네요.	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+10	1102	日本語	Mi vere malamas picon	Я просто ненавижу пиццу.	ピザが本当に嫌いです。	ピザが本当に嫌いです。	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+11	1235	中文	Mi enamiĝis al vi	Я в тебя влюблён.	我爱上你了。	我爱上你了。	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+11	1235	한국어	Mi enamiĝis al vi	Я в тебя влюблён.	당신에게 반했어요.	당신에게 반했어요.	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+12	1325	日本語	Donu al mi la liniilon	Дай мне линейку.	定規をください。	定規をください。	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+12	1325	한국어	Donu al mi la liniilon	Дай мне линейку.	자를 주세요.	자를 주세요.	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+13	1381	日本語	Mi estas studento ĉe la Arta Fakultato	Я студент факультета искусств.	私は芸術学部の学生です。	私は芸術学部の学生です。	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+13	1381	中文	Mi estas studento ĉe la Arta Fakultato	Я студент факультета искусств.	我是艺术学院的学生。	我是艺术学院的学生。	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+14	1540	한국어	Por kiu vi laboras?	На кого ты работаешь?	어느 기관에서 일하시나요?	어느 기관에서 일하시나요?	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+16	1738	中文	Mi estas tre dankema pro via propono	Я очень благодарен за ваше предложение.	非常感谢您的提议。	非常感谢您的提议。	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+17	1790	한국어	Kiom malproksime de ĉi tie estas la plaĝo?	Как далеко отсюда до пляжа?	여기서 해변까지 거리가 얼마나 되나요?	여기서 해변까지 거리가 얼마나 되나요?	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+25	2638	한국어	Por du noktoj	На две ночи.	2박입니다.	2박입니다.	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+25	2653	한국어	Mi restos 2 noktojn	Я пробуду 2 ночи.	2박 머물 예정이에요.	2박 머물 예정이에요.	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+26	2738	한국어	Bonvolu lavi ĉi tiujn aferojn	Пожалуйста, постирайте эти вещи.	이것들을 세탁해 주세요.	이것들을 세탁해 주세요.	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+27	2812	日本語	La seruro estas rompita	Замок сломан.	ドアの錠が壊れています。	ドアの錠が壊れています。	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+28	2860	한국어	Ĉu estas vazaro?	Есть посуда?	식기류가 있나요?	식기류가 있나요?	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+28	2945	中文	Ĉu mi povas proponi al vi trinkaĵon?	Я могу предложить вам напиток?	要给您来点饮料吗？	要给您来点饮料吗？	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+31	3197	한국어	Faru ĝin duobla, mi petas	Сделайте двойной, пожалуйста.	더블로 해 주세요.	더블로 해 주세요.	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+32	3337	한국어	Li ŝatas fazeolan supon	Ему нравится фасолевый суп.	그는 콩 수프를 좋아해요.	그는 콩 수프를 좋아해요.	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+33	3363	日本語	Ĉu vi manĝas dolĉajn bulkojn por matenmanĝo?	Ты ешь сдобные булочки на завтрак?	朝食に甘い菓子パンを食べますか？	朝食に甘い菓子パンを食べますか？	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+33	3363	中文	Ĉu vi manĝas dolĉajn bulkojn por matenmanĝo?	Ты ешь сдобные булочки на завтрак?	你早餐会吃甜面包吗？	你早餐会吃甜面包吗？	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+34	3539	한국어	Bonvolu montri al mi alian	Пожалуйста, покажите мне другой.	다른 것 하나 보여주세요.	다른 것 하나 보여주세요.	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+35	3617	한국어	Ĉu vi havas arĝentan manĝilaron kun tia desegno?	У вас есть столовое серебро с таким узором?	그 무늬의 은 식기류가 있나요?	그 무늬의 은 식기류가 있나요?	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+36	3671	日本語	Kio estas en tiuj ĉi ĉokoladaj bombonoj?	Что внутри этих шоколадных конфет?	そのチョコレート菓子には何が入っていますか？	そのチョコレート菓子には何が入っていますか？	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+36	3671	中文	Kio estas en tiuj ĉi ĉokoladaj bombonoj?	Что внутри этих шоколадных конфет?	那些巧克力糖果里有什么？	那些巧克力糖果里有什么？	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+36	3671	한국어	Kio estas en tiuj ĉi ĉokoladaj bombonoj?	Что внутри этих шоколадных конфет?	그 초콜릿 사탕에는 뭐가 들어 있나요?	그 초콜릿 사탕에는 뭐가 들어 있나요?	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+41	4255	한국어	Ĉu elekti alian servon?	Выбрать другую услугу?	다른 서비스를 선택하시겠어요?	다른 서비스를 선택하시겠어요?	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+42	4347	日本語	Ĉu vi volas novkonstruitan aŭ duamanan posedaĵon?	Вы хотите новостройку или вторичную недвижимость?	新築物件と中古物件、どちらをご希望ですか？	新築物件と中古物件、どちらをご希望ですか？	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+42	4347	中文	Ĉu vi volas novkonstruitan aŭ duamanan posedaĵon?	Вы хотите новостройку или вторичную недвижимость?	你想要新房还是二手房？	你想要新房还是二手房？	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.
+42	4347	한국어	Ĉu vi volas novkonstruitan aŭ duamanan posedaĵon?	Вы хотите новостройку или вторичную недвижимость?	신축 부동산을 원하시나요, 아니면 중고 매물을 원하시나요?	신축 부동산을 원하시나요, 아니면 중고 매물을 원하시나요?	YES	PASS	EO-RU-JA/ZH/KO aligned; no clear semantic drift in reverse check.

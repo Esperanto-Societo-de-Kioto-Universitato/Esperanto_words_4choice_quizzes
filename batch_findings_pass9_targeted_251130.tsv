@@ -1,0 +1,7 @@
+PhraseID	TopicName_EN	SubtopicName_EN	Esperanto	Русский язык	Column	Old	New	Decision	Reason
+4978	Communication Means	Letter	Mi antaŭĝojas diskuti tion kun vi	С нетерпением жду возможности обсудить это с вами.	한국어	이 내용을 여러분과 논의할 수 있기를 기대합니다.	이 내용을 함께 논의할 수 있기를 기대합니다.	FIX	EO has singular "kun vi" (with you); KO used plural addressee (여러분). Neutral singular-compatible wording restored.
+5097	Time & Weather	Weather	Estas glacie kaj glite	Очень холодно.	日本語	凍っている。	路面が凍って滑りやすいです。	FIX	EO means both icy and slippery (glacie kaj glite); JA previously only said "frozen".
+5097	Time & Weather	Weather	Estas glacie kaj glite	Очень холодно.	中文	地面结冰了。	路面结冰而且很滑。	FIX	EO means both icy and slippery; ZH previously only said "frozen".
+5097	Time & Weather	Weather	Estas glacie kaj glite	Очень холодно.	한국어	얼음이 얼었어요.	길이 얼어서 미끄러워요.	FIX	EO means both icy and slippery; KO previously said only "ice formed".
+5117	Time & Weather	Weather	Fulmas	Сверкает молния.	日本語	雷が鳴っています。	稲妻が光っています。	FIX	EO fulmas = lightning; JA previously shifted to thunder sound (雷が鳴る).
+5117	Time & Weather	Weather	Fulmas	Сверкает молния.	中文	正在打雷。	正在打闪。	FIX	EO fulmas = lightning; ZH previously shifted to thunder (打雷).

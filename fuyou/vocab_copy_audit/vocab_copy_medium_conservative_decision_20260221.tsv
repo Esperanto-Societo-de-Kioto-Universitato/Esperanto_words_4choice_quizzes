@@ -1,0 +1,12 @@
+row	esperanto	column	current	baseline_old	decision	confidence	overcorrection_risk	notes	optional_suggestion
+56	afero	Chinese_Trans	事情，事务，案件	事情；事务；案件；【法】诉讼事件；【商】交易	keep_as_is	high	high	現訳は核心義として成立。旧訳は語義拡張版。誤訳断定までは不可。	事情，事务，案件；（法）诉讼事件；（商）交易
+257	cemento	Chinese_Trans	水泥，接合剂	水泥；接合剂；（牙科）黏固剂；（地质）胶结物	keep_as_is	high	high	現訳は主義として自然。専門語義の削減はあるが誤訳ではない。	水泥；接合剂；（牙科）黏固剂；（地质）胶结物
+732	kapo	Chinese_Trans	头，头部	头；头脑；（量词）人/头；先端；领导人	keep_as_is	high	high	基本義は正しい。派生義削減のみ。	头；头脑；（量词）人/头；先端；领导者
+1171	nodo	Chinese_Trans	结，交点	结；交点；要点；节；【理】波节；【海】节（速度单位）；（计）节点	keep_as_is	high	high	基本義は正しい。多義語の一部省略。	结；交点；要点；（计）节点
+1218	ordo	Chinese_Trans	次序，秩序	次序；秩序；【军】队形；【建】柱式；【生物】目	keep_as_is	high	high	基本義は正しい。専門語義省略。	次序；秩序；【军】队形；【建】柱式；【生物】目
+1901	ĉapelo	Korean_Trans	테 있는 모자	테가 있는 모자；（버섯） 갓；（기호） 서컴플렉스（^）	keep_as_is	medium	high	帽子義として自然。追加義（버섯 갓, ^）は補足レベル。	테 있는 모자; (버섯) 갓; (기호) 서컴플렉스(^)
+2695	meĥaniko	Chinese_Trans	力学	同mekaniko（力学；机械学）	keep_as_is	high	high	力学は meĥaniko の中核義。旧訳は注記付き拡張。	同 mekaniko；力学；机械学
+2696	meĥanismo	Chinese_Trans	机械装置	同mekanismo（机械装置；机构）	keep_as_is	medium	high	机械装置は成立。机构義追加は任意拡張。	同 mekanismo；机械装置；机构
+1682	super	Chinese_Trans	在…上方	在…上方（不接触下方物体）；高（超）过；专注于	optional_expand_only	medium	medium	誤訳ではないが、super の比較義・超過義が落ちる。	在…上方；高于；超过
+1959	ŝelo	Chinese_Trans	皮层，树皮	皮层，树皮；壳，果壳，外壳；（海）船体；（空）机身；（计）命令解释器（shell）	optional_expand_only	medium	medium	現訳は「树皮」に寄りすぎ。一般の「壳/外壳」を足すと自然。	皮层，树皮；壳；外壳
+2391	ĝiri	Korean_Trans	계좌 이체하다	어음·수표를 배서하거나 계좌로 이체하다	optional_expand_only	medium	medium	현행은 송금 의미 중심. 상업문맥의 배서 의미를 더하면 완전도 상승.	어음·수표를 배서하다; 계좌 이체하다

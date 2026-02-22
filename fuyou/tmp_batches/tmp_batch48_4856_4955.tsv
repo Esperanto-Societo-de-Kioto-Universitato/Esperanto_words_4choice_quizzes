@@ -1,0 +1,101 @@
+PhraseID	TopicName_EN	SubtopicName_EN	Esperanto	English	日本語	中文	한국어	Русский язык
+4856	Communication Means	Phone Calls at Work	Ĉu vi ŝatus lasi mesaĝon?	Would you like to leave a message?	メッセージをお残しになりますか？	您需要留言吗？	메시지를 남기시겠습니까?	Вы бы хотели оставить сообщение?
+4857	Communication Means	Phone Calls at Work	Bonvolu revoki morgaŭ	Please call again tomorrow.	恐れ入りますが、また明日お電話いただけますでしょうか。	请明天再打电话。	내일 다시 전화해 주세요.	Пожалуйста, перезвоните завтра.
+4858	Communication Means	Phone Calls at Work	Pardonu pro la ĝeno	I'm sorry for troubling you.	ご迷惑をおかけして申し訳ありません。	不好意思，给您添麻烦了。	불편을 드려 죄송합니다.	Прошу прощения за беспокойство.
+4859	Communication Means	Phone Calls at Work	Atendu la signalon kaj komponu la numeron	Wait for the signal and dial the number.	合図があったら番号をダイヤルしてください。	等待信号后拨打号码。	신호를 기다렸다가 번호를 누르세요.	Дождитесь сигнала и наберите номер.
+4860	Communication Means	Phone Calls at Work	El kiu kompanio vi telefonas?	What company are you calling from?	どちらの会社からお電話いただいていますか？	请问您是哪个公司打来的？	어느 회사에서 전화하셨나요?	Из какой компании вы звоните?
+4861	Communication Means	Phone Calls at Work	Mi provis telefoni al ŝi, sed ne sukcesis	I tried to call her but couldn't get through.	彼女に電話をかけてみましたが、つながりませんでした。	我试着给她打电话，但一直打不通。	제가 그녀에게 전화해봤지만 연결되지 않았어요.	Я пытался позвонить ей, но у меня не получилось.
+4862	Communication Means	Phone Calls at Work	Ĉu vi havas telefonlibron?	Have you got a telephone directory?	電話帳をお持ちですか？	你有电话簿吗？	전화번호부 있으신가요?	У вас есть телефонный справочник?
+4863	Communication Means	Phone Calls at Work	La numero ne estas en la telefonlibro	The number is ex-directory.	その番号は非公開です。	该号码为非公开号码。	해당 번호는 공개되지 않은 번호입니다.	Этого номера нет в справочнике.
+4864	Communication Means	Phone Calls at Work	Ĉu vi scias lian internumeron?	Do you know what extension he's on?	彼の内線番号、分かりますか？	你知道他的分机号是多少吗？	그 사람이 내선번호가 몇 번인지 아세요?	Вы знаете его добавочный?
+4865	Communication Means	Phone Calls at Work	Bonvolu konekti min al interna numero 212	Give me extension 212, please.	内線212番をお願いします。	请帮我接212分机，谢谢。	212번 내선으로 연결해 주세요.	Соедините меня с добавочным 212, пожалуйста.
+4866	Communication Means	Phone Calls at Work	Ĉu estas oportune por vi paroli nun?	Is it convenient to talk at the moment?	今、お話ししても大丈夫でしょうか？	现在方便说话吗？	지금 통화해도 괜찮으신가요?	Вам удобно сейчас разговаривать?
+4867	Communication Means	Phone Calls at Work	Pardonu, ŝi parolas per alia linio	I'm sorry, she's on another call.	申し訳ありませんが、ただいま別の電話に出ております。	很抱歉，她正在接听另一个电话。	죄송하지만, 지금 다른 전화를 받고 계십니다.	Извините, она говорит по другой линии.
+4868	Communication Means	Phone Calls at Work	Ĉu mi povus noti vian nomon kaj numeron, mi petas?	Could I take your name and number, please?	お名前とお電話番号をお伺いしてもよろしいでしょうか。	请问您能留下您的姓名和电话号码吗？	성함과 연락처를 알려주실 수 있으신가요?	Я могла бы записать ваше имя и номер, пожалуйста?
+4869	Communication Means	Phone Calls at Work	Bonvolu meti la aŭdilon kaj telefoni denove	Please ring off and call again.	一度電話を切って、もう一度おかけ直しください。	请挂断电话后重新拨打。	전화를 끊고 다시 걸어주세요.	Пожалуйста, положите трубку и перезвоните снова.
+4870	Communication Means	Phone Calls at Work	Pardonu, li momente ne estas disponebla	I'm sorry, he's not available at the moment.	申し訳ありませんが、ただいま彼は席を外しております。	很抱歉，他现在不方便接听。	죄송하지만, 지금은 자리에 계시지 않습니다.	Извините, в настоящий момент он отсутствует.
+4871	Communication Means	Phone Calls at Work	Je kioma horo li estas atendata reveni?	What time is he expected back?	彼は何時ごろ戻る予定ですか？	他预计什么时候回来？	그는 몇 시에 돌아올 예정인가요?	Во сколько он должен вернуться?
+4872	Communication Means	Phone Calls at Work	Ĉu mi povus revoki vin post kelkaj minutoj?	Could I call you back in a few minutes?	少ししたらかけ直してもよろしいですか？	我可以几分钟后再给你回电吗？	잠시 후에 다시 전화드려도 될까요?	Я могла бы перезвонить вам через несколько минут?
+4873	Communication Means	Mass Media	Jen mia retpoŝtadreso	Here's my e-mail.	こちらが私のメールアドレスです。	这是我的邮箱。	여기에 제 이메일이 있습니다.	Вот мой адрес электронной почты.
+4874	Communication Means	Mass Media	Ĉu mi povas aliri Skajpon?	Can I access Skype?	Skypeを利用できますか？	我可以使用Skype吗？	Skype에 접속할 수 있나요?	Я могу получить доступ к Skype?
+4875	Communication Means	Mass Media	Kio estas via uzantonomo?	What's your username?	あなたのユーザー名は何ですか？	你的用户名是什么？	사용자 이름이 무엇인가요?	Какое у тебя имя пользователя?
+4876	Communication Means	Mass Media	Kiom por horo?	How much per hour?	1時間あたりいくらですか？	每小时多少钱？	시간당 요금이 얼마인가요?	Сколько в час?
+4877	Communication Means	Mass Media	Kio estas hodiaŭ en la televido?	What's on TV today?	今日はテレビで何がやってる？	今天电视上有什么节目？	오늘 TV에서는 어떤 프로그램이 방영되나요?	Что сегодня по телевизору?
+4878	Communication Means	Mass Media	Muzikalo	A musical.	ミュージカル	音乐剧	뮤지컬	Музыкальное шоу.
+4879	Communication Means	Mass Media	Programo por infanoj	A children's show.	子ども向け番組	儿童节目	어린이 프로그램	Программа для детей.
+4880	Communication Means	Mass Media	Plilaŭtigu, bonvolu	Turn up the volume, please.	音量を上げてください。	请把音量调大一点。	볼륨을 높여 주세요.	Сделай погромче, пожалуйста.
+4881	Communication Means	Mass Media	Mallaŭtigu, bonvolu	Turn down the volume, please.	音量を下げてください。	请把音量调低一点。	볼륨을 줄여 주세요.	Сделай потише, пожалуйста.
+4882	Communication Means	Mass Media	La gazeton Times, mi petas	The Times newspaper, please.	タイムズ紙をお願いします。	请给我一份泰晤士报。	타임스 신문 주세요.	Газету Таймс, пожалуйста.
+4883	Communication Means	Mass Media	Ĝi ankoraŭ ne alvenis	It hasn't arrived yet.	まだ届いていません。	还没有到。	아직 도착하지 않았어요.	Она ещё не пришла.
+4884	Communication Means	Mass Media	Ĉu mi povus kontroli mian retpoŝton?	Could I check my e-mail?	メールを確認してもよろしいでしょうか。	我可以查收一下我的邮件吗？	이메일을 확인해도 될까요?	Я могу проверить электронную почту?
+4885	Communication Means	Mass Media	Kiel mi ensalutu?	How do I log on?	どうやってログインすればいいですか？	我该如何登录？	로그인하려면 어떻게 해야 하나요?	Как мне войти в систему?
+4886	Communication Means	Mass Media	Kiel mi elsalutu?	How do I log off?	ログアウトするにはどうすればいいですか？	我该如何注销？	로그아웃하려면 어떻게 해야 하나요?	Как мне выйти из системы?
+4887	Communication Means	Mass Media	Kiel mi konektiĝu al la interreto?	How do I connect to the internet?	インターネットに接続するにはどうすればいいですか？	我该如何连接到互联网？	인터넷에 어떻게 연결하나요?	Как мне подключиться к интернету?
+4888	Communication Means	Mass Media	Vi povas skribi al mi retmesaĝon	You can write me an e-mail.	メールを送っていただいても大丈夫です。	你可以给我发邮件。	저에게 이메일을 보내실 수 있습니다.	Ты можешь написать мне письмо по электронной почте.
+4889	Communication Means	Mass Media	Kiu estas via retpoŝtadreso?	What's your e-mail?	メールアドレスを教えていただけますか？	你的邮箱是多少？	이메일 주소가 어떻게 되시나요?	Какой у тебя адрес электронной почты?
+4890	Communication Means	Mass Media	Mia retpoŝtadreso estas name@example.com	My e-mail is name@example.com.	私のメールアドレスは name@example.com です。	我的邮箱是name@example.com。	제 이메일 주소는 name@example.com입니다.	Мой адрес name@example.com.
+4891	Communication Means	Mass Media	Ĉu vi estas en Facebook?	Are you on Facebook?	フェイスブックを使っていますか？	你有在用Facebook吗？	페이스북 하세요?	Ты есть на Facebook?
+4892	Communication Means	Mass Media	Mi aldonos vin kiel amikon	I'll add you as a friend.	友達に追加します。	我加你为好友。	제가 친구로 추가할게요.	Я добавлю тебя в друзья.
+4893	Communication Means	Mass Media	Legu ĉi tiun ekskluzivan rakonton	Read this exclusive story.	この特別な記事をお読みください。	阅读这篇独家报道。	이 특별한 이야기를 읽어보세요.	Прочитай этот эксклюзив.
+4894	Communication Means	Mass Media	Bone. Mi legos ĝin poste	OK. I'll read it later.	わかりました。後で読んでおきます。	好的，我待会儿再看。	알겠어요. 나중에 읽을게요.	Хорошо. Я прочитаю позже.
+4895	Communication Means	Mass Media	Ĉu plaĉas al vi la reklamoj?	Do you like the ads?	この広告はお好きですか？	你喜欢这些广告吗？	광고가 마음에 드시나요?	Тебе нравится реклама?
+4896	Communication Means	Mass Media	La bildo estas malklara	The image is vague.	画像がぼやけています。	图像模糊不清。	이미지가 흐릿합니다.	Изображение нечёткое.
+4897	Communication Means	Mass Media	Bonvolu ŝanĝi la kanalon	Change the channel, please.	チャンネルを変えてください。	请换个频道。	채널을 바꿔 주세요.	Переключи канал, пожалуйста.
+4898	Communication Means	Mass Media	Kie mi povas konekti mian tekkomputilon?	Where can I plug in my laptop?	ノートパソコンを充電できる場所はどこですか？	我可以在哪里给笔记本电脑插电？	노트북을 어디에 연결할 수 있나요?	Где я могу подключить свой ноутбук?
+4899	Communication Means	Mass Media	Kiel mi ŝaltas la komputilon?	How do I turn on the computer?	パソコンの電源はどうやって入れればいいですか？	我该如何开机？	컴퓨터 전원을 어떻게 켜나요?	Как мне включить компьютер?
+4900	Communication Means	Mass Media	Kiel mi tajpu ĉi tiun simbolon?	How do I type this symbol?	この記号はどうやって入力しますか？	这个符号怎么输入？	이 기호는 어떻게 입력하나요?	Как мне напечатать этот символ?
+4901	Communication Means	Mass Media	Mi ŝatus sendi mesaĝon per retpoŝto	I'd like to send a message by e-mail.	メールでメッセージを送りたいです。	我想通过电子邮件发送一条消息。	이메일로 메시지를 보내고 싶어요.	Я бы хотела отправить письмо по электронной почте.
+4902	Communication Means	Mass Media	Ĉu vi sekvas min en Tvitero?	Are you following me on Twitter?	私のTwitterをフォローしていますか？	你在关注我的推特吗？	저를 트위터에서 팔로우하고 계신가요?	Вы подписаны на меня в Твиттере?
+4903	Communication Means	Mass Media	Kiu programo estas la plej instrua?	Which programme is the most instructive?	どの番組が一番ためになりますか？	哪个节目最有教育意义？	어떤 프로그램이 가장 유익한가요?	Какая программа самая познавательная?
+4904	Communication Means	Mass Media	Mi ŝatas spekti usonan futbalon	I like watching American football.	アメリカンフットボールを観るのが好きです。	我喜欢看美式橄榄球。	저는 미식축구 보는 것을 좋아해요.	Мне нравится смотреть американский футбол.
+4905	Communication Means	Mass Media	Ĉu vi legis la novaĵojn hodiaŭ?	Have you read the news today?	今日のニュースはもう見ましたか？	你今天看新闻了吗？	오늘 뉴스 보셨나요?	Ты сегодня читала новости?
+4906	Communication Means	Mass Media	Mi havis tempon nur por legi la titolojn	I only had time to read the headlines.	見出しに目を通す時間しかありませんでした。	我只来得及看了下标题。	저는 제목만 볼 시간이 있었어요.	У меня было время только прочитать заголовки.
+4907	Communication Means	Mass Media	Kiom ofte aperas ĉi tiu gazeto?	How often does this newspaper come out?	この新聞はどのくらいの頻度で発行されていますか？	这份报纸多久出版一次？	이 신문은 얼마나 자주 발행되나요?	Как часто выходит эта газета?
+4908	Communication Means	Mass Media	Ĝi estas gazeto kun granda eldonnombro	It's a newspaper with a wide circulation.	発行部数の多い新聞です。	这是一份发行量很大的报纸。	그것은 발행 부수가 많은 신문이에요.	Это газета с большим тиражом.
+4909	Communication Means	Mass Media	Kiu skribis ĉi tiun artikolon?	Who wrote this article?	この記事を書いたのは誰ですか。	这篇文章是谁写的？	이 기사는 누가 썼나요?	Кто написал эту статью?
+4910	Communication Means	Mass Media	La kritikistoj estis tre severaj pri ĉi tiu artikolo	The critics were very hard on this article.	批評家たちはこの記事に非常に厳しかった。	评论家对这篇文章评价得非常严厉。	평론가들은 이 기사에 대해 매우 혹독하게 평가했어요.	Критики очень резко отозвались об этой статье.
+4911	Communication Means	Mass Media	Ĉu vi ŝatas aŭskulti la radion?	Do you enjoy listening to the radio?	ラジオを聴くのは好きですか？	你喜欢听广播吗？	라디오 듣는 것을 즐기시나요?	Тебе нравится слушать радио?
+4912	Communication Means	Mass Media	Mi aŭskultas radion survoje al la laboro	I listen to the radio on the way to work.	通勤中にラジオを聴いています。	上班路上我会听广播。	저는 출근길에 라디오를 들어요.	Я слушаю радио по дороге на работу.
+4913	Communication Means	At the Post Office	Kie estas la poŝtoficejo?	Where's the post office?	郵便局はどこですか？	邮局在哪里？	우체국이 어디에 있나요?	Где находится почта?
+4914	Communication Means	At the Post Office	Kiu sendis ĉi tiun leteron?	Who sent this letter?	この手紙を送ったのは誰ですか。	这封信是谁寄的？	이 편지는 누가 보냈나요?	Кто отправил это письмо?
+4915	Communication Means	At the Post Office	Kie estas la poŝtkesto?	Where's the postbox?	ポストはどこですか？	邮筒在哪里？	우체통이 어디에 있나요?	Где почтовый ящик?
+4916	Communication Means	At the Post Office	Mi ŝatus pagi ĉi tiun fakturon	I'd like to pay this bill.	この請求書を支払いたいです。	我想支付这张账单。	이 청구서를 납부하고 싶어요.	Я бы хотел оплатить этот счёт.
+4917	Communication Means	At the Post Office	Mi ŝatus koverton, mi petas	I'd like an envelope, please.	封筒を一枚いただけますか。	请给我一个信封。	봉투 하나 주세요.	Я бы хотела конверт, пожалуйста.
+4918	Communication Means	At the Post Office	Mi ŝatus vatitan koverton, bonvolu	I'd like a jiffy bag, please.	ジフィーバッグをお願いします。	请给我一个气泡信封。	에어캡 봉투 하나 주세요.	Я бы хотел конверт с воздушной подушкой, пожалуйста.
+4919	Communication Means	At the Post Office	Kiom vi ŝatus?	How many would you like?	いくつご希望ですか？	您需要多少？	몇 개 필요하신가요?	Сколько штук вы бы хотели?
+4920	Communication Means	At the Post Office	Kie mi povas sendi ĉi tion?	Where can I post this?	これはどこで送れますか？	这个在哪里可以寄出？	이것은 어디에서 보낼 수 있나요?	Где я могу это отправить?
+4921	Communication Means	At the Post Office	Sendu ĉi tiun pakaĵon per aerpoŝto	Send this parcel by airmail.	この小包を航空便で送ってください。	请用航空邮件寄送这个包裹。	이 소포를 항공우편으로 보내 주세요.	Отправьте эту посылку авиапочтой.
+4922	Communication Means	At the Post Office	Kio estas interne?	What's inside?	中には何が入っていますか？	里面有什么？	안에 뭐가 들어 있나요?	Что внутри?
+4923	Communication Means	At the Post Office	Kia estas la valoro?	What's the value?	価値は何ですか？	值是多少？	가치는 무엇인가요?	Какая ценность?
+4924	Communication Means	At the Post Office	Kiam ĉi tio alvenos?	When will this arrive?	これはいつ届きますか？	什么时候能到？	이것은 언제 도착하나요?	Когда она прибудет?
+4925	Communication Means	At the Post Office	Ĉu mi povas sendi fakson ĉi tie?	Can I send a fax here?	こちらでファックスを送ることはできますか？	这里可以发传真吗？	여기서 팩스를 보낼 수 있나요?	Я могу отправить здесь факс?
+4926	Communication Means	At the Post Office	Kiu estas la faksa numero?	What's the fax number?	ファックス番号を教えていただけますか。	传真号码是多少？	팩스 번호가 어떻게 되나요?	Какой номер факса?
+4927	Communication Means	At the Post Office	Kiuj estas la laborhoroj?	What are the working hours?	勤務時間は何時から何時までですか。	工作时间是几点？	근무 시간은 어떻게 되나요?	Какие часы работы?
+4928	Communication Means	At the Post Office	Mi ŝatus akiri televidan licencon	I'd like to get a TV licence.	テレビの受信契約を申し込みたいのですが。	我想办理电视许可证。	TV 수신료를 신청하고 싶어요.	Я бы хотела приобрести телевизионную лицензию.
+4929	Communication Means	At the Post Office	Mi bezonas renovigi mian televidan licencon	I need to renew my TV licence.	テレビの受信料を更新する必要があります。	我需要续办我的电视许可证。	TV 수신료를 갱신해야 해요.	Мне нужно продлить телевизионную лицензию.
+4930	Communication Means	At the Post Office	Mi havas abonon al ĉi tiu revuo	I have got a subscription to this journal.	この雑誌を購読しています。	我已经订阅了这本期刊。	저는 이 저널을 구독하고 있어요.	У меня оформлена подписка на этот журнал.
+4931	Communication Means	At the Post Office	Kie mi povas aĉeti poŝtmarkojn?	Where can I buy some stamps?	切手はどこで買えますか？	请问哪里可以买到邮票？	우표는 어디에서 살 수 있나요?	Где я могу купить марки?
+4932	Communication Means	At the Post Office	Ĉu mi povus ricevi unuaklasan poŝtmarkon, mi petas?	Could I have a first class stamp, please?	一等郵便の切手を一枚いただけますか。	请给我一张一等邮票。	일등 우표 한 장 주세요.	Можно мне марку первого класса, пожалуйста?
+4933	Communication Means	At the Post Office	Kiom kostas la afranko por letero?	What's the postage on a letter?	手紙の郵送料はいくらですか。	一封信的邮资是多少？	편지 우편 요금이 얼마인가요?	Сколько стоит отправить письмо?
+4934	Communication Means	At the Post Office	Ĉu vi havas fotokabinon?	Have you got a photo booth?	フォトブースはありますか？	你们有照相亭吗？	포토 부스가 있나요?	У вас есть фотокабина?
+4935	Communication Means	At the Post Office	Ĉu vi havas fotokopiilon?	Have you got a photocopier?	コピー機はありますか？	你有复印机吗？	복사기가 있으신가요?	У вас есть ксерокс?
+4936	Communication Means	At the Post Office	Ĉu vi vendas naskiĝtagajn kartojn?	Do you sell birthday cards?	お誕生日カードは取り扱っていますか？	你们有卖生日贺卡吗？	생일 카드 판매하시나요?	Вы продаёте поздравительные открытки?
+4937	Communication Means	At the Post Office	Ĉu vi vendas Kristnaskajn kartojn?	Do you sell Christmas cards?	クリスマスカードは取り扱っていますか？	你们有卖圣诞贺卡吗？	크리스마스 카드를 판매하시나요?	Вы продаёте рождественские открытки?
+4938	Communication Means	At the Post Office	Mi ŝatus sendi ĉi tion per rekomendita poŝto	I'd like to send this by registered post.	こちらを書留で送りたいのですが。	我想用挂号信寄这个。	이것을 등기 우편으로 보내고 싶어요.	Я бы хотел отправить его заказным письмом.
+4939	Communication Means	At the Post Office	Mi ŝatus asekuri ĉi tion, mi petas	I'd like to insure this, please.	こちらに保険をかけたいのですが。	我想为这个投保。	이것을 보험에 가입하고 싶어요.	Я бы хотела её застраховать, пожалуйста.
+4940	Communication Means	At the Post Office	Mi ŝatus sendi ĉi tion al Japanio	I'd like to send this to Japan.	こちらを日本に送りたいのですが。	我想把这个寄到日本。	이것을 일본으로 보내고 싶어요.	Я бы хотела отправить её в Японию.
+4941	Communication Means	At the Post Office	Bonvolu pezi ĉi tiun pakaĵon	Will you weigh this parcel, please?	この小包の重さを量っていただけますか。	请帮我称一下这个包裹好吗？	이 소포의 무게를 재주실 수 있나요?	Взвесьте эту посылку, пожалуйста?
+4942	Communication Means	At the Post Office	Ĉu ĉi tio pezas tro multe?	Does this weigh too much?	これは重すぎませんか？	这个太重了吗？	이거 너무 무거운가요?	Она слишком много весит?
+4943	Communication Means	At the Post Office	Kiom da tagoj tio daŭros?	How many days will it take?	何日かかりますか？	需要多少天？	며칠이나 걸릴까요?	Сколько дней это займёт?
+4944	Communication Means	At the Post Office	Ĉu vi volas ĉiutagan aŭ ĉiusemajnan abonon?	Do you want a daily or weekly subscription?	毎日プランと週ごとプラン、どちらをご希望ですか？	您需要按天订阅还是按周订阅？	일일 구독을 원하시나요, 아니면 주간 구독을 원하시나요?	Вы хотите ежедневную или еженедельную подписку?
+4945	Communication Means	At the Post Office	Kie mi povas aĉeti poŝtmarkojn kaj poŝtkartojn?	Where can I get stamps and postcards?	切手やはがきはどこで買えますか。	我可以在哪里买到邮票和明信片？	우표와 엽서는 어디에서 살 수 있나요?	Где я могу купить марки и открытки?
+4946	Communication Means	At the Post Office	Poŝtmarkon por ĉi tiu poŝtkarto al Aŭstralio	A stamp for this postcard to Australia.	このハガキをオーストラリアに送るための切手をお願いします。	这张明信片寄往澳大利亚，请给我一张邮票。	이 엽서를 호주로 보내는 우표 주세요.	Марку для открытки в Австралию.
+4947	Communication Means	At the Post Office	Kiom kostas la poŝtmarkoj por ĉi tiuj leteroj?	How much do the stamps for these letters cost?	これらの手紙の切手代はいくらですか？	这些信的邮票要多少钱？	이 편지들의 우표는 얼마인가요?	Сколько стоят марки для этих писем?
+4948	Communication Means	At the Post Office	Kiom kostas la afranko al Hongkongo?	How much is the postage to Hong Kong?	香港までの送料はいくらですか。	寄到香港的邮费是多少？	홍콩까지의 우편 요금이 얼마인가요?	Сколько стоит отправить письмо в Гонконг?
+4949	Communication Means	At the Post Office	Ĉu mi povus havi libreton da unuaklasaj poŝtmarkoj, mi petas?	Could I have a book of first class stamps, please?	ファーストクラスの切手を1冊いただけますか。	请给我一本一等邮票。	일등 우표 한 권 주세요.	Можно мне альбом марок первого класса, пожалуйста?
+4950	Communication Means	At the Post Office	Kiom kostas duaklasa poŝtmarko?	How much is a second class stamp?	2等郵便切手はいくらですか？	二等邮票多少钱？	2등급 우표는 얼마인가요?	Сколько стоит марка второго класса?
+4951	Communication Means	At the Post Office	Mi ŝatus pakon da kovertoj, mi petas	I'd like a packet of envelopes, please.	封筒を一袋お願いします。	请给我一包信封。	봉투 한 묶음 주세요.	Я бы хотела упаковку конвертов, пожалуйста.
+4952	Communication Means	At the Post Office	Bonvolu enmeti ĉi tiun poŝtkarton en la leterkeston	Drop this postcard in the letter box, please.	このはがきをポストに入れてください。	请把这张明信片投进邮箱。	이 엽서를 우체통에 넣어 주세요.	Опустите эту открытку в почтовый ящик, пожалуйста.
+4953	Communication Means	At the Post Office	Plenigu la doganan deklaracion	Fill in the customs declaration form.	税関申告書にご記入ください。	请填写海关申报单。	세관 신고서를 작성하세요.	Заполните таможенную декларацию.
+4954	Communication Means	At the Post Office	Mi ŝatus sendi ĉi tiun pakaĵon al Brazilo	I'd like to send this parcel to Brazil.	この荷物をブラジルに送りたいのですが。	我想把这个包裹寄到巴西。	이 소포를 브라질로 보내고 싶어요.	Я бы хотела отправить эту посылку в Бразилию.
+4955	Communication Means	At the Post Office	Ĉu vi povus meti ĝin sur la pesilon, mi petas?	Could you put it on the scales, please?	こちらをはかりに乗せていただけますか？	请帮我称一下好吗？	저울에 올려 주시겠어요?	Не могли бы вы положить её на весы, пожалуйста?

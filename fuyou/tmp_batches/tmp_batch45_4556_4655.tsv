@@ -1,0 +1,101 @@
+PhraseID	TopicName_EN	SubtopicName_EN	Esperanto	English	日本語	中文	한국어	Русский язык
+4556	Health	At the Doctor	Kiom da alkoholo vi trinkas semajne?	How much alcohol do you drink a week?	1週間にどのくらいお酒を飲みますか？	你每周喝多少酒？	일주일에 술을 얼마나 드시나요?	Сколько алкоголя вы употребляете в неделю?
+4557	Health	At the Doctor	Ĉu estas ia ebleco, ke vi estas graveda?	Is there any possibility you might be pregnant?	妊娠している可能性はありますか？	你有可能怀孕吗？	임신 가능성이 있으신가요?	Есть ли вероятность, что вы беременны?
+4558	Health	At the Doctor	Ĉu vi havas privatan medicinan asekuron?	Have you got private medical insurance?	民間の医療保険には加入していますか？	你有私人医疗保险吗？	개인 의료 보험이 있으신가요?	У вас есть частная медицинская страховка?
+4559	Health	At the Doctor	Kiel vi sentas vin ĝenerale?	How have you been feeling generally?	最近、体調はいかがですか？	你最近整体感觉怎么样？	요즘 전반적으로 어떻게 지내고 계세요?	Как вы себя чувствуете в целом?
+4560	Health	Diseases	Kiel vi fartas?	How do you feel?	ご気分はいかがですか？	你感觉怎么样？	기분이 어떠세요?	Как вы себя чувствуете?
+4561	Health	Diseases	Mi sentas min kapturna	I feel dizzy.	めまいがします。	我觉得头晕。	어지러워요.	У меня кружится голова.
+4562	Health	Diseases	Mi sentas min malsana	I feel ill.	気分が悪いです。	我感觉不舒服。	몸이 안 좋아요.	Я плохо себя чувствую.
+4563	Health	Diseases	Mi tremas	I'm shivering.	震えています。	我在发抖。	몸이 떨려요.	Меня знобит.
+4564	Health	Diseases	Mi havas malvarmumon	I've got a cold.	風邪をひいています。	我感冒了。	감기에 걸렸어요.	Я простудилась.
+4565	Health	Diseases	Mi havas tuberon	I've got a lump.	しこりがあります。	我摸到一个肿块。	혹이 만져져요.	У меня уплотнение.
+4566	Health	Diseases	Kio okazis?	What's the matter?	どうしたの？	怎么了？	무슨 일이에요?	Что случилось?
+4567	Health	Diseases	Insekto mordis min	An insect bit me.	虫に刺されました。	我被虫子咬了。	벌레에 물렸어요.	Меня укусило насекомое.
+4568	Health	Diseases	Mi havas haŭterupcion	I've got a rash.	発疹ができました。	我身上起疹子了。	발진이 났어요.	У меня сыпь.
+4569	Health	Diseases	Mi havas furunkon	I've got a boil.	できものができました。	我长了个疖子。	종기가 났어요.	У меня нарыв.
+4570	Health	Diseases	Mi havas gripon	I've got flu.	インフルエンザにかかってしまいました。	我得了流感。	저는 독감에 걸렸어요.	Я простыла.
+4571	Health	Diseases	Mi havas astmon	I've got asthma.	喘息があります。	我有哮喘。	저는 천식이 있어요.	У меня астма.
+4572	Health	Diseases	Mi havas tuson	I've got a cough.	咳が出ます。	我咳嗽了。	기침이 나요.	У меня кашель.
+4573	Health	Diseases	Mi havas diareon	I've got diarrhoea.	下痢をしています。	我拉肚子了。	설사를 하고 있어요.	У меня понос.
+4574	Health	Diseases	Mi estas konstipita	I am constipated.	便秘しています。	我便秘了。	변비가 있어요.	У меня запор.
+4575	Health	Diseases	Li estas blinda	He's blind.	彼は目が見えません。	他是盲人。	그는 시각장애인이에요.	Он слепой.
+4576	Health	Diseases	Ŝi estas muta	She is mute.	彼女は話せません。	她是哑巴。	그녀는 말을 하지 못해요.	Она немая.
+4577	Health	Diseases	Ŝi estas surda	She's deaf.	彼女は耳が聞こえません。	她是聋人。	그녀는 청각 장애가 있어요.	Она глухая.
+4578	Health	Diseases	Kiel ŝi fartas?	How is she?	彼女の様子はどうですか？	她怎么样？	그녀는 어떻게 지내고 있나요?	Как она себя чувствует?
+4579	Health	Diseases	Li estas diabetulo	He is diabetic.	彼は糖尿病です。	他有糖尿病。	그는 당뇨병이 있어요.	Он диабетик.
+4580	Health	Diseases	Ŝi havas ŝvelon	She has got a swelling.	彼女は腫れがあります。	她有肿胀。	그녀에게 부기가 있어요.	У неё отёк.
+4581	Health	Diseases	Mi frapis mian genuon	I banged my knee.	ひざをぶつけた。	我的膝盖撞到了。	무릎을 부딪쳤어요.	Я ударилась коленом.
+4582	Health	Diseases	Mi havas fortan doloron	I'm in a lot of pain.	とても痛いです。	我很疼。	많이 아파요.	У меня сильная боль.
+4583	Health	Diseases	Ĝi estas akra doloro	It's a sharp pain.	鋭い痛みです。	这是一种刺痛。	예리한 통증이에요.	Это острая боль.
+4584	Health	Diseases	Mi ne fartas bone	I don't feel well.	体調がよくありません。	我感觉不太舒服。	몸이 좀 안 좋아요.	Мне нехорошо.
+4585	Health	Diseases	Mi sentas min iom pli bone	I feel a little better.	少し楽になりました。	我感觉好一点了。	조금 나아졌어요.	Я чувствую себя немного лучше.
+4586	Health	Diseases	Ŝajnas, ke mi tuj vomos	I feel like throwing up.	吐きそうです。	我感觉想吐。	토할 것 같아요.	Кажется, меня сейчас вырвет.
+4587	Health	Diseases	Mi havas nazkataron	I've got a runny nose.	鼻水が出ます。	我流鼻涕了。	콧물이 나요.	У меня насморк.
+4588	Health	Diseases	Mi havas kapdoloron	I've got a headache.	頭が痛いです。	我头疼。	머리가 아파요.	У меня болит голова.
+4589	Health	Diseases	Mi havas febron	I have got a fever.	熱があります。	我发烧了。	열이 나요.	У меня жар.
+4590	Health	Diseases	Mi tranĉis mian fingron	I have cut my finger.	指を切ってしまいました。	我的手指被割伤了。	손가락을 베었어요.	Я порезала палец.
+4591	Health	Diseases	Mi ne povas movi mian kruron	I can't move my leg.	足が動きません。	我动不了我的腿。	다리를 움직일 수 없어요.	Я не могу пошевелить ногой.
+4592	Health	Diseases	Mi ne povas dormi nokte	I can't sleep at night.	夜になると眠れません。	我晚上睡不着。	밤에 잠이 오지 않아요.	Я не могу спать ночью.
+4593	Health	Diseases	Mi maldikiĝis	I've lost weight.	体重が減りました。	我瘦了。	살이 빠졌어요.	Я похудела.
+4594	Health	Diseases	Mi estas laca la tutan tempon	I am tired all the time.	いつも疲れています。	我总是感到很累。	저는 항상 피곤해요.	Я всё время чувствую усталость.
+4595	Health	Diseases	Mia stomako doloras	My stomach aches.	お腹が痛いです。	我肚子疼。	배가 아파요.	У меня болит живот.
+4596	Health	Diseases	Miaj piedoj doloras	My feet are hurting.	足が痛いです。	我的脚很疼。	발이 아파요.	У меня болят ноги.
+4597	Health	Diseases	Ĉu vi havas kronikajn malsanojn?	Have you got any chronic diseases?	何か持病はありますか？	你有慢性疾病吗？	만성 질환이 있으신가요?	У вас есть хронические болезни?
+4598	Health	Diseases	Kiom longe vi jam sentas vin tiel?	How long have you been feeling like this?	どれくらい前からこのように感じていますか？	你这种感觉持续多久了？	언제부터 이렇게 느끼기 시작하셨나요?	Как долго вы уже себя так чувствуете?
+4599	Health	Diseases	Kiaj estas viaj simptomoj?	What are your symptoms?	どのような症状がありますか？	你有哪些症状？	어떤 증상이 있으신가요?	Какие у вас симптомы?
+4600	Health	Diseases	Mi havas gorĝodoloron	I've got a sore throat.	喉が痛いです。	我喉咙疼。	목이 아파요.	У меня болит горло.
+4601	Health	Diseases	Mi havas ŝvelintan maleolon	I've got a swollen ankle.	足首が腫れています。	我的脚踝肿了。	발목이 부었어요.	У меня опухла лодыжка.
+4602	Health	Diseases	Mi havas doloron en la brusto	I've got a pain in my chest.	胸が痛みます。	我胸口有点疼。	가슴에 통증이 있어요.	У меня боль в груди.
+4603	Health	Diseases	Mi havas kormalsanon	I've got a heart condition.	心臓に持病があります。	我有心脏病。	저는 심장 질환이 있어요.	У меня заболевание сердца.
+4604	Health	Diseases	Mi havas apenaŭ energion	I've got very little energy.	ほとんどエネルギーが残っていません。	我几乎没有什么力气。	기운이 거의 없어요.	У меня почти нет сил.
+4605	Health	Diseases	Mi havas stomakmalsanon	I have got an upset stomach.	お腹の調子が悪いです。	我肚子不舒服。	배탈이 났어요.	У меня расстройство желудка.
+4606	Health	Diseases	Mi havas doloron en la dorso	I have got a pain in my back.	背中が痛いです。	我背部有点疼。	등이 아파요.	У меня болит спина.
+4607	Health	Diseases	Mi ne havas apetiton	I haven't got any appetite.	食欲がありません。	我一点食欲都没有。	식욕이 없어요.	У меня нет аппетита.
+4608	Health	Diseases	Mi malfacile spiras	I'm having difficulty breathing.	息がしづらいです。	我呼吸困难。	숨쉬기가 힘들어요.	Мне трудно дышать.
+4609	Health	Diseases	Mi pensas, ke tio estas pro la varmego	I think it's the heat.	暑さのせいだと思います。	我觉得是因为天气太热了。	아마 더위 때문인 것 같아요.	Думаю, это из-за жары.
+4610	Health	Diseases	Mia nazo estas tre ŝtopita	I'm very congested.	鼻づまりがひどいです。	我鼻塞得很严重。	코가 많이 막혔어요.	У меня заложен нос.
+4611	Health	Diseases	Miaj artikoj doloras	My joints are aching.	関節が痛いです。	我的关节很疼。	관절이 아파요.	У меня болят суставы.
+4612	Health	Diseases	Miaj genuoj doloras	My knees are hurting.	膝が痛いです。	我的膝盖很疼。	무릎이 아파요.	У меня болят колени.
+4613	Health	Diseases	Miaj limfonodoj estas ŝvelintaj	My lymph nodes are swollen.	リンパ節が腫れています。	我的淋巴结肿大。	림프절이 부었어요.	У меня увеличились лимфатические узлы.
+4614	Health	Diseases	Mi havas gravan kazon de piedfungo	I've got a bad case of athlete's foot.	ひどい水虫になってしまいました。	我得了严重的脚气。	무좀에 심하게 걸렸어요.	У меня запущенный случай грибка стопы.
+4615	Health	Diseases	Mi pensas, ke mi streĉis muskolon en mia kruro	I think I've pulled a muscle in my leg.	足の筋肉を痛めたみたいです。	我觉得我的腿拉伤了。	다리에 근육이 뭉친 것 같아요.	Думаю, я потянула мышцу на ноге.
+4616	Health	Diseases	Mi pensas, ke mi manĝis ion malbonan	I think that I have eaten something bad.	何か悪いものを食べてしまったみたいです。	我觉得我吃坏肚子了。	제가 뭔가 상한 음식을 먹은 것 같아요.	Думаю, я съела что-то не то.
+4617	Health	Diseases	Mi sentas min deprimita	I've been feeling depressed.	最近、気分が落ち込んでいます。	我一直感到很抑郁。	요즘 우울함을 느끼고 있어요.	Я чувствую себя подавленным.
+4618	Health	Diseases	Mi havas malfacilaĵojn dormi	I've been having difficulty sleeping.	最近、なかなか眠れません。	我最近一直睡不好。	요즘 잠을 잘 이루지 못하고 있어요.	У меня проблемы со сном.
+4619	Health	Diseases	Mi suferas de sendormeco	I'm suffering from insomnia.	不眠に悩んでいます。	我失眠了。	불면증으로 고생하고 있어요.	Я страдаю от бессонницы.
+4620	Health	Diseases	Mi suferas de fojnofebro	I'm suffering from hay fever.	花粉症に悩んでいます。	我得了花粉症。	저는 꽃가루 알레르기로 고생하고 있어요.	Я страдаю от сенной лихорадки.
+4621	Health	Diseases	Mi neniam antaŭe havis ĉi tiun malsanon	I've never had this disease before.	この病気にかかったのは初めてです。	我以前从来没有得过这种病。	저는 이 질병을 이전에는 앓아본 적이 없습니다.	Я никогда раньше этим не болела.
+4622	Health	Treatment	Ĉu ĝi estas danĝera?	Is it dangerous?	危険ですか？	有危险吗？	위험한가요?	Это опасно?
+4623	Health	Treatment	Nenio grava	Nothing serious.	大したことはありません。	没什么大不了的。	별일 아니에요.	Ничего серьёзного.
+4624	Health	Treatment	Prenu ĉi tiun medikamenton	Take this medicine.	この薬を飲んでください。	把这药吃了。	이 약을 드세요.	Примите это лекарство.
+4625	Health	Treatment	Jen la recepto	Here is the prescription.	こちらが処方箋です。	这是处方。	처방전 여기 있습니다.	Вот рецепт.
+4626	Health	Treatment	Kio estas la diagnozo?	What is the diagnosis?	診断は何ですか。	诊断是什么？	진단은 무엇인가요?	Какой диагноз?
+4627	Health	Treatment	Ĉu ĝi estas kontaĝa?	Is it contagious?	うつりますか？	这个会传染吗？	전염성이 있나요?	Это заразно?
+4628	Health	Treatment	Mi volas, ke vi vizitu specialiston	I want you to see a specialist.	専門医に診てもらってほしい。	我希望你去看一下专家。	전문의를 한 번 찾아보셨으면 해요.	Я хочу, чтобы вы посетили специалиста.
+4629	Health	Treatment	Vi devas fari sangoteston	You need to have a blood test.	血液検査を受ける必要があります。	你需要做一个血液检查。	혈액 검사를 받아야 합니다.	Вам нужно сдать анализ крови.
+4630	Health	Treatment	Ĝi rapide resaniĝos	It will heal quickly.	すぐに治ります。	很快就会痊愈。	금방 나을 거예요.	Он быстро заживёт.
+4631	Health	Treatment	Vi devus ĉesi fumi	You should stop smoking.	タバコはやめたほうがいいですよ。	你应该戒烟。	담배를 끊는 것이 좋겠어요.	Вам следует бросить курить.
+4632	Health	Treatment	Bonvolu doni al mi recepton	Please give me a prescription.	処方箋をお願いします。	请给我开个处方。	처방전을 발급해 주세요.	Пожалуйста, дайте мне рецепт.
+4633	Health	Treatment	Mi bezonas malsanatestilon	I need a sick note.	診断書が必要です。	我需要一张病假条。	진단서가 필요해요.	Мне нужен больничный лист.
+4634	Health	Treatment	Ĉu mi povas sporti?	Can I do sport?	運動をしても大丈夫ですか？	我可以进行体育锻炼吗？	운동해도 될까요?	Я могу заниматься спортом?
+4635	Health	Treatment	Ĉu vi pensas, ke tio estas grava?	Do you think it is serious?	深刻だと思いますか？	你觉得这很严重吗？	심각하다고 생각하세요?	Думаете, это серьёзно?
+4636	Health	Treatment	Vi bezonos seriozan kuracadon	You'll need a serious treatment.	本格的な治療が必要になります。	你需要接受正规的治疗。	진지한 치료가 필요할 거예요.	Вам потребуется серьёзное лечение.
+4637	Health	Treatment	Kiom longe daŭros la kuracado?	How long will the treatment take?	治療にはどのくらい時間がかかりますか。	治疗需要多长时间？	치료는 얼마나 걸릴까요?	Как долго займёт лечение?
+4638	Health	Treatment	Kiom longe mi restos en la hospitalo?	How long will I be in hospital?	入院期間はどのくらいになりますか。	我需要住院多长时间？	병원에 얼마나 입원해야 하나요?	Как долго я пробуду в больнице?
+4639	Health	Treatment	Ĉu mi bezonas operacion?	Do I need an operation?	手術が必要ですか？	我需要做手术吗？	수술이 필요한가요?	Мне нужна операция?
+4640	Health	Treatment	Vi bezonos kelkajn suturojn	You're going to need a few stitches.	何針か縫う必要があります。	你需要缝几针。	몇 바늘 꿰매야 할 것 같아요.	Вам потребуются несколько швов.
+4641	Health	Treatment	Ĉu mi bezonos lokan anestezon?	Will I need local anaesthesia?	局所麻酔は必要ですか？	我需要打局部麻药吗？	국소마취가 필요할까요?	Мне будет нужна местная анестезия?
+4642	Health	Treatment	Vi ne sentos doloron	You won't feel any pain.	痛みは感じません。	你不会感到任何疼痛。	아무런 통증도 느끼지 않을 거예요.	Вы не почувствуете боли.
+4643	Health	Treatment	Kiam mi revenu?	When should I come back?	いつ戻ってくればいいですか？	我什么时候再回来比较合适？	언제 다시 오면 될까요?	Когда я должна прийти в следующий раз?
+4644	Health	Treatment	Ĉu vi bonvolus skribi al mi recepton?	Would you please write me a prescription?	処方箋を書いていただけますか。	您能帮我开个处方吗？	처방전을 작성해 주시겠어요?	Не могли бы вы, пожалуйста, выписать мне рецепт?
+4645	Health	Treatment	Kiom kostos ĉi tiu analizo?	How much will this test cost?	この検査にはいくらかかりますか？	这个检测需要多少钱？	이 검사는 비용이 얼마나 되나요?	Сколько будет стоить этот анализ?
+4646	Health	Treatment	Oni jam faris al mi tian analizon antaŭe	I've had that test done before.	その検査は以前受けたことがあります。	我以前做过那个检查。	저는 그 검사를 예전에 받아본 적이 있어요.	Мне делали такой анализ раньше.
+4647	Health	Treatment	Mi volas sendi vin por rentgena ekzameno	I want to send you for an X-ray.	レントゲン検査を受けていただきたいと思います。	我想让你去做个X光检查。	엑스레이 검사를 받으시도록 하겠습니다.	Я хочу отправить вас на рентген.
+4648	Health	Treatment	Ni devas preni urinan specimenon	We need to take a urine sample.	尿検査をさせていただきます。	我们需要取一个尿样。	소변 검사를 위해 소변을 채취해야 합니다.	Нам нужно взять анализ мочи.
+4649	Health	Treatment	Vi devas provi perdi iom da pezo	You need to try and lose some weight.	少し体重を落とすように努力したほうがいいですよ。	你需要尝试减一下体重。	체중을 좀 줄이려고 노력해 보세요.	Вам нужно постараться сбросить вес.
+4650	Health	Treatment	Vi devus redukti vian trinkadon	You should cut down on your drinking.	お酒の量を控えたほうがいいですよ。	你应该少喝点酒。	술을 좀 줄이시는 게 좋겠어요.	Вам следует бросить пить.
+4651	Health	Treatment	Ĉu vi povus doni al mi ion kontraŭ la doloro?	Could you give me something to stop the pain?	痛みを和らげるものをいただけますか？	你能给我点止痛的东西吗？	통증을 멈출 수 있는 약을 주실 수 있나요?	Не могли бы вы дать мне что-нибудь от боли?
+4652	Health	Treatment	Mi faros al vi injekton	I'm going to give you an injection.	注射をしますね。	我要给你打针。	주사를 놓아드릴게요.	Я собираюсь сделать вам укол.
+4653	Health	Treatment	Ĉu mi devas resti en la hospitalo?	Do I have to stay in hospital?	入院しなければなりませんか？	我必须住院吗？	병원에 꼭 입원해야 하나요?	Мне придётся остаться в больнице?
+4654	Health	Treatment	Kiom longe daŭros la resaniĝo?	How long will it take to recover?	回復までにどれくらい時間がかかりますか。	需要多长时间才能恢复？	회복하는 데 얼마나 걸릴까요?	Сколько займёт реабилитация?
+4655	Health	Treatment	Ĉu mi rajtas ellitiĝi?	Am I allowed to get out of bed?	ベッドから出てもいいですか？	我可以下床吗？	제가 침대에서 나가도 되나요?	Мне можно вставать с постели?

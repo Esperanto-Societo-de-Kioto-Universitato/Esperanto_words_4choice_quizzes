@@ -1,0 +1,101 @@
+PhraseID	TopicName_EN	SubtopicName_EN	Esperanto	English	日本語	中文	한국어	Русский язык
+4256	Services	At the Bank	Elprenu la karton	Remove card	カードをお取りください。	请取卡。	카드를 빼 주세요.	Заберите карту
+4257	Services	At the Bank	Mia karto ne funkcias	My card doesn't work.	カードが使えません。	我的卡不能用。	제 카드가 작동하지 않아요.	Моя карта не работает.
+4258	Services	At the Bank	Mi ŝatus aĉeti eŭrojn	I'd like to buy some euros.	ユーロをいくらか購入したいのですが。	我想买一些欧元。	유로화를 좀 사고 싶어요.	Я бы хотел купить евро.
+4259	Services	At the Bank	Kie estas la plej proksima banko?	Where's the nearest bank?	一番近い銀行はどこですか。	最近的银行在哪里？	가장 가까운 은행이 어디에 있나요?	Где находится ближайший банк?
+4260	Services	At the Bank	Kiam malfermiĝas la banko?	When does the bank open?	銀行は何時に開きますか。	银行几点开门？	은행은 언제 문을 여나요?	Когда открывается банк?
+4261	Services	At the Bank	Mia karto estis ŝtelita	My card was stolen.	カードを盗まれました。	我的卡被盗了。	제 카드가 도난당했어요.	Мою карту украли.
+4262	Services	At the Bank	Mi havas mian legitimilon	I've got my ID card.	身分証明書を持っています。	我有身份证。	신분증을 가지고 있어요.	У меня есть удостоверение личности.
+4263	Services	At the Bank	Bonvolu plenigi ĉi tiun formularon	Please fill in this form.	この用紙にご記入ください。	请填写这份表格。	이 양식을 작성해 주세요.	Пожалуйста, заполните эту форму.
+4264	Services	At the Bank	Kie mi subskribu?	Where do I sign?	どこに署名すればよろしいですか？	我在哪里签字？	어디에 서명하면 되나요?	Где мне расписаться?
+4265	Services	At the Bank	Kie mi povas ŝanĝi monon?	Where can I change money?	両替はどこでできますか？	请问哪里可以兑换货币？	어디에서 환전할 수 있나요?	Где я могу обменять деньги?
+4266	Services	At the Bank	Kia estas la kurzo?	What's the exchange rate?	為替レートはいくらですか？	汇率是多少？	환율이 어떻게 되나요?	Какой курс?
+4267	Services	At the Bank	Kia estas la provizio?	What is the commission?	手数料はいくらですか？	佣金是多少？	수수료가 얼마인가요?	Какая комиссия?
+4268	Services	At the Bank	Per dekoj, mi petas	In tens, please.	10単位の紙幣でお願いします。	请给我面额为10的纸币。	10단위 지폐로 주세요.	Десятками, пожалуйста.
+4269	Services	At the Bank	Ĉu vi ŝatus kvitancon?	Would you like a receipt?	レシートはご入用ですか？	需要小票吗？	영수증 필요하신가요?	Вы бы хотели получить чек?
+4270	Services	At the Bank	Ĉi tio estas falsa monbileto	This is a fake note.	これは偽札です。	这是一张假钞。	이것은 위조 지폐입니다.	Это фальшивая купюра.
+4271	Services	At the Bank	Kie estas la bankaŭtomato?	Where's the cash machine?	ATMはどこですか？	自动取款机在哪里？	현금인출기가 어디에 있나요?	Где банкомат?
+4272	Services	At the Bank	La bankaŭtomato estas tie	The cash machine is over there.	ATMはあちらにあります。	取款机在那边。	현금 인출기는 저쪽에 있어요.	Банкомат вон там.
+4273	Services	At the Bank	Via kontantmono estas kalkulata	Your cash is being counted.	ただいま現金を数えています。	正在清点您的现金。	고객님의 현금을 세고 있습니다.	Идёт подсчёт банкнот.
+4274	Services	At the Bank	Ĝis kioma horo la banko estas malfermita?	How late is the bank open?	銀行は何時まで開いていますか。	银行营业到几点？	은행은 몇 시까지 영업하나요?	До которого часа открыт банк?
+4275	Services	At the Bank	Atendu malantaŭ la flava linio	Wait behind the yellow line.	黄色い線の後ろでお待ちください。	请在黄线后等候。	노란선 뒤에서 기다려 주세요.	Ждите за жёлтой линией.
+4276	Services	At the Bank	Ĉu vi povus diri al mi mian saldon, mi petas?	Could you tell me my balance, please?	残高を教えていただけますか。	请问您能帮我查一下我的余额吗？	제 잔액을 알려주실 수 있나요?	Не могли бы вы сказать мой баланс счёта, пожалуйста?
+4277	Services	At the Bank	Ĉu mia pasporto estas necesa?	Is my passport necessary?	パスポートは必要ですか？	我的护照必须带吗？	제 여권이 꼭 필요할까요?	Мой паспорт необходим?
+4278	Services	At the Bank	Mi havas stirpermesilon	I've got my driving licence.	運転免許証を持っています。	我有驾照。	운전면허증이 있어요.	У меня есть водительские права.
+4279	Services	At the Bank	Kiom rapide ĉi tio povas esti farita?	How quickly can this be done?	どれくらい早く対応できますか？	这个能多快完成？	이 작업은 얼마나 빨리 완료될 수 있나요?	Насколько быстро он может быть осуществлён?
+4280	Services	At the Bank	Mi ŝatus ŝanĝi monon	I'd like to change money.	両替をお願いします。	我想兑换现金。	환전하고 싶어요.	Я бы хотела поменять деньги.
+4281	Services	At the Bank	Mi ŝatus nuligi ĉekon	I'd like to cancel a cheque.	小切手の取り消しをお願いします。	我想撤销一张支票。	수표를 취소하고 싶어요.	Я бы хотел аннулировать чек.
+4282	Services	At the Bank	Mi ŝatus deponi iom da mono	I'd like to deposit some money.	お金を預けたいのですが。	我想存点钱。	돈을 입금하고 싶어요.	Я бы хотела положить деньги на счёт.
+4283	Services	At the Bank	Mi ŝatus sendi iom da mono al Hindio	I'd like to send some money to India.	インドに送金したいのですが。	我想汇些钱到印度。	인도로 송금하고 싶어요.	Я бы хотел отправить деньги в Индию.
+4284	Services	At the Bank	Mi ŝatus fari retiron	I'd like to make a withdrawal.	お引き出しをお願いします。	我想取款。	출금하고 싶어요.	Я бы хотел снять наличные.
+4285	Services	At the Bank	Per kiaj monbiletoj vi dezirus ricevi la monon?	How would you like the money?	どの額面の紙幣でお受け取りになりますか？	您希望拿什么面额的纸币？	어떤 액면가의 지폐로 받으시겠어요?	Какими купюрами вы бы хотели получить деньги?
+4286	Services	At the Bank	Mi volas grandajn bankbiletojn, mi petas	I want large notes, please.	大きい紙幣でお願いします。	请给我大号的纸币。	큰 액면가 지폐로 부탁합니다.	Я хочу крупными купюрами, пожалуйста.
+4287	Services	At the Bank	Ĉu vi povus doni al mi pli malgrandajn bankbiletojn?	Could you give me some smaller notes?	もう少し細かいお札に両替していただけますか？	你能给我一些零钱吗？	더 작은 지폐로 바꿔 주실 수 있나요?	Вы могли бы дать мне более мелкие банкноты?
+4288	Services	At the Bank	La provizio estas inkluzivita	The commission is included.	手数料は含まれています。	已包含佣金。	수수료가 포함되어 있습니다.	Комиссия включена.
+4289	Services	At the Bank	Ĉu vi havas ian legitimilon?	Have you got any identification?	身分証明書をお持ちですか？	请问您有身份证明吗？	신분증 있으신가요?	У вас есть документ, удостоверяющий личность?
+4290	Services	At the Bank	Jes, mi havas mian pasporton	Yes, I've got my passport.	はい、パスポートは持っています。	是的，我有护照。	네, 여권 가지고 있어요.	Да, у меня есть паспорт.
+4291	Services	At the Bank	Mi bezonas formularon por monretiro	I need a withdrawal slip.	払戻伝票をお願いします。	我需要一张取款单。	출금 전표가 필요해요.	Мне нужен документ на выдачу наличных с депозита.
+4292	Services	At the Bank	Mi ŝatus raporti pri perdita kreditkarto	I would like to report a lost credit card.	クレジットカードの紛失を届け出たいのですが。	我想挂失一张信用卡。	분실한 신용카드를 신고하고 싶습니다.	Я хочу заявить об утере кредитной карточки.
+4293	Services	At the Bank	Mi forgesis mian pasvorton por la interreta bankado	I've forgotten my internet banking password.	インターネットバンキングのパスワードを忘れてしまいました。	我忘记了我的网银密码。	인터넷 뱅킹 비밀번호를 잊어버렸어요.	Я забыла пароль от интернет-банка.
+4294	Services	At the Bank	Ĉu mi povus ricevi kontoekstrakton, mi petas?	Could I have a statement, please?	明細書をいただけますか？	请给我一份对账单。	명세서를 주시겠어요?	Могу я получить выписку, пожалуйста?
+4295	Services	At the Bank	Ĉu mi povus mendi novan ĉeklibron, mi petas?	Could I order a new chequebook, please?	新しい小切手帳を注文できますか？	请问可以帮我申请一本新的支票簿吗？	새 수표책을 주문할 수 있을까요?	Я могу заказать новую чековую книжку, пожалуйста?
+4296	Services	At the Bank	Ĉu mi povas retiri monon de mia kreditkarto ĉi tie?	Can I withdraw money from my credit card here?	こちらでクレジットカードから現金を引き出せますか？	我可以在这里用信用卡取现吗？	여기서 제 신용카드로 현금 인출할 수 있나요?	Могу я снять деньги с кредитной карты здесь?
+4297	Services	At the Bank	Sur via konto ne estas mono	You've got no money on your account.	口座に残高がありません。	您的账户余额为零。	계좌에 잔액이 없습니다.	На вашем счёте нет денег.
+4298	Services	At the Bank	Kie estas la monŝanĝejo?	Where is the bureau de change?	両替所はどこですか。	请问哪里有外币兑换处？	환전소가 어디에 있나요?	Где пункт обмена валюты?
+4299	Services	At the Bank	Ĉu vi povus ŝanĝi ĉi tiun centdolaran monbileton?	Could you change this 100 dollar note?	この100ドル札を両替していただけますか？	你能帮我换开这张一百美元纸币吗？	이 100달러 지폐를 바꿔주실 수 있나요?	Не могли бы вы разменять эту 100-долларовую купюру?
+4300	Services	At the Bank	Kia estas la kurzo inter eŭro kaj franko?	What is the exchange rate between euro and franc?	ユーロとフランの為替レートはいくらですか。	欧元和法郎的汇率是多少？	유로와 프랑의 환율이 어떻게 되나요?	Какой обменный курс между евро и франком?
+4301	Services	At the Bank	Mi ŝatus ŝanĝi usonajn dolarojn kontraŭ eŭroj	I'd like to exchange American dollars for euros.	アメリカドルをユーロに両替したいのですが。	我想用美元兑换欧元。	미국 달러를 유로로 환전하고 싶어요.	Я хочу обменять американские доллары на евро.
+4302	Services	At the Bank	Mi ŝatus deponi ĉi tiun ĉekon, mi petas	I'd like to pay this cheque in, please.	この小切手を入金したいのですが。	我想把这张支票存进去。	이 수표를 입금하고 싶어요.	Я бы хотела зачислить на свой счёт сумму по этому чеку, пожалуйста.
+4303	Services	At the Bank	Mi ŝatus retiri 100 pundojn, mi petas	I'd like to withdraw 100 pounds, please.	100ポンドを引き出したいのですが。	我想取一百英镑。	100파운드 인출하고 싶어요.	Я бы хотел снять 100 фунтов, пожалуйста.
+4304	Services	At the Bank	Mi ŝatus informi vin pri ŝanĝo de adreso	I'd like to inform you about a change of address.	住所変更についてご連絡いたします。	我想通知您地址变更的信息。	주소 변경 사항을 알려드리고자 합니다.	Я бы хотел сообщить вам об изменении адреса.
+4305	Services	At the Bank	Mi ŝatus paroli kun iu pri hipoteko	I'd like to speak to someone about a mortgage.	住宅ローンについて相談したいのですが。	我想咨询一下房贷相关事宜。	주택담보대출 상담을 받고 싶습니다.	Я бы хотел поговорить с кем-нибудь об ипотеке.
+4306	Services	At the Bank	Mi ŝatus mendi fremdan valuton	I'd like to order some foreign currency.	外貨を注文したいのですが。	我想预约一些外币。	외화를 주문하고 싶어요.	Я бы хотел заказать иностранную валюту.
+4307	Services	At the Bank	Mi ŝatus transloki iom da mono al ĉi tiu konto	I'd like to transfer some money to this account.	この口座にお金を振り込みたいのですが。	我想把一些钱转到这个账户。	이 계좌로 돈을 이체하고 싶어요.	Я бы хотел перевести деньги на этот счёт.
+4308	Services	At the Bank	Mi ŝatus malfermi personan konton	I'd like to open a personal account.	個人口座を開設したいのですが。	我想开一个个人账户。	개인 계좌를 개설하고 싶어요.	Я бы хотел открыть личный счёт.
+4309	Services	At the Bank	Mi ŝatus malfermi komercan konton	I would like to open a business account.	ビジネス口座を開設したいのですが。	我想开一个企业账户。	사업자 계좌를 개설하고 싶습니다.	Я бы хотел открыть бизнес-счёт.
+4310	Services	At the Bank	Ni havas komunan konton	We've got a joint account.	共同口座を持っています。	我们有一个联名账户。	저희는 공동 계좌가 있어요.	У нас совместный счёт.
+4311	Services	At the Bank	Kia estas la interezprocento de ĉi tiu konto?	What's the interest rate on this account?	この口座の金利はどれくらいですか？	这个账户的利率是多少？	이 계좌의 이자율이 얼마인가요?	Какая процентная ставка на этом счёте?
+4312	Services	At the Bank	Ĉu vi ŝatus deponi monon al via konto?	Would you like to make a deposit?	ご入金をご希望ですか？	您需要存款吗？	입금하시겠습니까?	Вы бы хотели положить деньги на счёт?
+4313	Services	At the Bank	Mi ŝatus kontantigi ĉi tiun vojaĝan ĉekon	I would like to cash this traveler's cheque.	このトラベラーズチェックを現金に換えていただけますか。	我想兑换这张旅行支票。	이 여행자 수표를 현금으로 바꾸고 싶어요.	Я бы хотела обналичить этот дорожный чек.
+4314	Services	At the Estate Agency	Mi serĉas loĝejon	I'm looking for a flat.	部屋を探しています。	我在找房子。	저는 아파트를 찾고 있어요.	Я ищу квартиру.
+4315	Services	At the Estate Agency	Kia estas via buĝeto?	What's your budget?	ご予算はどのくらいですか？	你的预算是多少？	예산이 어떻게 되시나요?	Каков ваш бюджет?
+4316	Services	At the Estate Agency	Ĉu vi ŝatas ĉi tiun domon?	Do you like this house?	この家、気に入りましたか？	你喜欢这套房子吗？	이 집이 마음에 드시나요?	Вам нравится этот дом?
+4317	Services	At the Estate Agency	Mi prenos ĝin	I'll take it.	これにします。	我买了。	제가 살게요.	Я возьму его.
+4318	Services	At the Estate Agency	Mi volas trovi loĝejon por lui	I want to find a flat for hire.	賃貸の部屋を探しています。	我想找一套房子出租。	임대할 아파트를 찾고 싶어요.	Я хочу найти квартиру, сдающуюся в аренду.
+4319	Services	At the Estate Agency	Ĉu la kvartalo estas trankvila?	Is the district quiet?	この地域は静かですか？	这个区域安静吗？	이 지역은 조용한가요?	Этот район тихий?
+4320	Services	At the Estate Agency	Ĉu la konstruaĵo estas malnova aŭ nova?	Is the building old or new?	その建物は新しいですか、それとも古いですか？	这栋楼是新建的还是老的？	그 건물은 오래됐나요, 아니면 새 건물인가요?	Здание старое или новое?
+4321	Services	At the Estate Agency	Mi serĉas bungalon	I'm looking for a bungalow.	バンガローを探しています。	我在找一栋平房。	저는 단층주택을 찾고 있어요.	Я ищу бунгало.
+4322	Services	At the Estate Agency	Mi serĉas vicdomon	I'm looking for a terraced house.	テラスハウスを探しています。	我在找一套联排住宅。	테라스 하우스를 찾고 있어요.	Я ищу низкий многоквартирный дом.
+4323	Services	At the Estate Agency	Ĉu vi volas ĝardenon?	Do you want a garden?	庭が欲しいですか？	你想要一个花园吗？	정원을 갖고 싶으신가요?	Вы хотите сад?
+4324	Services	At the Estate Agency	Ĉu vi volas parkumejon?	Do you want a parking space?	駐車スペースをご希望ですか？	你需要停车位吗？	주차 공간이 필요하신가요?	Вы хотите место для парковки?
+4325	Services	At the Estate Agency	Kiu estas la petata prezo?	What's the asking price?	希望価格はいくらですか？	要价是多少？	판매 가격이 얼마인가요?	Какова запрашиваемая цена?
+4326	Services	At the Estate Agency	Ĉu la prezo estas diskutebla?	Is the price negotiable?	お値段の交渉は可能でしょうか。	这个价格可以商量吗？	가격 협상이 가능할까요?	Торг уместен?
+4327	Services	At the Estate Agency	Mi ŝatus fari proponon	I'd like to make an offer.	ご提案させていただきたいのですが。	我想提出一个报价。	제안을 드리고 싶습니다.	Я бы хотела сделать предложение.
+4328	Services	At the Estate Agency	Ĉu vi havas posedaĵon por vendi?	Have you got a property to sell?	ご売却予定の不動産はございますか？	您有房产要出售吗？	매매하실 부동산이 있으신가요?	У вас есть собственность на продажу?
+4329	Services	At the Estate Agency	Ĉu vi serĉas loĝejon por aĉeti aŭ por lui?	Are you looking to buy or to rent?	ご購入をご希望ですか、それとも賃貸をお探しですか？	您是打算购买还是租赁？	구매를 원하시나요, 아니면 임대를 원하시나요?	Вы ищите жилье для покупки или аренды?
+4330	Services	At the Estate Agency	Kiun kvartalon vi konsideras?	Which area are you thinking of?	どのあたりをお考えですか？	你指的是哪个地区？	어느 지역을 생각하고 계신가요?	Какой район вы рассматриваете?
+4331	Services	At the Estate Agency	Kiom vi pretas pagi?	How much are you prepared to pay?	いくらまでご用意いただけますか？	你打算出多少钱？	얼마까지 지불하실 의향이 있으신가요?	Сколько вы готовы заплатить?
+4332	Services	At the Estate Agency	Ĉu vi estas kontanta aĉetanto?	Are you a cash buyer?	現金でご購入されますか？	您是现金买家吗？	현금 구매자이신가요?	Вы покупаете за наличные?
+4333	Services	At the Estate Agency	Ĉu vi bezonos hipotekon?	Are you going to need a mortgage?	住宅ローンは必要ですか？	你打算需要贷款买房吗？	주택담보대출이 필요하신가요?	Вам будет нужна ипотека?
+4334	Services	At the Estate Agency	Kiom da dormoĉambroj vi volas?	How many bedrooms do you want?	寝室はいくつご希望ですか？	您需要几个卧室？	침실은 몇 개 필요하세요?	Сколько спален вы хотите?
+4335	Services	At the Estate Agency	Mi bezonas apartamenton kun nur unu dormoĉambro	I only need a one-bedroomed flat.	私はワンルームのアパートだけで十分です。	我只需要一套一居室的公寓。	저는 침실이 하나 있는 아파트만 필요해요.	Мне нужна квартира всего с одной спальней.
+4336	Services	At the Estate Agency	Mi ŝatus lui apartamenton kun du dormoĉambroj	I'd like to rent a two-bedroomed flat.	2LDKのマンションを借りたいのですが。	我想租一套两居室的公寓。	침실이 두 개 있는 아파트를 임대하고 싶어요.	Я бы хотел арендовать квартиру с двумя спальнями.
+4337	Services	At the Estate Agency	Mi serĉas duetaĝan domon	I'm looking for a two-storey house.	二階建ての家を探しています。	我在找一套两层的房子。	저는 2층짜리 집을 찾고 있어요.	Я ищу двухэтажный дом.
+4338	Services	At the Estate Agency	Kian vidon ĝi havas?	What sort of view has it got?	どんな景色が見えますか？	它的景观怎么样？	어떤 전망이 있나요?	Какой из неё открывается вид?
+4339	Services	At the Estate Agency	Kiom estas la antaŭpago?	How much is the down payment?	頭金はいくらですか？	首付是多少？	계약금은 얼마인가요?	Сколько первоначальный взнос?
+4340	Services	At the Estate Agency	Kiom estas la monata kotizo?	How much is the monthly rate?	月額料金はいくらですか。	每月的费用是多少？	월 이용 요금이 얼마인가요?	Сколько ежемесячная плата?
+4341	Services	At the Estate Agency	Necesas deponaĵo je unu-monata lupago	There's a deposit of one month's rent.	家賃1か月分の保証金が必要です。	需要支付一个月房租作为押金。	한 달치 월세에 해당하는 보증금이 있습니다.	Нужен депозит в размере месячной платы.
+4342	Services	At the Estate Agency	Ĉu estas io malpli multekosta?	Is there a less expensive one?	もう少し安いものはありますか？	有更便宜的吗？	더 저렴한 것이 있나요?	Есть что-нибудь менее дорогое?
+4343	Services	At the Estate Agency	Kian loĝejon vi serĉas?	What kind of accommodation are you looking for?	どのような宿泊先をお探しですか？	您在寻找哪种类型的住宿？	어떤 종류의 숙소를 찾고 계신가요?	Какой вид жилья вы ищете?
+4344	Services	At the Estate Agency	Io ne tro malproksime de la urbocentro	Something not too far from the city centre.	市の中心部からあまり遠くない場所でお願いします。	离市中心不太远的地方。	도심에서 너무 멀지 않은 곳이면 좋겠어요.	Что-нибудь не очень далеко от центра города.
+4345	Services	At the Estate Agency	Ĉu vi serĉas meblitan aŭ nemeblitan loĝejon?	Are you looking for furnished or unfurnished accommodation?	家具付きの住まいをご希望ですか、それとも家具なしをご希望ですか？	您是在找带家具的还是不带家具的住宿？	가구가 갖춰진 숙소를 원하시나요, 아니면 가구가 없는 숙소를 원하시나요?	Вы ищете меблированное или немеблированное жильё?
+4346	Services	At the Estate Agency	Mi preferus meblitan loĝejon	I would prefer a furnished flat.	家具付きのアパートを希望します。	我更倾向于选择带家具的公寓。	가구가 갖춰진 아파트를 선호합니다.	Я бы предпочёл меблированную квартиру.
+4347	Services	At the Estate Agency	Ĉu vi volas novkonstruitan aŭ duamanan posedaĵon?	Do you want a modern or an old property?	新しい物件と昔ながらの物件、どちらをご希望ですか？	你想要现代的房子还是老式的房子？	현대적인 집을 원하시나요, 아니면 오래된 집을 원하시나요?	Вы хотите новостройку или вторичную недвижимость?
+4348	Services	At the Estate Agency	Kiun prezintervalon vi konsideras?	What price range are you thinking of?	ご予算はどのくらいをお考えですか？	您考虑的价格区间是多少？	어느 정도 가격대를 생각하고 계신가요?	Какой порядок цен вы рассматриваете?
+4349	Services	At the Estate Agency	Ĝi havas du dormoĉambrojn, kuirejon kaj banĉambron	It's got two bedrooms, a kitchen and a bathroom.	寝室が二つと、キッチン、それにバスルームがあります。	有两间卧室，一个厨房和一个卫生间。	침실이 두 개 있고, 주방과 욕실이 있어요.	В ней есть две спальни, кухня и ванная комната.
+4350	Services	At the Estate Agency	Mi interesiĝas scii pli pri ĉi tiu posedaĵo	I'm interested to know more about this property.	この物件についてもっと詳しく知りたいです。	我想进一步了解这处房产。	이 부동산에 대해 더 자세히 알고 싶어요.	Я заинтересована узнать больше об этой недвижимости.
+4351	Services	At the Estate Agency	Kiom longe ĝi jam estas sur la merkato?	How long has it been on the market?	市場に出てからどのくらい経ちますか？	上市多久了？	출시된 지 얼마나 되었나요?	Как долго он уже на рынке?
+4352	Services	At the Estate Agency	Kiom malproksime ĝi estas de la plej proksima stacidomo?	How far is it from the nearest station?	最寄りの駅からどれくらい離れていますか？	离最近的车站有多远？	가장 가까운 역에서 얼마나 떨어져 있나요?	Как далеко она от ближайшей станции?
+4353	Services	At the Estate Agency	Ĉu eblas lui garaĝon?	Is it possible to rent a garage?	ガレージを借りることはできますか？	可以租一个车库吗？	차고를 임대할 수 있나요?	Возможно ли арендовать гараж?
+4354	Services	At the Estate Agency	Ĉu estas elementa lernejo proksime?	Is there a primary school nearby?	近くに小学校はありますか？	附近有小学吗？	근처에 초등학교가 있나요?	Есть ли там поблизости начальная школа?
+4355	Services	At the Estate Agency	Ĉu estas iuj butikoj aŭ kafeoj proksime de la domo?	Are there any shops or cafes near the house?	家の近くにお店やカフェはありますか？	房子附近有商店或咖啡馆吗？	집 근처에 가게나 카페가 있나요?	Рядом с домом есть какие-нибудь магазины или кафе?

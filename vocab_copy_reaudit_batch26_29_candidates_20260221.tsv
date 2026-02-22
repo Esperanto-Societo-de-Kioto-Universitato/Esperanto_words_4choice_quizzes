@@ -1,0 +1,4 @@
+row	batch	esperanto	flags	score_zh	score_ko	Japanese_Trans	Chinese_Trans	Korean_Trans
+2624	2601-2700	kankro	scope_ko:9	3	9	{Ｂ}【動】カニ; 【天】巨蟹宮	蟹；螃蟹；巨蟹座	게
+2628	2601-2700	karpo	scope_zh:9|scope_ko:9	9	9	{Ｂ}【魚】コイ（鯉）; 【解】手根	鲤鱼	잉어
+2810	2801-2900	skorpio	scope_ko:9	6	9	{Ｂ}【動】サソリ（蠍）; 【天】天蠍宮	蝎属动物；天蝎座（宫）	전갈

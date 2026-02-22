@@ -1,0 +1,25 @@
+idx	Esperanto	Column	Old	New	Reason
+1106	mola	Chinese_Trans	软	软的，柔软的；温和的，柔和的；软弱的；（语）软音的	語義不足（柔和/軟弱/音声）を補完。
+1106	mola	Korean_Trans	부드럽고 무른, 딱딱하지 않은 상태	부드럽고 무른; 온화한; 유약한	語義不足（温和/軟弱）を補完。
+1109	mondo	Chinese_Trans	世界	世界；世间，社会；（转）界，领域	語義不足（社会/界）を補完。
+1110	mono	Chinese_Trans	钱	钱，金钱，货币	語義を中立化。
+1112	monto	Chinese_Trans	山	山；（转）大量，堆积如山	転義を補完。
+1116	mordi	Korean_Trans	이로 물다, 깨물다	이로 물다, 깨물다; (비유) 부식하다, 잠식하다	転義（侵食）を補完。
+1119	morti	Chinese_Trans	死亡	死亡；（植物）枯死；（转）消失，灭绝	語義不足（枯死/消滅）を補完。
+1119	morti	Korean_Trans	죽다, 생명이 끝나다	죽다; (식물 등이) 시들어 죽다; (비유) 사라지다, 멸하다	語義不足（枯死/消滅）を補完。
+1127	muro	Chinese_Trans	墙	墙，墙壁；（转）障壁	転義（障壁）を補完。
+1127	muro	Korean_Trans	벽, 담	벽, 담; (비유) 장벽	転義（障壁）を補完。
+1131	muta	Korean_Trans	말을 못하는	말을 못하는; 말이 없는, 침묵한	語義不足（無言）を補完。
+1140	naski	Korean_Trans	아기를 낳다	아기를 낳다; (비유) 낳다, 생기게 하다	転義（生み出す）を補完。
+1142	nazo	Chinese_Trans	鼻子	鼻子；嗅觉；（转）尖端，突出部	語義不足（嗅覚/先端）を補完。
+1147	nebulo	Chinese_Trans	雾	雾；（转）迷雾般的朦胧状态	転義を補完。
+1148	necesa	Chinese_Trans	必需；必然	必要的，不可缺少的；（逻）必然的	語義を品詞に合わせて自然化。
+1150	nek	Chinese_Trans	也不	也不；既不…也不…	接続用法を補完。
+1168	nivelo	Chinese_Trans	水平面；标高；水平	水平面；标高，水位；水平，程度，等级	語義不足（程度/等級）を補完。
+1171	nokto	Chinese_Trans	夜，夜间	夜，夜间；（转）黑暗	転義を補完。
+1172	nombro	Chinese_Trans	数（目）；编号	数，数目；编号；（语）数	文法義を補完。
+1173	nomo	Chinese_Trans	名字	名字，名称	語義不足（名称）を補完。
+1180	nubo	Chinese_Trans	云	云；云状物；（转）阴云	語義不足（雲状物/転義）を補完。
+1181	nuda	Chinese_Trans	裸体，裸露	裸体，裸露；无遮掩的；朴素无饰的	語義不足（むき出し/飾りなし）を補完。
+1181	nuda	Korean_Trans	벌거벗은, 나체의	벌거벗은, 나체의; 노출된; 꾸밈없는	語義不足（露出/無飾）を補完。
+1194	odori	Chinese_Trans	发出气味	有气味，散发气味（香/臭）；（转）带有…气息	語義不足（香臭/転義）を補完。

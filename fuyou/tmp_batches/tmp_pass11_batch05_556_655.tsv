@@ -1,0 +1,101 @@
+PhraseID	TopicName_EN	SubtopicName_EN	Esperanto	English	日本語	中文	한국어	Русский язык
+556	General Conversation	Asking for & Giving Information	Kial vi diris tion?	Why did you say that?	どうしてそんなことを言ったのですか？	你为什么这么说？	왜 그렇게 말씀하셨나요?	Почему ты это сказал?
+557	General Conversation	Asking for & Giving Information	Kial mi ne pensis pri tio?	Why didn't I think of that?	どうしてそれに気づかなかったんだろう？	我怎么没想到呢？	왜 나는 그 생각을 못 했을까?	Почему я об этом не подумал?
+558	General Conversation	Asking for & Giving Information	Ĉu iu povas diri al mi la veron?	Can anyone tell me the truth?	誰か本当のことを教えてくれませんか？	谁能告诉我真相？	누구라도 진실을 말해줄 수 있나요?	Кто-нибудь может сказать мне правду?
+559	General Conversation	Asking for & Giving Information	Kiam komenciĝas la cirkaj spektakloj?	When does the circus begin?	サーカスはいつ始まりますか？	马戏团什么时候开始？	서커스는 언제 시작하나요?	Когда начинаются цирковые представления?
+560	General Conversation	Asking for & Giving Information	Ĉu vi scias, kiu inventis la radon?	Do you know who invented the wheel?	車輪を発明したのが誰かご存知ですか？	你知道是谁发明了轮子吗？	바퀴를 누가 발명했는지 알고 계신가요?	Ты знаешь, кто изобрёл колесо?
+561	General Conversation	Expressing Feelings	Mi estas feliĉa	I'm happy.	うれしいです。	我很开心。	저는 행복해요.	Я счастлива.
+562	General Conversation	Expressing Feelings	Mi estas trista	I'm sad.	悲しいです。	我很难过。	저는 슬퍼요.	Мне грустно.
+563	General Conversation	Expressing Feelings	Mi estas malstreĉita	I'm relaxed.	リラックスしています。	我很放松。	저는 편안해요.	Я расслаблена.
+564	General Conversation	Expressing Feelings	Mi estas laca	I'm tired.	疲れた。	我累了。	피곤해요.	Я устал.
+565	General Conversation	Expressing Feelings	Mi malsatas	I am hungry.	お腹がすきました。	我饿了。	배가 고파요.	Я голодна.
+566	General Conversation	Expressing Feelings	Mi soifas	I'm thirsty.	喉が渇いた。	我渴了。	목이 말라요.	Я хочу пить.
+567	General Conversation	Expressing Feelings	Mi estas trankvila	I'm calm.	落ち着いています。	我很冷静。	저는 침착해요.	Я спокоен.
+568	General Conversation	Expressing Feelings	Mi enuas	I'm bored.	退屈だな。	我觉得有点无聊。	심심해요.	Мне скучно.
+569	General Conversation	Expressing Feelings	Mi estas optimisma	I'm optimistic.	私は楽観的です。	我很乐观。	저는 낙관적이에요.	Я оптимистична.
+570	General Conversation	Expressing Feelings	Mi rezignas	I give up.	もう諦めます。	我放弃了。	포기할게요.	Я сдаюсь.
+571	General Conversation	Expressing Feelings	Mi fartas bone	I feel fine.	元気です。	我感觉很好。	저는 괜찮아요.	Я чувствую себя хорошо.
+572	General Conversation	Expressing Feelings	Al mi estas egale	I don't care.	気にしないよ。	我无所谓。	신경 쓰지 않아요.	Мне всё равно.
+573	General Conversation	Expressing Feelings	Ho mia Dio!	Oh my God!	なんてこと！	天哪！	세상에!	О Боже мой!
+574	General Conversation	Expressing Feelings	Kia domaĝo!	What a pity!	なんて残念なんでしょう。	太可惜了！	정말 안타깝네요!	Какая жалость!
+575	General Conversation	Expressing Feelings	Mi estas surprizita	I'm surprised.	驚きました。	我很惊讶。	놀랐어요.	Я удивлён.
+576	General Conversation	Expressing Feelings	Mi timas	I'm scared.	怖いです。	我害怕。	무서워요.	Я напугана.
+577	General Conversation	Expressing Feelings	Mi estas ekscitita	I'm excited.	楽しみです。	我很期待。	기대돼요.	Я взволнован.
+578	General Conversation	Expressing Feelings	Mi maltrankvilas	I'm worried.	心配しています。	我有点担心。	걱정돼요.	Я обеспокоен.
+579	General Conversation	Expressing Feelings	Mi koleras	I'm angry.	腹が立っている。	我很生气。	화가 나요.	Я зол.
+580	General Conversation	Expressing Feelings	Mi ne certas	I'm not sure.	よくわかりません。	我不太确定。	잘 모르겠어요.	Я не уверен.
+581	General Conversation	Expressing Feelings	Mi hontas	I'm ashamed.	本当に恥ずかしいです。	我感到很羞愧。	창피해요.	Мне стыдно.
+582	General Conversation	Expressing Feelings	Mi malamas vin	I hate you.	あなたのことが大嫌いです。	我讨厌你。	당신이 싫어요.	Я тебя ненавижу.
+583	General Conversation	Expressing Feelings	Mia amiko estas ŝokita	My friend is shocked.	友人はとても驚いています。	我的朋友很震惊。	제 친구가 충격을 받았어요.	Мой друг шокирован.
+584	General Conversation	Expressing Feelings	Ĉu vi ne ŝatas Laŭran?	Don't you like Laura?	ローラのこと、好きじゃないの？	你不喜欢劳拉吗？	로라를 좋아하지 않으세요?	Разве тебе не нравится Лаура?
+585	General Conversation	Expressing Feelings	Jes, ŝi plaĉas al mi	Yes, I like her.	はい、彼女のことが好きです。	是的，我喜欢她。	네, 저는 그녀를 좋아해요.	Да, она мне нравится.
+586	General Conversation	Expressing Feelings	Ni tiom fieras pri vi!	We're so proud of you!	あなたのことを本当に誇りに思います。	我们为你感到骄傲！	정말 자랑스러워요!	Мы так тобой гордимся!
+587	General Conversation	Expressing Feelings	Kial vi ploras?	Why are you crying?	どうして泣いているの？	你怎么哭了？	왜 울고 있어요?	Почему ты плачешь?
+588	General Conversation	Expressing Feelings	Mi bedaŭras tion aŭdi	Sorry to hear that.	それはお気の毒です。	很抱歉听到这个消息。	안타깝네요.	Жаль это слышать.
+589	General Conversation	Expressing Feelings	Kia surprizo!	What a surprise!	なんて驚きなんだ！	真没想到！	정말 놀랍네요!	Вот так сюрприз!
+590	General Conversation	Expressing Feelings	Kia malŝanco!	Bad luck!	運が悪かったね。	真倒霉！	운이 안 좋네요!	Вот не везёт!
+591	General Conversation	Expressing Feelings	Mi estas motivita	I'm motivated.	やる気があります。	我很有动力。	저는 의욕이 넘쳐요.	Я вдохновлена.
+592	General Conversation	Expressing Feelings	Mi estas elĉerpita	I'm exhausted.	もうくたくたです。	我累坏了。	정말 지쳤어요.	Я измождена.
+593	General Conversation	Expressing Feelings	Mi estas konfuzita	I'm confused.	混乱しています。	我有点困惑。	혼란스러워요.	Я в замешательстве.
+594	General Conversation	Expressing Feelings	Mi sentas min ĝenata	I'm embarrassed.	気恥ずかしいです。	我很尴尬。	창피해요.	Я стесняюсь.
+595	General Conversation	Expressing Feelings	Mi estas nervoza	I am nervous.	緊張しています。	我有点紧张。	긴장돼요.	Я нервничаю.
+596	General Conversation	Expressing Feelings	Mi estas en malbona humoro	I'm in a bad mood.	機嫌が悪いです。	我心情不好。	기분이 안 좋아요.	Я в плохом настроении.
+597	General Conversation	Expressing Feelings	Mi sentas min terure	I feel terrible.	とてもつらいです。	我感觉很糟糕。	기분이 정말 안 좋아요.	Я ужасно себя чувствую.
+598	General Conversation	Expressing Feelings	Mi sentas min perdita	I feel lost.	自分を見失っている気がします。	我感到迷茫。	길을 잃은 것 같아요.	Я растеряна.
+599	General Conversation	Expressing Feelings	Mi sentas iom da kapturno	I'm feeling a little dizzy.	少しめまいがします。	我有点头晕。	약간 어지러운 느낌이 들어요.	У меня немного кружится голова.
+600	General Conversation	Expressing Feelings	Mi ne timas	I'm not afraid.	怖くありません。	我不害怕。	저는 두렵지 않아요.	Я не боюсь.
+601	General Conversation	Expressing Feelings	Mi ne estas malkuraĝigita	I'm not discouraged.	落ち込んでいません。	我并不气馁。	저는 낙담하지 않았어요.	Я не обескуражен.
+602	General Conversation	Expressing Feelings	Kial vi ridas?	Why are you laughing?	どうして笑っているの？	你为什么笑？	왜 웃고 있어요?	Почему ты смеёшься?
+603	General Conversation	Expressing Feelings	Vi certe ŝercas!	You must be kidding!	冗談でしょ！	你一定是在开玩笑吧！	장난하는 거죠!	Ты, наверное, шутишь!
+604	General Conversation	Expressing Feelings	Li estas tiel kolera kontraŭ si mem	He is so angry at himself.	彼は自分自身にとても腹を立てている。	他对自己非常生气。	그는 자신에게 너무 화가 나 있어요.	Он так зол на себя.
+605	General Conversation	Expressing Feelings	Ho Dio, kia malordo!	Oh God, what a mess!	ああ、なんてひどいことになってるんだ！	天哪，太乱了！	아이고, 이게 무슨 난리야!	О Боже, какой беспорядок!
+606	General Conversation	Expressing Feelings	Ni tre bedaŭras aŭdi pri via perdo	We are so sorry to hear about your loss.	ご逝去の報に接し、心よりお悔やみ申し上げます。	得知您的不幸消息，我们深感遗憾。	상심이 크시겠어요. 진심으로 위로의 말씀을 전합니다.	Нам так жаль слышать о твоей потере.
+607	General Conversation	Expressing Feelings	Bonvolu akcepti niajn plej profundajn kondolencojn	Please accept our deepest condolences.	心よりお悔やみ申し上げます。	请节哀顺变，我们深表哀悼。	진심으로 깊은 애도를 표합니다.	Пожалуйста, примите наши глубочайшие соболезнования.
+608	General Conversation	Expressing Feelings	Niaj pensoj estas kun vi kaj via familio	Our thoughts are with you and your family.	ご家族の皆様とともに、心よりお見舞い申し上げます。	我们与你和你的家人同在。	당신과 가족분들께 깊은 위로의 마음을 전합니다.	Мы мысленно с вами и вашей семьёй.
+609	General Conversation	Help & Advice	Mi bezonas vian helpon	I need your help.	助けてほしいです。	我需要你的帮助。	도움이 필요해요.	Мне нужна твоя помощь.
+610	General Conversation	Help & Advice	Ĉu vi povas helpi min?	Can you help me?	手伝ってもらえますか？	你能帮我吗？	도와주실 수 있을까요?	Можешь мне помочь?
+611	General Conversation	Help & Advice	Mi volas helpi vin	I want to help you.	あなたを手伝いたいです。	我想帮你。	도와드리고 싶어요.	Я хочу вам помочь.
+612	General Conversation	Help & Advice	Kion vi pensas?	What do you think?	どう思いますか？	你怎么看？	어떻게 생각하세요?	Что думаешь?
+613	General Conversation	Help & Advice	Ĉu vi povas montri al mi?	Can you show me?	見せてもらえますか？	你能给我看看吗？	보여주실 수 있나요?	Можешь мне показать?
+614	General Conversation	Help & Advice	Mi ne scias, kiel uzi ĝin	I don't know how to use it.	使い方がわかりません。	我不知道怎么用。	어떻게 사용하는지 잘 모르겠어요.	Я не знаю, как им пользоваться.
+615	General Conversation	Help & Advice	Kie mi povas telefoni?	Where can I make a call?	どこで電話をかけられますか？	我可以在哪里打电话？	어디에서 전화를 걸 수 있나요?	Где я могу позвонить?
+616	General Conversation	Help & Advice	Ĉu mi povus prunti vian plumon?	Could I borrow your pen?	ペンをお借りしてもよろしいですか？	我可以借用一下你的笔吗？	펜 좀 빌려도 될까요?	Я могу одолжить вашу ручку?
+617	General Conversation	Help & Advice	Ĉu vi povus helpi min?	Would you assist me?	お手伝いいただけますか？	你能帮我一下吗？	도와주실 수 있나요?	Не могли бы вы помочь мне?
+618	General Conversation	Help & Advice	Kion vi proponas?	What do you suggest?	何か提案はありますか？	你有什么建议？	어떻게 하는 것이 좋을까요?	Что ты предлагаешь?
+619	General Conversation	Help & Advice	Mi proponas, ke vi iru tien	I suggest you going there.	あなたはそこに行ってみるといいと思います。	我建议你去那里。	그곳에 가보시길 권해요.	Предлагаю тебе пойти туда.
+620	General Conversation	Help & Advice	Bonvolu sciigi min, se vi bezonos mian helpon	Please let me know if you need my help.	何かお手伝いが必要な場合は、遠慮なくお知らせください。	如果需要我的帮助，请随时告诉我。	제 도움이 필요하시면 언제든 말씀해 주세요.	Пожалуйста, дайте мне знать, если вам понадобится моя помощь.
+621	General Conversation	Help & Advice	Mi serĉas Maksimon	I'm looking for Maxim.	マキシムさんを探しています。	我在找马克西姆。	맥심을 찾고 있어요.	Я ищу Максима.
+622	General Conversation	Help & Advice	Kion mi surmetu?	What should I wear?	何を着ればいいですか？	我该穿什么？	무엇을 입어야 할까요?	Что бы мне надеть?
+623	General Conversation	Help & Advice	Ĉu vi povus fari al mi servon?	Can you do me a favour?	お願いを聞いていただけますか？	你能帮我个忙吗？	저에게 부탁 하나 들어줄 수 있나요?	Ты могла бы оказать мне услугу?
+624	General Conversation	Help & Advice	Mi estus dankema pro via konsilo	I would appreciate your advice.	ご助言いただけますと幸いです。	期待您的建议。	조언을 해주시면 감사하겠습니다.	Я был бы признателен вам за совет.
+625	General Conversation	Help & Advice	Mi konsilus al vi iom ripozi	I would advise you to get some rest.	少し休まれることをおすすめします。	我建议你休息一下。	휴식을 좀 취하는 게 좋겠어요.	Я бы посоветовал тебе немного отдохнуть.
+626	General Conversation	Help & Advice	Ĉu vi intencas helpi ŝin?	Are you going to help her?	彼女を手伝うつもりですか？	你打算帮她吗？	그녀를 도와주실 건가요?	Ты собираешься ей помочь?
+627	General Conversation	Help & Advice	Kion vi pensas, ke mi faru?	What do you think I should do?	どうしたらいいと思いますか？	你觉得我应该怎么做？	제가 어떻게 하면 좋을지 조언해 주실 수 있을까요?	Как ты думаешь, что мне делать?
+628	General Conversation	Help & Advice	Se mi estus vi, mi farus same	If I were you, I'd do the same.	私があなたの立場でも、同じことをすると思います。	如果我是你，我也会这么做。	저라도 똑같이 했을 거예요.	На твоём месте я бы сделала то же самое.
+629	General Conversation	Help & Advice	Ĉu vi povas teni ĉi tion por mi?	Can you hold this for me?	これを持っていてくれる？	你能帮我拿一下这个吗？	이거 좀 들어줄 수 있어요?	Можешь подержать это?
+630	General Conversation	Help & Advice	Bonvolu teni la pordon malfermitan por mi	Please hold the door open for me.	ドアを開けておいてください。	请帮我把门打开。	문 좀 잡아 주세요.	Пожалуйста, придержите дверь открытой для меня.
+631	General Conversation	Help & Advice	Ĉu vi povus prizorgi tion dum momento?	Could you keep an eye on that for a minute?	ちょっとの間、それを見ていてもらえますか？	你能帮我看一下这个吗？	잠깐만 저걸 좀 지켜봐 주실 수 있나요?	Не могли бы вы присмотреть за ним минутку?
+632	General Conversation	Help & Advice	Ĉu vi estus tiel afabla klarigi tion denove?	Would you be so kind as to explain it again?	もう一度ご説明いただけますでしょうか。	能否请您再解释一遍？	다시 한 번 설명해 주시겠어요?	Не будете ли вы так добры объяснить это снова?
+633	General Conversation	Help & Advice	Ĉu vi povas forĵeti tion por mi?	Can you throw that away for me?	それを捨ててくれる？	你能帮我把那个扔掉吗？	저거 좀 버려줄 수 있어요?	Ты можешь это выбросить вместо меня?
+634	General Conversation	Help & Advice	Ĉu vi helpos min pri ĉi tiu problemo?	Will you help me with this problem?	この問題を手伝ってもらえますか？	你能帮我解决这个问题吗？	이 문제를 도와주실 수 있나요?	Вы поможете мне с этой проблемой?
+635	General Conversation	Help & Advice	Ĉu vi metus ĉi tion en la aŭton por mi?	Will you put this in the car for me?	これを車に入れてもらえますか？	你能帮我把这个放到车里吗？	이것을 차에 넣어 주시겠어요?	Ты поможешь мне положить его в машину?
+636	General Conversation	Help & Advice	Ĉu vi bonvolus sendi ĉi tiun leteron por mi?	Will you please post this letter for me?	この手紙を投函していただけますか？	你能帮我寄一下这封信吗？	이 편지를 부쳐 주시겠어요?	Не отправите ли вы за меня это письмо, пожалуйста?
+637	General Conversation	Help & Advice	Kion vi farus en mia loko?	What would you do in my position?	もし私があなたの立場だったら、どうしますか？	如果你是我，你会怎么做？	당신이 제 입장이라면 어떻게 하시겠어요?	Что бы вы сделали на моём месте?
+638	General Conversation	Help & Advice	Mi rekomendus al vi paroli kun Jia	I would recommend you to talk with Jia.	ジャに相談してみることをおすすめします。	我建议你和佳谈谈。	지아와 상담해 보시길 추천드립니다.	Я бы рекомендовала тебе поговорить с Джией.
+639	General Conversation	Help & Advice	Mi estus dankema, se vi povus klarigi ĝin al mi	I would be grateful if you could explain it to me.	ご説明いただけますと幸いです。	如果您能为我解释一下，我将不胜感激。	설명해 주시면 감사하겠습니다.	Я была бы благодарна, если бы вы могли объяснить мне это.
+640	General Conversation	Help & Advice	Mi malkonsilus lui aŭton	I would advise against hiring a car.	レンタカーを借りるのはおすすめしません。	我建议不要租车。	차를 렌트하는 것은 추천하지 않아요.	Я бы посоветовала не арендовать машину.
+641	General Conversation	Help & Advice	Ĉu vi ĝenus doni al mi la tekkomputilon?	Would you mind giving me the laptop?	ノートパソコンを渡していただけますか？	你能把笔记本电脑给我吗？	노트북 좀 주실 수 있을까요?	Вы не против дать мне ноутбук?
+642	General Conversation	Help & Advice	Ĉu vi povus prunti al mi iom da mono, mi petas?	Could you lend me some money, please?	お金を少し貸していただけますか？	你能借我点钱吗？	혹시 돈을 좀 빌려주실 수 있나요?	Не могла бы ты одолжить мне немного денег, пожалуйста?
+643	General Conversation	Help & Advice	Ĉu mi povus peti vian konsilon?	Could I ask for your advice?	ご相談させていただいてもよろしいでしょうか。	我可以请教您一下吗？	조언을 구해도 될까요?	Я могу спросить твоего совета?
+644	General Conversation	Help & Advice	Se vi sekvos mian konsilon, vi sukcesos	If you follow my advice, you will succeed.	私のアドバイスに従えば、きっと成功します。	如果你听从我的建议，你就会成功。	제 조언을 따르면 성공할 거예요.	Если вы последуете моему совету, вы добьётесь успеха.
+645	General Conversation	Help & Advice	Se mi estus vi, mi dufoje pripensus, ĉu aĉeti ĝin	If I were you, I'd think twice about buying it.	私があなたの立場なら、買う前によく考えますね。	如果我是你，我会再三考虑要不要买。	제가 당신이라면 그걸 사기 전에 한 번 더 신중하게 생각해 볼 것 같아요.	На твоём месте я бы дважды подумал, стоит ли его покупать.
+646	General Conversation	Help & Advice	Bonvolu ne heziti demandi nian flugpersonaron	Please don't hesitate to ask our flight crew.	どうぞご遠慮なく乗務員にお尋ねください。	如有需要，请随时向我们的机组人员咨询。	언제든지 승무원에게 편하게 문의해 주세요.	Пожалуйста, не стесняйтесь задавать вопросы нашему экипажу.
+647	General Conversation	Help & Advice	Kune ni povas facile plenumi ion ajn	Together, we can easily accomplish anything.	私たちが力を合わせれば、どんなことでも簡単に成し遂げられます。	只要我们齐心协力，就没有什么做不到的。	함께라면 우리는 어떤 일이든 쉽게 해낼 수 있어요.	Вместе мы можем легко со всем справиться.
+648	General Conversation	Opinions	Ĉu ĝi plaĉas al vi?	Do you like it?	気に入りましたか？	你喜欢吗？	마음에 드시나요?	Тебе оно нравится?
+649	General Conversation	Opinions	Mi ne ŝatas ĝin	I don't like it.	あまり好きじゃありません。	我不喜欢。	마음에 들지 않아요.	Мне он не нравится.
+650	General Conversation	Opinions	Ĝi estas bela	It's beautiful.	きれいですね。	真漂亮。	정말 아름다워요.	Это красиво.
+651	General Conversation	Opinions	Ĝi estas malbela	It's ugly.	見た目がよくない。	很难看。	못생겼어요.	Это некрасиво.
+652	General Conversation	Opinions	Estas interese	It's interesting.	面白いですね。	很有意思。	재미있네요.	Это интересно.
+653	General Conversation	Opinions	Estas enuige	It's boring.	退屈だ。	很无聊。	지루해요.	Это скучно.
+654	General Conversation	Opinions	Estas mirinde	It's amazing.	すごいですね。	太棒了。	정말 놀라워요.	Это потрясающе.
+655	General Conversation	Opinions	Tio estas naŭza	It's disgusting.	気持ち悪い。	太恶心了。	정말 역겨워요.	Это отвратительно.

@@ -1,0 +1,21 @@
+row	esperanto	verdict	target_column	suggested_minimal	reason	flags	score_zh	score_ko	Japanese_Trans	Chinese_Trans	Korean_Trans
+203	biero	keep	-	-	日中韓とも基礎義「ビール」で実用十分。	scope_zh:8|scope_ko:8	8	8	{Ｂ}ビール, >>botela, >>barela	啤酒	맥주
+204	bildo	optional_low	Korean_Trans	그림, 영상, 심상, 광경, 비유; (정보) 이미지	KOに情報分野の「画像」義を軽補完。	scope_zh:16|scope_ko:27	16	27	{Ｂ}絵, 図, 挿絵; 像, 光景; 映像, 影; 心象; 似姿; 比喩（ひゆ）; 【理】像; 【情】画像	图；像；影像；情景；意象；比喻形象	그림, 영상, 심상, 광경, 비유
+211	bloko	optional_low	Korean_Trans	덩어리, 블록; 구획, 한 묶음	街区/一つづりの義を最小補完。	scope_ko:13	7	13	{Ｂ}塊, ブロック, 台; 街区; （暦・メモ用紙などの）一つづり; 【政】ブロック（国家や政党の連合）	块，大块；砧板；拍纸簿	덩어리, 블록
+215	bluzo	optional_medium	Korean_Trans	블라우스; 작업복, 상의(블루종)	KOがブラウス義に偏り、作業着義が不足。	scope_zh:8|scope_ko:11	8	11	{Ｂ}【服】ブラウス; 上っ張り, 仕事着; ジャンパー, ブルゾン	罩衣；工作服	블라우스
+216	bo-	keep	-	-	姻戚接頭辞の説明として十分。	scope_zh:8|scope_ko:8	8	8	{Ｂ}［接頭辞］（姻戚関係を示す）, >>〜patro, >>〜frato	姻亲	혼인관계(인척)를 나타내는 접두사
+228	brasiko	keep	-	-	キャベツ類の総称義として概ね妥当。	scope_zh:12|scope_ko:11	12	11	{Ｂ}【植】キャベツ, =〜; （キャベツ、ハクサイ、カラシナ、アブラナ、カブなど）アブラナ属の植物の総称	甘蓝类植物（白菜）	양배추, 배추류 식물
+229	brava	optional_low	Korean_Trans	용감한, 의리 있는, 훌륭한	KOを勇敢義のみから軽拡張。	scope_ko:9	6	9	{Ｂ}勇敢な, 勇ましい, りりしい; 実直な, 律義な; りっぱな	出类拔萃，能干，干练，英勇	용감한
+243	bubo	optional_low	Korean_Trans	장난꾸러기; (카드) 잭	JA/ZHのカード義を補完。	scope_ko:8	7	8	{Ｂ}いたずらっ子; 【遊】（トランプの）ジャック, =fanto	顽童，淘气鬼	장난꾸러기 아이
+257	cemento	keep	-	-	セメント/接合剤義は十分。	scope_zh:12|scope_ko:12	12	12	{Ｂ}セメント; 接合剤, 接着剤; （歯の）セメント質; 【地質】膠結物（こうけつぶつ）	水泥，接合剂	시멘트, 접합제
+259	centralo	keep	-	-	中央機関・発電所・電話局義を保持。	scope_ko:10	7	10	{Ｂ}中央施設, 本部, =centrejo; 【電】発電所; 【通】電話交換局	中心机构，总部；（电）发电厂，电站；（电信）电话交换局	중앙 기관, 본부; 발전소, 전화국
+260	centro	optional_low	Korean_Trans	중심, 중앙; (정치) 중도	KOに政治義（中道）を最小補完。	scope_zh:9|scope_ko:13	9	13	{Ｂ}中心, 中央; 【政】中道, 中間派; 【解】中枢	中心点，圆心，中点；中心	중앙, 중심
+261	cepo	keep	-	-	日中韓ともタマネギ義で十分。	scope_zh:8|scope_ko:9	8	9	{Ｂ}【料】玉ネギ; 【植】タマネギ	洋葱，葱头	양파
+269	ciklo	keep	-	-	前回補完後、主要多義を保持。	scope_zh:21|scope_ko:23	21	23	{Ｂ}周期, 循環, サイクル; 【文】（同一主題の）物語群, 連作; 【化】炭素環; 【環】（物質の）循環, =cirkulado; 【理】サイクル（周波数の単位，c）	周期；循环；（文）组诗；（化）环	주기, 순환; (문학) 연작; (화학) 고리
+276	citrono	keep	-	-	レモン/シトロンの区別は許容範囲。	scope_zh:8	8	7	{Ｂ}《般》レモン（慣用）, =limono; 【果】シトロン	柠檬（狭义：香橼）	레몬, 신맛이 나는 과일
+277	civila	optional_low	Korean_Trans	시민의, 민간의; (법) 민사의	JA/ZHにある法義を補完。	scope_ko:10	5	10	{Ｂ}市民の, 文民の; 【法】民事の, ><militista, ><eklezia, ><ŝtata, ><kriminala	公民的，国民的，民用，文职，平民，世俗，民事	시민의, 민간의
+281	danci	keep	-	-	踊る義で十分。	scope_zh:8|scope_ko:8	8	8	{Ｂ}［自］踊る, ダンスをする; 小躍りする, はねる; ［他］（～を）踊る	跳舞	춤추다
+289	dediĉi	keep	-	-	献呈・献身の中心義が成立。	scope_ko:9	2	9	{Ｂ}［他］（努力・時間を）ささげる; （著書・楽曲を）献呈する; 【宗】奉献する	献；题献；献身，致力于	시간·노력이나 작품을 바치다
+294	deklari	optional_low	Korean_Trans	선언하다, 표명하다; (세관) 신고하다	申告義を最小補完。	scope_ko:8	2	8	{Ｂ}［他］宣言する, 宣告する; 表明する, 明言する; （課税品を）申告する	正式公开宣布；宣布；申报	공식적으로 선언하다
+296	dekoracio	optional_low	Korean_Trans	장식, 꾸밈; (연극) 무대장치, 배경	舞台装置義を補完。	scope_ko:8	5	8	{Ｂ}装飾, 飾り付け; 【劇】舞台装置, 背景, 書割（かきわり）	装饰，陈设；布景	장식, 꾸밈
+299	delikata	optional_medium	Korean_Trans	섬세하고 세련된; 민감한, 연약한, 깨지기 쉬운	KOに繊細義のみで、脆弱/敏感義が不足。	scope_zh:8|scope_ko:13	8	13	{Ｂ}繊細な, 洗練された; 優美な, 上品な; 鋭敏な, 敏感な; きゃしゃな, 壊れやすい	精美，高雅；纤细，脆性的	섬세하고 세련된

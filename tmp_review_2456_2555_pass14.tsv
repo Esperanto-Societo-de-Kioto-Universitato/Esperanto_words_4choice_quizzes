@@ -1,0 +1,101 @@
+PhraseID	TopicName_EN	SubtopicName_EN	Esperanto	日本語	中文	한국어	Русский язык	English
+2456	Other Transport	At the Train Station	Mi ŝatus pensiulan unudirektan bileton al Milano	ミラノまでのシニア用片道切符をお願いします。	我想要一张去米兰的老年人单程票。	밀라노행 노인 편도 승차권 한 장 주세요.	Я бы хотел пенсионный билет в один конец до Милана.	I'd like a senior citizens' single to Milan.
+2457	Other Transport	At the Train Station	Mi ŝatus unuaklasan revenbileton al Talino	タリンまでの往復ファーストクラスをお願いします。	我想要一张去塔林的头等舱往返票。	탈린까지 일등석 왕복표로 부탁합니다.	Я бы хотела билет первого класса туда и обратно до Таллина.	I'd like a first class return to Tallinn.
+2458	Other Transport	At the Train Station	Kiom longe validas revenbileto?	往復切符の有効期間はどれくらいですか。	往返票的有效期是多久？	왕복 티켓의 유효 기간은 얼마나 되나요?	Сколько времени действует билет туда и обратно?	How long is a return ticket good for?
+2459	Other Transport	At the Train Station	Ĉu ĉi tio estas eksprestrajno aŭ loktrajno?	これは急行ですか、それとも各駅停車ですか？	这是快车还是普通车？	이 열차는 급행인가요, 아니면 일반 열차인가요?	Это экспресс или электричка?	Is this an express or a local train?
+2460	Other Transport	At the Train Station	Ĉu la trajno faras iujn haltojn survoje?	途中で停車しますか？	这趟火车中途会停站吗？	기차가 가는 도중에 정차하는 역이 있나요?	Поезд делает какие-нибудь остановки по пути?	Does the train make any stops on the way?
+2461	Other Transport	At the Train Station	Ĉu ĉi tiu estas la ĝusta kajo por Tajpeo?	台北にはこのプラットフォームで合っていますか？	这是台北的正确平台吗？	여기가 타이베이에 적합한 플랫폼인가요?	Это правильная платформа до Тайбэя?	Is this the right platform for Taipei?
+2462	Other Transport	At the Train Station	Kajo 11 por la 10:22 al Varsovio	10時22分発ワルシャワ行きは11番ホームです。	开往华沙的10点22分列车，请在11号站台候车。	10시 22분 바르샤바행은 11번 플랫폼에서 출발합니다.	Платформа 11, поезд в 10:22 до Варшавы.	Platform 11 for 10.22 to Warsaw.
+2463	Other Transport	At the Train Station	Mi ŝatus vojaĝkarton, mi petas	旅行用のカードをお願いします。	我想办一张交通卡。	여행 카드를 하나 주세요.	Я бы хотела проездной билет, пожалуйста.	I'd like a travel card, please.
+2464	Other Transport	At the Train Station	Mi ŝatus meti 10 funtojn sur ĝin	そのカードに10ポンドチャージしたいです。	我想往卡里充10英镑。	그 카드에 10파운드를 충전하고 싶어요.	Я бы хотел положить на него 10 фунтов.	I'd like to put 10 pounds on it.
+2465	Other Transport	At the Train Station	Mi ŝatus renovigi mian abonbileton, mi petas	シーズンチケットの更新をお願いします。	我想续订我的季票。	시즌권을 갱신하고 싶어요.	Я бы хотела продлить абонемент, пожалуйста.	I'd like to renew my season ticket, please.
+2466	Other Transport	At the Train Station	Mi ne kontraŭas vojaĝi per trajno ĉiutage	毎日電車で通うのは気になりません。	我不介意每天坐火车出行。	저는 매일 기차로 이동하는 것이 괜찮아요.	Я не против ездить на поезде каждый день.	I don't mind travelling by train every day.
+2467	Other Transport	At the Train Station	Ĉu ekzistas iuj rabataj tarifoj por pluraj vojaĝoj?	複数回利用できる割引運賃はありますか？	多次出行有优惠票价吗？	여러 번 이용할 경우 할인 요금이 있나요?	Есть какие-нибудь льготные тарифы на несколько поездок?	Are there any discount fares for multiple trips?
+2468	Other Transport	At the Train Station	Kie mi povas trovi skemon de la metroo?	地下鉄の路線図はどこで手に入りますか。	我在哪里可以找到地铁线路图？	지하철 노선도는 어디에서 볼 수 있나요?	Где я могу найти схему метро?	Where can I find a map of the underground?
+2469	Other Transport	At the Train Station	Ĝis kioma horo funkcias la metroo?	地下鉄は何時まで運行していますか？	地铁最晚运营到几点？	지하철은 몇 시까지 운행하나요?	До которого часа работает метро?	How late does the underground run?
+2470	Other Transport	On the Bus or Train	Biletojn, mi petas	切符を拝見します。	请出示车票。	표를 보여주세요.	Билеты, пожалуйста.	Tickets, please.
+2471	Other Transport	On the Bus or Train	Kie estas mia loko?	私の席はどこですか？	我的座位在哪里？	제 좌석이 어디인가요?	Где моё место?	Where is my seat?
+2472	Other Transport	On the Bus or Train	Kie ni estas?	ここはどこですか？	我们现在在哪里？	여기가 어디죠?	Где мы?	Where are we?
+2473	Other Transport	On the Bus or Train	Haltu ĉi tie, mi petas!	ここで止めてください。	请在这里停一下！	여기서 멈춰 주세요!	Остановите здесь, пожалуйста!	Stop here, please!
+2474	Other Transport	On the Bus or Train	Ĉe la sekva haltejo, mi petas	次、お願いします。	请在下一站停车。	다음 정류장에서 내려 주세요.	На следующей остановке, пожалуйста.	Next stop, please.
+2475	Other Transport	On the Bus or Train	Ĉu ĉi tiu loko estas libera?	この席、空いていますか？	这个座位有人吗？	이 자리 비어 있나요?	Это место свободно?	Is this seat free?
+2476	Other Transport	On the Bus or Train	Ĉu vi kontraŭas, se mi sidiĝos ĉi tie?	こちらに座ってもよろしいですか？	你介意我坐这里吗？	여기 앉아도 될까요?	Не возражаете, если я здесь присяду?	Do you mind if I sit here?
+2477	Other Transport	On the Bus or Train	Ne, mi ne kontraŭas	いいえ、気にしません。	没关系，我不介意。	아니요, 괜찮아요.	Нет, я не возражаю.	No, I don't mind.
+2478	Other Transport	On the Bus or Train	Kiu haltejo estas ĉi tiu?	ここは何という停留所ですか。	这是哪一站？	여기가 무슨 정류장이에요?	Что это за остановка?	What's this stop?
+2479	Other Transport	On the Bus or Train	Sekva haltejo: Stokholmo	次の停留所はストックホルムです。	下一站：斯德哥尔摩。	다음 정류장은 스톡홀름입니다.	Следующая остановка - Стокгольм.	Next stop: Stockholm.
+2480	Other Transport	On the Bus or Train	Ĉi tio estas mia haltejo	ここで降ります。	我到站了。	여기가 제 내릴 곳이에요.	Это моя остановка.	This is my stop.
+2481	Other Transport	On the Bus or Train	Je kioma horo ni alvenas?	私たちは何時に到着しますか？	我们几点到？	우리는 몇 시에 도착하나요?	Во сколько мы прибываем?	What time do we arrive?
+2482	Other Transport	On the Bus or Train	Ĉu vi eliras?	降りますか？	你要下车吗？	내리실 건가요?	Вы выходите?	Are you getting off?
+2483	Other Transport	On the Bus or Train	Urĝa bremso	非常ブレーキ	紧急制动	비상 제동장치	Стоп-кран	Emergency brake
+2484	Other Transport	On the Bus or Train	Ĉe kiu haltejo mi eliru?	どの停留所で降りればいいですか？	我应该在哪一站下车？	어느 정류장에서 내려야 하나요?	На какой остановке мне нужно выходить?	Which stop should I get off at?
+2485	Other Transport	On the Bus or Train	Ĉi tio estas mia vojaĝkarto	これは私の交通系ICカードです。	这是我的交通卡。	이것은 제 교통카드예요.	Это мой проездной билет.	This is my travel card.
+2486	Other Transport	On the Bus or Train	Mi havas elektronikan bileton	電子チケットを持っています。	我有一张电子票。	저는 전자 티켓을 가지고 있어요.	У меня электронный билет.	I've got an e-ticket.
+2487	Other Transport	On the Bus or Train	Mi perdis mian bileton	チケットをなくしてしまいました。	我的票丢了。	표를 잃어버렸어요.	Я потеряла свой билет.	I've lost my ticket.
+2488	Other Transport	On the Bus or Train	En kiu vagono estas mia loko?	私の席はどの車両ですか？	我的座位在哪节车厢？	제 좌석은 몇 호 칸에 있나요?	В каком вагоне моё место?	Which carriage is my seat in?
+2489	Other Transport	On the Bus or Train	Ĉu estas vagonrestoracio?	食堂車はありますか？	有餐车吗？	식당칸이 있나요?	Здесь есть вагон-ресторан?	Is there a restaurant car?
+2490	Other Transport	On the Bus or Train	Kiom da tempo por atingi Osakon?	大阪までどれくらいかかりますか？	到大阪需要多长时间？	오사카까지 얼마나 걸리나요?	Сколько добираться до Осаки?	How long to get to Osaka?
+2491	Other Transport	On the Bus or Train	Kiom da haltejoj de ĉi tie?	ここから何停留所ありますか？	离这里还有几站？	여기서 몇 정거장 남았어요?	Сколько остановок отсюда?	How many stops from here?
+2492	Other Transport	On the Bus or Train	Kiom da haltejoj estas ĝis Kabulo?	カブールまであと何停留所ありますか？	到喀布尔要经过几站？	카불까지 몇 정거장인가요?	Сколько остановок до Кабула?	How many stops is it to Kabul?
+2493	Other Transport	On the Bus or Train	Kie ni nun traveturas?	今、私たちはどこを通っていますか？	我们现在经过哪里？	지금 우리는 어디를 지나고 있나요?	Где мы сейчас проезжаем?	Where are we passing now?
+2494	Other Transport	On the Bus or Train	Ĉu mi povas malfermi la fenestron?	窓を開けてもよろしいですか。	我可以开窗吗？	창문을 열어도 될까요?	Я могу открыть окно?	May I open the window?
+2495	Other Transport	On the Bus or Train	Ĉi tie estas tre varme	ここはとても暑いですね。	这里很热。	여기 안이 너무 덥네요.	Здесь очень жарко.	It is very hot in here.
+2496	Other Transport	On the Bus or Train	Kiam mi devas eliri? Ĝuste nun?	今すぐ降りなきゃいけませんか？	我现在就要下车吗？	언제 내려야 하나요? 지금 내려야 하나요?	Когда мне нужно сойти? Прямо сейчас?	When do I have to get off? Right now?
+2497	Other Transport	On the Bus or Train	Ne, ĉe la sekva haltejo	いいえ、次の停留所で。	不是，在下一站。	아니요, 다음 정류장에서요.	Нет, на следующей остановке.	No, at the next stop.
+2498	Other Transport	On the Bus or Train	Bonvolu eliri el la vagono	お乗り換えです。	请全部换乘。	모두 내리세요.	Просьба выйти из вагона.	All change, please.
+2499	Other Transport	On the Bus or Train	Laŭpeta haltejo	リクエストストップ	按需停靠站	요청 정차	Остановка по требованию	Request stop
+2500	Other Transport	On the Bus or Train	Ĉu ĉi tiu buso haltas ĉe la Ejfelturo?	このバスはエッフェル塔に停まりますか？	这辆公交车在埃菲尔铁塔停吗？	이 버스는 에펠탑에 정차하나요?	Этот автобус останавливается у Эйфелевой башни?	Does this bus stop at the Eiffel Tower?
+2501	Other Transport	On the Bus or Train	Ĉu vi povus halti ĉe la flughaveno?	空港で止まっていただけますか？	请在机场停一下。	공항에 잠시 멈춰 주시겠어요?	Не могли бы вы, пожалуйста, остановиться в аэропорту?	Could you please stop at the airport?
+2502	Other Transport	On the Bus or Train	Ĉu vi povus diri al mi, kiam ni alvenos al la universitato?	大学に着くのはいつか教えていただけますか。	你能告诉我我们什么时候到大学吗？	대학교에 언제 도착하는지 알려주실 수 있나요?	Не могли бы вы сказать мне, когда мы доберёмся до университета?	Could you tell me when we get to the university?
+2503	Other Transport	On the Bus or Train	Kiom da tempo necesas por veturi al la urbocentro?	市の中心部まで行くのにどれくらい時間がかかりますか？	到市中心需要多长时间？	도심까지 가는 데 얼마나 걸릴까요?	Сколько ехать до центра города?	How long will it take to go to the city centre?
+2504	Other Transport	On the Bus or Train	Bonvolu diri al mi, kie eliri	降りる場所を教えてください。	请告诉我在哪里下车。	내릴 곳에서 알려주세요.	Пожалуйста, скажите мне, где выходить.	Please tell me where to get off.
+2505	Other Transport	On the Bus or Train	Mi eliras ĉe la sekva haltejo	次の停留所で降ります。	我在下一站下车。	저는 다음 정류장에서 내립니다.	Я выхожу на следующей остановке.	I get off at the next stop.
+2506	Other Transport	On the Bus or Train	Ĉu vi kontraŭas, se mi fermos la fenestron?	窓を閉めてもよろしいですか？	你介意我把窗户关上吗？	창문을 닫아도 괜찮을까요?	Вы не против, если я закрою окно?	Do you mind if I close the window?
+2507	Other Transport	On the Bus or Train	Mi pensas, ke ĉi tio estas mia sidloko	こちらは私の席だと思います。	我觉得这是我的座位。	여기가 제 자리인 것 같아요.	Думаю, это моё место.	I think this is my seat.
+2508	Other Transport	On the Bus or Train	Ĉu mi povus meti ĉi tion en la pakaĵujon, mi petas?	こちらを荷物棚に入れてもよろしいでしょうか。	请问我可以把这个放在行李舱里吗？	이것을 짐칸에 넣어도 될까요?	Могу я положить это в багажное отделение, пожалуйста?	Could I put this in the luggage compartment, please?
+2509	Other Transport	On the Bus or Train	Atentu, la pordoj fermiĝas	ご注意ください、ドアが閉まります。	请注意，车门正在关闭。	조심하세요, 문이 닫히고 있습니다.	Осторожно, двери закрываются.	Be careful, the doors are closing.
+2510	Other Transport	On the Bus or Train	Ne apogiĝu al la pordo	ドアにもたれかからないでください。	请勿倚靠车门	문에 기대지 마세요.	Не прислоняться	Do not lean against the door
+2511	Other Transport	On the Bus or Train	La sekva stacio estas Bond Street	次はボンド・ストリート駅です。	下一站是邦德街。	다음 역은 본드 스트리트입니다.	Следующая остановка - улица Бонд-стрит.	The next station is Bond Street.
+2512	Other Transport	On the Bus or Train	Ni nun alproksimiĝas al la stacidomo London Kings Cross	まもなくロンドン・キングス・クロス駅に到着いたします。	我们即将到达伦敦国王十字车站。	이제 곧 런던 킹스 크로스역에 도착합니다.	Мы прибываем на вокзал Лондон Кингс-Кросс.	We are now approaching London Kings Cross.
+2513	Other Transport	On the Bus or Train	Bonvolu kunpreni vian tutan bagaĝon kaj viajn personajn aĵojn	お荷物やお手回り品をすべてお持ちください。	请带好您的所有行李和个人物品。	모든 짐과 개인 소지품을 꼭 챙기시기 바랍니다.	Пожалуйста, не забывайте багаж и личные вещи.	Please take all your luggage and personal belongings with you.
+2514	Other Transport	On the Bus or Train	Pardonu, ĉi tio ne estas via kupeo	すみません、こちらはあなたの席ではありません。	不好意思，这不是你的车厢。	실례합니다만, 여기는 당신의 객실이 아닙니다.	Извините, это не ваше купе.	Excuse me, this is not your compartment.
+2515	Other Transport	On the Bus or Train	Ĉu la restoracia vagono estas antaŭe aŭ malantaŭe de la trajno?	レストラン車両は列車の前方ですか、それとも後方ですか？	餐车在列车的前面还是后面？	식당칸은 열차의 앞쪽에 있나요, 아니면 뒤쪽에 있나요?	Вагон-ресторан в голове или в хвосте поезда?	Is the restaurant car at the front or rear of the train?
+2516	Other Transport	On the Bus or Train	Bonvolu veki min unu horon antaŭ ol ni alvenos	到着の1時間前に起こしてください。	请在我们到达前一小时叫醒我。	도착하기 한 시간 전에 저를 깨워 주세요.	Пожалуйста, разбудите меня за час до прибытия.	Please wake me an hour before we arrive.
+2517	Other Transport	On the Bus or Train	Kiom longe la trajno haltas ĉi tie?	この駅にはどのくらい停車しますか？	火车在这里停多久？	기차가 여기에서 얼마나 정차하나요?	Сколько времени поезд здесь стоит?	How long does the train stop here?
+2518	Other Transport	On the Bus or Train	Ĉu vi iam preterveturis vian haltejon en trajno?	電車の降りる駅を乗り過ごしたことはありますか？	你有没有错过下车的站点？	기차에서 내릴 역을 지나친 적이 있나요?	Ты когда-нибудь проезжал свою станцию на поезде?	Have you ever missed your train stop?
+2519	Other Transport	On the Bus or Train	Kion vi kutime faras, kiam vi veturas per trajno?	普段、電車に乗っているときは何をしていますか？	你平时坐火车时一般都会做些什么？	보통 기차를 탈 때 무엇을 하시나요?	Что ты обычно делаешь, когда едешь в поезде?	What do you usually do when riding the train?
+2520	Other Transport	On the Bus or Train	Ĉi tiu trajno finiĝas ĉi tie	この電車は当駅止まりです。	本次列车到站终点。	이 열차는 여기서 종착합니다.	Поезд дальше не идёт.	This train terminates here.
+2521	Other Transport	Taxi	Ĉu vi estas libera?	空車ですか？	空车吗？	빈차인가요?	Вы свободны?	Are you free?
+2522	Other Transport	Taxi	Mi ŝatus taksion, mi petas	タクシーをお願いします。	请帮我叫一辆出租车。	택시 한 대 불러 주세요.	Я бы хотел заказать такси, пожалуйста.	I'd like a taxi, please.
+2523	Other Transport	Taxi	Veturigu min ĉi tien, mi petas	こちらまでお願いします。	请带我到这里。	여기로 데려다 주세요.	Отвезите меня сюда, пожалуйста.	Take me here, please.
+2524	Other Transport	Taxi	Atendu ĉi tie	ここで待っていてください。	请在这里等一下。	여기서 기다리세요.	Подождите здесь.	Wait here.
+2525	Other Transport	Taxi	Haltu ĉi tie	ここで止まってください。	停在这里。	여기서 멈추세요.	Остановите здесь.	Stop here.
+2526	Other Transport	Taxi	Kie mi povas preni taksion?	タクシーはどこで拾えますか？	哪里可以打到出租车？	택시는 어디에서 탈 수 있나요?	Где я могу поймать такси?	Where can I get a taxi?
+2527	Other Transport	Taxi	Mi malfruiĝas	遅れてしまいました。	我迟到了。	늦었어요.	Я опаздываю.	I'm late.
+2528	Other Transport	Taxi	La aŭto estas survoje	車は向かっています。	正在路上。	곧 도착할 예정입니다.	Машина в пути.	It's on its way.
+2529	Other Transport	Taxi	Kiu estas la adreso?	住所はどこですか？	地址是多少？	주소가 어떻게 되나요?	Какой адрес?	What's the address?
+2530	Other Transport	Taxi	Ĉu ni preskaŭ alvenis?	もうすぐ着きますか？	我们快到了吗？	거의 다 왔나요?	Мы почти на месте?	Are we almost there?
+2531	Other Transport	Taxi	Ni baldaŭ alvenos	すぐに到着します。	我们很快就会到达。	금방 도착할 거예요.	Мы скоро будем там.	We'll get there quickly.
+2532	Other Transport	Taxi	Kie estas la taksometro?	メーターはどこですか？	仪表在哪里？	미터기는 어디에 있나요?	Где таксометр?	Where is the meter?
+2533	Other Transport	Taxi	Mian restmonon, mi petas	お釣りをお願いします。	请找给我零钱。	거스름돈 주세요.	Сдачу, пожалуйста.	My change, please.
+2534	Other Transport	Taxi	Jen la trinkmono	こちらがチップです。	这是小费。	여기 팁이 있습니다.	Вот чаевые.	Here is the tip.
+2535	Other Transport	Taxi	Ni prenu taksion!	タクシーを呼ぼう！	我们打个车吧！	택시를 잡읍시다!	Давай возьмём такси!	Let's hail a taxi!
+2536	Other Transport	Taxi	Kie estas la taksihaltejo?	タクシー乗り場はどこですか。	出租车乘车点在哪里？	택시 승강장은 어디에 있나요?	Где стоянка такси?	Where is the taxi rank?
+2537	Other Transport	Taxi	Mi veturas al ĉi tiu adreso	この住所に向かいます。	我要去这个地址。	이 주소로 갈 거예요.	Я еду по этому адресу.	I'm going to this address.
+2538	Other Transport	Taxi	Mi estas ĉe la trajnstacio	今、駅にいます。	我在火车站。	저는 기차역에 있어요.	Я на железнодорожном вокзале.	I'm at the train station.
+2539	Other Transport	Taxi	Venu preni min je la 7-a matene	朝7時に迎えに来て。	早上七点来接我。	아침 7시에 데리러 와 주세요.	Заберите меня в 7 часов утра.	Pick me up at 7 a.m.
+2540	Other Transport	Taxi	Ĉu la taksimetro estas ŝaltita?	メーターの電源は入っていますか？	仪表开了吗？	계량기가 켜져 있나요?	Таксометр включён?	Is the meter switched on?
+2541	Other Transport	Taxi	Bonvolu elekti la plej rektan vojon	できるだけ最短ルートでお願いします。	请走最直接的路线。	가장 직선적인 경로로 가주세요.	Пожалуйста, выберите самый короткий маршрут.	Please take the most direct route.
+2542	Other Transport	Taxi	Ĉu vi povus veturi pli rapide?	もう少しスピードを出してもらえますか？	你能开快一点吗？	좀 더 빨리 운전해 주실 수 있나요?	Вы можете ехать быстрее?	Could you drive faster?
+2543	Other Transport	Taxi	Bonvolu fermi la fenestron	窓を閉めてください。	请把窗户关上。	창문을 닫아 주세요.	Пожалуйста, закройте окно.	Please close the window.
+2544	Other Transport	Taxi	Ellasu min ĉi tie, mi petas	ここで降ろしてください。	请在这里让我下车。	여기서 내려 주세요.	Высадите меня здесь, пожалуйста.	Let me off here, please.
+2545	Other Transport	Taxi	Ĉi tio estas por vi	これはあなたのためです。	这是给你的。	이거 드릴게요.	Это вам.	This is for you.
+2546	Other Transport	Taxi	Sekvu tiun aŭton!	あの車を追ってください！	跟上那辆车！	저 차를 따라가세요!	Следуйте за той машиной!	Follow that car!
+2547	Other Transport	Taxi	Estas flughavena superpago	空港利用料がかかります。	有机场附加费。	공항 할증료가 있습니다.	Есть дополнительный аэропортовый сбор.	There's airport surcharge.
+2548	Other Transport	Taxi	Ĉu vi povus sendi taksion?	タクシーを呼んでいただけますか？	您能叫一辆出租车吗？	택시를 불러 주시겠어요?	Вы можете прислать такси?	Could you send a taxi?
+2549	Other Transport	Taxi	Kien vi ŝatus iri?	どこに行きたいですか？	你想去哪里？	어디로 가고 싶으세요?	Куда бы вы хотели поехать?	Where would you like to go?
+2550	Other Transport	Taxi	Mi veturas al la Rockefeller-Centro	ロックフェラーセンターに行きます。	我要去洛克菲勒中心。	저는 록펠러 센터에 갈 거예요.	Я еду в Рокфеллеровский центр.	I'm going to Rockefeller Centre.
+2551	Other Transport	Taxi	Mi estas ĉe la angulo de Oxford-strato kaj Tottenham-Court-vojo	オックスフォード・ストリートとトッテナム・コート・ロードの角にいます。	我在牛津街和托特纳姆宫路的交叉口。	저는 옥스퍼드 스트리트와 토트넘 코트 로드가 만나는 모퉁이에 있어요.	Я на углу Оксфорд-стрит и Тоттенхэм-Корт-роуд.	I'm at the corner of Oxford Street and Tottenham Court Road.
+2552	Other Transport	Taxi	La taksio baldaŭ alvenos, sinjoro	タクシーはまもなく到着いたします。	先生，出租车马上就到。	곧 택시가 도착할 예정입니다, 손님.	Такси скоро приедет, сэр.	The taxi will arrive shortly, sir.
+2553	Other Transport	Taxi	Pardonu, nunmomente ne estas disponeblaj aŭtoj	申し訳ありませんが、現在ご用意できるものはございません。	很抱歉，目前没有可用的。	죄송하지만 현재 이용 가능한 것이 없습니다.	Извините, в настоящий момент свободных машин нет.	Sorry, there are none available at the moment.
+2554	Other Transport	Taxi	Mi devas iri al la tribunalo	裁判所に行く必要があります。	我需要去法院。	저는 법원에 가야 해요.	Мне нужно в суд.	I need to go to the court.
+2555	Other Transport	Taxi	Mi ŝatus iri al la stacidomo Charing Cross	チャリング・クロス駅に行きたいのですが。	我想去查令十字车站。	차링 크로스 역으로 가고 싶어요.	Я бы хотел поехать на вокзал Чаринг-Кросс.	I'd like to go to Charing Cross station.

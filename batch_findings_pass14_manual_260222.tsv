@@ -1,0 +1,3 @@
+Batch	PhraseID	TopicName_EN	SubtopicName_EN	Esperanto	Русский язык	Column	Old	New	Decision	Reason
+5	637	General Conversation	Help & Advice	Kion vi farus en mia loko?	Что бы вы сделали на моём месте?	日本語	もし私があなたの立場だったら、どうしますか？	あなたが私の立場なら、どうしますか？	FIX	EO mia loko + RU на моём месте mean "my position"; old JA inverted roles ("if I were in your position"), causing a clear semantic reversal.
+8	930	Making Friends	Place of Residence	Ĉu via frato estis en Rumanio?	Твой брат был в Румынии?	中文	你哥哥去过罗马尼亚吗？	你的兄弟去过罗马尼亚吗？	FIX	EO frato + RU брат are age-neutral "brother"; old ZH 哥哥 narrows meaning to elder brother, causing a clear semantic narrowing.

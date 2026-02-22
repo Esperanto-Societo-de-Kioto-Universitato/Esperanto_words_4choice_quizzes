@@ -1,0 +1,101 @@
+PhraseID	TopicName_EN	SubtopicName_EN	Esperanto	日本語	中文	한국어	Русский язык	English
+2056	Plane	Luggage	Mi havas unu manbagaĝon	手荷物が一つあります。	我有一件随身行李。	기내 수하물 한 개만 가지고 있습니다.	У меня одно место ручной клади.	I have got one piece of hand luggage.
+2057	Plane	Luggage	Ĉu mi devas enregistri ĉi tion, aŭ ĉu mi povas kunporti ĝin?	これは預ける必要がありますか？それとも持ち込めますか？	这个需要托运还是可以随身携带？	이것을 맡겨야 하나요, 아니면 가지고 갈 수 있나요?	Мне нужно сдать её в багаж, или я могу взять её с собой?	Do I need to check this in or can I take it with me?
+2058	Plane	Luggage	Ĝi estas tro granda por manbagaĝo	それは手荷物としては大きすぎます。	这个太大了，不能作为手提行李。	그것은 기내 반입 수하물로는 너무 큽니다.	Он слишком большой для ручной клади.	That's too large for a piece of hand luggage.
+2059	Plane	Luggage	Kiom kostas la troa bagaĝo?	超過手荷物料金はいくらですか。	超重行李费是多少？	초과 수하물 요금이 얼마인가요?	Сколько нужно заплатить за перевес багажа?	How much is the excess luggage charge?
+2060	Plane	Luggage	La kroma pago por troa bagaĝo estas 30 pundoj	超過手荷物料金として30ポンドがかかります。	超重行李需支付30英镑费用。	초과 수하물 요금은 30파운드입니다.	За перевес багажа доплата составляет 30 фунтов.	There's an excess luggage charge of 30 pounds.
+2061	Plane	Luggage	Mi ne ricevis la bagaĝetikedon kiam mi registriĝis	チェックインの際にバッグタグを受け取りませんでした。	我办理值机时没有收到行李牌。	체크인할 때 가방 태그를 받지 못했어요.	Я не получил багажную бирку, когда регистрировался.	I didn't receive the bag tag when I checked in.
+2062	Plane	Luggage	Ĝi estas fragila. Bonvolu porti ĝin singarde	壊れやすいので、運ぶ際はご注意ください。	它很易碎，请小心搬运。	깨지기 쉬우니 운반하실 때 조심해 주세요.	Это хрупкое. Пожалуйста, переносите осторожно.	It's fragile. Please be careful carrying it.
+2063	Plane	Luggage	Viaj valizoj estos en la bagaĝ-ricevejo	お荷物は手荷物受取所にございます。	您的行李将在行李提取区。	고객님의 짐은 수하물 찾는 곳에 있습니다.	Ваши чемоданы будут в зале получения багажа.	Your bags will be in the baggage reclaim area.
+2064	Plane	Luggage	Mia bagaĝo estas difektita kaj kelkaj aferoj mankas	荷物が壊れていて、いくつかの物がなくなっています。	我的行李坏了，而且有些东西丢了。	제 짐이 파손됐고 일부 물건이 없어졌어요.	Мой багаж повреждён, и некоторых вещей не хватает.	My luggage is broken and some things are missing.
+2065	Plane	Luggage	Ĉu iu havis aliron al viaj valizoj dume?	この間にどなたかがお荷物に触れたり、中身にアクセスしたりしたことはありますか？	这段时间有人接触过您的行李吗？	그동안 다른 사람이 귀하의 가방에 접근한 적이 있습니까?	У кого-нибудь был доступ к вашим чемоданам за это время?	Has anyone had access to your bags in the meantime?
+2066	Plane	Luggage	Ĉu iu donis al vi ion por porti?	誰かから何か預かっていますか？	有人让你帮忙带东西了吗？	누군가에게서 운반할 물건을 받으셨나요?	Вы перевозите какие-нибудь чужие вещи?	Did anyone give you anything to carry?
+2067	Plane	Luggage	Mi ŝatus sendi ĉi tiun bagaĝon al Kuala-Lumpuro	この荷物をクアラルンプールまで送りたいのですが。	我想把这件行李寄到吉隆坡。	이 짐을 쿠알라룸푸르로 보내고 싶어요.	Я бы хотела отправить этот багаж в Куала-Лумпур.	I'd like to send this luggage to Kuala Lumpur.
+2068	Plane	Luggage	Ni informos vin, kiam via bagaĝo estos liverita	お荷物が届き次第、ご連絡いたします。	您的行李送达后我们会通知您。	짐이 배송되면 안내해 드리겠습니다.	Мы сообщим вам, когда ваш багаж будет доставлен.	We'll inform you when your luggage is delivered.
+2069	Plane	Passport Control & Customs	Mi estas turisto	観光客です。	我是游客。	저는 관광객이에요.	Я турист.	I'm a tourist.
+2070	Plane	Passport Control & Customs	Mi estas sola	私はひとりです。	我一个人。	저는 혼자예요.	Я один.	I am alone.
+2071	Plane	Passport Control & Customs	Jen mia pasporto	こちらが私のパスポートです。	这是我的护照。	여기 제 여권입니다.	Вот мой паспорт.	Here's my passport.
+2072	Plane	Passport Control & Customs	Ĝuu vian restadon!	ごゆっくりお過ごしください。	祝您住宿愉快！	즐거운 시간 보내세요!	Приятного прибывания!	Enjoy your stay!
+2073	Plane	Passport Control & Customs	La sekva, bonvolu!	次の方、どうぞ。	下一位，请！	다음 분 들어오세요!	Следующий, пожалуйста!	Next, please!
+2074	Plane	Passport Control & Customs	Mi feriumas	休暇中です。	我正在度假。	저는 휴가 중이에요.	Я в отпуске.	I'm on holiday.
+2075	Plane	Passport Control & Customs	Mi veturas al Ĝenevo	ジュネーブに行きます。	我要去日内瓦。	저는 제네바에 갈 거예요.	Я еду в Женеву.	I'm going to Geneva.
+2076	Plane	Passport Control & Customs	Mi vizitas parencojn	親戚を訪ねています。	我在探亲。	저는 친척들을 방문하고 있어요.	Я навещаю родственников.	I'm visiting relatives.
+2077	Plane	Passport Control & Customs	Ĉi tio estas mia unua vizito	こちらに来るのは初めてです。	这是我第一次来。	이번이 처음 방문이에요.	Это мой первый приезд.	This is my first visit.
+2078	Plane	Passport Control & Customs	Mi havas turistan vizon	観光ビザを持っています。	我有旅游签证。	저는 관광 비자를 가지고 있어요.	У меня туристическая виза.	I have got a tourist visa.
+2079	Plane	Passport Control & Customs	Ĉu vi havas ion por deklari?	申告するものはありますか？	有需要申报的吗？	신고할 물품이 있으신가요?	Хотите что-нибудь задекларировать?	Anything to declare?
+2080	Plane	Passport Control & Customs	Mi ŝatus deklari la monon	このお金を申告したいのですが。	我想申报这笔钱。	금액을 신고하고 싶어요.	Я бы хотел задекларировать деньги.	I'd like to declare the money.
+2081	Plane	Passport Control & Customs	Kiom longe vi restos?	どのくらい滞在されますか？	你打算待多久？	얼마나 머무르실 예정이세요?	На сколько вы останетесь?	How long are you staying?
+2082	Plane	Passport Control & Customs	Mi planas resti 2 semajnojn	2週間滞在する予定です。	我打算待两个星期。	저는 2주 동안 머무를 예정이에요.	Я собираюсь пробыть здесь 2 недели.	I plan to stay for 2 weeks.
+2083	Plane	Passport Control & Customs	Loĝpermesilo	在留許可	居留许可证	거주 허가	Вид на жительство	Residence permit
+2084	Plane	Passport Control & Customs	Rifuzo de eniro	入国拒否	拒绝入境	입국 거부	Отказ во въезде	Denial of entry
+2085	Plane	Passport Control & Customs	Mi bezonas politikan azilon	政治的亡命を求めます。	我需要政治庇护。	저는 정치적 망명을 원합니다.	Мне нужно политическое убежище.	I need political asylum.
+2086	Plane	Passport Control & Customs	Malfermu ĉi tiun sakon	このバッグを開けてください。	把这个包打开。	이 가방을 여세요.	Откройте эту сумку.	Open this bag.
+2087	Plane	Passport Control & Customs	Ĉi tio estas donaco por amiko	これは友人への贈り物です。	这是送给朋友的礼物。	이것은 친구에게 주는 선물이에요.	Это подарок для друга.	This is a gift for a friend.
+2088	Plane	Passport Control & Customs	Jen mia deklaracio	こちらが私の申告書です。	这是我的申报单。	여기 제 신고서입니다.	Вот моя декларация.	Here is my declaration.
+2089	Plane	Passport Control & Customs	Kiom da imposto mi devas pagi?	関税はいくら支払えばよいですか？	我需要缴纳多少关税？	얼마의 관세를 내야 하나요?	Какую пошлину я должна заплатить?	How much duty must I pay?
+2090	Plane	Passport Control & Customs	Ni havas komunan pasporton	共同名義のパスポートを持っています。	我们有一本联名护照。	저희는 공동 여권을 가지고 있어요.	У нас общий паспорт.	We've got a joint passport.
+2091	Plane	Passport Control & Customs	Rifuzo de vizpeto	ビザ申請の却下	签证申请被拒	비자 신청 거절	Отказ в выдаче визы	Refusal of visa application
+2092	Plane	Passport Control & Customs	Mi havas studentan vizon	学生ビザを持っています。	我有学生签证。	저는 학생 비자를 가지고 있어요.	У меня студенческая виза.	I have got a student visa.
+2093	Plane	Passport Control & Customs	Mi havas komercan vizon	ビジネスビザを持っています。	我有商务签证。	저는 비즈니스 비자를 가지고 있습니다.	У меня деловая виза.	I have got a business visa.
+2094	Plane	Passport Control & Customs	Jen mia tranzitvizo	こちらが私のトランジットビザです。	这是我的过境签证。	여기 제 환승 비자가 있습니다.	Вот моя транзитная виза.	Here is my transit visa.
+2095	Plane	Passport Control & Customs	Mi flugas transite al Singapuro	シンガポールへ向かう途中です。	我正在中转去新加坡。	저는 싱가포르로 환승 중이에요.	Я лечу транзитом до Сингапура.	I'm in transit for Singapore.
+2096	Plane	Passport Control & Customs	Jen mia importa licenco	こちらが私の輸入許可証です。	这是我的进口许可证。	여기 제 수입 면허증입니다.	Вот моя лицензия на ввоз.	Here is my import licence.
+2097	Plane	Passport Control & Customs	De kie vi venis?	どちらからいらっしゃいましたか？	您是从哪里来的？	어디에서 오셨나요?	Откуда вы приехали?	Where have you travelled from?
+2098	Plane	Passport Control & Customs	Kie vi loĝos?	どこに泊まっていますか？	你住在哪里？	어디에 머물고 계세요?	Где вы остановитесь?	Where are you staying?
+2099	Plane	Passport Control & Customs	Mi restos en la hotelo Four Seasons	フォーシーズンズホテルに宿泊しています。	我住在四季酒店。	저는 포시즌스 호텔에 머물고 있어요.	Я остановлюсь в отеле Four Seasons.	I'm staying at the Four Seasons Hotel.
+2100	Plane	Passport Control & Customs	Mi havas rifuĝintan statuson	難民認定を受けています。	我有难民身份。	저는 난민 지위를 가지고 있습니다.	У меня статус беженца.	I have got a refugee status.
+2101	Plane	Passport Control & Customs	Kiel mi povas peti azilon?	どのようにして難民申請をすればよいですか。	我该如何申请庇护？	난민 신청은 어떻게 할 수 있나요?	Как я могу попросить о предоставлении убежища?	How can I claim asylum?
+2102	Plane	Passport Control & Customs	Komenciĝas la enŝipiĝo por flugo numero 120	120便のお客様は、ただいまご搭乗を開始しております。	120号航班正在登机。	120번 항공편의 탑승이 시작되었습니다.	Началась посадка на рейс номер 120.	Flight number 120 is now boarding.
+2103	Plane	Passport Control & Customs	Vian pasporton kaj bileton, mi petas	パスポートとチケットをお願いします。	请出示您的护照和机票。	여권과 티켓을 보여주세요.	Ваш паспорт и билет, пожалуйста.	Your passport and ticket, please.
+2104	Plane	Passport Control & Customs	Mi havas diplomatan pasporton	私は外交官パスポートを持っています。	我有一本外交护照。	저는 외교관 여권을 가지고 있습니다.	У меня дипломатический паспорт.	I have got a diplomatic passport.
+2105	Plane	Passport Control & Customs	Ĉu vi bonvolus stampi mian pasporton?	パスポートにスタンプを押していただけますか？	请帮我在护照上盖章好吗？	제 여권에 도장 좀 찍어주시겠어요?	Не могли бы вы, пожалуйста, поставить в мой паспорт штамп?	Would you please stamp my passport?
+2106	Plane	Passport Control & Customs	Vian doganan deklaracion, bonvolu	税関申告書をお願いします。	请出示您的海关申报单。	세관 신고서를 제출해 주세요.	Вашу таможенную декларацию, пожалуйста.	Your customs declaration, please.
+2107	Plane	Passport Control & Customs	Kio estas la celo de via vizito?	ご訪問の目的をお聞かせいただけますか。	您此行的目的是什么？	방문 목적이 무엇인가요?	Какова цель вашей поездки?	What's the purpose of your visit?
+2108	Plane	Passport Control & Customs	Mi estas ĉi tie kun argentina delegacio	アルゼンチンの代表団と一緒に来ています。	我和阿根廷代表团一起来的。	저는 아르헨티나 대표단과 함께 왔습니다.	Я здесь с аргентинской делегацией.	I am here with an Argentine delegation.
+2109	Plane	Passport Control & Customs	Mi havas nur aĵojn por persona uzo	私が持っているのは自分用の品物だけです。	我只有一些自用的物品。	저는 개인적인 용도로만 물품을 가지고 있습니다.	У меня только предметы личного пользования.	I've only got articles for personal use.
+2110	Plane	Passport Control & Customs	Ĉi tiu videokamerao estas por mia persona uzo	このビデオカメラは私用です。	这台摄像机是我个人使用的。	이 비디오 카메라는 제 개인적인 용도로 사용하는 것입니다.	Эта видеокамера для личного пользования.	This video camera is for my personal use.
+2111	Plane	Passport Control & Customs	Mi havas kvincent dolarojn en vojaĝĉekoj	トラベラーズチェックで500ドル持っています。	我有500美元的旅行支票。	저는 여행자 수표로 500달러를 가지고 있어요.	У меня 500 долларов в форме дорожных чеков.	I've got 500 dollars in traveller's cheques.
+2112	Plane	Passport Control & Customs	Mi havas kun mi tri botelojn da viskio	ウイスキーを3本持っています。	我带了三瓶威士忌。	저는 위스키 세 병을 가지고 있어요.	У меня с собой три бутылки виски.	I have got with me three bottles of whisky.
+2113	Plane	Passport Control & Customs	Vi devas pagi imposton por ĉi tiuj varoj	これらの品物には関税がかかります。	这些物品需要缴纳关税。	이 물품들에는 관세를 내셔야 합니다.	Вам нужно заплатить пошлину за эти товары.	You have to pay duty on these items.
+2114	Plane	Passport Control & Customs	Ĝi kostas ĉirkaŭ 200 usonajn dolarojn	およそ200ドルかかります。	大约需要两百美元。	약 200달러 정도입니다.	Это стоит около 200 американских долларов.	It costs about 200 American dollars.
+2115	Plane	Passport Control & Customs	Ĉu mi devas pagi doganon por la varoj, kiujn mi aĉetis ĉi tie?	ここで購入した商品に関税はかかりますか？	我在这里购买的商品需要缴纳关税吗？	여기서 구입한 물품에 관세를 내야 하나요?	Мне нужно платить пошлину за товары, которые я купил здесь?	Do I have to pay duty on the goods I bought here?
+2116	Plane	Passport Control & Customs	Vi devas plenigi ĉi tiun enmigradan formularon	この入国書類に記入してください。	你需要填写这份移民表格。	이 이민 신청서를 작성하셔야 합니다.	Вам нужно заполнить эту иммиграционную карточку.	You have to fill in this immigration form.
+2117	Plane	Passport Control & Customs	Bonvolu montri al mi, kiel plenigi ĉi tiun formularon	この用紙の記入方法を教えてください。	请告诉我如何填写这份表格。	이 양식을 어떻게 작성하는지 보여주세요.	Покажите мне, пожалуйста, как заполнять этот бланк.	Please show me how to fill in this form.
+2118	Plane	Passport Control & Customs	Mi ŝatus kontakti la Serban Konsulejon	セルビア領事館に連絡したいのですが。	我想联系塞尔维亚领事馆。	세르비아 영사관에 연락하고 싶어요.	Я бы хотела связаться с Консульством Сербии.	I would like to contact the Serbian Consulate.
+2119	Plane	Passport Control & Customs	Mia familio povas sendi al mi la necesajn dokumentojn	家族が必要な書類を送ってくれます。	我的家人可以把所需的文件寄给我。	제 가족이 필요한 서류를 보내줄 수 있어요.	Моя семья может прислать мне необходимые документы.	My family can send me the necessary documents.
+2120	Plane	Passport Control & Customs	Antaŭe mi jam petis azilon	過去に難民申請をしたことがあります。	我曾经申请过庇护。	저는 과거에 난민 신청을 한 적이 있습니다.	Ранее я уже подавала прошение о предоставлении убежища.	I have applied for asylum in the past.
+2121	Plane	Passport Control & Customs	Jen mia internacia vakcinatestilo	こちらが私の国際予防接種証明書です。	这是我的国际疫苗接种证明。	여기 제 국제 예방접종 증명서입니다.	Вот моё международное свидетельство о вакцинации.	Here is my international vaccination certificate.
+2122	Plane	On the Plane	Ĉu ni malfruas?	私たち、遅れていますか？	我们迟到了吗？	우리 늦었나요?	Мы опаздываем?	Are we late?
+2123	Plane	On the Plane	Kiam ni foriras?	いつ出発しますか？	我们什么时候出发？	언제 출발해요?	Когда мы отправляемся?	When do we leave?
+2124	Plane	On the Plane	Kie estas niaj lokoj?	私たちの席はどこですか？	我们的座位在哪里？	우리 좌석이 어디인가요?	Где наши места?	Where are our seats?
+2125	Plane	On the Plane	Tio estas mia loko	そこは私の席です。	那是我的座位。	그 자리는 제 자리예요.	Это моё место.	That's my seat.
+2126	Plane	On the Plane	Ĉu mi povas sidi ĉi tie?	ここに座ってもいいですか？	我可以坐这里吗？	여기 앉아도 될까요?	Я могу здесь сесть?	Can I sit here?
+2127	Plane	On the Plane	Ĉu mi povas reklini mian seĝon?	席を倒してもよろしいですか。	我可以把座椅调低一些吗？	좌석을 뒤로 젖혀도 될까요?	Можно мне откинуть спинку?	May I recline my seat?
+2128	Plane	On the Plane	Ĉu mi povus interŝanĝi lokojn kun vi?	席を替わっていただけますか？	我可以和你换个座位吗？	자리 좀 바꿔주실 수 있을까요?	Не могли бы мы поменяться местами?	Could I change seats with you?
+2129	Plane	On the Plane	Bonvolu resti sur via sidloko	席にお座りのままでお願いします。	请留在座位上。	자리에 앉아 계세요.	Пожалуйста, оставайтесь на своём месте.	Please stay in your seat.
+2130	Plane	On the Plane	Bonvolu fiksi vian sekurzonon	シートベルトをお締めください。	请系好安全带。	좌석 벨트를 착용해 주세요.	Пожалуйста, пристегните ремни.	Please fasten your seat belt.
+2131	Plane	On the Plane	Miaj aŭskultiloj ne funkcias	イヤホンが使えません。	我的耳机坏了。	제 이어폰이 작동하지 않아요.	Мои наушники не работают.	My earphones don't work.
+2132	Plane	On the Plane	Kiom longe daŭras la flugo?	飛行時間はどのくらいですか。	飞行时间有多长？	비행 시간은 얼마나 걸리나요?	Сколько длится полёт?	How long is the flight?
+2133	Plane	On the Plane	Kio estas la rapideco de la aviadilo?	飛行機の速度はどれくらいですか。	飞机的速度是多少？	비행기의 속도는 얼마인가요?	Какова скорость самолёта?	What is the speed of the plane?
+2134	Plane	On the Plane	Vomsakon, mi petas	エチケット袋をお願いします。	请给我一个呕吐袋。	구토 봉지 하나 주세요.	Гигиенический пакет, пожалуйста.	A sick bag, please.
+2135	Plane	On the Plane	Ĉu mi povas sidiĝi tie?	あちらに座ってもいいですか？	我可以坐在那里吗？	저기 앉아도 될까요?	Я могу сесть вон там?	Can I sit over there?
+2136	Plane	On the Plane	Kiu estas via sidloknumero?	あなたの席番号は何番ですか？	你的座位号是多少？	좌석 번호가 어떻게 되세요?	Какой у вас номер места?	What's your seat number?
+2137	Plane	On the Plane	Ĉu mi povas ricevi ankoraŭ unu trinkaĵon?	もう一杯いただけますか？	我可以再来一杯吗？	음료를 하나 더 주실 수 있나요?	Можно мне ещё один напиток?	Can I have another drink?
+2138	Plane	On the Plane	Ĉu vi ŝatus gazeton?	新聞はいかがですか？	您需要一份报纸吗？	신문 필요하신가요?	Вы бы хотели газету?	Would you like a newspaper?
+2139	Plane	On the Plane	Mi ŝatus aŭskultilojn por la filmo	映画用にイヤホンを一つお借りしたいのですが。	我想要一副耳机来看电影。	영화를 위해 이어폰 한 쌍을 받고 싶어요.	Я бы хотел наушники, чтобы посмотреть фильм.	I would like a pair of earphones for the film.
+2140	Plane	On the Plane	Mi ŝatus paroli kun la stevardino	客室乗務員とお話ししたいのですが。	我想和乘务员谈一下。	승무원과 이야기하고 싶어요.	Я бы хотел поговорить со стюардессой.	I would like to talk to the flight attendant.
+2141	Plane	On the Plane	Ĉu ni flugos super la oceano?	私たちは海の上を飛びますか？	我们会飞越大洋吗？	우리가 바다 위를 날아가게 되나요?	Мы будем пролетать над океаном?	Will we fly over the ocean?
+2142	Plane	On the Plane	Ni alteriĝos post ĉirkaŭ dek kvin minutoj	まもなく着陸いたします。あと15分ほどで到着予定です。	我们将在大约十五分钟后降落。	약 15분 후에 착륙할 예정입니다.	Мы приземлимся примерно через пятнадцать минут.	We'll be landing in about fifteen minutes.
+2143	Plane	On the Plane	La loka tempo estas la 21:34	現地時刻は午後9時34分です。	当地时间为晚上9点34分。	현재 현지 시각은 오후 9시 34분입니다.	Местное время - 9:34 вечера.	The local time is 9.34 p.m.
+2144	Plane	On the Plane	La aviadilo finfine alteriĝis en Ĝakarto	飛行機はついにジャカルタに到着した。	飞机终于在雅加达降落了。	비행기가 마침내 자카르타에 착륙했어요.	Самолёт наконец приземлился в Джакарте.	The plane finally landed in Jakarta.
+2145	Plane	On the Plane	Kiom longe ni haltos ĉi tie?	ここにはどのくらいの間、滞在しますか？	我们会在这里停留多久？	여기서 얼마나 오래 머무를 예정인가요?	Мы надолго здесь остановились?	How long will we stop here?
+2146	Plane	On the Plane	Je kiom ĝi malfruiĝos?	どのくらい遅れますか？	会延迟多久？	얼마나 지연될 예정인가요?	На сколько он задерживается?	How long will it be delayed?
+2147	Plane	On the Plane	Bonvolu malŝalti ĉiujn elektronikajn aparatojn	すべての電子機器の電源をお切りください。	请关闭所有电子设备。	모든 전자기기를 꺼주시기 바랍니다.	Пожалуйста, отключите все электронные устройства.	Please turn off all electronic devices.
+2148	Plane	On the Plane	Bonvolu atenti ĉi tiun mallongan sekurecan demonstracion	こちらの短い安全説明にご注意ください。	请注意观看这段简短的安全演示。	이 짧은 안전 시범에 주의해 주시기 바랍니다.	Пожалуйста, обратите внимание на эту краткую демонстрацию спасательных средств.	Please pay attention to this short safety demonstration.
+2149	Plane	On the Plane	Bonvolu remeti vian seĝodorson en la vertikalan pozicion	座席を元の直立位置にお戻しください。	请将座椅恢复到直立位置。	좌석을 원위치로 바로 세워 주시기 바랍니다.	Пожалуйста, поднимите спинку кресла.	Please return your seat to the upright position.
+2150	Plane	On the Plane	Ĉu vi bonvolus meti ĝin en la supran bagaĝujon?	その荷物を頭上の収納棚に入れていただけますか。	请把那个放到头顶的行李舱里好吗？	그것을 머리 위 선반에 넣어 주시겠어요?	Не могли бы вы, пожалуйста, убрать её на верхнюю полку?	Could you please put that in the overhead locker?
+2151	Plane	On the Plane	Ĉu vi dezirus iom da manĝaĵo aŭ trinkaĵojn?	お食事やお飲み物はいかがですか？	您需要点些吃的或饮品吗？	음식이나 다과를 드릴까요?	Вы бы хотели какую-нибудь еду или напитки?	Would you like any food or refreshments?
+2152	Plane	On the Plane	Je kiu alteco ni flugas?	私たちは今、どの高度を飛んでいますか？	我们现在飞行的高度是多少？	우리는 지금 어떤 고도로 비행하고 있나요?	На какой высоте мы летим?	What altitude are we flying at?
+2153	Plane	On the Plane	Ĉu vi havas grekan gazeton?	ギリシャ語の新聞はありますか？	你有希腊文报纸吗？	그리스 신문이 있나요?	У вас есть греческая газета?	Have you got a Greek newspaper?
+2154	Plane	On the Plane	Ĉu vi bonvolus doni al mi kovrilon?	毛布を持ってきていただけますか？	能帮我拿一条毯子吗？	담요 좀 가져다 주시겠어요?	Не могли бы вы дать мне одеяло?	Would you please get me a blanket?
+2155	Plane	On the Plane	Ĉu vi vendas senimpostajn varojn dum la flugo?	機内で免税品の販売はありますか？	您在机上有免税商品销售吗？	기내에서 면세품을 판매하나요?	На борту продаются беспошлинные товары?	Do you sell duty-free goods on board?

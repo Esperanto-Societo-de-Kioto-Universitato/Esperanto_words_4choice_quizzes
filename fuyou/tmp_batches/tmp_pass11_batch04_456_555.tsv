@@ -1,0 +1,101 @@
+PhraseID	TopicName_EN	SubtopicName_EN	Esperanto	English	日本語	中文	한국어	Русский язык
+456	General Conversation	Making Yourself Understood	Parolu kun mi en la mandarena ĉina lingvo	Speak with me in Mandarin Chinese.	中国語で話してください。	请用中文和我交流。	저와 중국어로 대화해 주세요.	Говорите со мной на мандаринском диалекте китайского.
+457	General Conversation	Making Yourself Understood	Vi ne havas akcenton	You haven't got an accent.	なまりが全くないですね。	你没有口音。	당신은 억양이 없네요.	У тебя нет акцента.
+458	General Conversation	Making Yourself Understood	Pardonu? Kion vi diris?	Pardon? What did you say?	すみません、今なんとおっしゃいましたか？	不好意思，你刚才说什么？	죄송해요, 뭐라고 말씀하셨나요?	Извините? Что вы сказали?
+459	General Conversation	Making Yourself Understood	Kion signifas tiu vorto angle?	What does that word mean in English?	その単語は英語でどういう意味ですか？	那个词用英语是什么意思？	그 단어는 영어로 무슨 뜻인가요?	Что означает это слово на английском?
+460	General Conversation	Making Yourself Understood	Kiel oni skribas tion?	How do you spell that?	どのように綴りますか？	这个怎么拼写？	그거 어떻게 철자해요?	Как это пишется?
+461	General Conversation	Making Yourself Understood	Kiel oni diras tion ĉeĥe?	How do you say it in Czech?	チェコ語で何と言いますか？	用捷克语怎么说？	체코어로 어떻게 말하나요?	Как это по-чешски?
+462	General Conversation	Making Yourself Understood	Kiel tio nomiĝas pole?	What is that called in Polish?	それはポーランド語で何と言いますか？	这个用波兰语怎么说？	그것을 폴란드어로 뭐라고 하나요?	Как это называется по-польски?
+463	General Conversation	Making Yourself Understood	Ĉu mi ĝuste ĝin prononcas?	Am I pronouncing it correctly?	発音は合っていますか？	我发音正确吗？	제가 발음을 제대로 하고 있나요?	Я правильно её произношу?
+464	General Conversation	Making Yourself Understood	Kiel oni povas traduki tion?	How can that be translated?	それはどのように訳せますか？	这要怎么翻译？	그것을 어떻게 번역할 수 있나요?	Как это можно перевести?
+465	General Conversation	Making Yourself Understood	Vi parolas tro rapide	You are speaking too fast.	少し話すのが早いです。	你说得太快了。	말씀이 너무 빠르세요.	Вы говорите слишком быстро.
+466	General Conversation	Making Yourself Understood	Kion mi diru?	What should I say?	何て言えばいいんだろう？	我该说什么？	무슨 말을 해야 할까요?	Что я должен сказать?
+467	General Conversation	Agreeing & Disagreeing	Mi konsentas kun vi	I agree with you.	あなたに同意します。	我同意你的看法。	저도 동의합니다.	Я согласна с тобой.
+468	General Conversation	Agreeing & Disagreeing	Mi malkonsentas	I disagree.	私はそうは思いません。	我不同意。	동의하지 않습니다.	Я не согласен.
+469	General Conversation	Agreeing & Disagreeing	Vi pravas	You are right.	おっしゃる通りです。	你说得对。	맞아요.	Ты права.
+470	General Conversation	Agreeing & Disagreeing	Tio estas vera	That's true.	その通りです。	确实如此。	맞아요.	Это правда.
+471	General Conversation	Agreeing & Disagreeing	Ĉu vi ne konsentas?	Don't you agree?	そう思いませんか？	你不觉得吗？	동의하지 않으세요?	Разве ты не согласна?
+472	General Conversation	Agreeing & Disagreeing	Mi tute konsentas	I entirely agree.	全く同感です。	我完全同意。	전적으로 동의합니다.	Я полностью согласна.
+473	General Conversation	Agreeing & Disagreeing	Vi tiel pravas	You are so right.	本当にその通りですね。	你说得太对了。	정말 맞는 말이에요.	Ты так права.
+474	General Conversation	Agreeing & Disagreeing	Ĉu vi ne pensas tiel?	Don't you think so?	そう思いませんか？	你不觉得吗？	그렇지 않나요?	Разве ты так не думаешь?
+475	General Conversation	Agreeing & Disagreeing	Ho, certe ne!	Oh, surely not!	まさか、そんなことないでしょう！	哦，怎么会呢！	아, 설마요!	О, конечно нет!
+476	General Conversation	Agreeing & Disagreeing	Mi ne konsentas kun via opinio	I don't agree with your opinion.	あなたの意見には賛成できません。	我不同意你的看法。	저는 당신의 의견에 동의하지 않습니다.	Я не согласна с вашим мнением.
+477	General Conversation	Agreeing & Disagreeing	Ĉu mi povas demandi, ĉu vi konsentas?	Can I ask if you agree?	ご賛同いただけますか？	我可以问问你是否同意吗？	동의하시는지 여쭤봐도 될까요?	Могу я спросить, согласна ли ты?
+478	General Conversation	Agreeing & Disagreeing	Fakte, ankaŭ mi tiel pensas	Actually, I think the same.	実は、私も同じ考えです。	其实我也这么想。	저도 사실 같은 생각이에요.	Вообще-то, я тоже так думаю.
+479	General Conversation	Agreeing & Disagreeing	Ĉu vi konsentas, ke tio estas mensogo?	Do you agree that it is a lie?	それが嘘だということに同意しますか？	你同意这是谎言吗？	그것이 거짓말이라는 데 동의하시나요?	Ты согласна, что это ложь?
+480	General Conversation	Agreeing & Disagreeing	Ho ne, mi ne konsentas	Oh, I don't agree.	いえ、私はそうは思いません。	哦，我不同意。	아, 저는 동의하지 않아요.	О нет, я не согласна.
+481	General Conversation	Agreeing & Disagreeing	Mi timas, ke ne	I'm afraid not.	申し訳ありませんが、できません。	恐怕不行。	죄송하지만 어렵겠습니다.	Боюсь, что нет.
+482	General Conversation	Agreeing & Disagreeing	Mi tute ne estas konvinkita	I'm not at all convinced.	まったく納得できません。	我一点也不信。	저는 전혀 확신이 들지 않아요.	Я абсолютно не убеждён.
+483	General Conversation	Agreeing & Disagreeing	Mi komprenas lian vidpunkton	I can see his point.	彼の言いたいことは分かります。	我能理解他的观点。	그의 말이 이해돼요.	Я понимаю его точку зрения.
+484	General Conversation	Agreeing & Disagreeing	Tio ne estas la sama afero	That's not the same thing.	それは同じことではありません。	那不是一回事。	그건 같은 게 아니에요.	Это не то же самое.
+485	General Conversation	Agreeing & Disagreeing	Jes, ĉi tio estas bonega filmo	Yes, this is a great film.	はい、これは素晴らしい映画です。	是的，这是一部很棒的电影。	네, 정말 훌륭한 영화예요.	Да, это отличный фильм.
+486	General Conversation	Agreeing & Disagreeing	Tio estas ĝuste mia vidpunkto	That's exactly my point of view.	まさに私の考えと同じです。	这正是我的观点。	저도 바로 그렇게 생각해요.	Это в точности соответствует моей точке зрения.
+487	General Conversation	Agreeing & Disagreeing	Ankaŭ mi tiel pensis	That's what I was thinking, too.	私も同じことを考えていました。	我也是这么想的。	저도 그렇게 생각하고 있었어요.	Я тоже об этом думала.
+488	General Conversation	Agreeing & Disagreeing	Jes, ĉio estas en plena ordo	Yes, that's quite in order.	はい、それで問題ありません。	是的，这完全没问题。	네, 그렇게 하셔도 괜찮아요.	Да, всё в полном порядке.
+489	General Conversation	Agreeing & Disagreeing	Mi ne pensas, ke iu ajn malkonsentus	I don't think anyone would disagree.	誰も異論はないと思います。	我想这点大家都会同意。	아무도 이견이 없을 것 같아요.	Не думаю, что кто-нибудь не согласился бы.
+490	General Conversation	Agreeing & Disagreeing	Mi ne povas kontraŭdiri tion	I can't argue with that.	それには異論はありません。	这我无可反驳。	그 말에는 반박할 수 없어요.	Я не могу с этим поспорить.
+491	General Conversation	Agreeing & Disagreeing	Mi vidas nenian malhelpon	I can't see any objection.	特に異論はありません。	我没有任何异议。	저는 아무런 이의가 없습니다.	Я не вижу каких-либо препятствий.
+492	General Conversation	Agreeing & Disagreeing	Mi ne povas diri, ke mi kunhavas vian vidpunkton	I can't say that I share your view.	あなたのご意見には賛同しかねます。	我不能说我同意你的看法。	저는 당신의 의견에 동의한다고 말할 수는 없어요.	Не могу сказать, что я разделяю вашу точку зрения.
+493	General Conversation	Agreeing & Disagreeing	Mi komprenas lian vidpunkton, sed mi tute malkonsentas kun ĝi	I can see his point, but I disagree with it completely.	彼の言いたいことは分かりますが、私はまったく同意できません。	我能理解他的观点，但我完全不同意。	그의 말은 이해하지만, 전혀 동의하지 않습니다.	Я понимаю его точку зрения, но я полностью с ней не согласен.
+494	General Conversation	Agreeing & Disagreeing	Mi timas, ke vi eraras	I'm afraid you're mistaken.	申し訳ありませんが、それは誤解かと思います。	恐怕你搞错了。	죄송하지만 착각하신 것 같아요.	Боюсь, вы ошибаетесь.
+495	General Conversation	Agreeing & Disagreeing	Mi timas, ke tio estas sensencaĵo	I'm afraid that's nonsense.	それはちょっと無理がありますね。	恐怕那是胡说八道。	그건 말도 안 돼요.	Боюсь, это ерунда.
+496	General Conversation	Agreeing & Disagreeing	Pardonu, sed tio estas neebla	I'm sorry, but that's impossible.	申し訳ありませんが、それは不可能です。	很抱歉，但那是不可能的。	죄송하지만, 그건 불가능해요.	Прости, но это невозможно.
+497	General Conversation	Agreeing & Disagreeing	En la televido estas tro multe da reklamoj, ĉu ne?	There are too many commercials on TV, right?	テレビってコマーシャルが多すぎるよね？	电视上的广告是不是太多了？	TV에 광고가 너무 많은 것 같지 않아요?	По телевизору слишком много рекламы, правда?
+498	General Conversation	Asking for & Giving Information	Kie vi estas?	Where are you?	どこにいますか？	你在哪里？	어디에 계세요?	Где ты?
+499	General Conversation	Asking for & Giving Information	Mi estas ĉe Petro	I'm at Peter's.	ピーターの家にいるよ。	我在彼得家。	저는 피터네 집에 있어요.	Я у Питера.
+500	General Conversation	Asking for & Giving Information	Mi estas en la urbo	I'm in town.	今、街にいるよ。	我在市里。	저는 도시에 있어요.	Я в городе.
+501	General Conversation	Asking for & Giving Information	Kiel estis la vojaĝo?	How was the trip?	旅行はいかがでしたか？	这次旅行怎么样？	여행은 어땠어요?	Как прошла поездка?
+502	General Conversation	Asking for & Giving Information	Ni tre ĝuis nian vojaĝon	We really enjoyed our trip.	私たちは旅行をとても楽しみました。	我们这次旅行玩得很开心。	저희는 이번 여행을 정말 즐겼어요.	Нам очень понравилась наша поездка.
+503	General Conversation	Asking for & Giving Information	Kion vi faras?	What are you doing?	何をしているの？	你在做什么？	무엇을 하고 계세요?	Что ты делаешь?
+504	General Conversation	Asking for & Giving Information	Kie li estas?	Where is he?	彼はどこにいますか？	他在哪里？	그는 어디에 있나요?	Где он?
+505	General Conversation	Asking for & Giving Information	Mi estas ĉe la laboro	I'm at work.	仕事中です。	我在上班。	저는 지금 근무 중이에요.	Я на работе.
+506	General Conversation	Asking for & Giving Information	Mi estas hejme	I'm at home.	家にいます。	我在家。	저는 집에 있어요.	Я дома.
+507	General Conversation	Asking for & Giving Information	Mi estas en trajno	I'm on a train.	電車に乗っています。	我在火车上。	저는 기차를 타고 있어요.	Я в поезде.
+508	General Conversation	Asking for & Giving Information	Kien vi iras?	Where are you going?	どこに行くの？	你要去哪儿？	어디 가세요?	Куда ты идёшь?
+509	General Conversation	Asking for & Giving Information	Mi iras dormi	I'm going to bed.	もう寝ます。	我要睡觉了。	저는 이제 잠자리에 들려고 해요.	Я иду спать.
+510	General Conversation	Asking for & Giving Information	Mia vojaĝo estis tre agrabla	My trip was very nice.	とても楽しい旅行でした。	我的旅行非常愉快。	제 여행은 정말 즐거웠어요.	Моя поездка прошла очень хорошо.
+511	General Conversation	Asking for & Giving Information	Ĉu vi konas bonan drinkejon?	Do you know a good pub?	どこかおすすめのパブをご存知ですか？	你知道有什么不错的酒吧吗？	좋은 펍 아세요?	Ты знаешь хороший бар?
+512	General Conversation	Asking for & Giving Information	Ĉu vi pli ŝatas ruĝon ol bluon?	Do you like red more than blue?	青より赤のほうが好きですか？	你更喜欢红色还是蓝色？	파란색보다 빨간색을 더 좋아하세요?	Красный нравится тебе больше, чем синий?
+513	General Conversation	Asking for & Giving Information	Ĉu estas sekure ĉi tie?	Is it safe here?	ここは安全ですか？	这里安全吗？	여기는 안전한가요?	Здесь безопасно?
+514	General Conversation	Asking for & Giving Information	Ĉu estas ia problemo?	Is there any problem?	何か問題がありますか？	有什么问题吗？	문제가 있나요?	Какая-то проблема?
+515	General Conversation	Asking for & Giving Information	Mi devas iri kaj trovi miajn amikojn	I have to go and find my friends.	友達を探しに行かないといけません。	我得去找我的朋友们。	저는 가서 제 친구들을 찾아야 해요.	Мне нужно пойти найти своих друзей.
+516	General Conversation	Asking for & Giving Information	Kiun mi demandu?	Whom should I ask?	誰に聞けばいいですか？	我应该问谁？	누구에게 물어봐야 하나요?	Кого мне следует спросить?
+517	General Conversation	Asking for & Giving Information	Mi volas fari al vi demandon	I want to ask you a question.	質問があります。	我想问你一个问题。	질문 하나 드리고 싶어요.	Я хочу задать тебе вопрос.
+518	General Conversation	Asking for & Giving Information	Ĉu vi ŝatas la libron?	Do you like the book?	この本は気に入りましたか？	你喜欢这本书吗？	그 책이 마음에 드시나요?	Тебе нравится книга?
+519	General Conversation	Asking for & Giving Information	Kiu estas via plej ŝatata filmo?	What's your favourite film?	あなたの好きな映画は何ですか？	你最喜欢的电影是什么？	가장 좋아하는 영화가 무엇인가요?	Какой твой любимый фильм?
+520	General Conversation	Asking for & Giving Information	Kion vi faris hieraŭ vespere?	What did you do last night?	昨夜は何をしていましたか？	你昨晚做了什么？	어젯밤에 뭐 하셨어요?	Что ты делала прошлым вечером?
+521	General Conversation	Asking for & Giving Information	Kien vi volas iri?	Where do you want to go?	どこに行きたいですか？	你想去哪里？	어디로 가고 싶으세요?	Куда ты хочешь поехать?
+522	General Conversation	Asking for & Giving Information	Kiam vi foriras?	When are you leaving?	いつ出発しますか？	你什么时候走？	언제 출발하세요?	Когда ты уезжаешь?
+523	General Conversation	Asking for & Giving Information	Mi foriras ĵaŭde	I am leaving on Thursday.	私は木曜日に出発します。	我星期四离开。	저는 목요일에 떠날 예정이에요.	Я уезжаю в четверг.
+524	General Conversation	Asking for & Giving Information	Mi estas en la kamparo	I'm in the countryside.	田舎にいます。	我在乡下。	저는 시골에 있어요.	Я на природе.
+525	General Conversation	Asking for & Giving Information	Ĉu vi konas bonan kuraciston?	Do you know a good doctor?	いいお医者さんをご存知ですか？	你认识靠谱的医生吗？	좋은 의사 아시나요?	Ты знаешь хорошего доктора?
+526	General Conversation	Asking for & Giving Information	Ĉu vi preferas oranĝan aŭ verdan?	Do you prefer orange or green?	オレンジとグリーン、どちらが好きですか？	你喜欢橙色还是绿色？	주황색과 초록색 중에 어떤 색을 더 좋아하세요?	Ты предпочитаешь оранжевый или зелёный?
+527	General Conversation	Asking for & Giving Information	Ĉu vi scias kiel fari picon?	Do you know how to make a pizza?	ピザの作り方を知っていますか？	你会做披萨吗？	피자 만드는 방법을 아시나요?	Ты знаешь, как готовить пиццу?
+528	General Conversation	Asking for & Giving Information	Kiom ofte vi veturas al Prago?	How often do you go to Prague?	プラハにはどのくらいの頻度で行きますか？	你多久去一次布拉格？	프라하에는 얼마나 자주 가세요?	Как часто ты ездишь в Прагу?
+529	General Conversation	Asking for & Giving Information	Ĉu vi iam estis en Italio?	Have you ever been to Italy?	イタリアに行ったことがありますか？	你去过意大利吗？	이탈리아에 가본 적 있으세요?	Вы когда-нибудь были в Италии?
+530	General Conversation	Asking for & Giving Information	Ne, mi neniam estis tie	No, I've never been there.	いいえ、行ったことがありません。	没有，我从来没去过那里。	아니요, 저는 거기에 가본 적이 없어요.	Нет, я никогда там не была.
+531	General Conversation	Asking for & Giving Information	Jes, mi iris tien por ferioj	Yes, I went there on holiday.	はい、休暇でそこに行きました。	是的，我假期去过那里。	네, 저는 휴가 때 그곳에 다녀왔어요.	Да, я ездил туда в отпуск.
+532	General Conversation	Asking for & Giving Information	Ĉu vi povas rekomendi hostelon?	Can you recommend a hostel?	おすすめのホステルはありますか？	你能推荐一家青年旅舍吗？	호스텔을 추천해 주실 수 있나요?	Ты можешь порекомендовать хостел?
+533	General Conversation	Asking for & Giving Information	Kie mi povas duŝiĝi?	Where can I have a shower?	シャワーを浴びられる場所はどこですか？	请问哪里可以洗澡？	샤워할 수 있는 곳이 어디인가요?	Где я могу принять душ?
+534	General Conversation	Asking for & Giving Information	Mi ne havas monon	I haven't got any money.	お金が全くありません。	我一分钱都没有。	저는 돈이 하나도 없어요.	У меня нет денег.
+535	General Conversation	Asking for & Giving Information	Ĉu vi povus klarigi tion al mi?	Could you please explain it to me?	ご説明いただけますか？	你能帮我解释一下吗？	저에게 설명해 주시겠어요?	Ты не мог бы мне это объяснить?
+536	General Conversation	Asking for & Giving Information	Fakte, mi estas survoje por renkonti amikon	Actually, I'm on my way to meet a friend.	実は今、友達に会いに行くところなんです。	其实我正要去见一个朋友。	사실 지금 친구를 만나러 가는 중이에요.	Вообще-то, я иду встретиться с другом.
+537	General Conversation	Asking for & Giving Information	Mi estis tre okupita	I've been very busy.	とても忙しくしていました。	我最近一直很忙。	요즘 많이 바빴어요.	Я был очень занят.
+538	General Conversation	Asking for & Giving Information	Mi devas duŝiĝi	I need to have a shower.	シャワーを浴びてきます。	我需要洗个澡。	샤워를 해야겠어요.	Мне нужно принять душ.
+539	General Conversation	Asking for & Giving Information	Ĉu la drinkejo estas malproksima?	Is it far to the pub?	パブまで遠いですか？	酒吧远吗？	펍까지 멀어요?	До бара далеко?
+540	General Conversation	Asking for & Giving Information	Kion vi faras por Pasko?	What are you doing for Easter?	イースターには何をする予定ですか？	你复活节打算做什么？	부활절에 뭐 하실 예정이에요?	Что ты делаешь на Пасху?
+541	General Conversation	Asking for & Giving Information	Kie vi intencas festi la Novan Jaron?	Where are you going to celebrate the New Year?	新年はどこでお祝いする予定ですか？	你打算去哪儿庆祝新年？	새해를 어디에서 축하할 예정이에요?	Где ты собираешься справлять Новый год?
+542	General Conversation	Asking for & Giving Information	Kiom longe vi estis en Kolombio?	How long have you been in Colombia?	コロンビアにはどのくらい滞在していますか？	你在哥伦比亚待了多久了？	콜롬비아에 얼마나 계셨나요?	Как долго вы были в Колумбии?
+543	General Conversation	Asking for & Giving Information	Mi neniam estis tie, sed mi tre ŝatus iri iam	I've never been, but I'd love to go someday.	行ったことはありませんが、いつか行ってみたいです。	我从没去过，但我很想有一天能去看看。	가본 적은 없지만 언젠가 꼭 가보고 싶어요.	Никогда не была, но очень хотела бы съездить когда-нибудь.
+544	General Conversation	Asking for & Giving Information	Ĉu vi flugos aviadile aŭ veturos trajne?	Are you going to take a plane or a train?	飛行機で行く予定ですか、それとも電車で行きますか？	你打算坐飞机还是坐火车？	비행기를 탈 건가요, 아니면 기차를 탈 건가요?	Ты собираешься лететь самолётом или ехать поездом?
+545	General Conversation	Asking for & Giving Information	Kiun vi preferus?	Which would you prefer?	どちらがよろしいですか？	你更倾向于哪一个？	어느 쪽을 선호하시나요?	Что ты предпочитаешь?
+546	General Conversation	Asking for & Giving Information	Ĉu ĝenas vin, se mi kopios ĉi tiun liston?	Do you mind if I copy this list?	このリストをコピーしてもよろしいでしょうか。	你介意我复制这份清单吗？	이 목록을 복사해도 괜찮을까요?	Вы не против, если я скопирую этот список?
+547	General Conversation	Asking for & Giving Information	Mi ĵus revenis el Portugalio	I've just come back from Portugal.	ちょうどポルトガルから帰ってきたところです。	我刚从葡萄牙回来。	방금 포르투갈에서 돌아왔어요.	Я только что вернулась из Португалии.
+548	General Conversation	Asking for & Giving Information	Kie vi kutime pasigas viajn feriojn?	Where do you usually spend your holidays?	普段はどこで休暇を過ごしますか？	你通常在哪里度假？	보통 휴일에는 어디에서 시간을 보내세요?	Где вы обычно проводите отпуск?
+549	General Conversation	Asking for & Giving Information	Mi kutime pasigas miajn feriojn en la kamparo	I usually spend my holidays in the country.	私は普段、休暇を田舎で過ごします。	我通常在乡下度假。	저는 보통 시골에서 휴가를 보냅니다.	Я обычно провожу отпуск в деревне.
+550	General Conversation	Asking for & Giving Information	Kie mi povas aĉeti mapon de la urbo?	Where can I buy a map of the city?	この街の地図はどこで買えますか？	我在哪里可以买到这座城市的地图？	이 도시의 지도를 어디에서 살 수 있나요?	Где я могу купить карту города?
+551	General Conversation	Asking for & Giving Information	Ĉu vi trovas teatron aŭ operon pli interesan?	Do you find theatre or opera more interesting?	演劇とオペラでは、どちらの方が面白いと思いますか？	你觉得戏剧还是歌剧更有趣？	연극과 오페라 중에서 어느 쪽이 더 흥미롭다고 생각하세요?	Вам кажется более интересным театр или опера?
+552	General Conversation	Asking for & Giving Information	Kiuj sportoj estas popularaj en via lando?	What sports are popular in your country?	あなたの国で人気のあるスポーツは何ですか。	你们国家有哪些受欢迎的体育运动？	당신 나라에서 어떤 스포츠가 인기가 있나요?	Какие виды спорта популярны в вашей стране?
+553	General Conversation	Asking for & Giving Information	Ĉu estas iuj picejoj proksime de via hejmo?	Are there any pizzerias near your home?	ご自宅の近くにピザ屋はありますか？	你家附近有披萨店吗？	집 근처에 피자 가게가 있나요?	Рядом с вашим домом есть какие-нибудь пиццерии?
+554	General Conversation	Asking for & Giving Information	Ĉu vi vere pensas, ke tio estas vera?	Do you really think that's true?	本当にそれが本当だと思うの？	你真的觉得那是真的吗？	정말 그렇게 생각하세요?	Ты действительно думаешь, что это правда?
+555	General Conversation	Asking for & Giving Information	Ĉu vi biciklas pli ol unu fojon semajne?	Do you ride the bicycle more than once a week?	週に一度以上自転車に乗りますか？	你每周骑自行车超过一次吗？	일주일에 자전거를 한 번 이상 타시나요?	Ты катаешься на велосипеде чаще, чем один раз в неделю?

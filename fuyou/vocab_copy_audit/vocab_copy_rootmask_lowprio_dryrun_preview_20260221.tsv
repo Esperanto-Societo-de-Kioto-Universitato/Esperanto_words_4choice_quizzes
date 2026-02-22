@@ -1,0 +1,204 @@
+row	esperanto	column	replacements	tokens	before	after
+37	abelo	Japanese_Trans	1	vespo	{Ｂ}【虫】ミツバチ（蜜蜂）（属）; 《般》（小型の）ハチ（蜂）, >>vespo	{Ｂ}【虫】ミツバチ（蜜蜂）（属）; 《般》（小型の）ハチ（蜂）, >>〜
+38	aboni	Japanese_Trans	1	rezervi	{Ｂ}［他］（一定期間・継続的に）予約する, 購読する, >>rezervi, >>antaŭmendi	{Ｂ}［他］（一定期間・継続的に）予約する, 購読する, >>〜, >>antaŭmendi
+39	absoluta	Japanese_Trans	1	perfekta	{Ｂ}絶対の, 無条件の, 完全な, 全くの, >>senkondiĉa, >>perfekta	{Ｂ}絶対の, 無条件の, 完全な, 全くの, >>senkondiĉa, >>〜
+41	abunda	Japanese_Trans	1	riĉa	{Ｂ}有り余るほどの, 豊富な, >>riĉa	{Ｂ}有り余るほどの, 豊富な, >>〜
+69	akiri	Japanese_Trans	1	gajni	{Ｂ}［他］手に入れる, 獲得する, 習得する, >>gajni	{Ｂ}［他］手に入れる, 獲得する, 習得する, >>〜
+103	animalo	Japanese_Trans	1	vegetalo	{Ｂ}動物, ><vegetalo	{Ｂ}動物, ><〜
+115	apenaŭ	Japanese_Trans	1	preskaŭ	{Ｂ}［副］やっと, かろうじて; ほとんど～ない, =preskaŭ ne / {Ｂ}［接］～するや否や	{Ｂ}［副］やっと, かろうじて; ほとんど～ない, =〜 ne / {Ｂ}［接］～するや否や
+152	aĉeti	Japanese_Trans	1	sub	{Ｂ}［他］買う, 購入する; =sub〜（買収する）	{Ｂ}［他］買う, 購入する; =〜〜（買収する）
+161	aŭtomobilo	Japanese_Trans	1	aŭto	{Ｂ}自動車（乗用車）, =aŭto	{Ｂ}自動車（乗用車）, =〜
+161	aŭtomobilo	Chinese_Trans	1	aŭto	同aŭto（汽车）	同〜（汽车）
+187	bazaro	Japanese_Trans	1	super	{Ｂ}市場（いちば）, 市（いち）, マーケット, >>super〜	{Ｂ}市場（いちば）, 市（いち）, マーケット, >>〜〜
+198	besto	Japanese_Trans	1	animalo	{Ｂ}（人間を除く）動物, 獣, >>animalo	{Ｂ}（人間を除く）動物, 獣, >>〜
+207	birdo	Japanese_Trans	1	stranga	{Ｂ}鳥; 《転》人（例: stranga 〜 変なやつ）	{Ｂ}鳥; 《転》人（例: 〜 〜 変なやつ）
+228	brasiko	Japanese_Trans	1	kapo	{Ｂ}【植】キャベツ, =kapo〜; （キャベツ、ハクサイ、カラシナ、アブラナ、カブなど）アブラナ属の植物の総称	{Ｂ}【植】キャベツ, =〜〜; （キャベツ、ハクサイ、カラシナ、アブラナ、カブなど）アブラナ属の植物の総称
+271	cirklo	Japanese_Trans	1	rondo	{Ｂ}【数】円周, 円, >>rondo	{Ｂ}【数】円周, 円, >>〜
+304	deputi	Japanese_Trans	1	delegi	{Ｂ}［他］（議員に）選出する, 送り出す, >>delegi	{Ｂ}［他］（議員に）選出する, 送り出す, >>〜
+328	diskuti	Japanese_Trans	1	disputi	{Ｂ}［自］討議する, 議論する, >>debati, >>disputi, >>polemiki	{Ｂ}［自］討議する, 議論する, >>debati, >>〜, >>polemiki
+330	disputi	Japanese_Trans	1	kvereli	{Ｂ}［自］口論する, 言い争う, >>kvereli, >>konflikti	{Ｂ}［自］口論する, 言い争う, >>〜, >>konflikti
+335	diveni	Japanese_Trans	2	konjekti|supozi	{Ｂ}［他］見抜く, 言い当てる, 推察する, >>konjekti, >>supozi; 予知する, 占う	{Ｂ}［他］見抜く, 言い当てる, 推察する, >>〜, >>〜; 予知する, 占う
+338	do	Japanese_Trans	1	tiam	{Ｂ}［接］だから, すると, それでは, そこで, >>sekve, >>tiam; ［副］（疑問文を強めて）いったい全体; （命令文を強めて）さあ, ほら / {Ｏ}［文字名］ドー（文字D，dの名称）	{Ｂ}［接］だから, すると, それでは, そこで, >>sekve, >>〜; ［副］（疑問文を強めて）いったい全体; （命令文を強めて）さあ, ほら / {Ｏ}［文字名］ドー（文字D，dの名称）
+344	domo	Japanese_Trans	1	hejmo	{Ｂ}家, 家屋; =hejmo; 建物, ビル; （貴族の）家系	{Ｂ}家, 家屋; =〜; 建物, ビル; （貴族の）家系
+350	dramo	Japanese_Trans	1	komedio	{Ｂ}【劇】正劇（古典的な悲劇・喜劇に分類されない近代的な市民劇）, >>tragiko, >>komedio; 《般》演劇, 戯曲, =teatraĵo; 《転》劇的事件, ドラマ	{Ｂ}【劇】正劇（古典的な悲劇・喜劇に分類されない近代的な市民劇）, >>tragiko, >>〜; 《般》演劇, 戯曲, =teatraĵo; 《転》劇的事件, ドラマ
+354	dubi	Japanese_Trans	2	kredi|suspekti	{Ｂ}［自・他］疑う, 怪しむ; 危ぶむ, >>suspekti, ><kredi	{Ｂ}［自・他］疑う, 怪しむ; 危ぶむ, >>〜, ><〜
+358	ebena	Japanese_Trans	2	glata|plata	{Ｂ}平らな, 平坦な, >>plata; なめらかな, >>glata	{Ｂ}平らな, 平坦な, >>〜; なめらかな, >>〜
+360	eduki	Japanese_Trans	2	dresi|instrui	{Ｂ}［他］（人を）教育する, しつける, >>instrui, >>prizorgi; （動物を）飼いならす, >>dresi; （植物を）育てる, 栽培する, =kultivi	{Ｂ}［他］（人を）教育する, しつける, >>〜, >>prizorgi; （動物を）飼いならす, >>〜; （植物を）育てる, 栽培する, =kultivi
+362	efektiva	Japanese_Trans	1	reala	{Ｂ}実際の, 現実の, >>reala, >>fakta; 事実上の	{Ｂ}実際の, 現実の, >>〜, >>fakta; 事実上の
+363	efiki	Japanese_Trans	1	influi	{Ｂ}［自］効果をあげる, 効能がある, 効力がある, >>influi; 【理】【化】作用する	{Ｂ}［自］効果をあげる, 効能がある, 効力がある, >>〜; 【理】【化】作用する
+376	eksporti	Japanese_Trans	1	importi	{Ｂ}［他］輸出する, ><importi	{Ｂ}［他］輸出する, ><〜
+389	elekti	Japanese_Trans	1	baloti	{Ｂ}［他］選ぶ, 選択する, 選定する, >>kribri; 選挙する, >>baloti	{Ｂ}［他］選ぶ, 選択する, 選定する, >>kribri; 選挙する, >>〜
+397	enigmo	Japanese_Trans	1	mistero	{Ｂ}謎（なぞ）; 《転》不可解なもの, >>mistero	{Ｂ}謎（なぞ）; 《転》不可解なもの, >>〜
+401	epoko	Japanese_Trans	2	aĝo|periodo	{Ｂ}時代; 【地質】世, >>periodo（紀）, >>erao（代）, >>aĝo（期）	{Ｂ}時代; 【地質】世, >>〜（紀）, >>erao（代）, >>〜（期）
+405	esperi	Japanese_Trans	2	atendi|deziri	{Ｂ}［自・他］希望する, 期待する, >>deziri, >>atendi	{Ｂ}［自・他］希望する, 期待する, >>〜, >>〜
+410	estimi	Japanese_Trans	2	respekti|ŝati	{Ｂ}［他］尊敬する, 尊重する, 高く評価する, >>ŝati, >>respekti	{Ｂ}［他］尊敬する, 尊重する, 高く評価する, >>〜, >>〜
+425	fadeno	Japanese_Trans	1	drato	{Ｂ}糸, 線; 筋, 脈絡（針金はふつう drato / metal〜）	{Ｂ}糸, 線; 筋, 脈絡（針金はふつう 〜 / metal〜）
+434	familiara	Japanese_Trans	1	intima	{Ｂ}親しい, 慣れ親しんだ, 心安い, くだけた, 平俗な, >>intima, >>senceremonia	{Ｂ}親しい, 慣れ親しんだ, 心安い, くだけた, 平俗な, >>〜, >>senceremonia
+457	fervora	Japanese_Trans	1	arda	{Ｂ}熱心な, 熱烈な, 熱情にあふれた, >>arda, >>entuziasma	{Ｂ}熱心な, 熱烈な, 熱情にあふれた, >>〜, >>entuziasma
+475	flago	Japanese_Trans	1	standardo	{Ｂ}旗, >>standardo	{Ｂ}旗, >>〜
+488	flustri	Japanese_Trans	1	susuri	{Ｂ}［自］ささやく, 小声で話す; 《転》さらさら音をたてる, >>susuri, >>murmureti	{Ｂ}［自］ささやく, 小声で話す; 《転》さらさら音をたてる, >>〜, >>murmureti
+504	fosto	Japanese_Trans	2	paliso|stango	{Ｂ}【建】柱; くい, 標柱, 電柱, >>stango, >>paliso	{Ｂ}【建】柱; くい, 標柱, 電柱, >>〜, >>〜
+522	frukto	Japanese_Trans	2	bero|nukso	{Ｂ}【植】果実, 実（み）, >>drupo, >>nukso, >>bero; くだもの; 《転》成果, 結果	{Ｂ}【植】果実, 実（み）, >>drupo, >>〜, >>〜; くだもの; 《転》成果, 結果
+535	gajni	Japanese_Trans	1	akiri	{Ｂ}［他］（運や偶然によって）得る; 勝ち取る; もうける, >>akiri	{Ｂ}［他］（運や偶然によって）得る; 勝ち取る; もうける, >>〜
+539	gaso	Japanese_Trans	2	likvo|solido	{Ｂ}ガス, 燃料ガス; 【化】気体, >>solido, >>likvo; 【軍】毒ガス	{Ｂ}ガス, 燃料ガス; 【化】気体, >>〜, >>〜; 【軍】毒ガス
+545	gento	Japanese_Trans	3	etno|nacio|popolo	{Ｂ}（共通の祖先に由来する集団）部族, 一族; 民族, 種族, >>etno, >>nacio, >>popolo	{Ｂ}（共通の祖先に由来する集団）部族, 一族; 民族, 種族, >>〜, >>〜, >>〜
+556	golfo	Japanese_Trans	1	pilko	{Ｂ}【地理】湾 / 【運】ゴルフ, =〜ludo, >>klabo, >>pilko	{Ｂ}【地理】湾 / 【運】ゴルフ, =〜ludo, >>klabo, >>〜
+566	grati	Japanese_Trans	1	skrapi	{Ｂ}［他］ひっかく, かき削る; かく, >>skrapi	{Ｂ}［他］ひっかく, かき削る; かく, >>〜
+571	grimpi	Japanese_Trans	1	sur	{Ｂ}［自］（sur）よじ登る; （山に）登る; （つる草が）はい上がる	{Ｂ}［自］（〜）よじ登る; （山に）登る; （つる草が）はい上がる
+577	gumo	Japanese_Trans	1	kaŭĉuko	{Ｂ}【植】ゴム, ゴム液; 弾性ゴム, =kaŭĉuko; 消しゴム, =frot〜	{Ｂ}【植】ゴム, ゴム液; 弾性ゴム, =〜; 消しゴム, =frot〜
+592	hela	Japanese_Trans	1	pala	{Ｂ}明るい, 晴れやかな, >>luma, >>brila; （色が）明るい, 薄い, >>pala; （音が）澄んだ	{Ｂ}明るい, 晴れやかな, >>luma, >>brila; （色が）明るい, 薄い, >>〜; （音が）澄んだ
+611	honti	Japanese_Trans	2	pri|pro	{Ｂ}［自］恥じる; 恥ずかしがる（pri/pro〜を）	{Ｂ}［自］恥じる; 恥ずかしがる（〜/〜〜を）
+621	humoro	Japanese_Trans	1	humuro	{Ｂ}気質; 気分, 機嫌; 《古》（人の性格を左右するとされた）体液（ユーモア=humuroとは別語）	{Ｂ}気質; 気分, 機嫌; 《古》（人の性格を左右するとされた）体液（ユーモア=〜とは別語）
+627	identa	Japanese_Trans	1	kun	{Ｂ}（kun）同一の; 同様の, そっくり同じの	{Ｂ}（〜）同一の; 同様の, そっくり同じの
+632	ignori	Japanese_Trans	1	neglekti	{Ｂ}［他］（意図的に）無視する, 見ないふりをする, 知らないふりをする, >>neglekti	{Ｂ}［他］（意図的に）無視する, 見ないふりをする, 知らないふりをする, >>〜
+639	importi	Japanese_Trans	1	eksporti	{Ｂ}［他］輸入する, >>eksporti	{Ｂ}［他］輸入する, >>〜
+661	insisti	Japanese_Trans	1	persisti	{Ｂ}［自］（自分の意見に）固執する, 言い張る, 力説する, >>persisti	{Ｂ}［自］（自分の意見に）固執する, 言い張る, 力説する, >>〜
+677	intesto	Japanese_Trans	1	dika	{Ｂ}【解】腸; >>dika 〜, >>maldika 〜	{Ｂ}【解】腸; >>〜 〜, >>maldika 〜
+697	ju	Japanese_Trans	2	des|pli	{Ｂ}［副］（〜 pli）～すればするほど, >>des	{Ｂ}［副］（〜 〜）～すればするほど, >>〜
+739	karno	Japanese_Trans	1	viando	{Ｂ}肉, 肉体, >>viando; 【植】果肉	{Ｂ}肉, 肉体, >>〜; 【植】果肉
+741	karto	Japanese_Trans	1	mapo	{Ｂ}カード, （紙の）札; はがき; （トランプの）札; 【電】基板（地図はふつう mapo）	{Ｂ}カード, （紙の）札; はがき; （トランプの）札; 【電】基板（地図はふつう 〜）
+751	kavo	Japanese_Trans	1	kresto	{Ｂ}穴, 空洞, くぼみ, へこみ; 【解】腔（こう）, 窩（か）; 【理】（波の）谷, >>kresto	{Ｂ}穴, 空洞, くぼみ, へこみ; 【解】腔（こう）, 窩（か）; 【理】（波の）谷, >>〜
+758	kaŭĉuko	Japanese_Trans	1	gumo	{Ｂ}【化】弾性ゴム, ゴム, >>gumo	{Ｂ}【化】弾性ゴム, ゴム, >>〜
+764	kerno	Japanese_Trans	1	nukleo	{Ｂ}核, 種（たね）, 芯（しん）; 《転》核心; 【理】核, =nukleo	{Ｂ}核, 種（たね）, 芯（しん）; 《転》核心; 【理】核, =〜
+772	kino	Japanese_Trans	1	filmo	{Ｂ}映画, 映画制作, >>filmo	{Ｂ}映画, 映画制作, >>〜
+793	koleri	Japanese_Trans	2	pri|pro	{Ｂ}［自］怒る, 腹を立てる（pri/pro〜）; ［他］まれ	{Ｂ}［自］怒る, 腹を立てる（〜/〜〜）; ［他］まれ
+797	kolono	Japanese_Trans	1	kolumno	{Ｂ}【建】円柱, 柱; 記念柱; 《転》柱状のもの; 《転》大黒柱（人）; 【印】=kolumno（欄）; 【軍】縦隊	{Ｂ}【建】円柱, 柱; 記念柱; 《転》柱状のもの; 《転》大黒柱（人）; 【印】=〜（欄）; 【軍】縦隊
+799	kolumno	Japanese_Trans	1	vertikalo	{Ｂ}【印】（縦の）欄; （新聞の）コラム; （縦の）列; 【遊】（チェス盤などの）縦列, =vertikalo; 【数】（数の）桁（けた）	{Ｂ}【印】（縦の）欄; （新聞の）コラム; （縦の）列; 【遊】（チェス盤などの）縦列, =〜; 【数】（数の）桁（けた）
+803	komedio	Japanese_Trans	1	tragedio	{Ｂ}喜劇, コメディー, ><tragedio; 《転》茶番, 見せかけの芝居, >>farso	{Ｂ}喜劇, コメディー, ><〜; 《転》茶番, 見せかけの芝居, >>farso
+842	konscii	Japanese_Trans	1	pri	{Ｂ}［自］意識している, 自覚している（pri/keで補語を取る）	{Ｂ}［自］意識している, 自覚している（〜/keで補語を取る）
+851	konstati	Japanese_Trans	1	konfirmi	{Ｂ}［他］（調べて）確認する, 確かめる, 確証する, >>konfirmi	{Ｂ}［他］（調べて）確認する, 確かめる, 確証する, >>〜
+857	kontrakti	Japanese_Trans	1	pri	{Ｂ}［自・他］（pri）契約する, 契約を結ぶ	{Ｂ}［自・他］（〜）契約する, 契約を結ぶ
+859	kontroli	Japanese_Trans	1	regi	{Ｂ}［他］検査する, 点検する, 照合する, チェックする, 調べる, >>regi	{Ｂ}［他］検査する, 点検する, 照合する, チェックする, 調べる, >>〜
+872	korvo	Japanese_Trans	1	korniko	{Ｂ}【鳥】カラス（属）（鴉、烏）, >>korako, >>korniko, >>monedo	{Ｂ}【鳥】カラス（属）（鴉、烏）, >>korako, >>〜, >>monedo
+873	kosmo	Japanese_Trans	1	universo	{Ｂ}【天】宇宙, >>universo; 《転》完全体系, ><kaoso	{Ｂ}【天】宇宙, >>〜; 《転》完全体系, ><kaoso
+877	kotono	Japanese_Trans	1	vato	{Ｂ}綿（めん）, 綿花; 木綿, >>vato	{Ｂ}綿（めん）, 綿花; 木綿, >>〜
+887	kredito	Japanese_Trans	1	debeto	{Ｂ}【商】信用; 掛け, 信用貸; （簿記の）貸方, ><debeto	{Ｂ}【商】信用; 掛け, 信用貸; （簿記の）貸方, ><〜
+907	kruro	Japanese_Trans	1	piedo	{Ｂ}（人・動物の）脚, 足（全体）; 【解】すね, 脚（膝から足首まで）, >>piedo; 《転》脚部	{Ｂ}（人・動物の）脚, 足（全体）; 【解】すね, 脚（膝から足首まで）, >>〜; 《転》脚部
+923	kuniklo	Japanese_Trans	1	leporo	{Ｂ}【動】カイウサギ, イエウサギ（家兎）, >>leporo	{Ｂ}【動】カイウサギ, イエウサギ（家兎）, >>〜
+939	kvalito	Japanese_Trans	1	kvanto	{Ｂ}質, 品質, ><kvanto; 特性, 特質	{Ｂ}質, 品質, ><〜; 特性, 特質
+941	kvanto	Japanese_Trans	1	kvalito	{Ｂ}量, 数量, ><kvalito	{Ｂ}量, 数量, ><〜
+946	kvieta	Japanese_Trans	1	trankvila	{Ｂ}静かな, おだやかな, おとなしい, >>trankvila	{Ｂ}静かな, おだやかな, おとなしい, >>〜
+975	leporo	Japanese_Trans	1	kuniklo	{Ｂ}【動】ノウサギ; （一般に）ウサギ（兎）, >>kuniklo	{Ｂ}【動】ノウサギ; （一般に）ウサギ（兎）, >>〜
+1013	luno	Japanese_Trans	1	satelito	{Ｂ}【天】月; 衛星, >>satelito	{Ｂ}【天】月; 衛星, >>〜
+1019	maksimumo	Japanese_Trans	1	minimumo	{Ｂ}最大限, 最大量, 最高度, 最高値, 極限; 【数】最大, 極大, ><minimumo	{Ｂ}最大限, 最大量, 最高度, 最高値, 極限; 【数】最大, 極大, ><〜
+1048	mato	Japanese_Trans	1	tapiŝo	{Ｂ}マット, むしろ, ござ, 敷物, >>tapiŝo, >>tatamo / 【遊】（チェス・将棋の）詰み, チェックメイト	{Ｂ}マット, むしろ, ござ, 敷物, >>〜, >>tatamo / 【遊】（チェス・将棋の）詰み, チェックメイト
+1065	menso	Japanese_Trans	3	animo|intelekto|spirito	{Ｂ}精神, 心, 知力, >>animo, >>spirito, >>intelekto, >>psiko	{Ｂ}精神, 心, 知力, >>〜, >>〜, >>〜, >>psiko
+1087	militi	Japanese_Trans	1	batali	{Ｂ}［自］戦争する, 戦う, >>batali	{Ｂ}［自］戦争する, 戦う, >>〜
+1090	minimumo	Japanese_Trans	1	maksimumo	{Ｂ}最小, 最少, 最低; 【数】最小, 極小, ><maksimumo	{Ｂ}最小, 最少, 最低; 【数】最小, 極小, ><〜
+1091	ministerio	Japanese_Trans	1	sub	{Ｂ}（政府の）省, >>sub〜	{Ｂ}（政府の）省, >>〜〜
+1094	minus	Japanese_Trans	1	plus	{Ｂ}［接］【数】マイナス（引き算・負数）; 《般》～を差し引いて, ><plus	{Ｂ}［接］【数】マイナス（引き算・負数）; 《般》～を差し引いて, ><〜
+1116	moralo	Japanese_Trans	1	etiko	{Ｂ}道徳, 道義, 倫理, モラル; 道徳論, >>etiko	{Ｂ}道徳, 道義, 倫理, モラル; 道徳論, >>〜
+1119	moro	Japanese_Trans	1	kutimo	{Ｂ}風俗, 慣習, 風習, 習わし, >>kutimo	{Ｂ}風俗, 慣習, 風習, 習わし, >>〜
+1131	muso	Japanese_Trans	1	rato	{Ｂ}【動】ハツカネズミ（二十日鼠）（属）; 《般》（比較的小型の）ネズミ, >>rato; 【情】マウス	{Ｂ}【動】ハツカネズミ（二十日鼠）（属）; 《般》（比較的小型の）ネズミ, >>〜; 【情】マウス
+1136	nacio	Japanese_Trans	2	regno|ŝtato	{Ｂ}民族; 国民（全体）; 国民という共同体（統治機構=regno/ŝtatoとは別）	{Ｂ}民族; 国民（全体）; 国民という共同体（統治機構=〜/〜とは別）
+1137	nadlo	Japanese_Trans	1	pinglo	{Ｂ}【機】（レコード・注射器・手術用などの）針, （計器の）指針, 磁針, （小銃の）撃針; エギーユ（鋭くとがった岩峰）, >>kudrilo, >>pinglo, >>montrilo	{Ｂ}【機】（レコード・注射器・手術用などの）針, （計器の）指針, 磁針, （小銃の）撃針; エギーユ（鋭くとがった岩峰）, >>kudrilo, >>〜, >>montrilo
+1141	naski	Japanese_Trans	1	akuŝi	{Ｂ}［他］（女性が）生む, 出産する, >>akuŝi; 《転》生み出す, 生じる	{Ｂ}［他］（女性が）生む, 出産する, >>〜; 《転》生み出す, 生じる
+1150	neglekti	Japanese_Trans	1	ignori	{Ｂ}［他］（不注意などから）なおざりにする, おろそかにする, 軽視する, 怠る, >>malzorgi, >>ignori	{Ｂ}［他］（不注意などから）なおざりにする, おろそかにする, 軽視する, 怠る, >>malzorgi, >>〜
+1171	nodo	Japanese_Trans	1	ventro	{Ｂ}結び目, 結び; 交点, 交差点; 要所, 核心; （動植物の）節, こぶ; 【解】結節; 【天】交点; 【理】（定常波の）節, ><ventro; 【光】節点; 【海】ノット; 【情】節点, ノード, >>ret〜	{Ｂ}結び目, 結び; 交点, 交差点; 要所, 核心; （動植物の）節, こぶ; 【解】結節; 【天】交点; 【理】（定常波の）節, ><〜; 【光】節点; 【海】ノット; 【情】節点, ノード, >>ret〜
+1175	nordo	Japanese_Trans	1	sudo	{Ｂ}北; 北部, 北方, ><sudo	{Ｂ}北; 北部, 北方, ><〜
+1197	oferi	Japanese_Trans	1	dediĉi	{Ｂ}［他］【宗】（神に）ささげる, 供える; 犠牲にする, 費やす; （人などに）ささげる, 進呈する, >>dediĉi	{Ｂ}［他］【宗】（神に）ささげる, 供える; 犠牲にする, 費やす; （人などに）ささげる, 進呈する, >>〜
+1203	okcidento	Japanese_Trans	1	oriento	{Ｂ}西, 西方; 西部, ><oriento	{Ｂ}西, 西方; 西部, ><〜
+1208	oleo	Japanese_Trans	1	petrolo	{Ｂ}油, 石油, >>petrolo	{Ｂ}油, 石油, >>〜
+1223	oriento	Japanese_Trans	1	okcidento	{Ｂ}東, 東方, 東部, ><okcidento; （フリーメーソンの）地方支部	{Ｂ}東, 東方, 東部, ><〜; （フリーメーソンの）地方支部
+1242	palto	Japanese_Trans	1	surtuto	{Ｂ}【服】オーバー, 外套（がいとう）, 防寒コート, >>surtuto	{Ｂ}【服】オーバー, 外套（がいとう）, 防寒コート, >>〜
+1249	papilio	Japanese_Trans	1	nokto	{Ｂ}【虫】チョウ（蝶）, ガ（蛾）（チョウ目の昆虫の総称）, >>nokto〜	{Ｂ}【虫】チョウ（蝶）, ガ（蛾）（チョウ目の昆虫の総称）, >>〜〜
+1276	peki	Japanese_Trans	1	kontraŭ	{Ｂ}［自］（宗教的・道徳的に）罪を犯す, あやまちを犯す; （規則・習慣に）反する（-i kontraŭ）	{Ｂ}［自］（宗教的・道徳的に）罪を犯す, あやまちを犯す; （規則・習慣に）反する（-i 〜）
+1281	peni	Japanese_Trans	1	klopodi	{Ｂ}［自］努める, 努力する, 苦労する, 骨を折る, >>klopodi, >>strebi	{Ｂ}［自］努める, 努力する, 苦労する, 骨を折る, >>〜, >>strebi
+1290	perfekta	Japanese_Trans	2	kompleta|plena	{Ｂ}完全な, 完璧な, 申し分のない, >>senmanka, >>plena, >>kompleta	{Ｂ}完全な, 完璧な, 申し分のない, >>senmanka, >>〜, >>〜
+1297	persisti	Japanese_Trans	1	insisti	{Ｂ}［自］根気よく続ける, 頑張る, ねばる, 固執する, >>insisti, >>obstini; 持続する, 長く残る	{Ｂ}［自］根気よく続ける, 頑張る, ねばる, 固執する, >>〜, >>obstini; 持続する, 長く残る
+1302	petrolo	Japanese_Trans	1	benzino	{Ｂ}石油; 原油/灯油など（自動車用燃料はふつう benzino）	{Ｂ}石油; 原油/灯油など（自動車用燃料はふつう 〜）
+1319	plado	Japanese_Trans	1	telero	{Ｂ}大皿, 皿, >>telero; （皿に盛った）料理	{Ｂ}大皿, 皿, >>〜; （皿に盛った）料理
+1328	plej	Japanese_Trans	1	pli	{Ｂ}（la ～）［副］もっとも, 一番, 最～（比較最上級）, >>pli	{Ｂ}（la ～）［副］もっとも, 一番, 最～（比較最上級）, >>〜
+1340	plus	Japanese_Trans	1	minus	{Ｂ}［接］【数】プラス（足し算・正数）; 《般》～を足して, ><minus	{Ｂ}［接］【数】プラス（足し算・正数）; 《般》～を足して, ><〜
+1370	praktiko	Japanese_Trans	1	teorio	{Ｂ}実践, 実行, 実用, ><teorio	{Ｂ}実践, 実行, 実用, ><〜
+1398	procento	Japanese_Trans	1	interezo	{Ｂ}パーセント, =elcento; 利率, 利回り; 利息, 利子, =interezo	{Ｂ}パーセント, =elcento; 利率, 利回り; 利息, 利子, =〜
+1415	prosperi	Japanese_Trans	1	sukcesi	{Ｂ}［自］栄えている, 繁栄している, 繁盛している, 繁茂している; うまくいく, 成功する, >>sukcesi	{Ｂ}［自］栄えている, 繁栄している, 繁盛している, 繁茂している; うまくいく, 成功する, >>〜
+1433	pupo	Japanese_Trans	1	ganto	{Ｂ}人形; 指人形, =ganto〜; 【虫】さなぎ（蛹）; 《転》（軽蔑的に）お人形, >>marioneto	{Ｂ}人形; 指人形, =〜〜; 【虫】さなぎ（蛹）; 《転》（軽蔑的に）お人形, >>marioneto
+1453	rato	Japanese_Trans	1	muso	{Ｂ}【動】クマネズミ（熊鼠）（属）, ドブネズミ（溝鼠）; 《般》（比較的大型の）ネズミ, >>muso	{Ｂ}【動】クマネズミ（熊鼠）（属）, ドブネズミ（溝鼠）; 《般》（比較的大型の）ネズミ, >>〜
+1466	regno	Japanese_Trans	3	lando|nacio|ŝtato	{Ｂ}【法】（国際関係上の主権を有する）国, 国家, >>ŝtato, >>lando, >>nacio; 【生】（分類学上の）界	{Ｂ}【法】（国際関係上の主権を有する）国, 国家, >>〜, >>〜, >>〜; 【生】（分類学上の）界
+1469	rekta	Japanese_Trans	1	vertikala	{Ｂ}まっすぐな, 一直線の; 直立した, 垂直の, >>vertikala; 直接の, 直行の, >>senpera	{Ｂ}まっすぐな, 一直線の; 直立した, 垂直の, >>〜; 直接の, 直行の, >>senpera
+1511	riproĉi	Japanese_Trans	2	admoni|kritiki	{Ｂ}［他］とがめる, しかる, 非難する, >>admoni, >>kritiki	{Ｂ}［他］とがめる, しかる, 非難する, >>〜, >>〜
+1551	saĝa	Japanese_Trans	2	inteligenta|prudenta	{Ｂ}賢い, 賢明な, 聡明な, 思慮深い, 利口な, >>prudenta, >>inteligenta	{Ｂ}賢い, 賢明な, 聡明な, 思慮深い, 利口な, >>〜, >>〜
+1557	sed	Japanese_Trans	2	kvankam|tamen	{Ｂ}［接］しかし, だが, けれども, >>tamen, >>kontraŭe, >>male, >>kvankam	{Ｂ}［接］しかし, だが, けれども, >>〜, >>kontraŭe, >>male, >>〜
+1560	sekcio	Japanese_Trans	1	fako	{Ｂ}部, 課, 部門, 部会, セクション, >>fako; （文書の）節, 段, （バス路線などの）区間	{Ｂ}部, 課, 部門, 部会, セクション, >>〜; （文書の）節, 段, （バス路線などの）区間
+1570	senco	Japanese_Trans	1	direkto	{Ｂ}意味; 意味合い, センス（方向は direkto を用いる）	{Ｂ}意味; 意味合い, センス（方向は 〜 を用いる）
+1577	serio	Japanese_Trans	1	paralelo	{Ｂ}連続, ひと続き, 続き物, シリーズ; 【化】系列; 【理】直列, >>paralelo; 【数】級数; 【地質】統（とう）	{Ｂ}連続, ひと続き, 続き物, シリーズ; 【化】系列; 【理】直列, >>〜; 【数】級数; 【地質】統（とう）
+1591	signo	Japanese_Trans	1	karaktero	{Ｂ}しるし, 目印; 合図, 身ぶり; 記号, 符号; 【情】文字, =karaktero	{Ｂ}しるし, 目印; 合図, 身ぶり; 記号, 符号; 【情】文字, =〜
+1625	sonĝi	Japanese_Trans	1	pri	{Ｂ}［自・他］夢を見る（pri〜/ion）	{Ｂ}［自・他］夢を見る（〜〜/ion）
+1632	speciala	Japanese_Trans	1	aparta	{Ｂ}特別の, 特殊な, 専門の, >>aparta, >>faka	{Ｂ}特別の, 特殊な, 専門の, >>〜, >>faka
+1641	spirito	Japanese_Trans	3	animo|fantomo|menso	{Ｂ}精神（霊魂）, 霊, 心; 魂, 霊魂, 亡霊; 精, 精霊; 気風, 気質, >>menso, >>animo, >>fantomo	{Ｂ}精神（霊魂）, 霊, 心; 魂, 霊魂, 亡霊; 精, 精霊; 気風, 気質, >>〜, >>〜, >>〜
+1648	standardo	Japanese_Trans	1	flago	{Ｂ}（国家・軍隊などを象徴する）旗, 国旗, 軍旗, 連隊旗, 団旗; 《転》旗印, >>flago	{Ｂ}（国家・軍隊などを象徴する）旗, 国旗, 軍旗, 連隊旗, 団旗; 《転》旗印, >>〜
+1649	stango	Japanese_Trans	3	bastono|fosto|vergo	{Ｂ}棒（さすまた等）, さお, 柱, >>bastono, >>vergo, >>fosto	{Ｂ}棒（さすまた等）, さお, 柱, >>〜, >>〜, >>〜
+1652	stato	Japanese_Trans	1	situacio	{Ｂ}状態, 様子, 有様, 身分, >>situacio; 【化】（物質の）態（固体・液体・気体）	{Ｂ}状態, 様子, 有様, 身分, >>〜; 【化】（物質の）態（固体・液体・気体）
+1659	stranga	Japanese_Trans	2	fremda|kurioza	{Ｂ}奇妙な, 変な, 不思議な, おかしい, 異様な, >>bizara, >>kurioza, >>originala, >>ekstravaganca, >>fremda	{Ｂ}奇妙な, 変な, 不思議な, おかしい, 異様な, >>bizara, >>〜, >>originala, >>ekstravaganca, >>〜
+1665	studi	Japanese_Trans	2	esplori|lerni	{Ｂ}［他］研究する, 調べる, >>esplori; （学問を）勉強する, >>lerni	{Ｂ}［他］研究する, 調べる, >>〜; （学問を）勉強する, >>〜
+1672	sudo	Japanese_Trans	1	nordo	{Ｂ}南; 南部, 南方, ><nordo	{Ｂ}南; 南部, 南方, ><〜
+1689	surtuto	Japanese_Trans	1	palto	{Ｂ}【服】オーバー（外套）, 外套（がいとう）, コート, >>palto, >>kaftano	{Ｂ}【服】オーバー（外套）, 外套（がいとう）, コート, >>〜, >>kaftano
+1703	talio	Japanese_Trans	2	kokso|lumbo	{Ｂ}（人体・服の）胴, 胴体; 腰回り, 腰（のくびれた部分）, ウエスト, >>kokso, >>lumbo	{Ｂ}（人体・服の）胴, 胴体; 腰回り, 腰（のくびれた部分）, ウエスト, >>〜, >>〜
+1717	telero	Japanese_Trans	1	plado	{Ｂ}皿, 取り皿, >>plado; （皿に盛った）料理, 一品; 《転》皿状のもの	{Ｂ}皿, 取り皿, >>〜; （皿に盛った）料理, 一品; 《転》皿状のもの
+1727	teorio	Japanese_Trans	1	praktiko	{Ｂ}理論, ><praktiko; 学説, ～論; 空論, 理屈	{Ｂ}理論, ><〜; 学説, ～論; 空論, 理屈
+1728	tereno	Japanese_Trans	1	kampo	{Ｂ}（特定用途に仕切られた）土地, 用地, 敷地, 区画, 地域, ～場; 地所; 《転》領域, 分野, 活動の場, 地歩, >>kampo; 【地質】地層	{Ｂ}（特定用途に仕切られた）土地, 用地, 敷地, 区画, 地域, ～場; 地所; 《転》領域, 分野, 活動の場, 地歩, >>〜; 【地質】地層
+1743	timi	Japanese_Trans	1	antaŭ	{Ｂ}［他］恐れる, 怖がる, おびえる; 心配する, 危惧する, =antaŭ〜	{Ｂ}［他］恐れる, 怖がる, おびえる; 心配する, 危惧する, =〜〜
+1763	tragedio	Japanese_Trans	1	komedio	{Ｂ}【劇】悲劇, ><komedio; 《転》悲劇的事件	{Ｂ}【劇】悲劇, ><〜; 《転》悲劇的事件
+1767	trankvila	Japanese_Trans	1	kvieta	{Ｂ}（心が）平静な, 落ち着いた, 安らかな, 安心した, >>kvieta	{Ｂ}（心が）平静な, 落ち着いた, 安らかな, 安心した, >>〜
+1802	tusi	Japanese_Trans	1	terni	{Ｂ}［自］せきをする, >>terni; せき払いをする	{Ｂ}［自］せきをする, >>〜; せき払いをする
+1817	vagono	Japanese_Trans	1	lokomotivo	{Ｂ}【鉄】車両, >>lokomotivo	{Ｂ}【鉄】車両, >>〜
+1831	vato	Japanese_Trans	1	kotono	{Ｂ}（衣類や寝具などに詰める）綿（わた）, 脱脂綿, >>kotono / 【理】ワット（仕事率・電力のSI単位，W）	{Ｂ}（衣類や寝具などに詰める）綿（わた）, 脱脂綿, >>〜 / 【理】ワット（仕事率・電力のSI単位，W）
+1832	vazo	Japanese_Trans	3	kruĉo|pelvo|poto	{Ｂ}容器, うつわ, つぼ, かめ, 花びん, はち, >>poto, >>pelvo, >>kruĉo / 【解】（複合語で）脈管, =angio, >>sangovazo	{Ｂ}容器, うつわ, つぼ, かめ, 花びん, はち, >>〜, >>〜, >>〜 / 【解】（複合語で）脈管, =angio, >>sangovazo
+1844	ventro	Japanese_Trans	1	nodo	{Ｂ}【解】腹, 腹部; 【理】（定常波の）腹, ><nodo	{Ｂ}【解】腹, 腹部; 【理】（定常波の）腹, ><〜
+1855	vetero	Japanese_Trans	1	klimato	{Ｂ}【気】天候, 天気, >>klimato	{Ｂ}【気】天候, 天気, >>〜
+1860	viando	Japanese_Trans	1	karno	{Ｂ}【料】肉（食肉）, >>karno	{Ｂ}【料】肉（食肉）, >>〜
+1864	vigla	Japanese_Trans	1	freŝa	{Ｂ}活発な, 元気な, 快活な, 生き生きした, はつらつとした, >>freŝa, >>vivoplena, >>rapidaga; 油断のない, 警戒を怠らない, >>observema; 【商】活況の	{Ｂ}活発な, 元気な, 快活な, 生き生きした, はつらつとした, >>〜, >>vivoplena, >>rapidaga; 油断のない, 警戒を怠らない, >>observema; 【商】活況の
+1871	vipo	Japanese_Trans	1	vergo	{Ｂ}（皮ひもなどを短い棒につけた）むち（鞭）, >>vergo, >>skurĝo	{Ｂ}（皮ひもなどを短い棒につけた）むち（鞭）, >>〜, >>skurĝo
+1880	vojaĝi	Japanese_Trans	1	migri	{Ｂ}［自］旅行する, 旅をする; （公務や外商で）出張する; （鳥などが）渡る, =migri; 《俗》（幻覚剤で）トリップする, 幻覚状態になる	{Ｂ}［自］旅行する, 旅をする; （公務や外商で）出張する; （鳥などが）渡る, =〜; 《俗》（幻覚剤で）トリップする, 幻覚状態になる
+1897	zorgi	Japanese_Trans	1	pri	{Ｂ}［自］（pri）配慮する, 気をつける, 世話をする; 気にかける, 心配する; ［他］（つとめを）果たす, 心がける	{Ｂ}［自］（〜）配慮する, 気をつける, 世話をする; 気にかける, 心配する; ［他］（つとめを）果たす, 心がける
+1923	ĉielo	Japanese_Trans	2	aero|paradizo	{Ｂ}空, 大空, 天, >>aero, >>firmamento; 【宗】天, 天国, >>paradizo	{Ｂ}空, 大空, 天, >>〜, >>firmamento; 【宗】天, 天国, >>〜
+1930	ĉokolado	Japanese_Trans	1	kakao	{Ｂ}【菓】チョコレート; 【料】ココア（飲料）, >>kakao	{Ｂ}【菓】チョコレート; 【料】ココア（飲料）, >>〜
+1957	ŝati	Japanese_Trans	1	ami	{Ｂ}［他］価値を認める, 高く評価する, 尊重する; 好む, 好く, 愛好する, =ami	{Ｂ}［他］価値を認める, 高く評価する, 尊重する; 好む, 好く, 愛好する, =〜
+1962	ŝinko	Japanese_Trans	1	kolbaso	{Ｂ}【料】ハム, >>kolbaso	{Ｂ}【料】ハム, >>〜
+1967	ŝmiri	Japanese_Trans	1	lubriki	{Ｂ}［他］（油などを）塗る, 塗布する; （機械などに）グリースを塗る, 油を差す, >>lubriki; 《転》買収する	{Ｂ}［他］（油などを）塗る, 塗布する; （機械などに）グリースを塗る, 油を差す, >>〜; 《転》買収する
+1977	ŝtato	Japanese_Trans	2	regno|sub	{Ｂ}（国民を統治する政治機構としての）国家, 国, 政府, >>regno; （米国やブラジルなどで）=sub〜（州）	{Ｂ}（国民を統治する政治機構としての）国家, 国, 政府, >>〜; （米国やブラジルなどで）=〜〜（州）
+1981	ŝtopi	Japanese_Trans	1	fliki	{Ｂ}［他］（穴・隙間などを）ふさぐ, 栓をする, 詰め物をする, 埋める; ふさいで邪魔をする, 閉鎖する; 詰めこむ, いっぱいにする; （布や編み物の穴を）繕う, かがる, >>fliki	{Ｂ}［他］（穴・隙間などを）ふさぐ, 栓をする, 詰め物をする, 埋める; ふさいで邪魔をする, 閉鎖する; 詰めこむ, いっぱいにする; （布や編み物の穴を）繕う, かがる, >>〜
+2018	abstrakta	Japanese_Trans	1	konkreta	{Ｏ}抽象的な, ><konkreta; 観念的な; 【美】抽象派の	{Ｏ}抽象的な, ><〜; 観念的な; 【美】抽象派の
+2022	akuŝi	Japanese_Trans	1	naski	{Ｏ}［他］出産する, 分娩する, >>naski	{Ｏ}［他］出産する, 分娩する, >>〜
+2028	antarkta	Japanese_Trans	1	arkta	{Ｂ}【地理】南極の, =sudpolusa, ><arkta	{Ｂ}【地理】南極の, =sudpolusa, ><〜
+2044	banala	Japanese_Trans	1	vulgara	{Ｏ}平凡な, ありふれた, >>triviala, >>vulgara	{Ｏ}平凡な, ありふれた, >>triviala, >>〜
+2054	buso	Japanese_Trans	1	aŭto	{Ｂ}【車】バス（乗合自動車）, =aŭto〜 / 【情】バス	{Ｂ}【車】バス（乗合自動車）, =〜〜 / 【情】バス
+2058	damaĝi	Japanese_Trans	2	difekti|domaĝi	{Ｂ}［他］損害を与える, 損傷を与える, >>difekti, >>domaĝi	{Ｂ}［他］損害を与える, 損傷を与える, >>〜, >>〜
+2070	distrikto	Japanese_Trans	3	gubernio|kvartalo|provinco	{Ｏ}【政】行政区, 地区, 地方, >>gubernio, >>provinco, >>departemento, >>kantono, >>kvartalo	{Ｏ}【政】行政区, 地区, 地方, >>〜, >>〜, >>departemento, >>kantono, >>〜
+2076	ekskluziva	Japanese_Trans	1	inkluziva	{Ｏ}排他的な, 独占的な; （～を）除いた, （～と）相いれない, ><inkluziva	{Ｏ}排他的な, 独占的な; （～を）除いた, （～と）相いれない, ><〜
+2079	ekzemplero	Japanese_Trans	1	specimeno	{Ｏ}（本や新聞などの）一冊, 一部; （同種の生物の）個体, 標本, >>specimeno	{Ｏ}（本や新聞などの）一冊, 一部; （同種の生物の）個体, 標本, >>〜
+2120	gambo	Japanese_Trans	1	kruro	{Ｂ}【解】下肢, 脚部, >>kruro	{Ｂ}【解】下肢, 脚部, >>〜
+2125	gimnazio	Japanese_Trans	1	liceo	{Ｏ}ギムナジウム（大学進学のための中等学校）, >>liceo	{Ｏ}ギムナジウム（大学進学のための中等学校）, >>〜
+2137	horizontala	Japanese_Trans	1	vertikala	{Ｂ}水平の, 横の, >>vertikala	{Ｂ}水平の, 横の, >>〜
+2138	humuro	Japanese_Trans	1	humoro	{Ｂ}ユーモア（感覚）, こっけい, おかしみ, 諧謔（かいぎゃく）, >>ŝerco, >>sprito（気分=humoroと区別）	{Ｂ}ユーモア（感覚）, こっけい, おかしみ, 諧謔（かいぎゃく）, >>ŝerco, >>sprito（気分=〜と区別）
+2157	k.t.p.	Japanese_Trans	3	kaj|plu|tiel	{Ｏ}［略］=kaj tiel plu, ～など	{Ｏ}［略］=〜 〜 〜, ～など
+2178	kokso	Japanese_Trans	2	lumbo|talio	{Ｏ}【解】腰（左または右に張り出した部分）, >>lumbo, >>talio	{Ｏ}【解】腰（左または右に張り出した部分）, >>〜, >>〜
+2179	kolbaso	Japanese_Trans	1	ŝinko	{Ｏ}【料】ソーセージ, >>ŝinko; 【建】（火薬を詰めた）導火嚢（どうかのう）	{Ｏ}【料】ソーセージ, >>〜; 【建】（火薬を詰めた）導火嚢（どうかのう）
+2183	komentarii	Japanese_Trans	1	komenti	{Ｏ}［他］注釈をつける, 注解する; =komenti（論評する）	{Ｏ}［他］注釈をつける, 注解する; =〜（論評する）
+2197	konsonanto	Japanese_Trans	1	vokalo	{Ｏ}【声】子音, >>vokalo	{Ｏ}【声】子音, >>〜
+2219	lumbo	Japanese_Trans	2	kokso|talio	{Ｏ}【解】腰, 腰部（背中の下部）, >>kokso, >>talio	{Ｏ}【解】腰, 腰部（背中の下部）, >>〜, >>〜
+2225	majusklo	Japanese_Trans	1	minusklo	{Ｏ}【印】大文字, ><minusklo	{Ｏ}【印】大文字, ><〜
+2235	merkato	Japanese_Trans	1	bazaro	{Ｏ}【経】市場（しじょう）, 販路; 取引, 売買, >>bazaro	{Ｏ}【経】市場（しじょう）, 販路; 取引, 売買, >>〜
+2240	minusklo	Japanese_Trans	1	majusklo	{Ｏ}【印】小文字, ><majusklo	{Ｏ}【印】小文字, ><〜
+2249	negativa	Japanese_Trans	2	pasiva|pozitiva	{Ｏ}消極的な; 否定的な; 【電】陰の; 【理】負の, Ｓ極の; 【数】負の; >>pasiva, ><pozitiva	{Ｏ}消極的な; 否定的な; 【電】陰の; 【理】負の, Ｓ極の; 【数】負の; >>〜, ><〜
+2254	nominativo	Japanese_Trans	1	akuzativo	{Ｏ}【Ｇ】主格, 名格, >>akuzativo	{Ｏ}【Ｇ】主格, 名格, >>〜
+2256	novelo	Japanese_Trans	1	romano	{Ｏ}小説（短編小説）, 中編小説, >>romano	{Ｏ}小説（短編小説）, 中編小説, >>〜
+2261	objektiva	Japanese_Trans	1	subjektiva	{Ｏ}客観的な, 実在の, ><subjektiva; 偏りのない, 公正な; 【医】他覚性の; 【理】（レンズが）対物の	{Ｏ}客観的な, 実在の, ><〜; 偏りのない, 公正な; 【医】他覚性の; 【理】（レンズが）対物の
+2271	parentezo	Japanese_Trans	1	krampo	{Ｏ}（かっこで囲んだ）挿入句; 【印】かっこ（の組）, >>krampo	{Ｏ}（かっこで囲んだ）挿入句; 【印】かっこ（の組）, >>〜
+2284	pozitiva	Japanese_Trans	2	aktiva|negativa	{Ｏ}積極的な, 建設的な, 実際的な, 現実的な, 確実な; 肯定的な; 実証的な; 【電】陽の; 【理】正の, Ｎ極の; 【数】正の; 【写】ポジの; >>aktiva, ><negativa	{Ｏ}積極的な, 建設的な, 実際的な, 現実的な, 確実な; 肯定的な; 実証的な; 【電】陽の; 【理】正の, Ｎ極の; 【数】正の; 【写】ポジの; >>〜, ><〜
+2286	prefikso	Japanese_Trans	1	sufikso	{Ｏ}【Ｇ】接頭辞, >>sufikso	{Ｏ}【Ｇ】接頭辞, >>〜
+2297	pseŭdo-	Japanese_Trans	1	kvazaŭ	{Ｂ}［接頭辞］（擬似・類似・準を示す）, =kaŝ-, =ŝajn-, =kvazaŭ-	{Ｂ}［接頭辞］（擬似・類似・準を示す）, =kaŝ-, =ŝajn-, =〜
+2307	rekompenci	Japanese_Trans	1	kompensi	{Ｂ}［他］報いる, 褒美を与える, お礼をする, >>premii, >>kompensi	{Ｂ}［他］報いる, 褒美を与える, お礼をする, >>premii, >>〜
+2315	satano	Japanese_Trans	1	diablo	{Ｏ}【宗】悪魔, =diablo	{Ｏ}【宗】悪魔, =〜
+2317	sfero	Japanese_Trans	1	globo	{Ｏ}【数】球, 球面; =globo（球体）; 【史】（天体の）軌道; 《転》領域, 範囲, 圏	{Ｏ}【数】球, 球面; =〜（球体）; 【史】（天体の）軌道; 《転》領域, 範囲, 圏
+2334	stimuli	Japanese_Trans	1	instigi	{Ｏ}［他］激励する, 励ます; 刺激する, >>instigi, >>vigligi, >>sproni	{Ｏ}［他］激励する, 励ます; 刺激する, >>〜, >>vigligi, >>sproni
+2340	subjektiva	Japanese_Trans	1	objektiva	{Ｏ}主観的な, 個人的な, ><objektiva; 主体的な, =subjekta, >>memstara	{Ｏ}主観的な, 個人的な, ><〜; 主体的な, =subjekta, >>memstara
+2364	totala	Japanese_Trans	2	kompleta|tuta	{Ｂ}全体の, 総計の, >>kompleta, >>tuta	{Ｂ}全体の, 総計の, >>〜, >>〜
+2367	unio	Japanese_Trans	1	federacio	{Ｏ}【政】同盟, 連合, >>unuiĝo, >>federacio, >>konfederacio	{Ｏ}【政】同盟, 連合, >>unuiĝo, >>〜, >>konfederacio
+2368	universo	Japanese_Trans	1	kosmo	{Ｏ}宇宙（森羅万象）, 万有, 森羅万象, 全世界, >>kosmo	{Ｏ}宇宙（森羅万象）, 万有, 森羅万象, 全世界, >>〜
+2369	uragano	Japanese_Trans	2	tempesto|ŝtormo	{Ｏ}（旋風性の）大暴風; 【気】颶風（ぐふう）（風力階級12）, >>tempesto, >>ŝtormo; 《転》あらし（嵐）	{Ｏ}（旋風性の）大暴風; 【気】颶風（ぐふう）（風力階級12）, >>〜, >>〜; 《転》あらし（嵐）
+2372	uzino	Japanese_Trans	1	fabriko	{Ｂ}（大規模な）工場, プラント, 大工場; >>fabriko	{Ｂ}（大規模な）工場, プラント, 大工場; >>〜
+2379	vertikala	Japanese_Trans	1	horizontala	{Ｂ}【数】【理】鉛直の; （地面に）垂直な, 縦の, >>horizontala	{Ｂ}【数】【理】鉛直の; （地面に）垂直な, 縦の, >>〜
+2389	zoo	Japanese_Trans	1	ĝardeno	{Ｂ}［略］=〜logia ĝardeno	{Ｂ}［略］=〜logia 〜
+2400	ŝtormo	Japanese_Trans	2	tempesto|uragano	{Ｏ}暴風, あらし; 【気】強風（風力階級７～10）, >>tempesto, >>uragano	{Ｏ}暴風, あらし; 【気】強風（風力階級７～10）, >>〜, >>〜

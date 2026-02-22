@@ -1,0 +1,101 @@
+PhraseID	TopicName_EN	SubtopicName_EN	Esperanto	English	日本語	中文	한국어	Русский язык
+3656	Shopping	At the Supermarket	Ĉu vi havas majonezon?	Have you got any mayonnaise?	マヨネーズはありますか？	你有蛋黄酱吗？	마요네즈 있으세요?	У вас есть майонез?
+3657	Shopping	At the Supermarket	Ĉu vi havas kafgrajnojn?	Have you got any coffee beans?	コーヒー豆はありますか？	你有咖啡豆吗？	커피 원두 있으신가요?	У вас есть кофейные зерна?
+3658	Shopping	At the Supermarket	Kiun vi ŝatus?	Which one would you like?	どちらがよろしいですか？	你想要哪一个？	어느 것이 좋으신가요?	Который вы бы хотели?
+3659	Shopping	At the Supermarket	Mi ŝatus ses tranĉaĵojn da ŝinko	I'd like six slices of ham.	ハムを6枚ください。	我想要六片火腿。	햄 여섯 장 주세요.	Я бы хотела шесть ломтиков ветчины.
+3660	Shopping	At the Supermarket	Mi ŝatus pecon da pico	I'd like a slice of pizza.	ピザを一切れください。	我想要一片披萨。	피자 한 조각 주세요.	Я бы хотел кусочек пиццы.
+3661	Shopping	At the Supermarket	Mi volus du tranĉaĵojn, mi petas	I'd like two slices, please.	2枚ください。	请给我来两片。	두 조각 주세요.	Я бы хотел два кусочка, пожалуйста.
+3662	Shopping	At the Supermarket	Mi ŝatus iom el ĉi tiuj	I'd like some of these.	これをいくつかいただけますか。	我想要一些这个。	이것들 중에서 몇 개 주세요.	Я бы хотел немного вот этих.
+3663	Shopping	At the Supermarket	Mi ŝatus kilogramon da granatoj	I'd like a kilogram of pomegranates.	ザクロを1キロください。	我想要一公斤石榴。	석류 1킬로그램 주세요.	Я бы хотел килограмм гранатов.
+3664	Shopping	At the Supermarket	Mi ŝatus tiun pecon de fromaĝo	I'd like that piece of cheese.	そのチーズをいただけますか。	我想要那块奶酪。	저 치즈 한 조각 주세요.	Я бы хотела тот кусочек сыра.
+3665	Shopping	At the Supermarket	Kiom vi bezonas?	How much do you need?	どれくらい必要ですか？	你需要多少？	얼마나 필요하세요?	Сколько вам нужно?
+3666	Shopping	At the Supermarket	Cent gramojn da fromaĝo, mi petas	100 grams of cheese, please.	チーズを100グラムください。	请给我一百克奶酪。	치즈 100그램 주세요.	100 граммов сыра, пожалуйста.
+3667	Shopping	At the Supermarket	Kie estas la aĉetĉaretoj?	Where are the shopping trolleys?	ショッピングカートはどこにありますか。	购物车在哪里？	쇼핑 카트는 어디에 있나요?	Где тележки?
+3668	Shopping	At the Supermarket	En kiu koridoro mi povas trovi konservaĵojn?	In which aisle can I find tinned food?	缶詰はどの売り場にありますか？	请问罐头食品在哪个货架？	통조림 식품은 어느 진열대에서 찾을 수 있나요?	В каком ряду я могу найти консервы?
+3669	Shopping	At the Supermarket	Ĉu vi povus diri al mi, kie estas la sekcio de frostigitaj nutraĵoj?	Could you tell me where the frozen food section is?	冷凍食品売り場はどこにありますか。	请问冷冻食品区在哪里？	냉동식품 코너가 어디에 있는지 알려주실 수 있나요?	Не могли бы вы мне сказать, где отдел замороженных продуктов?
+3670	Shopping	At the Supermarket	Ĉu ĉerizoj estas rabatitaj hodiaŭ?	Are cherries in the sale today?	今日はさくらんぼがセールになっていますか？	今天樱桃有特价吗？	오늘 체리가 할인 중인가요?	Черешня сегодня на скидках?
+3671	Shopping	At the Supermarket	Kio estas en tiuj ĉi ĉokoladaj bombonoj?	What's in that chocolate?	そのチョコレートには何が入っているの？	那块巧克力里有什么？	그 초콜릿에는 뭐가 들어 있나요?	Что внутри этих шоколадных конфет?
+3672	Shopping	At the Supermarket	Kiujn markojn vi havas kun filtroj?	What brands have you got with filters?	フィルター付きで取り扱っているブランドは何がありますか？	你有哪些带有筛选功能的品牌？	필터로 선택할 수 있는 브랜드에는 어떤 것이 있나요?	Какие марки у вас есть с фильтром?
+3673	Shopping	At the Supermarket	Paketon da biskvitoj, mi petas	A packet of biscuits, please.	ビスケットを一袋ください。	请给我一包饼干。	비스킷 한 봉지 주세요.	Пачку печенья, пожалуйста.
+3674	Shopping	At the Supermarket	Mi ŝatus litron da sunflora oleo	I'd like a litre of sunflower oil.	ひまわり油を1リットルください。	我想要一升葵花籽油。	해바라기유 1리터 주세요.	Я бы хотела литр подсолнечного масла.
+3675	Shopping	At the Supermarket	Mi ŝatus bageton	I would like a baguette.	バゲットを一本お願いします。	我想要一个法棍。	바게트 하나 주세요.	Я бы хотела багет.
+3676	Shopping	At the Supermarket	Mi ŝatus du tabuletojn da nigra ĉokolado	I would like two bars of plain chocolate.	プレーンチョコレートを2枚ください。	我想要两块纯巧克力。	플레인 초콜릿 두 개 주세요.	Я бы хотела две плитки тёмного шоколада.
+3677	Shopping	At the Supermarket	Mi bezonas kilogramon da tomatoj	I need a kilogram of tomatoes.	トマトを1キロください。	我要一公斤西红柿。	토마토 1킬로그램이 필요해요.	Мне нужен килограмм помидоров.
+3678	Shopping	At the Supermarket	Kvaronon de kilogramo, mi petas	A quarter of a kilogram, please.	250グラムお願いします。	请给我来一斤四分之一。	250그램 주세요.	Четверть килограмма, пожалуйста.
+3679	Shopping	At the Supermarket	Mi ankaŭ bezonas aĉeti duonkilogramon da faruno	I also need to buy half a kilogram of flour.	小麦粉を500グラムも買わないといけません。	我还需要买半公斤面粉。	밀가루도 반 킬로그램 사야 해요.	Мне также нужно купить полкило муки.
+3680	Shopping	At the Supermarket	Bonvolu pesi al mi tricent gramojn	Please weigh me 300 grams.	300グラム分、量ってください。	请帮我称三百克。	300그램만 달아 주세요.	Пожалуйста, взвесьте мне 300 грамм.
+3681	Shopping	At the Supermarket	Kiom da ovoj vi bezonas?	How many eggs do you need?	卵は何個必要ですか？	你需要多少个鸡蛋？	계란이 몇 개 필요하세요?	Сколько яиц вам нужно?
+3682	Shopping	At the Supermarket	Mi ŝatus duonduzenon da ovoj	I'd like a half-dozen of eggs.	卵を6個ください。	我想要半打鸡蛋。	계란 6개 주세요.	Я бы хотела полдюжины яиц.
+3683	Shopping	At the Supermarket	Kiom longe ili konserviĝos?	How long will they keep?	どのくらい日持ちしますか？	能保存多久？	얼마나 오래 보관할 수 있나요?	Как долго они пролежат?
+3684	Shopping	At the Supermarket	Ĉu vi ŝatus gustumi ĝin?	Would you like to taste it?	よろしければ、召し上がってみますか？	你想尝一尝吗？	한번 맛보시겠어요?	Вы бы хотели её попробовать?
+3685	Shopping	At the Supermarket	Ĉu mi povus preni ĝin?	Could I pick it up?	受け取りに行ってもよろしいでしょうか。	我可以来取吗？	제가 직접 가지러 가도 될까요?	Можно мне его взять?
+3686	Shopping	At the Supermarket	La granda aŭ la malgranda?	The big one or the small one?	大きい方ですか、それとも小さい方ですか？	大的还是小的？	큰 거요, 아니면 작은 거요?	Большой или маленький?
+3687	Shopping	At the Supermarket	Ĉu mi pagu por ĝi ĉi tie aŭ ĉe la kaso?	Do I pay for it here or at the checkout?	こちらでお支払いしますか、それともレジでお支払いしますか？	我是在这里付款还是去收银台付款？	여기서 결제하나요, 아니면 계산대에서 하나요?	Мне оплатить его здесь или на кассе?
+3688	Shopping	At the Bookshop & Florist's	Ĉu mi povas foliumi?	May I browse?	見て回ってもよろしいですか？	我可以随便看看吗？	구경해도 될까요?	Могу я полистать?
+3689	Shopping	At the Bookshop & Florist's	Mi bezonas kelkajn plumojn	I need some pens.	ペンがいくつか必要です。	我需要一些笔。	펜이 좀 필요해요.	Мне нужны ручки.
+3690	Shopping	At the Bookshop & Florist's	Mi bezonas kajeron	I need an exercise book.	ノートが必要です。	我需要一本练习本。	운동장이 필요해요.	Мне нужна тетрадь.
+3691	Shopping	At the Bookshop & Florist's	Mi bezonas kelkajn orkideojn	I need some orchids.	蘭の花が必要です。	我需要一些兰花。	난초가 필요해요.	Мне нужно несколько орхидей.
+3692	Shopping	At the Bookshop & Florist's	Bonvolu doni al mi tri rozojn	Give me three roses, please.	バラを三本ください。	请给我三朵玫瑰。	장미 세 송이 주세요.	Дайте мне три розы, пожалуйста.
+3693	Shopping	At the Bookshop & Florist's	Ĉu vi vendas poŝtmarkojn?	Do you sell stamps?	切手は取り扱っていますか？	请问你们有卖邮票吗？	우표를 판매하시나요?	У вас продаются марки?
+3694	Shopping	At the Bookshop & Florist's	Pardonu, ni ne vendas ilin	Sorry, we don't sell them.	申し訳ありませんが、当店では取り扱っておりません。	抱歉，我们不出售这个。	죄송하지만 저희는 그것을 판매하지 않습니다.	Извините, не продаются.
+3695	Shopping	At the Bookshop & Florist's	Mi bezonas danan vortaron	I need a Danish dictionary.	デンマーク語の辞書が必要です。	我需要一本丹麦语词典。	덴마크어 사전이 필요해요.	Мне нужен словарь датского языка.
+3696	Shopping	At the Bookshop & Florist's	Mi ŝatus notblokon	I would like a notepad.	ノートをいただけますか。	我想要一个记事本。	노트패드를 하나 주세요.	Я бы хотел блокнот.
+3697	Shopping	At the Bookshop & Florist's	Mi ŝatus aĉeti gvidlibron	I would like to buy a guidebook.	ガイドブックを購入したいのですが。	我想买一本导游手册。	가이드북을 구매하고 싶어요.	Я бы хотела купить путеводитель.
+3698	Shopping	At the Bookshop & Florist's	Bonvolu montri al mi gvidlibron	Show me, please, a travel guide.	旅行ガイドを見せてください。	请给我看一下旅游指南。	여행 가이드를 보여주세요.	Пожалуйста, покажите мне путеводитель.
+3699	Shopping	At the Bookshop & Florist's	Kie mi povas aĉeti florojn?	Where can I buy flowers?	どこで花を買えますか？	我可以在哪里买花？	꽃은 어디에서 살 수 있나요?	Где я могу купить цветы?
+3700	Shopping	At the Bookshop & Florist's	Ĉu tio sufiĉas?	Is that enough?	それで足りますか？	这样可以吗？	그것으로 충분할까요?	Этого достаточно?
+3701	Shopping	At the Bookshop & Florist's	Tio estas tro multe	That's too many.	多すぎます。	太多了。	그건 너무 많아요.	Слишком много.
+3702	Shopping	At the Bookshop & Florist's	Kiom kostas bukedeto da tulipoj?	How much is a bunch of tulips?	チューリップの花束はおいくらですか？	一束郁金香多少钱？	튤립 한 다발은 얼마인가요?	Сколько стоит букетик тюльпанов?
+3703	Shopping	At the Bookshop & Florist's	Mi ŝatus bukedon da narcisoj	I'd like a bunch of daffodils.	水仙の花をまとめてください。	我想要一束水仙花。	수선화 한 다발 주세요.	Я бы хотела букет нарциссов.
+3704	Shopping	At the Bookshop & Florist's	Ĉu vi havas lekantojn?	Have you got any daisies?	デイジーはありますか？	你有雏菊吗？	데이지 꽃이 있나요?	У вас есть маргаритки?
+3705	Shopping	At the Bookshop & Florist's	Kie estas la plej proksima gazetkiosko?	Where is the nearest newsstand?	一番近い新聞スタンドはどこですか？	最近的书报亭在哪里？	가장 가까운 신문 가판대가 어디에 있나요?	Где ближайший газетный киоск?
+3706	Shopping	At the Bookshop & Florist's	Kie mi povas trovi infanlibrojn?	Where can I find any children's books?	子どもの本はどこで見つけられますか？	我在哪里可以找到儿童书籍？	어린이 책은 어디에서 찾을 수 있나요?	Где я могу найти детские книги?
+3707	Shopping	At the Bookshop & Florist's	Mi bezonas dulingvan vortaron	I need a bilingual dictionary.	二か国語辞典が必要です。	我需要一本双语词典。	저는 이중 언어 사전이 필요해요.	Мне нужен двуязычный словарь.
+3708	Shopping	At the Bookshop & Florist's	Mi bezonas klarigan vortaron	I need an explanatory dictionary.	解説付きの辞書が必要です。	我需要一本释义词典。	저는 해설이 포함된 사전이 필요해요.	Мне нужен толковый словарь.
+3709	Shopping	At the Bookshop & Florist's	Mi interesiĝas pri detektivaj romanoj	I am interested in detective novels.	私は推理小説に興味があります。	我对侦探小说感兴趣。	저는 추리 소설에 관심이 있어요.	Мне интересны детективные романы.
+3710	Shopping	At the Bookshop & Florist's	Mi serĉas naskiĝtagan karton	I'm looking for a birthday card.	誕生日カードを探しています。	我在找一张生日贺卡。	생일 카드 찾고 있어요.	Я ищу открытку на день рождения.
+3711	Shopping	At the Bookshop & Florist's	Mi volas kelkajn poŝtkartojn kun vidoj de Big Ben	I want some postcards with views of Big Ben.	ビッグベンの風景が写っているポストカードが欲しいです。	我想要一些有大本钟风景的明信片。	빅벤이 보이는 엽서를 몇 장 갖고 싶어요.	Я хочу открытки с изображением Биг-Бена.
+3712	Shopping	At the Bookshop & Florist's	Ĉu vi havas poŝtkartojn?	Have you got any postcards?	絵はがきはありますか？	你有明信片吗？	엽서 있나요?	У вас есть почтовые открытки?
+3713	Shopping	At the Bookshop & Florist's	Pardonu, ni ne plu havas ilin	Sorry, we haven't got any left.	申し訳ありませんが、ただいま在庫がございません。	抱歉，我们已经没有了。	죄송하지만, 모두 품절되었습니다.	Извините, у нас их не осталось.
+3714	Shopping	At the Bookshop & Florist's	Mi ŝatus aĉeti kelkajn librojn pri arto	I would like to buy some art books.	美術書を何冊か購入したいです。	我想买几本艺术类的书。	미술 서적을 몇 권 구입하고 싶어요.	Я бы хотел купить книги по искусству.
+3715	Shopping	At the Bookshop & Florist's	Mi ŝatus vidi kelkajn librojn pri poezio	I would like to see some books of poetry.	詩集をいくつか見せていただけますか。	我想看看一些诗集。	시집 몇 권을 보고 싶어요.	Я бы хотела посмотреть книги с поэзией.
+3716	Shopping	At the Bookshop & Florist's	Kiaj floroj estas ĉi tiuj?	What kind of flowers are these?	これは何の花ですか？	这些是什么花？	이 꽃들은 무슨 꽃인가요?	Что это за цветы?
+3717	Shopping	At the Bookshop & Florist's	Mi ŝatus kelkajn ĝardenajn florojn	I'd like some garden flowers.	庭に咲く花が欲しいです。	我想要一些花园里的花。	정원용 꽃을 좀 받고 싶어요.	Я бы хотел садовые цветы.
+3718	Shopping	At the Bookshop & Florist's	Mi ŝatus bukedon da magnolioj	I'd like a bunch of magnolias.	マグノリアをたくさんください。	我想要一束玉兰花。	목련꽃을 한 다발 주세요.	Я бы хотела букет магнолий.
+3719	Shopping	At the Bookshop & Florist's	Mi ŝatus bukedon de ruĝaj rozoj	I would like a bouquet of red roses.	赤いバラの花束をお願いします。	我想要一束红玫瑰。	빨간 장미로 꽃다발을 만들어 주세요.	Я бы хотела букет красных роз.
+3720	Shopping	At the Bookshop & Florist's	Kiom kostas bukedo da lilioj?	How much is a bunch of lilies?	ユリの花束はおいくらですか？	一束百合花多少钱？	백합 한 다발은 얼마인가요?	Сколько стоит букет лилий?
+3721	Shopping	At the Bookshop & Florist's	Bonvolu doni al mi amharan gazeton	Please give me an Amharic newspaper.	アムハラ語の新聞をください。	请给我一份阿姆哈拉语报纸。	암하라어 신문 한 부 주세요.	Пожалуйста, дайте мне амхарскую газету.
+3722	Shopping	At the Bookshop & Florist's	"Bonvolu doni al mi ekzempleron de ""Romeo kaj Julieta"""	"Please give me a copy of ""Romeo and Juliet""."	「ロミオとジュリエット」のコピーをいただけますか。	请给我一份《罗密欧与朱丽叶》。	"""로미오와 줄리엣"" 사본 한 부 주세요."	"Пожалуйста, дайте мне экземпляр ""Ромео и Джульетты""."
+3723	Shopping	At the Bookshop & Florist's	Bonvolu montri al mi la novajn librojn, kiujn vi havas	Please show me the new books that you have got.	新しく入荷した本を見せてください。	请把你新到的书给我看看。	새로 들어온 책들을 보여 주세요.	Пожалуйста, покажите мне, какие у вас есть новые книги.
+3724	Shopping	At the Bookshop & Florist's	Bonvolu montri al mi kelkajn albumojn pri arkitekturo	Show me, please, some architecture albums.	建築のアルバムをいくつか見せていただけますか。	请给我看一些建筑相关的画册。	건축 앨범 몇 가지 보여주세요.	Покажите мне, пожалуйста, альбомы по архитектуре.
+3725	Shopping	At the Bookshop & Florist's	Mi interesiĝas pri scienca literaturo	I'm interested in scientific literature.	科学文献に興味があります。	我对科学文献感兴趣。	저는 과학 문헌에 관심이 있어요.	Я интересуюсь научной литературой.
+3726	Shopping	At the Bookshop & Florist's	Mi bezonas makedonan-ukrainan vortaron	I need a Macedonian-Ukrainian dictionary.	マケドニア語‐ウクライナ語の辞書が必要です。	我需要一本马其顿语-乌克兰语词典。	저는 마케도니아어-우크라이나어 사전이 필요해요.	Мне нужен македонско-украинский словарь.
+3727	Shopping	At the Bookshop & Florist's	Kie mi povus trovi verkojn pri historio?	Where could I find works on history?	歴史に関する資料はどこで見つけられますか。	我可以在哪里找到关于历史的著作？	역사에 관한 자료는 어디에서 찾을 수 있나요?	Где я могу найти труды по истории?
+3728	Shopping	At the Bookshop & Florist's	Mi ŝatus aĉeti romanon en la svahila	I would like to buy a novel in Swahili.	スワヒリ語の小説を購入したいのですが。	我想买一本斯瓦希里语小说。	스와힐리어로 된 소설을 구매하고 싶어요.	Я бы хотела купить роман на суахили.
+3729	Shopping	At the Bookshop & Florist's	Mi ŝatus vidi kelkajn koloriglibrojn	I would like to see some colouring books.	塗り絵をいくつか見せていただけますか。	我想看看一些涂色书。	컬러링북 몇 권을 보고 싶어요.	Я бы хотел посмотреть раскраски.
+3730	Shopping	At the Bookshop & Florist's	Mi ŝatus havi bildlibron por kvinjara infano	I would like to have a picture book for a five-year-old child.	5歳の子ども向けの絵本をお願いします。	我想要一本适合五岁孩子的绘本。	다섯 살 아이를 위한 그림책을 갖고 싶어요.	Я бы хотела книжку с картинками для пятилетнего ребёнка.
+3731	Shopping	At the Bookshop & Florist's	Mi ŝatus la plej novan numeron de ĉi tiu revuo	I would like the latest issue of this magazine.	この雑誌の最新号をお願いします。	我想要这本杂志的最新一期。	이 잡지의 최신호를 받고 싶어요.	Я бы хотела последний выпуск этого журнала.
+3732	Shopping	At the Bookshop & Florist's	Mi ŝatus klare markitan mapon de ĉi tiu urbo	I would like a clearly marked map of this town.	この町の分かりやすい地図が欲しいです。	我想要一份标注清晰的本市地图。	이 도시의 지도가 잘 표시된 것을 받고 싶어요.	Я бы хотела чёткую и понятную карту этого города.
+3733	Shopping	At the Bookshop & Florist's	Ni ŝatus aĉeti kelkajn fotoalbumojn	We would like to buy some photo albums.	写真アルバムをいくつか購入したいと考えています。	我们想买一些相册。	저희는 사진 앨범을 몇 개 구매하고 싶습니다.	Мы бы хотели купить фотоальбомы.
+3734	Shopping	At the Bookshop & Florist's	Ĉu vi havas iujn enciklopediajn vortarojn?	Have you got any encyclopaedic dictionaries?	百科事典のような辞書はありますか？	你们有百科词典吗？	백과사전식 사전이 있나요?	У вас есть какие-нибудь энциклопедические словари?
+3735	Shopping	At the Bookshop & Florist's	Ĉu vi havas iujn librojn de brazilaj verkistoj?	Have you got any books by Brazilian writers?	ブラジルの作家の本はありますか？	你们有巴西作家的书吗？	브라질 작가의 책이 있나요?	У вас есть какие-нибудь книги бразильских писателей?
+3736	Shopping	At the Bookshop & Florist's	Ĉu vi havas broŝurojn pri Svislando?	Have you got any brochures on Switzerland?	スイスのパンフレットはありますか？	请问有关于瑞士的宣传册吗？	스위스에 관한 안내책자가 있나요?	У вас есть какие-нибудь брошюры о Швейцарии?
+3737	Shopping	At the Bookshop & Florist's	Ĉu vi povus montri al mi antikvaran librovendejon?	Could you point me to a second-hand bookshop?	古本屋を教えていただけますか？	你能告诉我哪里有二手书店吗？	중고 서점이 어디 있는지 알려주실 수 있나요?	Не могли бы вы показать мне букинистический магазин?
+3738	Shopping	At the Bookshop & Florist's	Ĉu vi havas fotojn kun vidoj de ĉi tiu regiono?	Have you got any pictures with scenes of this area?	この地域の風景が写っている写真はありますか？	你有没有这片区域的照片？	이 지역의 풍경이 담긴 사진이 있으신가요?	У вас есть фотографии с видами этой местности?
+3739	Shopping	At the Bookshop & Florist's	Ĉu vi havas poŝtkarton kun vidindaĵoj de la urbo?	Have you got a postcard with sights of the town?	この町の名所が写っている絵はがきはありますか？	你有印有本地景点的明信片吗？	이 도시의 명소가 담긴 엽서가 있나요?	У вас есть открытка с достопримечательностями города?
+3740	Shopping	At the Bookshop & Florist's	Ĉu vi havas krizantemojn?	Have you got any chrysanthemums?	菊の花はありますか？	你们有菊花吗？	국화꽃 있나요?	У вас есть хризантемы?
+3741	Shopping	At the Bookshop & Florist's	Mi ŝatus bukedon da ruĝaj diantoj	I would like a bunch of red carnations.	赤いカーネーションをまとめてください。	我想要一束红色康乃馨。	붉은 카네이션 한 다발 주세요.	Я бы хотела букет красных гвоздик.
+3742	Shopping	At the Bookshop & Florist's	Kiom kostas tiu korbo da floroj?	How much does that basket of flowers cost?	その花かごはいくらですか？	那篮花多少钱？	저 꽃바구니는 얼마인가요?	Сколько стоит та корзина с цветами?
+3743	Shopping	At the Bookshop & Florist's	Mi bezonas kronon el freŝaj floroj por la fianĉino	I need a wreath of fresh flowers for bride.	花嫁用に新鮮な生花の花冠が必要です。	我需要一个新鲜花环给新娘用。	신부를 위한 생화 화관이 필요해요.	Мне нужен венок из свежих цветов для невесты.
+3744	Shopping	Payments & Returns	Kie mi pagu?	Where do I pay?	お支払いはどちらでできますか？	请问在哪里付款？	어디에서 계산하면 되나요?	Где мне заплатить?
+3745	Shopping	Payments & Returns	Jen via kvitanco	Here is your receipt.	こちらが領収書です。	这是您的收据。	여기 영수증입니다.	Вот ваш чек.
+3746	Shopping	Payments & Returns	Ĉi tio estas rompita	This is broken.	壊れています。	这个坏了。	이것이 고장났어요.	Она разбита.
+3747	Shopping	Payments & Returns	Mi ŝatus redoni tion	I'd like to return this.	こちらを返品したいのですが。	我想退货。	이거 반품하고 싶어요.	Я бы хотела это вернуть.
+3748	Shopping	Payments & Returns	Ĉu vi staras en la vico?	Are you in the queue?	列に並んでいますか？	你在排队吗？	줄 서 계신가요?	Вы стоите в очереди?
+3749	Shopping	Payments & Returns	Tio estas 150 eŭroj	That's 150 euros.	150ユーロになります。	一共是150欧元。	150유로입니다.	Всего 150 евро.
+3750	Shopping	Payments & Returns	Ĉu mi povas pagi per karto?	Can I pay by card?	カードでお支払いできますか？	可以刷卡吗？	카드로 결제할 수 있나요?	Я могу заплатить картой?
+3751	Shopping	Payments & Returns	Pardonu, ni akceptas nur kontanton	Sorry, we only accept cash.	申し訳ありませんが、現金のみのお取り扱いとなっております。	抱歉，我们只收现金。	죄송하지만, 저희는 현금만 받습니다.	Извините, но мы принимаем только наличные.
+3752	Shopping	Payments & Returns	Bonvolu enigi vian PIN-kodon	Please enter your PIN.	暗証番号を入力してください。	请输入您的密码。	PIN을 입력해 주세요.	Пожалуйста, введите ПИН-код.
+3753	Shopping	Payments & Returns	Jen via restmono	Here's your change.	お釣りです。	这是您的找零。	거스름돈입니다.	Вот ваша сдача.
+3754	Shopping	Payments & Returns	Sakon, mi petas	A carrier bag, please.	レジ袋をお願いします。	请给我一个购物袋。	봉투 하나 주세요.	Пакет, пожалуйста.
+3755	Shopping	Payments & Returns	Ĝi ne funkcias	It doesn't work.	うまくいきません。	它不起作用。	작동하지 않아요.	Это не работает.

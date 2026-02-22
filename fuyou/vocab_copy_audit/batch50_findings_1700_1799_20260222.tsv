@@ -1,0 +1,20 @@
+idx	Esperanto	Column	Old	New	Reason
+1702	talio	Chinese_Trans	腰，腰部	腰，腰部，腰身；（人体）胴体	語義不足（胴体）を補完。
+1702	talio	Korean_Trans	허리, 옷에서 허리가 되는 부분	허리, 허리둘레; (몸의) 몸통	語義不足（胴体）を補完。
+1706	tasko	Korean_Trans	임무	임무, 일, 과제	語義不足（仕事/課題）を補完。
+1707	taso	Chinese_Trans	杯子，天平盘，秤盘	杯子，茶杯；（量）一杯	不要義（秤盤）を除去し自然化。
+1713	teksi	Chinese_Trans	织；编造；构思	织，编织；织成；（比喻）构织	不適切語（编造）を是正。
+1713	teksi	Korean_Trans	직물을 짜다	직물을 짜다; (거미가) 줄을 치다; (비유) 엮어 만들다	語義不足（蜘蛛/転義）を補完。
+1723	teni	Korean_Trans	손에 들고 잡다, 유지하다, 기르다	손에 들다, 붙잡다; 유지하다, 보관하다; (상태를) 지키다; 기르다	語義不足（保持/保管）を補完。
+1728	teritorio	Korean_Trans	영토, 세력권	영토, 관할 구역; (동물) 영역	語義不足（管轄/縄張り）を補完。
+1732	testudo	Chinese_Trans	龟属动物	龟；（史）龟甲阵（古罗马）	歴史義を補完。
+1732	testudo	Korean_Trans	거북이	거북이; (고대 로마) 거북진	歴史義を補完。
+1739	tigo	Korean_Trans	식물의 줄기, 대	식물의 줄기; (기계 등) 축·막대; (잔의) 다리	語義不足（軸/柄）を補完。
+1749	toleri	Korean_Trans	힘든 일이나 남의 잘못을 참다	참다, 용인하다; 견디다	語義を簡潔かつ自然に調整。
+1763	trajno	Chinese_Trans	列车，火车	列车，火车；（军）辎重队，补给队	軍事義を補完。
+1763	trajno	Korean_Trans	열차, 기차	열차, 기차; (군사) 치중대, 보급부대	軍事義を補完。
+1764	trajto	Korean_Trans	특색, 특징	얼굴 생김새; 특색, 특징	語義不足（顔立ち）を補完。
+1771	tremi	Korean_Trans	몸이나 물체가 떨리다	몸이나 물체가 떨리다; 두려워 떨다	語義不足（恐れて震える）を補完。
+1779	tritiko	Chinese_Trans	小麦属植物	小麦；（植）小麦属植物	一般義を補完。
+1779	tritiko	Korean_Trans	밀(소맥)	밀, 소맥; (식물) 밀속	語義不足（属）を補完。
+1789	tubero	Korean_Trans	살이나 뼈의 혹, 융기	살·뼈의 혹, 융기; (식물) 덩이줄기	語義不足（塊茎）を補完。

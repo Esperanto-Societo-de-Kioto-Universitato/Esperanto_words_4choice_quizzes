@@ -1,0 +1,13 @@
+row	esperanto	column	current	suggested	verdict	reason
+56	afero	Chinese_Trans	事情，事务，案件	事情，事务，案件；（法）诉讼事件；（商）交易	keep	核心義として成立。法・商語義は有益だが、無理に拡張しない。
+257	cemento	Chinese_Trans	水泥，接合剂	水泥；接合剂；（牙科）黏固剂；（地质）胶结物	keep	核心義として成立。専門語義は任意拡張。
+732	kapo	Chinese_Trans	头，头部	头；头脑；先端；领导者	keep	基本義は正確。比喩義追加は任意。
+1171	nodo	Chinese_Trans	结，交点	结；交点；要点；（计）节点	apply	「节点」系語義が欠落すると現代的用法で不足しやすい。
+1218	ordo	Chinese_Trans	次序，秩序	次序；秩序；【军】队形；【建】柱式；【生物】目	keep	基本義は正確。専門分類語義は任意拡張。
+1682	super	Korean_Trans	위쪽에 떨어져 있음	~의 위쪽에; ~보다 위/높은; ~을 초과하여	apply	位置義のみで狭い。比較義・超過義を最小追加。
+1901	ĉapelo	Korean_Trans	테 있는 모자	테 있는 모자; (버섯) 갓; (기호) 서컴플렉스(^)	keep	帽子義として十分成立。派生義は補足レベル。
+1910	ĉelo	Korean_Trans	작은 방, 특히 감옥의 독방	작은 방/독방; (생물) 세포; (벌집) 벌집 칸	apply	독방義に偏りすぎ。세포義を補う価値が高い。
+1786	trunko	Korean_Trans	나무의 줄기	나무줄기; 몸통/체간; (수학) 절두체	apply	樹木義のみは狭い。몸통/체간を最小追加。
+2232	medio	Chinese_Trans	环境	环境；（物理）介质；（化学）媒质；（生物）培养基	apply	환경義のみは学術文脈で不足。介质/培养基を最小追加。
+2232	medio	Korean_Trans	환경	환경; (물리·화학) 매질; (생물) 배지	apply	환경義のみは不足。매질/배지を最小追加。
+2263	operacio	Korean_Trans	수술	수술; 조작/운용; 연산	apply	수술義のみは狭い。조작/연산を補う。

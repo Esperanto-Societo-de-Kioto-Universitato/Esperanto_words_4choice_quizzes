@@ -1,0 +1,39 @@
+idx	Esperanto	Column	Old	New	Reason
+2401	-adi	Chinese_Trans	继续，反复	[后缀] 表示动作持续或反复	接尾辞説明として語法を明示。
+2402	-ado	Chinese_Trans	继续，反复	[后缀] 表示动作、状态的持续或反复	同上。
+2403	-ano	Chinese_Trans	成员	[后缀] 表示成员、居民、信奉者	語義が狭すぎたため補完。
+2403	-ano	Korean_Trans	단체의 구성원	구성원·주민·신봉자를 나타내는 접미사	同上。
+2404	-aro	Chinese_Trans	集合	[后缀] 表示同类事物的集合	接尾辞説明を自然化。
+2404	-aro	Korean_Trans	같은 종류의 사람·사물 집단	같은 종류의 사람·사물 집단을 나타내는 접미사	同上。
+2405	-aĵo	Chinese_Trans	事物	[后缀] 表示具体化的事物	語義を具体化。
+2405	-aĵo	Korean_Trans	어근과 관련된 구체적인 것	어근과 관련된 구체적인 사물을 나타내는 접미사	接尾辞説明として明確化。
+2406	-ebla	Chinese_Trans	可能，可以被…的	[后缀] 表示“可…的”“能被…的”	接尾辞形式に統一。
+2407	-eco	Chinese_Trans	性质	[后缀] 表示性质、特性	同上。
+2408	-ejo	Chinese_Trans	地点	[后缀] 表示场所	同上。
+2409	-ema	Chinese_Trans	倾向于…的，习惯…的	[后缀] 表示倾向、习惯	同上。
+2410	-estro	Chinese_Trans	首长	[后缀] 表示首长、负责人	同上。
+2411	-ido	Chinese_Trans	后代；幼者	[后缀] 表示子代、后裔	同上。
+2415	-ino	Korean_Trans	여성·암컷뜻접미사	여성·암컷을 나타내는 접미사	韓国語の語順・助詞を修正。
+2416	-ismo	Korean_Trans	주의, 학설 나타내는 접미사	주의·학설을 나타내는 접미사	同上。
+2417	-isto	Korean_Trans	어떤 일을 직업으로 하는 사람	직업 종사자·주의자·신봉자를 나타내는 접미사	語義不足（主義者・信奉者）を補完。
+2421	-ujo	Korean_Trans	물건을 담는 그릇, 용기	용기·나무·나라 이름을 나타내는 접미사	語義不足（樹木・国名）を補完。
+2422	-ulo	Korean_Trans	특징지닌사람또는동물	특징을 지닌 사람·동물을 나타내는 접미사	スペース崩れと説明不足を修正。
+2423	Pasko	Korean_Trans	기독교의 부활절	기독교의 부활절; 유대교의 유월절	JA/ZHの過越祭義を補完。
+2427	abrupta	Chinese_Trans	猛然的，出其不意的	突然的，唐突的；陡峭的	JAの「険しい」義を補完。
+2427	abrupta	Korean_Trans	갑작스러운	갑작스러운, 돌연한; 가파른	同上。
+2432	aglo	Chinese_Trans	雕属鸟类	鹰，雕（类）	一般語として自然な見出しへ。
+2435	akno	Chinese_Trans	丘疹、疱疹、痤疮、粉刺的总称	粉刺，痤疮（青春痘）	“疱疹”は語義ずれのため除去。
+2443	ambasado	Chinese_Trans	使团	大使馆；大使的职务	JAの主義（大使館）に合わせ補完。
+2443	ambasado	Korean_Trans	대사관	대사관; 대사의 직위	同上。
+2444	ampolo	Korean_Trans	전구, 전등	전구; (의학) 앰풀	JA/ZHの医療義（アンプル）を補完。
+2448	apostolo	Korean_Trans	예수의 제자 사도	사도; (비유) 주창자, 선구자	JAの転義を補完。
+2450	arda	Chinese_Trans	白热，灼热	炽热的，白热的；热烈的	形容詞として自然化＋比喩義補完。
+2456	asisti	Chinese_Trans	协助，辅佐，助理	协助，辅佐；列席，出席	“助理”名詞化を修正し出席義を補完。
+2463	banto	Korean_Trans	리본모양매듭	리본 모양 매듭	スペース修正。
+2467	basko	Korean_Trans	옷자락아래부분	옷자락 아래 부분	同上。
+2469	betulo	Korean_Trans	자작나무속식물	자작나무속 식물	同上。
+2475	bovlo	Chinese_Trans	碗	钵，碗，碗状容器	語義を拡張し JA の「鉢, ボウル」へ整合。
+2480	brokanti	Korean_Trans	고물사고팔다	고물을 사고팔다	スペース修正。
+2485	bulbo	Korean_Trans	식물의구근인경	식물의 구근, 인경	スペース修正＋可読性向上。
+2487	burĝo	Chinese_Trans	自由民；中产者，布尔乔亚	资产阶级市民，布尔乔亚	JAの「市民（中産階級）」に合わせ語義調整。
+2499	dando	Chinese_Trans	花花公子，纨绔子弟	花花公子；时髦男子	JAの「おしゃれな男」に寄せて語調を調整。

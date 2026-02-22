@@ -1,0 +1,29 @@
+idx	Esperanto	Column	Old	New	Reason
+2302	referenco	Korean_Trans	다른 자료를 대조하여 참고함	참조, 대조, 참고; (정보) 참조(포인터)	JA/ZHの参照・照合に合わせて名詞的訳へ統一し情報義を補完。
+2304	registri	Chinese_Trans	登记，注册；录音	登记，注册；记录；（邮）挂号寄送	`registri` は録音限定ではないため「記録」中心へ修正、書留義を補完。
+2313	rubriko	Chinese_Trans	栏目	（报刊）栏目；（书籍）标题，标目；（宗）礼规朱字	JAの多義（見出し・典礼書の朱記）を補完。
+2313	rubriko	Korean_Trans	신문·잡지의 고정 코너, 난	신문·잡지의 난; (서적) 표제; (종교) 전례 지시문	同上。
+2315	satelito	Chinese_Trans	卫星	卫星；人造卫星；（转）卫星国、卫星城市；追随者	JAの転義（衛星国・取り巻き）を補完。
+2315	satelito	Korean_Trans	행성을 도는 위성, 인공위성	위성, 인공위성; (비유) 위성국·위성도시; 추종자	同上。
+2316	sfero	Korean_Trans	구체, 둥근 공 모양의 것	구(球), 구면; (비유) 영역, 범위	JA/ZHにある「領域・範囲」義を補完。
+2317	sigelo	Korean_Trans	도장이나인장의자국	도장, 인영; 봉인; (비유) 확증의 표시	スペース不備修正＋JAの封印・転義を補完。
+2327	specifa	Korean_Trans	특정한	특정한, 고유한, 특유한	JA/ZHの「固有・特有」義を補完。
+2332	statistiko	Chinese_Trans	统计	统计；统计学	JAに合わせ、結果と学問の両義を保持。
+2332	statistiko	Korean_Trans	통계학	통계; 통계학	同上。
+2333	stimuli	Korean_Trans	격려하다	자극하다, 격려하다	`stimuli` の中心義「刺激する」を補完。
+2340	sufikso	Chinese_Trans	[语] 后缀	[语] 后缀；（信息）文件扩展名	JAの情報用法（拡張子）を補完。
+2341	sugesti	Korean_Trans	암시하거나 넌지시 비추어 말하다	암시하다, 넌지시 말하다; 제안하다; 연상시키다	JAの提案・想起義を補完。
+2350	tamburo	Chinese_Trans	鼓	鼓，太鼓；（机械）滚筒	JAの機械義（ドラム）を補完。
+2362	tosto	Chinese_Trans	祝酒	祝酒；祝酒词	JAの「乾杯の音頭/挨拶」義を補完。
+2362	tosto	Korean_Trans	건배, 축배	건배, 축배; 건배사	同上。
+2366	unio	Chinese_Trans	联盟	同盟，联合，联邦	JAの連合ニュアンスを補完。
+2366	unio	Korean_Trans	정치적 동맹, 연합	동맹, 연합; (정치) 유니온	同上。
+2369	urini	Korean_Trans	오줌 누다	배뇨하다, 소변을 보다	口語偏重を修正し中立語を追加。
+2373	valuto	Chinese_Trans	货币	货币；外汇；汇率	JAの外為・為替相場義を補完。
+2385	volonte	Chinese_Trans	乐意地	乐意地，情愿地；主动地	不自然な単語形を自然化。
+2392	ŝako	Chinese_Trans	国际象棋；（棋局中的）将军	国际象棋；将棋；（棋局）将军（王手）	JAの将棋義を補完。
+2392	ŝako	Korean_Trans	체스, 장군（왕수）	체스; 쇼기; (체스·쇼기) 체크(왕수)	同上＋表記整形。
+2393	ŝalti	Korean_Trans	스위치를켜다	스위치를 켜다	スペース不備修正。
+2394	ŝampuo	Korean_Trans	머리 감는 비누	샴푸, 세발제	語義を自然な辞書語形へ修正。
+2395	ŝargi	Korean_Trans	장전하다, 【전기】충전하다, 【정보】로드하다	장전하다; (전기) 충전·대전시키다; (정보) 로드하다, 값을 설정하다	JAの電気・情報用法を補完し表記統一。
+2399	ŝtormo	Chinese_Trans	风暴	暴风，风暴；（气象）强风	JAの気象義（強風）を補完。

@@ -1,0 +1,28 @@
+idx	Esperanto	Column	Old	New	Reason
+2000	-ig-	Korean_Trans	…하게 하다	사역·타동사를 만드는 접미사(…하게 하다)	接尾辞の機能説明が薄かったため、文法機能を明示。
+2006	-iĝ-	Korean_Trans	접미사, 자동사로 되다·변하다	자동사화를 나타내는 접미사(…되다, …해지다)	自動詞化の機能を自然な韓国語で明確化。
+2007	-obl-	Korean_Trans	배수, 몇 배	배수(몇 배)를 나타내는 접미사	接尾辞としての説明形式に統一。
+2018	acido	Korean_Trans	산, 신맛	산(酸)	語義中心（化学の酸）に絞って曖昧さを削減。
+2019	agordi	Korean_Trans	조율하다; (무선) 동조하다; (컴퓨터) 설정하다	조율하다; (무선) 동조하다; (컴퓨터) 설정하다; (기분을) 맞추다	JAの転義（気分にさせる）を補完。
+2030	ardi	Korean_Trans	빨갛게 달아오르다, 백열하다	백열하다; (감정이) 불타오르다	感情の比喩義を補完。
+2037	atmosfero	Korean_Trans	지구를 둘러싼 대기	대기; 분위기; (물리) 기압(단위 atm)	JA/ZHにある「雰囲気」「気圧」義を補完。
+2044	baterio	Korean_Trans	전지, 배터리	전지, 배터리; (군사) 포병중대	JA/ZHにある軍事義を補完。
+2047	biskvito	Chinese_Trans	饼干	饼干；硬面包；素烧陶器	JAの堅パン・素焼き義を補完。
+2047	biskvito	Korean_Trans	비스킷, 쿠키류 과자	비스킷, 쿠키, 건빵; 소성(素燒) 도자기	同上。
+2048	bombo	Korean_Trans	폭탄, 폭발무기	폭탄; (물리) 고압 용기(봄베)	JA/ZHのボンベ義を補完。
+2050	botoj	Chinese_Trans	靴子	长靴，靴子	JAの「長靴」に合わせ精度向上。
+2059	demokratio	Chinese_Trans	民主	民主政治，民主政体	語義が短すぎたため中核義へ拡張。
+2059	demokratio	Korean_Trans	국민이권력을가지는정치	국민이 권력을 가지는 정치, 민주정	スペース欠落修正＋用語追加。
+2067	diplomo	Korean_Trans	졸업장 또는 자격증	졸업장, 자격증, 증서	証書義を補完。
+2071	dosiero	Korean_Trans	한 사건에 관한 일건 서류, 파일	사건 서류철; (범죄자) 전과 기록부; (정보) 파일	JA/ZHに沿って多義を整理して補完。
+2073	ekologio	Chinese_Trans	生态学	生态学；生态环境	JAの転義（生態環境）を補完。
+2076	ekspreso	Korean_Trans	급행열차	급행열차; 속달; 급사	JA/ZHの速達・急使義を補完。
+2078	ekzemplero	Korean_Trans	책·신문 등의 한 부, 한 권	책·신문 등의 한 부, 한 권; 표본, 개체	標本・個体義を補完。
+2080	elokventa	Korean_Trans	말 잘하는	웅변의, 설득력 있는; 표정이 풍부한	口語的すぎる表現を学習辞書向けに自然化。
+2082	emocii	Chinese_Trans	使感动	使感动，使激动	語義の幅を自然に補完。
+2084	enketo	Chinese_Trans	调查，问卷	调查，问卷；审讯，查问	JAの「取調べ・査問」義を補完。
+2089	etiko	Chinese_Trans	伦理学	伦理学；伦理	学問名と一般概念を両立。
+2091	eventuala	Korean_Trans	발생할 수 있는	경우에 따라 일어날 수 있는, 불확정한	不確定性の語義を補完。
+2092	eŭro	Korean_Trans	유럽연합 공통 통화	유로(유럽연합 공통 통화)	表記を自然化（通貨名を先頭に）。
+2097	fekunda	Korean_Trans	다산의, 번식력 뛰어난	다산의, 번식력이 높은; (비유) 비옥한, 결실 많은	JA/ZHの比喩義（実り多い・肥沃）を補完。
+2098	feminismo	Korean_Trans	여권주의	페미니즘, 여성주의	現代的で自然な対訳へ更新。

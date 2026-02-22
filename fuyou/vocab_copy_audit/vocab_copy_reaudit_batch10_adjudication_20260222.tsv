@@ -1,0 +1,38 @@
+row	esperanto	verdict	target_column	suggested_minimal	reason	flags	score_zh	score_ko	Japanese_Trans	Chinese_Trans	Korean_Trans
+901	krom	optional_medium	Chinese_Trans|Korean_Trans	除了…以外；此外，还有 / …을 제외하고; …외에도, 게다가	ZH/KOとも「除外」義寄りで「付加」義が弱い。	scope_zh:8|scope_ko:8	8	8	{Ｂ}［前］～のほかは（～を除いて）; ～のほかにも（～を含めて）	除了	어떤 대상을 제외하고
+902	krono	optional_low	Korean_Trans	왕관, 화관; 왕권, 왕위; (화폐) 크로네	KOが王冠義中心で王権・花冠義が薄い。	scope_ko:6	0	6	{Ｂ}冠, 王冠; （栄誉の印としての）花冠, 栄冠; 王権, 王位; 冠状のもの / 【貨】クローネ（デンマーク・スウェーデンなどの通貨）	花冠，冕，王冠；冠状物；（货币）克朗	왕관；（화폐） 크로네
+903	kroĉi	optional_low	Korean_Trans	걸다, 매달다; 갈고리로 고정하다; 꽉 붙잡다	KOで「強くつかむ」義を補完。	scope_ko:6	0	6	{Ｂ}［他］掛ける, ひっ掛ける; 強くつかむ	（用钩）悬挂；抓住，固定	갈고리로 걸다, 매달다
+904	kruco	optional_medium	Korean_Trans	십자가; 십자형의 것; (비유) 고난	KOが宗教義のみで形状・比喩義が欠落。	scope_ko:8	0	8	{Ｂ}【宗】十字架; はりつけ台; 十字形のもの; 《転》苦難	十字架，十字标记、符号、物品	십자가
+905	kruda	optional_low	Korean_Trans	날것의, 미가공의; 거친, 조야한	KOで「粗野な」義を補完。	scope_ko:6	0	6	{Ｂ}生の, 未加工の; 粗野な, 荒々しい	生的，天然，未加工的，粗鲁	익히지 않은 날것의, 가공 전의
+906	kruela	keep	-	-	ZH/KOとも残酷・無慈悲の中心義を保持。	balanced	1	1	{Ｂ}残酷な, むごい; 厳しい, 悲惨な	残忍，残暴；惨痛，悲惨	잔인한, 무자비한
+908	krusto	optional_low	Korean_Trans	딱딱한 껍질, 표면; (상처의) 딱지	KOで「かさぶた」義を補完。	scope_ko:5	0	5	{Ｂ}（パン菓子などの）硬い皮, 外皮; （一般に）物の硬い表面, 殻; （傷の）かさぶた	硬外皮，甲壳，外壳	딱딱하게 굳은 겉껍질, 껍데기
+911	kubo	keep	-	-	ZH/KOとも立方体・立方の核心義が成立。	balanced	1	1	{Ｂ}【数】立方体; 【数】立方; サイコロ, =ĵet〜; 立方形の物	立方体；（菜）丁；立方	정육면체 모양의 입체
+912	kubuto	keep	-	-	ZH/KOとも解剖・機械義まで保持済み。	balanced	1	1	{Ｂ}【解】ひじ; 《転》曲がり角, 屈曲部; 【機】エルボ（管）, Ｌ字継手	肘；弯头，弯管接头	팔꿈치; 굽은 부분; (기계) 엘보관
+921	kulturi	optional_low	Korean_Trans	교양·재능을 기르다; 계몽하다; (=kultivi) 재배하다	KOが教養育成義中心で栽培義が抜ける。	scope_ko:6	0	6	{Ｂ}［他］（才能などを）育てる; （人を）啓発する, 開化する; =kultivi（耕作する・栽培する）	耕种，栽培；培养	사람의 정신과 교양을 높이도록 기르다
+922	kun	keep	-	-	ZH/KOとも前置詞 kun の核心義を保持。	balanced	1	1	{Ｂ}［前］～と共に, ～と一緒に; ～と, ～に対して; ～を連れて, ～を持って; ～と同時に, ～しながら	和…一起	함께, 같이; 동반·동시에 있음을 나타내는 말
+924	kupono	optional_low	Chinese_Trans	优惠券，票券存根；（经）息票	ZHが金融義中心で一般的クーポン義が薄い。	scope_zh:6	6	0	{Ｂ}クーポン（券）, 切符の半券; 【経】利札（りさつ）	息票；联单	쿠폰, 반권, 【경제】이표
+931	kurso	optional_medium	Korean_Trans	강좌, 강습, 과정; 코스, 노선, 항로	KOが教育義に偏り、路線義が不足。	scope_ko:8	0	8	{Ｂ}講座, 講習会, 課程; コース, 道順, 路線	课程，讲习班；航线	강좌나 강습 따위의 교육 과정
+937	kuŝi	keep	-	-	ZH/KOとも横たわる・位置する義を保持。	balanced	1	1	{Ｂ}［自］横たわっている, （水平に）置かれている; （異性と）寝る; 《転》位置する, 存在する, ある	躺；（水平地）放置；位于，处于	누워 있다, （수평으로） 놓여 있다, 《전》위치하다
+939	kvalito	optional_low	Korean_Trans	질, 품질; 특성, 자질	KOが特性義中心で品質義が薄い。	scope_ko:6	0	6	{Ｂ}質, 品質, ><〜; 特性, 特質	特质，性质，质量，资质	사물이나 사람의 특성
+949	labori	optional_low	Chinese_Trans|Korean_Trans	工作，劳动；学习；（机器）运转 / 일하다, 노동하다; 공부하다; (기계가) 작동하다	ZH/KOとも労働義中心で拡張義が不足。	scope_zh:6|scope_ko:6	6	6	{Ｂ}［自］働く, 労働する, 仕事する, 勤める; 勉強する; 精を出す; （機械が）作動する	工作，劳动	일하다, 노동하다
+950	laca	optional_low	Korean_Trans	피곤하고 지친; (비유) 싫증 난	KOで「飽き飽きした」義を補完。	scope_ko:5	0	5	{Ｂ}疲れた, くたびれた; 《転》飽き飽きした	疲劳，累；厌倦	피곤하고 지친 상태
+953	lakto	optional_low	Korean_Trans	젖, 우유; 유액(젖빛 액체)	KOで乳状液義を補完。	scope_ko:5	0	5	{Ｂ}乳, 牛乳; 乳状の液	奶，乳汁	젖, 우유
+963	lasta	optional_low	Chinese_Trans|Korean_Trans	最后的；最近的；（排名）最末的 / 마지막의, 최종의; 최근의; 최하위의	ZH/KOとも最終・最近義はあるが最下位義を補う余地。	scope_zh:5|scope_ko:5	5	5	{Ｂ}最後の, 最終の, 後者の; 最近の, 最新の, 直前の, この前の; 最下位の, 最低の	最后；最近	마지막의, 최후의
+965	laŭ	optional_medium	Korean_Trans	…을 따라; …에 따라; …에 의하여	KOが「～に従って」義中心で「沿って」義が弱い。	scope_ko:8	0	8	{Ｂ}［前］～に沿って, ～に従って, ～によって	沿着；按照	기준이나 원칙에 따라
+967	laŭta	optional_low	Korean_Trans	소리가 큰, 시끄러운; (비유) 요란한, 눈에 띄는	KOで転義（派手）を補完。	scope_ko:5	0	5	{Ｂ}大声の, 声高な, 高く響く, 騒がしい; 《転》派手な, 目立つ	大声，响亮	소리가 큰, 시끄러운
+968	leciono	optional_medium	Korean_Trans	수업, 레슨, 과; 교훈, 가르침	KOが授業義中心で教訓義が不足。	scope_ko:8	0	8	{Ｂ}授業, けいこ, レッスン; 学課, 課業; （教科書の）課; 教訓, 戒め	课，功课	학교에서 듣는 수업이나 강의
+970	legi	keep	-	-	ZH/KOとも読む・解読の中心義が成立。	balanced	1	1	{Ｂ}［他］読む, 音読する; 読み取る, 解読する; 【情】読み取る	读	읽다, 글을 해독하다
+973	leki	optional_low	Korean_Trans	핥다; (비유) 아첨하다	KOで転義（へつらう）を補完。	scope_ko:5	0	5	{Ｂ}［他］なめる; 《転》へつらう	舔，舐；拍…马屁	혀로 핥다
+977	lerta	optional_low	Korean_Trans	능숙한, 솜씨 좋은; 민첩한	KOで敏捷義を補完。	scope_ko:5	0	5	{Ｂ}器用な, 巧みな, 上手な; 敏捷な, すばしこい	灵巧，熟练，敏捷；机灵；精巧	솜씨 좋고 능숙한
+979	levi	optional_low	Korean_Trans	들어 올리다; 세우다, 일으키다; (비유) 높이다	KOで立てる・高める義を補完。	scope_ko:6	0	6	{Ｂ}［他］上げる, 持ち上げる, 拾い上げる; 立てる, 起こす; 《転》高める, 出す	（举、抬、提）起；提高，提拔	들어 올려 위로 높이다
+980	leĝo	optional_low	Korean_Trans	법률, 법규; 규범, 계율; (과학) 법칙	KOで科学法則義を補完。	scope_ko:6	0	6	{Ｂ}【法】法律, 法, 法規; おきて, 戒律, 律法; 【理】法則	法律，准则，法则	국가가 정한 강제력 있는 법이나 규범
+982	libera	keep	-	-	ZH/KOとも自由義の中核は保持。	balanced	1	1	{Ｂ}自由な; 独立の, 束縛されない, 免れた; ひまな, 空いている, 広々した	自由	자유롭고 구속이나 제약이 없는 상태
+985	lifto	optional_low	Korean_Trans	엘리베이터, 승강기; (해양) 돛대 줄(리프트)	KOで海事義を最小補完。	scope_ko:5	0	5	{Ｂ}エレベーター, 昇降機; 【海】（帆桁の）つり綱	电梯	사람을 층간에 나르는 승강기
+986	ligi	optional_low	Korean_Trans	묶다, 연결하다; 결속시키다; 관련짓다	KOで団結・関係づけ義を補完。	scope_ko:6	0	6	{Ｂ}［他］結ぶ, 縛る, つなぐ; 結び合わせる; 《転》束縛する; 関係づける; 団結させる	绑，连，联	묶다, 연결하다
+988	lilio	optional_low	Korean_Trans	백합속 식물	KO語間スペース欠落を最小修正。	style_ko:4	0	4	{Ｂ}【植】ユリ（属）（百合）	百合属植物	백합속식물
+989	limo	optional_medium	Korean_Trans	경계, 국경; 한계, 한도; 기한	KOが境界義中心で限界・期限義が不足。	scope_ko:8	0	8	{Ｂ}境界, 境, 端, 果て; 国境; 限界, 限度, 極限; 期限	分界线；范围	경계선
+991	linio	keep	-	-	ZH/KOとも線・列・路線の主要義を保持。	balanced	1	1	{Ｂ}線, 境界線, すじ; 列, 並び, 系統; （文字の）行; 【数】線; 【交】路線; 【運】ライン	线；列，系统；行；路线	선, 줄, 행, 노선, 계통
+992	lipo	optional_low	Korean_Trans	입술; (식물) 순판	KOで植物学義を補完。	scope_ko:5	0	5	{Ｂ}唇; 《転》口; 【植】唇弁（しんべん）	唇	입술
+995	litero	optional_medium	Chinese_Trans	文字，字母；（印）活字；字句，文面	ZHが字母義のみに寄り、文脈義が不足。	scope_zh:8	8	0	{Ｂ}文字, 字; 【印】活字, >>ideografiaĵo; 字句, 文面	字母	글자, 문자
+998	liveri	optional_low	Korean_Trans	배달하다, 인도하다; 공급하다	KOで供給義を補完。	scope_ko:5	0	5	{Ｂ}［他］配達する, 届ける, 引き渡す, 納品する; 供給する	交货，交付；供给，提供	물건을 배달하거나 인도하다
+1000	logiko	optional_low	Korean_Trans	논리; 논리학; 이치, 필연적 귀결	KOで論理学義を補完。	scope_ko:5	0	5	{Ｂ}論理学; 論理, 論法, 道理; 論理的必然, 当然の成り行き	逻辑；推理；必然联系	논리, 사물의 이치

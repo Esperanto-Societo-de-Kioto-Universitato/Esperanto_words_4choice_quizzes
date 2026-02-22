@@ -1,0 +1,4 @@
+Batch	PhraseID	Column	Old	New	Reason
+36	3707	日本語	英和辞典が必要です。	二か国語辞典が必要です。	EO/RU/EN are generic bilingual dictionary; JA was over-specific (English-Japanese).
+36	3725	한국어	저는 과학 논문에 관심이 있어요.	저는 과학 문헌에 관심이 있어요.	EO/RU/EN/JA/ZH indicate scientific literature; KO narrowed to research papers.
+38	3910	한국어	이것은 누구의 작업인가요?	이것은 누구의 작품인가요?	Museum context + JA/ZH/RU imply artwork/author attribution; KO "작업" was mismatched register/meaning.

@@ -1,0 +1,10 @@
+PhraseID	TopicName_EN	SubtopicName_EN	Esperanto	Русский язык	Column	Old	New	Decision	Reason
+5097	Time & Weather	Weather	Estas glacie kaj glite	Очень холодно.	English	It's icy.	It's icy and slippery.	FIX	EO "Estas glacie kaj glite" encodes both icy and slippery; EN omitted slippery.
+5118	Time & Weather	Weather	Alproksimiĝas fulmotondro	Надвигается гроза.	English	It's stormy.	A thunderstorm is approaching.	FIX	EO "Alproksimiĝas fulmotondro" means an approaching thunderstorm, not generic current storminess.
+5118	Time & Weather	Weather	Alproksimiĝas fulmotondro	Надвигается гроза.	日本語	嵐になっています。	雷雨が近づいています。	FIX	EO/RU indicate approaching thunderstorm; JA had generic ongoing storm.
+5118	Time & Weather	Weather	Alproksimiĝas fulmotondro	Надвигается гроза.	中文	外面有暴风雨。	雷暴正在逼近。	FIX	EO/RU indicate approaching thunderstorm; ZH had generic ongoing storm.
+5118	Time & Weather	Weather	Alproksimiĝas fulmotondro	Надвигается гроза.	한국어	폭풍이 몰아치고 있어요.	천둥번개를 동반한 폭풍우가 다가오고 있어요.	FIX	EO/RU indicate approaching thunderstorm; KO had generic ongoing storm.
+5145	Time & Weather	Weather	Mi scivolas, ĉu estos fulmotondro	Интересно, будет ли гроза.	English	I wonder if there will be a storm.	I wonder if there will be a thunderstorm.	FIX	EO "fulmotondro" is thunderstorm; EN generalized to storm.
+5145	Time & Weather	Weather	Mi scivolas, ĉu estos fulmotondro	Интересно, будет ли гроза.	日本語	嵐が来るのかな。	雷雨になるのかな。	FIX	EO/RU indicate thunderstorm possibility; JA generalized to storm.
+5145	Time & Weather	Weather	Mi scivolas, ĉu estos fulmotondro	Интересно, будет ли гроза.	中文	不知道会不会有暴风雨。	不知道会不会有雷暴。	FIX	EO/RU indicate thunderstorm possibility; ZH generalized to storm.
+5145	Time & Weather	Weather	Mi scivolas, ĉu estos fulmotondro	Интересно, будет ли гроза.	한국어	폭풍이 올지 궁금해요.	천둥번개를 동반한 폭풍우가 올지 궁금해요.	FIX	EO/RU indicate thunderstorm possibility; KO generalized to storm.

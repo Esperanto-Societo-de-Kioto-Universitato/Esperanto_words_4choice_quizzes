@@ -1,0 +1,4 @@
+row	esperanto	column	current	status	suggested_minimal	note
+2624	kankro	Korean_Trans	게	optional_keep_proposal	게; (천문) 게자리(황도12궁)	現状でも誤訳ではないため未適用。JA/ZHとの意味バランス改善案として保持。
+2628	karpo	Chinese_Trans|Korean_Trans	鲤鱼 / 잉어	optional_keep_proposal	鲤鱼；[解] 腕骨（腕根） / 잉어; (해부) 수근(손목뼈)	現状でも基本義は正しいため未適用。多義対応の最小追記案を保持。
+2810	skorpio	Korean_Trans	전갈	optional_keep_proposal	전갈; (천문) 전갈자리(황도12궁)	現状でも誤訳ではないため未適用。JA/ZHとの整合目的の提案として保持。

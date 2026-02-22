@@ -1,0 +1,24 @@
+idx	Esperanto	Column	Old	New	Reason
+801	kombini	Chinese_Trans	组合，结合，配合；化合；草拟，拟订	组合，结合，配合；（化）化合	語義外の「草拟，拟订」を除去。
+811	kompanio	Korean_Trans	상업을 목적으로 한 회사	회사; (집합적으로) 동료, 일행	会社義に加えて集合的「仲間/一行」義を補完。
+814	kompetenta	Chinese_Trans	能干的，有能力的，有专长的，能胜任的	有能力的，能胜任的；有权限的，主管的	「権限のある/所管の」義を補完。
+823	koncerto	Chinese_Trans	音乐会	音乐会；（转）协同，协作	転義（協調/協力）を補完。
+825	kondiĉo	Chinese_Trans	（必要的）条件；条款	条件；条款；状态，环境	「状態/環境」義を補完。
+834	kongreso	Chinese_Trans	（代表）大会	大会，会议；（政）国会	政治義（国会）を補完。
+841	konscii	Chinese_Trans	自感；认识到	意识到，自觉到	不自然な「自感」を自然化。
+842	konsekvenco	Chinese_Trans	自然结果，逻辑的或合理的相互联系	（逻辑）归结；结果，后果	語義を簡潔に自然化。
+851	konstitucio	Chinese_Trans	宪法	宪法；（医）体质，体格	医学義（体質/体格）を補完。
+856	kontrakti	Korean_Trans	계약을체결하다	계약을 체결하다	語間スペースを修正。
+857	kontraŭ	Chinese_Trans	对着，向着	对着，向着；反对，违背	対抗・反意を補完。
+861	konvinki	Korean_Trans	논리와증거로남을설득하다	논리와 증거로 남을 설득하다	語間スペースを修正。
+865	korespondi	Chinese_Trans	通信	通信，函授；（交通）衔接	乗り物接続義を補完。
+866	koridoro	Korean_Trans	건물안의길게난복도	건물 안의 길게 난 복도	語間スペースを修正。
+870	korto	Korean_Trans	집안의뜰, 안마당	집 안의 뜰, 안마당	語間スペースを修正。
+871	korvo	Chinese_Trans	鸦属鸟类	乌鸦（鸦科鸟）	不自然な分類語尾を自然化。
+872	kosmo	Chinese_Trans	宇宙；宇宙观	宇宙；（转）完整体系（与混沌相对）	「宇宙观」をJA原義に合わせ修正。
+873	kosti	Chinese_Trans	值	价值；需要（付出代价）	「代償を要する」義を補完。
+878	kovri	Chinese_Trans	盖	覆盖，遮住；补偿，弥补	「覆い隠す/埋め合わせる」義を補完。
+882	krano	Korean_Trans	수도·가스의꼭지	수도·가스의 꼭지	語間スペースを修正。
+890	kreski	Chinese_Trans	生长	生长，成长；（转）增长，扩大	増大義を補完。
+893	krii	Chinese_Trans	喊	大叫，喊叫；高声说	他動詞義（大声で言う）を補完。
+895	kripla	Korean_Trans	신체에장애가있는, 팔다리가불편한	신체에 장애가 있는, 팔다리가 불편한	語間スペースを修正。

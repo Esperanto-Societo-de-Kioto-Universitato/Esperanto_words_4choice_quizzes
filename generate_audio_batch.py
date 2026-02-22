@@ -44,7 +44,7 @@ def synthesize_rhvoice(text: str, out_path: Path, voice: str) -> bool:
 
 def main():
     parser = argparse.ArgumentParser(description="RHVoice で語彙の音声を一括生成します。")
-parser.add_argument("--csv", type=Path, default=Path("2890 Gravaj Esperantaj Vortoj kun Signifoj en la Japana, Ĉina kaj Korea_251129_plajnova.csv"))
+    parser.add_argument("--csv", type=Path, default=Path("2890 Gravaj Esperantaj Vortoj kun Signifoj en la Japana, Ĉina kaj Korea_251129_plajnova.csv"))
     parser.add_argument("--out", type=Path, default=Path("audio"), help="出力ディレクトリ (.wav)")
     parser.add_argument("--voice", type=str, default="spomenka", help="RHVoice の音声名")
     parser.add_argument("--skip-existing", action="store_true", help="既存ファイルはスキップ")

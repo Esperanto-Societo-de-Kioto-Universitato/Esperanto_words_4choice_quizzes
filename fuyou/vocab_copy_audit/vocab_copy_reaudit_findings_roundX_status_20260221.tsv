@@ -1,0 +1,20 @@
+row	esperanto	column	severity	issue_type	verdict	current_after_pass	note
+114	aparteni	Japanese_Trans	high	readability_mask_artifact	applied	{Ｂ}［自］～のものである; ～に所属する	readability fix applied in cautious pass
+571	grimpi	Japanese_Trans	high	readability_mask_artifact	applied	{Ｂ}［自］よじ登る; （山に）登る; （つる草が）はい上がる	readability fix applied in cautious pass
+627	identa	Japanese_Trans	high	readability_mask_artifact	applied	{Ｂ}同一の; 同様の, そっくり同じの	readability fix applied in cautious pass
+741	karto	Japanese_Trans	high	readability_mask_artifact	applied	{Ｂ}カード, （紙の）札; はがき; （トランプの）札; 【電】基板（地図は別語を用いる）	readability fix applied in cautious pass
+848	konsisti	Japanese_Trans	high	readability_mask_artifact	applied	{Ｂ}［自］～から成り立つ, ～でできている; （本質・要点が）～にある	readability fix applied in cautious pass
+857	kontrakti	Japanese_Trans	high	readability_mask_artifact	applied	{Ｂ}［自・他］契約する, 契約を結ぶ	readability fix applied in cautious pass
+1276	peki	Japanese_Trans	high	readability_mask_artifact	applied	{Ｂ}［自］（宗教的・道徳的に）罪を犯す, あやまちを犯す; （規則・習慣に）反する	readability fix applied in cautious pass
+1302	petrolo	Japanese_Trans	high	readability_mask_artifact	applied	{Ｂ}石油; 原油/灯油など（自動車用燃料は通常ガソリン）	readability fix applied in cautious pass
+1328	plej	Japanese_Trans	high	readability_mask_artifact	applied	{Ｂ}［副］もっとも, 一番, 最～（比較最上級）	readability fix applied in cautious pass
+1570	senco	Japanese_Trans	high	readability_mask_artifact	applied	{Ｂ}意味; 意味合い, センス（方向は別語を用いる）	readability fix applied in cautious pass
+1625	sonĝi	Japanese_Trans	high	readability_mask_artifact	applied	{Ｂ}［自・他］夢を見る（内容を直接目的語で取る用法もある）	readability fix applied in cautious pass
+1897	zorgi	Japanese_Trans	high	readability_mask_artifact	applied	{Ｂ}［自］配慮する, 気をつける, 世話をする; 気にかける, 心配する; ［他］（つとめを）果たす, 心がける	readability fix applied in cautious pass
+2138	humuro	Japanese_Trans	high	readability_mask_artifact	applied	{Ｂ}ユーモア（感覚）, こっけい, おかしみ, 諧謔（かいぎゃく）, >>ŝerco, >>sprito（「気分」を表す別語と区別）	readability fix applied in cautious pass
+2393	ŝako	Japanese_Trans	high	readability_mask_artifact	applied	{Ｏ}【遊】チェス; （日本将棋）将棋; （チェス・将棋の）王手	readability fix applied in cautious pass
+1398	procento	Korean_Trans	medium	style_spacing	pending_optional	퍼센트, 백분율;이자율, 이자	left unchanged to avoid overcorrection
+1756	tono	Korean_Trans	medium	scope_narrow	pending_optional	소리나 목소리의 높낮이와 어조	left unchanged to avoid overcorrection
+1105	modo	Korean_Trans	medium	scope_narrow	pending_optional	유행, 특히 의상·패션의 유행	left unchanged to avoid overcorrection
+1292	periodo	Korean_Trans	medium	scope_narrow	pending_optional	기간, 시기	left unchanged to avoid overcorrection
+870	korpo	Chinese_Trans	medium	scope_narrow	pending_optional	身体，体	left unchanged to avoid overcorrection

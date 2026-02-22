@@ -1,0 +1,26 @@
+row	esperanto	verdict	target_column	suggested_minimal	reason	flags	score_zh	score_ko	Japanese_Trans	Chinese_Trans	Korean_Trans
+401	epoko	optional_low	Chinese_Trans|Korean_Trans	纪元，时代；（地质）世 / 시대; (지질) 세(世)	地質学義の最小補完。	scope_zh:17|scope_ko:18	17	18	{Ｂ}時代; 【地質】世, >>〜（紀）, >>erao（代）, >>〜（期）	纪元，时代	역사에서 구분되는 일정한 시대
+404	esenco	keep	-	-	本質・化学義が既に補完済みで十分。	scope_zh:14|scope_ko:14	14	14	{Ｂ}本質, 真髄, 核心; 【化】エッセンス, 精油; 【哲】実在, >>noumeno	本质，核心；（化）香精，精油	본질, 핵심; (화학) 에센스, 정유
+405	esperi	keep	-	-	希望・期待義の対応は自然。	scope_zh:8|scope_ko:8	8	8	{Ｂ}［自・他］希望する, 期待する, >>〜, >>〜	希望，期望	희망하다, 기대하다
+406	esplori	optional_low	Korean_Trans	탐구·조사하다; (의학) 정밀검사하다; (법) 심리하다	医療/法の義を軽補完。	scope_zh:13|scope_ko:19	13	19	{Ｂ}［他］探検する, 踏査する; 調査する, 探究する, 研究する; 【医】診査する, （精密）検査する; 【法】審理する	探索；调查；研究	상세히 조사하거나 탐구하다
+410	estimi	keep	-	-	尊敬・高評価義として十分。	scope_zh:8|scope_ko:10	8	10	{Ｂ}［他］尊敬する, 尊重する, 高く評価する, >>〜, >>〜	尊重，敬重，敬仰	존경하고 높이 평가하다
+412	etaĝo	keep	-	-	階の基本義で十分。	scope_zh:12|scope_ko:12	12	12	{Ｂ}階（欧州と日米で数え方が異なる）, >>ter〜, >>unua 〜, >>dua 〜	楼层	건물의 층
+413	etendi	keep	-	-	伸展・拡張義として許容。	scope_ko:9	7	9	{Ｂ}［他］伸ばす; （手を伸ばして）差し出す; （金属を）延ばす; 広げる, 拡張する	伸展；铺开	곧게 펴서 길게 늘이다, 뻗치다
+420	eĥo	optional_low	Korean_Trans	메아리, 반향; (통신) 에코; (비유) 되풀이	通信・転義を補完。	scope_ko:9	6	9	{Ｂ}反響, こだま; 【通】エコー; 《転》おうむがえし	回声，反响；回波	메아리, 반향
+426	fajfi	optional_low	Korean_Trans	휘파람·호루라기를 불다; (새가) 울다	鳥の鳴き義を軽補完。	scope_ko:8	7	8	{Ｂ}［自］（高く鋭い音を出すこと）口笛を吹く, 指笛を吹く; 警笛を鳴らす, 汽笛を鳴らす; （鳥が）ぴいぴい鳴く	吹口哨，吹哨	휘파람이나 호루라기를 불다
+428	fako	optional_medium	Korean_Trans	전문 분야; 부서; 칸, 구획; 과목	KOが専門分野義に寄りすぎ。	scope_zh:9|scope_ko:15	9	15	{Ｂ}専門, 部; （棚や箱などの）仕切り, 区画; 科目, 種目; 【遊】（将棋盤の）升目	格子；学科；部门	전문 분야
+431	fali	optional_low	Korean_Trans	떨어지다, 넘어지다; (비) 내리다; (비유) 몰락하다	降る/転義を補完。	scope_zh:10|scope_ko:11	10	11	{Ｂ}［自］落ちる, 落下する; 倒れる, 転ぶ; 降る; 《転》滅びる	落下，跌倒	위에서 아래로 떨어지다
+434	familiara	keep	-	-	親しい・くだけた義で十分。	scope_zh:10|scope_ko:11	10	11	{Ｂ}親しい, 慣れ親しんだ, 心安い, くだけた, 平俗な, >>〜, >>senceremonia	亲昵，不拘礼仪，随便	친숙하고 허물없는, 가까운 사이의
+435	familio	keep	-	-	生物/語族義まで反映済み。	scope_zh:8	8	7	{Ｂ}家族; 一族; 【生】（分類学上の）科; 【語】語族	家庭，家族；（生）科；（语）语族	가족, 【생물】과, 【언어】어족
+438	fantazio	optional_low	Korean_Trans	환상, 공상; 창조적 상상력; (음악) 환상곡	音楽義を軽補完。	scope_ko:11	3	11	{Ｂ}幻想, 夢想; （創造的な）空想力; 【楽】幻想曲, ファンタジア	想象，想象力；奇想，幻想；幻觉	창조적인 상상력
+453	fenomeno	keep	-	-	現象義は成立。	scope_zh:11|scope_ko:11	11	11	{Ｂ}現象, 事象; 《転》特異現象, 驚くべき事件; 【哲】現象, 外象	表象，现象	현상, 사상
+454	ferio	keep	-	-	休日義は十分。	scope_zh:13|scope_ko:13	13	13	{Ｂ}休日, 休業日; （一日の）休暇, 休み, >>festotago, >>libertempo	假日	휴일
+457	fervora	keep	-	-	熱心義は十分。	scope_zh:9|scope_ko:9	9	9	{Ｂ}熱心な, 熱烈な, 熱情にあふれた, >>〜, >>entuziasma	热心，热情	열성적인, 열심인
+464	figuro	keep	-	-	前回補完後、良好。	scope_zh:19|scope_ko:20	19	20	{Ｂ}姿, 人物（像）; 形, 図; 【美】像, フィギュア; 【数】図形; 【Ｇ】文彩, （ことばの）あや, 比喩的表現	外形，轮廓；肖像；图形	사람·사물의 형태; (수학) 도형; (수사) 비유적 표현
+466	fiksi	optional_low	Chinese_Trans	固定；定影；确定，规定	定着/確定義を補完。	scope_zh:13|scope_ko:13	13	13	{Ｂ}［他］固定する, 取りつける, 据える; 【写】定着する; 取り決める, 定める, 確定する	将…固定在…	단단히 고정하거나 확정하다
+472	firma	keep	-	-	堅固・確固義は保持。	scope_ko:8	5	8	{Ｂ}堅い, 引き締まった; しっかりした, ぐらつかない; 《転》堅固な, 確固とした	坚实，牢固；坚决	단단하고 견고한, 흔들리지 않는
+482	fliki	optional_medium	Korean_Trans	기우다, 덧대다; (비유) 임시로 메우다; (정보) 패치를 적용하다	情報義（パッチ）を補完。	scope_ko:9	5	9	{Ｂ}［他］つぎを当てる; 《転》取り繕う; 【情】パッチを当てる	缝补，修补；弥补	헝겊을 대어 헐린 데를 깁다
+488	flustri	optional_low	Korean_Trans	속삭이다; (바람·물 소리가) 사각거리다	擬音転義を補完。	scope_zh:10|scope_ko:11	10	11	{Ｂ}［自］ささやく, 小声で話す; 《転》さらさら音をたてる, >>〜, >>murmureti	低语，耳语，发潺潺（飒飒）声	작게 속삭이다, 소곤소곤 말하다
+497	formo	optional_medium	Chinese_Trans|Korean_Trans	形状，形式；形态；作风 / 형태, 형상; 형식; 방식, 예법	ZH/KOで形式・作法義を補完。	scope_zh:11|scope_ko:11	11	11	{Ｂ}形, 形状; 形態, 様相; 形式, 外形; 作法	形状，样子	사물의 겉모양, 형체
+498	formulo	optional_medium	Korean_Trans	공식; 식(수학·물리); 형식, 정형 표현	KO「공식」のみで語義幅不足。	scope_ko:12	4	12	{Ｂ}書式; 【理】式; 【数】公式	公式，分子式；格式；说法，用语	공식
+499	forno	optional_low	Chinese_Trans	炉，火炉，灶	ZHを最小拡張。	scope_zh:8	8	7	{Ｂ}炉, かまど; 暖炉, ストーブ; こんろ	炉	화덕, 난로

@@ -1,0 +1,23 @@
+row	esperanto	verdict	target_column	suggested_minimal	reason	flags	score_zh	score_ko	Japanese_Trans	Chinese_Trans	Korean_Trans
+5	-aĉ-	keep	-	-	接尾辞説明として日中韓とも機能は概ね一致。	scope_ko:8	5	8	{Ｂ}［接尾辞］（粗悪・下品を示す）, >>dom〜o, >>knab〜o	表示无价值，无用，不好，劣	형편없거나 질 낮음을 나타내는 접미사
+7	-eg-	optional_low	Chinese_Trans	表示“大、强烈（增大义）”的后缀	ZHが「大」単語のみで学習注釈としてやや圧縮。	scope_zh:8|scope_ko:8	8	8	{Ｂ}［接尾辞］（強大を示す）, >>arb〜o, >>varm〜a	大	뜻을 매우 크고 강하게 만드는 접미사
+9	-er-	keep	-	-	構成要素義は日中韓とも成立。	scope_zh:8|scope_ko:8	8	8	{Ｂ}［接尾辞］（構成粒子・要素を示す）, >>fajr〜o, >>mon〜o	某物的构成分子	작은 입자·요소를 나타내는 접미사
+10	-et-	optional_low	Chinese_Trans	表示“小、弱（缩小义）”的后缀	ZHが「小」のみでニュアンス不足。	scope_zh:8|scope_ko:8	8	8	{Ｂ}［接尾辞］（弱小を示す）, >>lag〜o, >>varm〜a	小	작음·약함을 나타내는 접미사
+12	-ing-	keep	-	-	日中韓とも道具を作る接尾辞義が十分。	scope_zh:8|scope_ko:8	8	8	{Ｂ}［接尾辞］（ものを差し込んで使う道具を示す）, >>kandel〜o, >>glav〜o	表示插物的器具	한쪽 끝에 물건을 꽂아 쓰는 도구
+25	-um-	keep	-	-	不定義接尾辞として自然。	scope_zh:8|scope_ko:8	8	8	{Ｂ}［接尾辞］（特定の意味を持たない）, >>gust〜i, >>man〜o	（含义不定）	관습적으로 쓰이는 다의적 접미사
+27	-ĉj-	keep	-	-	男子愛称接尾辞として十分。	scope_zh:8|scope_ko:8	8	8	{Ｂ}［接尾辞］（男子の愛称を示す）, >>Vil〜o, >>pa〜o	构成对男子的爱称	남자 이름·호칭에 붙는 애칭 접미사
+37	abelo	optional_low	Chinese_Trans	蜜蜂；（泛）小型蜂类	JAにある「一般の小型ハチ」義を軽補完。	scope_zh:10|scope_ko:9	10	9	{Ｂ}【虫】ミツバチ（蜜蜂）（属）; 《般》（小型の）ハチ（蜂）, >>〜	蜜蜂属昆虫	꿀벌, 작은 벌
+38	aboni	keep	-	-	定期購読・予約義で十分。	scope_zh:8|scope_ko:9	8	9	{Ｂ}［他］（一定期間・継続的に）予約する, 購読する, >>〜, >>antaŭmendi	预付订阅，定期预订	정기구독하다
+39	absoluta	keep	-	-	絶対義の対応は良好。	scope_zh:9|scope_ko:9	9	9	{Ｂ}絶対の, 無条件の, 完全な, 全くの, >>senkondiĉa, >>〜	绝对的，无条件的，完全的	절대적인, 무조건의, 완전한 상태
+40	absurda	keep	-	-	不条理/荒谬義として十分。	scope_zh:10|scope_ko:11	10	11	{Ｂ}非常識な, 不合理な; ばかげた, ばかばかしい; 【哲】不条理な	荒谬，不合逻辑	터무니없는
+44	adicii	keep	-	-	数学の加算義で十分。	scope_zh:8|scope_ko:8	8	8	{Ｂ}［他］【数】加える, 足し算する, >>aldoni	[数学]加	수학에서 수를 더하다
+48	admoni	optional_low	Korean_Trans	타이르다, 권고하다, 훈계하다, 꾸짖다	KOが「타이르다」中心で語義幅が狭い。	scope_ko:8	7	8	{Ｂ}［他］言い聞かせる, 勧告する, 強く勧める; 戒める, 訓戒する, 説諭する, 叱責する	劝导，训斥	타이르다
+50	adori	keep	-	-	宗教義＋転義（敬慕/大好き）がKOに反映済み。	scope_ko:8	7	8	{Ｂ}［他］【宗】礼拝する, 崇拝する, あがめる; 《転》敬慕する, あこがれる; 《転》大好きである	崇拜，崇敬；酷好，醉心于…	예배하고 숭배하다; (전) 동경하다, 몹시 좋아하다
+55	afabla	optional_medium	Chinese_Trans|Korean_Trans	和蔼的，亲切的；（计算机）用户友好的 / 상냥하고 친절한; (정보) 사용자 친화적인	JAの情報分野義（user-friendly）補完余地。	scope_zh:11|scope_ko:11	11	11	{Ｂ}愛想のよい, 親切な; ものやわらかな, ていねいな; 【情】使いやすい, ユーザーフレンドリーな	和气的，和蔼的	상냥하고 친절한, 붙임성 있는
+56	afero	keep	-	-	法・商を含め日中韓の対応は十分。	scope_zh:24|scope_ko:22	24	22	{Ｂ}物事（ものごと）, 事, 事柄, 事項; 用件, 用事, 問題; 事件, 出来事; 事業, 業務; 【法】訴訟事件; 【商】取引, >>negoco	事情，事务，案件；（法）诉讼事件；（商）交易	일, 사건, 용무, 【법】소송 사건, 【상업】거래
+57	afiŝo	keep	-	-	掲示物義＋ネット投稿義が反映済み。	scope_zh:8|scope_ko:8	8	8	{Ｂ}ポスター, 貼り紙, 掲示物; プラカード; 【情】（メーリングリストや電子掲示板などの）投稿記事, 掲示	广告，招贴；（网络）帖子	포스터, 벽이나 기둥에 붙이는 광고；（인터넷） 게시글
+62	ajlo	keep	-	-	植物群の幅を含め現状で実用十分。	scope_zh:13|scope_ko:13	13	13	{Ｂ}【植】ニンニク（葫）; 《般》にんにく（球根）, =〜bulbo; 《般》ネギ（葱）, =tub〜; 《般》ニラ（韮）	大蒜；葱属植物	마늘; (식물) 파속 식물
+66	akcento	optional_low	Korean_Trans	강세, 악센트; (전) 강조	KOに強調義を軽補完可能。	scope_ko:9	6	9	{Ｂ}【Ｇ】【楽】アクセント; 《転》強調	重音，声调，语气，腔调	발음에서 특정 음절의 강세
+73	aktiva	optional_low	Korean_Trans	활동적인, 적극적인; (문법) 능동의	JAの文法義（能動）を補完可能。	scope_ko:11	3	11	{Ｂ}活動的な, 活発な, 積極的な; 活動中の, 現役の; 【Ｇ】能動の	有能力的，有作用的；积极的，活动的；有效，特效	활동적인, 적극적인
+74	akto	optional_medium	Korean_Trans	연극의 막; (법) 증서, 문서	JAの法義（証書）がKOで欠落。	scope_ko:9	5	9	{Ｂ}【劇】幕; 【法】証書	[戏剧]幕，证书，契约，法令，条例	연극의 막
+98	amplekso	optional_low	Korean_Trans	크기, 넓이, 범위	KO「범위」のみから最小拡張。	scope_zh:11|scope_ko:13	11	13	{Ｂ}大きさ, 広がり; 【哲】外延; 【統】分布範囲	大小，广度，范围	범위

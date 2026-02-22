@@ -1,0 +1,20 @@
+row	esperanto	column	severity	issue_type	current	suggested_minimal	reason
+114	aparteni	Japanese_Trans	high	readability_mask_artifact	{Ｂ}［自］（～ 〜）～のものである; ～に所属する	{Ｂ}［自］～のものである; ～に所属する	前置詞マスクの痕跡で不自然。意味は日本語だけで保てる。
+571	grimpi	Japanese_Trans	high	readability_mask_artifact	{Ｂ}［自］（〜）よじ登る; （山に）登る; （つる草が）はい上がる	{Ｂ}［自］よじ登る; （山に）登る; （つる草が）はい上がる	冒頭の（〜）は情報価値が低く可読性のみ下げる。
+627	identa	Japanese_Trans	high	readability_mask_artifact	{Ｂ}（〜）同一の; 同様の, そっくり同じの	{Ｂ}同一の; 同様の, そっくり同じの	同上。
+741	karto	Japanese_Trans	high	readability_mask_artifact	{Ｂ}カード, （紙の）札; はがき; （トランプの）札; 【電】基板（地図はふつう 〜）	{Ｂ}カード, （紙の）札; はがき; （トランプの）札; 【電】基板（地図は別語を用いる）	注記の末尾マスクが読者に意味を与えない。
+848	konsisti	Japanese_Trans	high	readability_mask_artifact	{Ｂ}［自］（-i 〜）～から成り立つ, ～でできている; （-i 〜）（本質・要点が）～にある	{Ｂ}［自］～から成り立つ, ～でできている; （本質・要点が）～にある	格支配注記がマスクで崩れている。日本語説明に置換可能。
+857	kontrakti	Japanese_Trans	high	readability_mask_artifact	{Ｂ}［自・他］（〜）契約する, 契約を結ぶ	{Ｂ}［自・他］契約する, 契約を結ぶ	（〜）除去で意味保持。
+1276	peki	Japanese_Trans	high	readability_mask_artifact	{Ｂ}［自］（宗教的・道徳的に）罪を犯す, あやまちを犯す; （規則・習慣に）反する（-i 〜）	{Ｂ}［自］（宗教的・道徳的に）罪を犯す, あやまちを犯す; （規則・習慣に）反する	語尾注記がマスク崩れ。
+1302	petrolo	Japanese_Trans	high	readability_mask_artifact	{Ｂ}石油; 原油/灯油など（自動車用燃料はふつう 〜）	{Ｂ}石油; 原油/灯油など（自動車用燃料は通常ガソリン）	マスクで注記が不明瞭。日本語置換で解決。
+1328	plej	Japanese_Trans	high	readability_mask_artifact	{Ｂ}（〜 ～）［副］もっとも, 一番, 最～（比較最上級）, >>〜	{Ｂ}［副］もっとも, 一番, 最～（比較最上級）	相関構文注記が崩れている。最小なら削除が安全。
+1570	senco	Japanese_Trans	high	readability_mask_artifact	{Ｂ}意味; 意味合い, センス（方向は 〜 を用いる）	{Ｂ}意味; 意味合い, センス（方向は別語を用いる）	注記の末尾マスクを自然化。
+1625	sonĝi	Japanese_Trans	high	readability_mask_artifact	{Ｂ}［自・他］夢を見る（〜/ion）	{Ｂ}［自・他］夢を見る（内容を直接目的語で取る用法もある）	文法注記がマスクで曖昧。
+1897	zorgi	Japanese_Trans	high	readability_mask_artifact	{Ｂ}［自］（〜）配慮する, 気をつける, 世話をする; 気にかける, 心配する; ［他］（つとめを）果たす, 心がける	{Ｂ}［自］配慮する, 気をつける, 世話をする; 気にかける, 心配する; ［他］（つとめを）果たす, 心がける	（〜）がノイズ化。
+2138	humuro	Japanese_Trans	high	readability_mask_artifact	{Ｂ}ユーモア（感覚）, こっけい, おかしみ, 諧謔（かいぎゃく）, >>ŝerco, >>sprito（気分=〜と区別）	{Ｂ}ユーモア（感覚）, こっけい, おかしみ, 諧謔（かいぎゃく）, >>ŝerco, >>sprito（「気分」を表す別語と区別）	説明文末のマスクが不親切。
+2393	ŝako	Japanese_Trans	high	readability_mask_artifact	{Ｏ}【遊】チェス, 将棋（=japana 〜）; （チェス・将棋の）王手	{Ｏ}【遊】チェス; （日本将棋）将棋; （チェス・将棋の）王手	複合語注記がマスクで崩壊。
+1398	procento	Korean_Trans	medium	style_spacing	퍼센트, 백분율;이자율, 이자	퍼센트, 백분율; 이자율, 이자	セミコロン後スペース欠落（可読性）。
+1756	tono	Korean_Trans	medium	scope_narrow	소리나 목소리의 높낮이와 어조	소리의 높낮이, 어조; 색조, 톤	JA/ZHにある色調義が欠落。
+1105	modo	Korean_Trans	medium	scope_narrow	유행, 특히 의상·패션의 유행	유행; (문법) 서법; (통계) 최빈값	JAにある文法/統計義が欠落。
+1292	periodo	Korean_Trans	medium	scope_narrow	기간, 시기	기간, 시기; 주기; (지질) 기	JAにある周期/地質義が欠落。
+870	korpo	Chinese_Trans	medium	scope_narrow	身体，体	身体；物体；（数）体	JAの数学義までを最小補完。

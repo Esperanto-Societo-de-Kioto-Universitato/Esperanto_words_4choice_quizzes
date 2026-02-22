@@ -1,0 +1,29 @@
+idx	Esperanto	Column	Old	New	Reason
+2602	horizontalo	Chinese_Trans	水平线，等高线，横线	水平线；横线	「等高线」は語義ずれのため除去。
+2604	ia/foj/e	Chinese_Trans	有时；偶尔；有一次	有时，偶尔；曾经	JAの「かつて」に合わせて語義調整。
+2606	impulso	Korean_Trans	순간적인 마음의 충동	충동; (물리) 충격, 임펄스	JA/ZHにある物理義（インパルス）を補完。
+2609	instanco	Chinese_Trans	诉讼审级	（法）审级；决定机构	JAの「決定機関」義を補完。
+2612	invalido	Korean_Trans	몸이 불편한 사람	상이군인; 장애인	JAの「傷痍軍人」義を反映。
+2613	jugo	Chinese_Trans	轭，轭形门；桎梏，奴役	轭；桎梏，束缚，压迫	不自然な「轭形门」を除去。
+2614	juki	Korean_Trans	가렵고근지럽다	가렵다, 근질거리다	スペース崩れ修正＋自然化。
+2628	kaskedo	Korean_Trans	챙달린제복모자	챙 달린 제복 모자	スペース崩れ修正。
+2631	kilogramo	Korean_Trans	질량 단위	킬로그램(kg), 질량 단위	単位名を明示。
+2637	kliniko	Chinese_Trans	临床讲解；临床学；诊所，门诊部	诊所，门诊部；临床讲义	JAの語順・意味に合わせて整理。
+2641	kolonelo	Chinese_Trans	团长，上校	上校	JAの「大佐」に合わせ簡潔化。
+2642	komisaro	Korean_Trans	위원	위원; (경찰) 경시	JAの「警視」義を補完。
+2644	komplemento	Korean_Trans	문장 성분인 보어	보충물; (문법) 보어	JAの「補足物」義を補完。
+2647	komun/umo	Chinese_Trans	市镇，区；公社	共同体；自治体	JAに整合する中心義へ調整。
+2647	komun/umo	Korean_Trans	공동체	공동체; 자치단체	JAの自治体義を補完。
+2654	kopio	Chinese_Trans	复制品，影印图片，拷贝	副本，复制品	不自然語「影印图片」を除去。
+2659	kulto	Chinese_Trans	祭礼；宗教仪式	崇拜，礼拜；祭礼	JAの「崇拝・礼拝」を反映。
+2663	lako	Chinese_Trans	漆，生漆	漆，清漆	ラッカー語義に合わせ調整。
+2667	larvo	Chinese_Trans	幼虫，鱼秧	幼虫	「鱼秧」は語義ずれのため除去。
+2673	leŭtenanto	Chinese_Trans	陆（空）军中尉，海军上尉	中尉；（海军）上尉	簡潔化し JA と整合。
+2681	lotuso	Chinese_Trans	百脉根属植物；莲，荷	莲（属）植物，荷	属の誤りを修正。
+2683	luko	Chinese_Trans	天窗，舱口；下水道口	天窗；（船）舱口	「下水道口」は語義ずれ。
+2688	manovri	Chinese_Trans	操练，演习	操纵，机动；运用策略	JAの「操縦・工作」に整合。
+2688	manovri	Korean_Trans	군대를 기동하다	조종하다; 기동하다; 술책을 쓰다	語義が軍事寄り過ぎたため補正。
+2691	mastr/umi	Chinese_Trans	料理家务，管理	管理，掌管，操持	「切り盛りする」義に寄せて自然化。
+2694	meĥaniko	Chinese_Trans	力学	力学；机械学	JAの機械学義を補完。
+2696	milimetro	Korean_Trans	1/1000 미터	밀리미터(mm), 1/1000미터	単位名を明示。
+2697	mir/inda	Korean_Trans	놀라운, 기묘한	놀라운, 감탄할 만한	JAの「素晴らしい」に合わせ補正。

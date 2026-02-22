@@ -1,0 +1,51 @@
+Batch	StartID	EndID	RowCount	Reviewed	Findings	Fixes	Notes
+1	156	255	100	DONE_PASS11_BATCH01_MANUAL	0	0	no clear semantic mismatch found in pass11(batch01 manual re-audit); context-allowable variants retained
+2	256	355	100	DONE_PASS11_BATCH02_MANUAL	3	4	clear semantic mismatches fixed across pass8/pass11; new in pass11(batch02 manual): PhraseID 322 ZH plain-negation wording, 324 KO content-question wording
+3	356	455	100	DONE_PASS11_BATCH03_MANUAL	3	3	clear semantic mismatches fixed across pass8/pass11; new in pass11(batch03 manual): PhraseID 362 JA certainty wording, 392 ZH newborn-gender wording
+4	456	555	100	DONE_PASS11_BATCH04_MANUAL	1	1	clear semantic mismatch fixed in pass11(batch04 manual): PhraseID 387 KO Mothers-Day wording
+5	556	655	100	DONE_PASS11_BATCH05_MANUAL	3	3	clear semantic mismatches fixed across pass8/pass11; pass8: PhraseID 610 KO direction, 618 JA intent; new in pass11(batch05 manual): PhraseID 598 KO emotional-lost wording
+6	656	755	100	DONE_PASS11_BATCH06_MANUAL	0	0	no clear semantic mismatch found in pass11(batch06 manual re-audit); context-allowable variants retained
+7	756	855	100	DONE_PASS11_BATCH07_MANUAL	0	0	no clear semantic mismatch found in pass11(batch07 manual re-audit); context-allowable variants retained
+8	856	955	100	DONE_PASS11_BATCH08_MANUAL	0	0	no clear semantic mismatch found in pass11(batch08 manual re-audit); context-allowable variants retained
+9	956	1055	100	DONE_PASS11_BATCH09_MANUAL	3	4	clear semantic mismatches fixed across pass8/pass11; pass8: PhraseID 1046 ZH literal meaning, 1055 KO normalization; new in pass11(batch09 manual): PhraseID 965 JA/ZH brother-age wording
+10	1056	1155	100	DONE_PASS11_BATCH10_MANUAL	2	3	clear semantic mismatches fixed across pass8/pass11; pass8: PhraseID 1087 ZH/KO referent, 1136 JA remind; no additional clear mismatch in pass11(batch10 manual)
+11	1156	1255	100	DONE_PASS11_BATCH11_MANUAL	1	2	"clear semantic mismatches fixed across pass8/pass11; new/refined in pass11(batch11 manual): PhraseID 1235 JA ""in love/fell in love"" precision"
+12	1256	1355	100	DONE_PASS11_BATCH12_MANUAL	1	3	clear semantic mismatches fixed across pass8/pass11; pass8: PhraseID 1341 graduation vs dropout nuance; no additional clear mismatch in pass11(batch12 manual)
+13	1356	1455	100	DONE_PASS11_BATCH13_MANUAL	1	3	clear semantic mismatches fixed across pass8/pass11; new in pass11(batch13 manual): PhraseID 1431 JA/ZH/KO library-form wording
+14	1456	1555	100	DONE_PASS11_BATCH14_MANUAL	8	9	clear semantic mismatches fixed across pass8/pass11; pass8: numeric rows 1487/1488/1489/1495/1511/1525; new in pass11(batch14 manual): PhraseID 1467 JA/KO revision wording, 1509 JA numeric-sequence restoration
+15	1556	1655	100	DONE_PASS11_BATCH15_MANUAL	1	1	clear semantic mismatches fixed across pass8/pass11; pass8: PhraseID 1622 KO action vs object drift; no additional clear mismatch in pass11(batch15 manual)
+16	1656	1755	100	DONE_PASS11_BATCH16_MANUAL	2	3	clear semantic mismatches fixed across pass8/pass11; new in pass11(batch16 manual): PhraseID 1693 JA/ZH study-vs-visit wording, 1711 ZH references-vs-background-check wording
+17	1756	1855	100	DONE_PASS11_BATCH17_MANUAL	0	0	no clear semantic mismatch found in pass11(batch17 manual re-audit); context-allowable variants retained
+18	1856	1955	100	DONE_PASS11_BATCH18_MANUAL	3	6	no additional clear semantic mismatch in pass11(batch18 manual re-audit); context-allowable variants retained
+19	1956	2055	100	DONE_PASS11_BATCH19_MANUAL	2	2	no additional clear semantic mismatch in pass11(batch19 manual re-audit); context-allowable variants retained
+20	2056	2155	100	DONE_PASS11_BATCH20_MANUAL	7	17	clear semantic mismatches fixed across pass8/pass11; new in pass11(batch20 manual): PhraseID 2084 JA immigration-entry wording
+21	2156	2255	100	DONE_PASS11_BATCH21_MANUAL	4	10	no additional clear semantic mismatch in pass11(batch21 manual re-audit); context-allowable variants retained
+22	2256	2355	100	DONE_PASS11_BATCH22_MANUAL	0	0	no additional clear semantic mismatch in pass11(batch22 manual re-audit); context-allowable variants retained
+23	2356	2455	100	DONE_PASS11_BATCH23_MANUAL	3	3	no additional clear semantic mismatch in pass11(batch23 manual re-audit); context-allowable variants retained
+24	2456	2555	100	DONE_PASS11_BATCH24_MANUAL	6	10	clear semantic mismatches fixed across pass8/pass11; new in pass11(batch24 manual): PhraseID 2550 JA destination wording
+25	2556	2655	100	DONE_PASS11_BATCH25_MANUAL	5	8	no additional clear semantic mismatch in pass11(batch25 manual re-audit); context-allowable variants retained
+26	2656	2755	100	DONE_PASS11_BATCH26_MANUAL	1	1	no additional clear semantic mismatch in pass11(batch26 manual re-audit); context-allowable variants retained
+27	2756	2855	100	DONE_PASS11_BATCH27_MANUAL	1	3	no additional clear semantic mismatch in pass11(batch27 manual re-audit); context-allowable variants retained
+28	2856	2955	100	DONE_PASS11_BATCH28_MANUAL	4	5	no additional clear semantic mismatch in pass11(batch28 manual re-audit); context-allowable variants retained
+29	2956	3055	100	DONE_PASS11_BATCH29_MANUAL	4	5	clear semantic mismatches fixed across pass8/pass11; new in pass11(batch29 manual): PhraseID 2999 ZH vegan-vs-vegetarian distinction
+30	3056	3155	100	DONE_PASS11_BATCH30_MANUAL	4	9	no additional clear semantic mismatch in pass11(batch30 manual re-audit); context-allowable variants retained
+31	3156	3255	100	DONE_PASS11_BATCH31_MANUAL	2	2	no additional clear semantic mismatch in pass11(batch31 manual re-audit); context-allowable variants retained
+32	3256	3355	100	DONE_PASS11_BATCH32_MANUAL	2	2	no additional clear semantic mismatch in pass11(batch32 manual re-audit); context-allowable variants retained
+33	3356	3455	100	DONE_PASS11_BATCH33_MANUAL	3	6	no additional clear semantic mismatch in pass11(batch33 manual re-audit); context-allowable variants retained
+34	3456	3555	100	DONE_PASS11_BATCH34_MANUAL	5	15	no additional clear semantic mismatch in pass11(batch34 manual re-audit); context-allowable variants retained
+35	3556	3655	100	DONE_PASS11_BATCH35_MANUAL	1	1	no additional clear semantic mismatch in pass11(batch35 manual re-audit); context-allowable variants retained
+36	3656	3755	100	DONE_PASS11_BATCH36_MANUAL	7	12	clear semantic mismatches fixed across pass8/pass11; new in pass11(batch36 manual): PhraseID 3722 book-copy wording in JA/ZH/KO
+37	3756	3855	100	DONE_PASS11_BATCH37_MANUAL	2	4	no additional clear semantic mismatch in pass11(batch37 manual re-audit); context-allowable variants retained
+38	3856	3955	100	DONE_PASS11_BATCH38_MANUAL	4	11	clear semantic mismatches fixed across pass8/pass11; new in pass11(batch38 manual): PhraseID 3952 performer-identity wording in JA/ZH/KO
+39	3956	4055	100	DONE_PASS11_BATCH39_MANUAL	1	1	no additional clear semantic mismatch in pass11(batch39 manual re-audit); context-allowable variants retained
+40	4056	4155	100	DONE_PASS11_BATCH40_MANUAL	2	4	no additional clear semantic mismatch in pass11(batch40 manual re-audit); context-allowable variants retained
+41	4156	4255	100	DONE_PASS11_BATCH41_MANUAL	2	2	no additional clear semantic mismatch in pass11(batch41 manual re-audit); context-allowable variants retained
+42	4256	4355	100	DONE_PASS11_BATCH42_MANUAL	4	7	clear semantic mismatches fixed across pass8/pass11; new in pass11(batch42 manual): PhraseID 4343 JA/ZH/KO housing-vs-lodging wording, 4345 ZH/KO housing-vs-lodging wording
+43	4356	4455	100	DONE_PASS11_BATCH43_MANUAL	7	16	clear semantic mismatches fixed across pass8/pass11; new in pass11(batch43 manual): PhraseID 4378 ZH parting term wording, 4395 JA/KO hotness-vs-weather wording, 4412 ZH hairspray-vs-gel wording
+44	4456	4555	100	DONE_PASS11_BATCH44_MANUAL	4	6	clear semantic mismatches fixed across pass8/pass11; new in pass11(batch44 manual): PhraseID 4472 ZH watch-vs-clock wording, 4546 ZH touch-vs-press wording
+45	4556	4655	100	DONE_PASS11_BATCH45_MANUAL	1	1	clear semantic mismatches fixed across pass8/pass11; new in pass11(batch45 manual): PhraseID 4615 KO pulled-muscle wording
+46	4656	4755	100	DONE_PASS11_BATCH46_MANUAL	3	5	no additional clear semantic mismatch in pass11(batch46 manual re-audit); context-allowable variants retained
+47	4756	4855	100	DONE_PASS11_BATCH47_MANUAL	3	7	clear semantic mismatches fixed across pass8/pass11; new in pass11(batch47 manual): PhraseID 4762 JA/ZH/KO pack-vs-bottle wording, 4802 JA/ZH/KO carrier-vs-connected-network wording
+48	4856	4955	100	DONE_PASS11_BATCH48_MANUAL	0	0	no additional clear semantic mismatch in pass11(batch48 manual re-audit); context-allowable variants retained
+49	4956	5055	100	DONE_PASS11_BATCH49_MANUAL	1	1	no additional clear semantic mismatch in pass11(batch49 manual re-audit); context-allowable variants retained
+50	5056	5155	100	DONE_PASS11_BATCH50_MANUAL	5	15	no additional clear semantic mismatch in pass11(batch50 manual re-audit); context-allowable variants retained

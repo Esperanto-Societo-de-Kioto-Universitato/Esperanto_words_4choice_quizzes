@@ -1,0 +1,101 @@
+PhraseID	TopicName_EN	SubtopicName_EN	Esperanto	日本語	中文	한국어	Русский язык	English
+2156	Plane	On the Plane	Ĉu vi povus veki min por la manĝo, mi petas?	食事の際には起こしていただけますか？	请在用餐时叫醒我，谢谢。	식사 시간에 저를 깨워 주시겠어요?	Не могли бы вы разбудить меня перед едой, пожалуйста?	Could you wake me for the meal, please?
+2157	Plane	On the Plane	Ĉu vi povus traduki ĝin al la turka?	トルコ語に翻訳していただけますか？	你能把它翻译成土耳其语吗？	터키어로 번역해 주시겠어요?	Вы могли бы перевести его на турецкий?	Could you translate it into Turkish?
+2158	Plane	On the Plane	Ĉu sur la aviadilo estas stevardino, kiu parolas la hebrean?	この中にヘブライ語を話せる客室乗務員はいらっしゃいますか？	机上有会说希伯来语的乘务员吗？	기내에 히브리어를 구사하는 승무원이 계신가요?	На борту есть стюардесса, говорящая на иврите?	Is there a Hebrew-speaking flight attendant on board?
+2159	Plane	On the Plane	Kiam la aviadilo alvenas en Bonaeron?	ブエノスアイレスにはいつ到着しますか？	我们什么时候到布宜诺斯艾利斯？	우리는 언제 부에노스아이레스에 도착하나요?	Когда самолёт прилетает в Буэнос-Айрес?	When do we get to Buenos Aires?
+2160	Plane	On the Plane	Ĉu mi povus ricevi ankoraŭ unu formularon por dogandeklaro?	もう一枚、税関申告書をいただけますか。	请问可以再给我一份海关申报单吗？	세관 신고서를 하나 더 받을 수 있을까요?	Можно мне ещё один бланк таможенной декларации?	May I have another customs declaration form?
+2161	Plane	Airport Signs	Enirejo	入口	入口	입구	Вход	Entrance
+2162	Plane	Airport Signs	Eliro	出口	出口	출구	Выход	Exit
+2163	Plane	Airport Signs	Alvenoj	到着	到达	도착	Прилёт	Arrivals
+2164	Plane	Airport Signs	Forflugoj	出発	出发	출발	Вылет	Departures
+2165	Plane	Airport Signs	Puŝu	押す	推动	미세요	От себя	Push
+2166	Plane	Airport Signs	Tiru	引く	拉	당기세요	К себе	Pull
+2167	Plane	Airport Signs	Dogano	税関	海关	세관	Таможня	Customs
+2168	Plane	Airport Signs	Pordegoj 1-32	1番ゲートから32番ゲート	1至32号登机口	1번부터 32번 게이트	Выходы 1-32	Gates 1-32
+2169	Plane	Airport Signs	Liftoj	エレベーター	电梯	엘리베이터	Лифты	Lifts
+2170	Plane	Airport Signs	Lifto ne funkcias	エレベーターは故障中です	电梯故障	엘리베이터 고장	Лифт не работает	Lift out of order
+2171	Plane	Airport Signs	Pasporta kontrolo	入国審査	护照检查	여권 심사	Паспортный контроль	Passport control
+2172	Plane	Airport Signs	Kriza elirejo	非常口	紧急出口	비상구	Аварийный выход	Emergency exit
+2173	Plane	Airport Signs	Danĝero	危険	危险	위험	Опасно	Danger
+2174	Plane	Airport Signs	Necesejo	お手洗い	洗手间	화장실	Туалет	Toilets
+2175	Plane	Airport Signs	Libera	空いている	空闲	비어 있습니다	Свободно	Vacant
+2176	Plane	Airport Signs	Okupita	使用中	已占用	사용 중	Занято	Occupied
+2177	Plane	Airport Signs	Ne funkcias	故障中	故障中	고장입니다	Не работает	Out of order
+2178	Plane	Airport Signs	Bonvolu pretigi viajn pasportojn	パスポートをご用意ください。	请准备好您的护照	여권을 준비해 주세요.	Пожалуйста, приготовьте паспорт	Please have your passport ready
+2179	Plane	Airport Signs	Ĉiuj pasportoj	すべてのパスポート	所有护照	모든 여권	Все паспорта	All passports
+2180	Plane	Airport Signs	Internaciaj forflugoj	国際線出発	国际出发	국제선 출국	Вылет международных рейсов	International departures
+2181	Plane	Airport Signs	Bagaĝa elpreno	手荷物受取所	行李提取	수하물 찾는 곳	Выдача багажа	Baggage reclaim
+2182	Plane	Airport Signs	Varoj deklarendaj	申告する品物	需申报物品	신고할 물품	Товары, подлежащие письменному декларированию	Goods to declare
+2183	Plane	Airport Signs	Nenio por deklari	申告するものはありません	无申报事项	신고할 내용 없습니다.	Нет товаров, подлежащих письменному декларированию	Nothing to declare
+2184	Plane	Airport Signs	En kazo de fajro uzu la ŝtuparon	火災の際は階段をご利用ください。	遇到火灾请走楼梯	화재 발생 시 계단을 이용하세요.	В случае пожара воспользуйтесь лестницей	In case of fire use stairs
+2185	Car	Car Hire	Ĉu mi povas lui aŭton?	車を借りることはできますか？	我可以租辆车吗？	차를 빌릴 수 있나요?	Я могу арендовать машину?	Can I hire a car?
+2186	Car	Car Hire	Mi preferas malgrandan aŭton	小さな車のほうが好きです。	我更喜欢小型汽车。	저는 작은 차를 선호해요.	Я предпочитаю маленькую машину.	I prefer a small car.
+2187	Car	Car Hire	Por kiom longe?	どのくらいの期間ですか？	多久？	얼마 동안인가요?	На сколько?	For how long?
+2188	Car	Car Hire	Por semajno	1週間ほど。	一周。	일주일 동안.	На неделю.	For a week.
+2189	Car	Car Hire	Kiom ĝi kostas?	いくらですか？	多少钱？	가격이 얼마인가요?	Сколько это стоит?	How much does it cost?
+2190	Car	Car Hire	Mi ŝatus lui biciklon	自転車を借りたいのですが。	我想租一辆自行车。	자전거를 빌리고 싶어요.	Я бы хотела арендовать велосипед.	I'd like to hire a bicycle.
+2191	Car	Car Hire	Por kiom da tagoj?	何日間ですか？	需要多少天？	며칠 동안인가요?	На сколько дней?	For how many days?
+2192	Car	Car Hire	Mi ŝatus malkaran aŭton	安い車が欲しいです。	我想要一辆便宜的车。	저렴한 자동차를 원해요.	Я бы хотела дешёвую машину.	I'd like a cheap car.
+2193	Car	Car Hire	Ĉu ĝi estas mekanika aŭ aŭtomata?	手動ですか、それとも自動ですか？	是手动的还是自动的？	수동인가요, 자동인가요?	Она механическая или автоматическая?	Is it manual or automatic?
+2194	Car	Car Hire	Mi ŝatus infanan aŭtoseĝon	チャイルドシートをお願いします。	我需要一个儿童安全座椅。	아동용 카시트를 부탁합니다.	Я бы хотел детское автокресло.	I'd like a child car seat.
+2195	Car	Car Hire	Jen miaj dokumentoj	こちらが私の書類です。	这是我的文件。	여기에 제 서류가 있습니다.	Вот мои документы.	Here are my documents.
+2196	Car	Car Hire	Mi ne bezonas asekuron	保険は必要ありません。	我不需要保险。	저는 보험이 필요하지 않습니다.	Мне не нужна страховка.	I do not need insurance.
+2197	Car	Car Hire	Kie oni ŝaltas la antaŭlumojn?	ヘッドライトはどこで点けますか？	车灯怎么打开？	전조등은 어디에서 켜나요?	Где включаются фары?	Where are the lights?
+2198	Car	Car Hire	Ĉu la aŭto havas benzinon?	車にガソリンは入っていますか？	车里有汽油吗？	차에 기름이 있나요?	В машине есть бензин?	Does the car have petrol?
+2199	Car	Car Hire	La tanko ne estas plena	タンクは満タンではありません。	油箱未加满。	탱크가 가득 차 있지 않습니다.	Бак неполный.	The tank is not full.
+2200	Car	Car Hire	Ĉu estas aldonaj kostoj?	追加料金はかかりますか？	还有其他费用吗？	추가 요금이 있나요?	Есть ли дополнительные сборы?	Any extra fee?
+2201	Car	Car Hire	Kie mi povas redoni ĝin?	どこで返却できますか？	我可以在哪里退还？	어디에 반납하면 되나요?	Где я могу вернуть её?	Where can I return it?
+2202	Car	Car Hire	Mi ŝatus lui mopedon	原付バイクを借りたいのですが。	我想租一辆踏板摩托车。	오토바이를 대여하고 싶어요.	Я бы хотела арендовать мопед.	I'd like to hire a moped.
+2203	Car	Car Hire	Kiom kostas tage?	1日あたりいくらですか？	每天多少钱？	하루에 얼마인가요?	Сколько стоит в день?	How much per day?
+2204	Car	Car Hire	Kvardek dolaroj tage kun senlima kilometraĵo	1日40ドルで走行距離無制限です。	每天40美元，里程不限。	하루 40달러에 주행 거리 무제한입니다.	40 долларов в день без ограничения пробега.	40 dollars a day with unlimited mileage.
+2205	Car	Car Hire	Ĉu estas iuj rabatoj?	割引はありますか？	请问有优惠吗？	할인 혜택이 있나요?	Есть какие-нибудь скидки?	Are there any discounts?
+2206	Car	Car Hire	Mi ŝatus lui motorciklon	バイクを借りたいのですが。	我想租一辆摩托车。	오토바이를 빌리고 싶어요.	Я бы хотел арендовать мотоцикл.	I'd like to hire a motorbike.
+2207	Car	Car Hire	Ĉu mi povas havi seruron?	鍵をいただけますか？	可以给我一个锁吗？	자물쇠 하나 주실 수 있나요?	Можно мне замок?	Can I have a lock?
+2208	Car	Car Hire	Ĉu mi povas havi kaskon?	ヘルメットをお借りできますか？	我可以要一个头盔吗？	헬멧을 받을 수 있을까요?	Могу я получить шлем?	Can I have a helmet?
+2209	Car	Car Hire	Mi ŝatus lui aŭton kun ŝoforo	運転手付きの車を借りたいのですが。	我想租一辆带司机的车。	운전기사가 포함된 차량을 대여하고 싶어요.	Я хочу арендовать машину с водителем.	I'd like to rent a car with a driver.
+2210	Car	Car Hire	Bonvolu sendi aŭton al mia hotelo	ホテルまで車を手配してください。	请派一辆车到我的酒店。	제 호텔로 차량을 보내 주세요.	Пожалуйста, пришлите машину к моему отелю.	Please send a car to my hotel.
+2211	Car	Car Hire	Ĉu ĉi tiu aŭto havas centran ŝlosadon?	この車には集中ロックが付いていますか？	这辆车有中央锁吗？	이 차량에 중앙 잠금 장치가 있나요?	В этой машине есть центральный замок?	Has this car got central locking?
+2212	Car	Car Hire	Kiel oni malfermas la kofrujon?	トランクはどうやって開けますか？	怎么打开后备箱？	트렁크는 어떻게 여나요?	Как открывается багажник?	How do you open the boot?
+2213	Car	Car Hire	Ĉu ĉi tiu aŭto havas infanserurojn?	この車にはチャイルドロックが付いていますか？	这辆车有儿童锁吗？	이 차량에 어린이 보호 잠금장치가 있나요?	В этой машине есть блокировка от детей?	Has this car got child locks?
+2214	Car	Car Hire	Kie oni ŝaltas la direktomontrilojn?	ウインカーはどこで点けますか？	转向灯怎么打开？	방향지시등은 어디에서 켜나요?	Где включаются поворотники?	Where are the indicators?
+2215	Car	Car Hire	Mi montros al vi la regilojn	操作方法をご案内します。	我来给你演示一下操作方法。	조작 방법을 알려드릴게요.	Я покажу вам систему управления.	I'll show you the controls.
+2216	Car	Car Hire	Ĉu vi volas asekuron?	保険に加入されますか？	您需要保险吗？	보험이 필요하신가요?	Вы хотите страховку?	Do you want insurance?
+2217	Car	Car Hire	Mi volas asekuron kun plena kovrado	フルカバーの保険に加入したいです。	我想要全险。	종합 보험에 가입하고 싶어요.	Я хочу страховку с полным покрытием.	I want full coverage insurance.
+2218	Car	Car Hire	Kiujn dokumentojn mi devas havi ĉe mi?	どの書類を持参すればよいですか？	我需要带哪些文件？	어떤 서류를 지참해야 하나요?	Какие документы мне нужно иметь при себе?	What papers do I need with me?
+2219	Car	Car Hire	Mi ŝatus lui dupordan aŭton	2ドアの車を借りたいのですが。	我想租一辆两门轿车。	2도어 차량을 렌트하고 싶어요.	Я бы хотел арендовать двухдверную машину.	I'd like to hire a two-door car.
+2220	Car	Car Hire	Kian aŭton vi deziras: kun mana aŭ aŭtomata transmisio?	マニュアル車とオートマ車、どちらをご希望ですか？	您想要哪种车型：手动挡还是自动挡？	어떤 차량을 원하시나요? 수동인가요, 자동인가요?	Какую машину вы хотите - с механической или автоматической коробкой передач?	What type of car would you like: manual or automatic?
+2221	Car	Car Hire	Ĉu vi havas ion pli malgrandan?	もう少し小さい車はありますか？	你们有更小一点的车吗？	더 작은 차가 있나요?	У вас есть что-нибудь поменьше?	Have you got anything smaller?
+2222	Car	Car Hire	Mi ŝatus elprovi la aŭton	その車を試乗してみたいです。	我想试驾一下这辆车。	차를 한번 시승해 보고 싶어요.	Я бы хотел опробовать машину.	I would like to try out the car.
+2223	Car	Car Hire	Ĉu ĉi tiu aŭto havas klimatizilon?	この車にはエアコンが付いていますか？	这辆车有空调吗？	이 차에 에어컨이 있나요?	В этой машине есть кондиционер?	Has this car got air conditioning?
+2224	Car	Car Hire	Kie oni ŝaltas la viŝilojn?	ワイパーはどこで作動させますか？	雨刷怎么打开？	와이퍼는 어디에서 켜나요?	Где включаются дворники?	Where are the windscreen wipers?
+2225	Car	Car Hire	Kiom longa estas la minimuma luoperiodo?	最短のレンタル期間はどのくらいですか？	最短租赁期限是多长？	최소 임대 기간은 얼마나 되나요?	Каков минимальный срок аренды?	How long is the minimum rental period?
+2226	Car	Car Hire	Mi ŝatus lui ĉi tiun aŭton por du tagoj	この車を2日間お借りしたいのですが。	我想租这辆车两天。	이 차를 이틀 동안 빌리고 싶어요.	Я бы хотел арендовать эту машину на два дня.	I'd like to hire this car for two days.
+2227	Car	Car Hire	Ĉi tio estas mia internacia stirpermesilo	こちらが私の国際運転免許証です。	这是我的国际驾照。	이것이 제 국제운전면허증입니다.	Это мои международные водительские права.	This is my international driving permit.
+2228	Car	Car Hire	Ĉu mi devas redoni la aŭton kun plena tanko?	ガソリンは満タンにして返却した方がいいですか？	还车时需要把油加满吗？	차를 반납할 때 연료를 가득 채워야 하나요?	Мне нужно вернуть машину с полным баком?	Should I return the car with a full tank?
+2229	Car	Car Hire	Vi devas redoni ĝin kun plena tanko	満タンにして返却してください。	你必须把油加满再还回来。	반드시 연료를 가득 채워서 반납해야 합니다.	Вы должны вернуть её с полным баком.	You have to bring it back with a full tank.
+2230	Car	Car Hire	Ĝi devas esti redonita antaŭ la dua posttagmeze sabate	土曜日の午後2時までに返却してください。	必须在周六下午两点前归还。	토요일 오후 2시까지 반납해야 합니다.	Она должна быть возвращена до 2 часов дня субботы.	It has to be returned by 2 p.m. on Saturday.
+2231	Car	Car Hire	Kiom por kilometro?	1キロあたりいくらですか？	每公里多少钱？	킬로미터당 요금이 얼마인가요?	Сколько за километр?	How much per kilometre?
+2232	Car	Car Hire	Kiom kostas aldonaj kilometroj?	追加の走行距離にかかる費用はいくらですか。	超出公里数的费用是多少？	추가 주행 거리의 요금은 얼마인가요?	Сколько стоят дополнительные километры?	What is the cost of additional kilometres?
+2233	Car	Car Hire	Ĉu ekzistas iuj specialaj semajnfinaj tarifoj?	週末限定の特別料金はありますか？	请问有周末特惠价吗？	주말 특별 요금이 있나요?	На выходных действуют какие-нибудь специальные тарифы?	Are there any special weekend rates?
+2234	Car	Car Hire	Ĉu mi devas pagi antaŭpagon?	保証金は必要ですか？	需要支付押金吗？	보증금을 내야 하나요?	Мне нужно оставить задаток?	Do I need to pay a deposit?
+2235	Car	Car Hire	Ĉu la prezo inkluzivas asekuron?	その料金に保険は含まれていますか？	价格包含保险吗？	가격에 보험이 포함되어 있나요?	Цена включает страховку?	Does the price include insurance?
+2236	Car	Car Hire	Mi ŝatus prezenti postulon pri aŭtoasekura kompenso	自動車保険の申請をしたいのですが。	我想申请车险理赔。	자동차 보험 청구를 하고 싶어요.	Я бы хотела подать заявление на получение выплаты по автострахованию.	I'd like to make a car insurance claim.
+2237	Car	Car Hire	Ĉu mi povus lasi la aŭton ĉe mia celloko?	目的地で車を返却することはできますか？	我可以在目的地还车吗？	목적지에서 차량을 반납할 수 있을까요?	Я могу оставить машину в конечном пункте назначения?	Could I drop the car off at my destination?
+2238	Car	Car Hire	Ĉu mi povus lasi la aŭton ĉe la flughaveno?	空港に車を置いてもいいですか？	我可以把车停在机场吗？	공항에 차를 두고 가도 될까요?	Я могу оставить машину в аэропорту?	Could I leave the car at the airport?
+2239	Car	Car Hire	Mi ŝatus aldoni duan ŝoforon	2人目の運転者を追加したいのですが。	我想添加一位第二驾驶员。	두 번째 운전자를 추가하고 싶어요.	Я бы хотел вписать второго водителя.	I would like to include a second driver.
+2240	Car	Car Hire	Kio estas la rapidlimo sur aŭtovojoj?	高速道路の制限速度は何キロですか。	高速公路的限速是多少？	고속도로의 제한 속도는 얼마인가요?	Какое ограничение скорости на шоссе?	What is the speed limit on motorways?
+2241	Car	Driving & Parking	Sekvu ĉi tiun vojon	この道を進んでください。	走这条路。	이 길로 가세요.	Следуйте по этой дороге.	Take this road.
+2242	Car	Driving & Parking	Turnu dekstren	右に曲がってください。	向右转。	오른쪽으로 가세요.	Поверни направо.	Turn right.
+2243	Car	Driving & Parking	Turniĝu maldekstren	左に曲がってください。	向左转。	왼쪽으로 가세요.	Поверните налево.	Turn left.
+2244	Car	Driving & Parking	La trafiko estas tre densa	交通量が多いです。	交通很拥堵。	교통이 혼잡해요.	Движение очень плотное.	The traffic is heavy.
+2245	Car	Driving & Parking	Ĉu mi povas parkumi ĉi tie?	ここに駐車してもいいですか？	这里可以停车吗？	여기에 주차해도 되나요?	Я могу здесь припарковаться?	Can I park here?
+2246	Car	Driving & Parking	Kian aŭton vi kondukas?	どんな車に乗っていますか？	你开什么车？	어떤 차를 운전하세요?	На какой машине вы ездите?	What car do you drive?
+2247	Car	Driving & Parking	Ĝi estas elektra aŭto	電気自動車です。	这是一辆电动车。	전기차예요.	Это электромобиль.	It's an electric car.
+2248	Car	Driving & Parking	Kie mi povas parkumi?	どこに駐車できますか？	我可以把车停在哪里？	어디에 주차할 수 있나요?	Где я могу припарковаться?	Where can I park?
+2249	Car	Driving & Parking	Kie mi turnu?	どこで曲がればいいですか？	我该在哪里转弯？	어디에서 꺾어야 하나요?	Где мне повернуть?	Where do I turn?
+2250	Car	Driving & Parking	Turnu dekstren ĉe la kruciĝo	交差点を右に曲がってください。	在十字路口向右转。	교차로에서 오른쪽으로 가세요.	На перекрёстке направо.	Turn right at the crossroads.
+2251	Car	Driving & Parking	Veturu trans la ponton	橋を渡ってください。	过桥。	다리를 건너세요.	Поезжай по мосту.	Go over the bridge.
+2252	Car	Driving & Parking	Veturu sub la ponto	橋の下をくぐってください。	从桥下过去。	다리 아래로 가세요.	Поезжай под мостом.	Go under the bridge.
+2253	Car	Driving & Parking	Veturu tra la trafikrondo	ラウンドアバウトを通り抜けてください。	通过环形路口。	로터리를 지나가세요.	Следуйте по кольцевой развязке.	Go over the roundabout.
+2254	Car	Driving & Parking	Ĉu vi havas vojmapon?	地図をお持ちですか？	你有地图吗？	로드맵이 있으신가요?	У тебя есть дорожная карта?	Have you got a road map?
+2255	Car	Driving & Parking	Ĉu ĉi tie estas loko por halti?	駐車スペースはありますか？	这里有临时停车带吗？	갓길이 있나요?	Здесь есть площадка для остановки?	Is there a lay-by?

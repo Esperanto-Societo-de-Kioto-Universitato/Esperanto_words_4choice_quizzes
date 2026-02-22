@@ -1,0 +1,39 @@
+row	esperanto	verdict	target_column	suggested_minimal	reason	flags	score_zh	score_ko	Japanese_Trans	Chinese_Trans	Korean_Trans
+703	juro	keep	-	-	ZH/KOとも法・法律の核心義は保持している。	balanced	1	1	{Ｂ}【法】法, 法律	法，法规，法律；法学	법, 법률
+704	justa	optional_medium	Chinese_Trans|Korean_Trans	公正，公平；正当，合法的 / 공정한, 정당한; 적법한	ZHの「正直」は語義がずれやすく、KOも意味範囲がやや狭い。	word_choice_zh:8|scope_ko:8	8	8	{Ｂ}公正な, 正義の; 正当な, 合法的な	公正，公平，正直	공정한
+708	kabineto	optional_medium	Korean_Trans	내각; 서재, 사무실, 진료실; 진열실	KOが内閣義に偏り、JA/ZHの主要義が不足。	scope_ko:8	0	8	{Ｂ}【政】内閣; 書斎, 事務室, 診察室; （収集品の）陳列室	书房，研究室；内阁	정부의최고행정기관내각
+709	kadro	optional_low	Korean_Trans	틀, 테두리; 환경, 범위; 간부; (정보) 프레임	KOで環境・範囲義を最小補完。	scope_ko:6	0	6	{Ｂ}枠, 額縁; 環境, 場所; 枠組, 範囲; 【政】幹部 / 【情】フレーム（ウェブページの表現技法の一）	边框，环境，范围；干部；（计）框架	둘러싸는 틀, 테두리；간부；（IT） 프레임
+710	kaduka	optional_medium	Korean_Trans	낡고 쇠약한; 쇠퇴해 사라지는; (법) 실효된, 무효의	KOが老朽義に偏り、失効・無効義が欠落。	scope_ko:8	0	8	{Ｂ}老朽の, 荒廃した; 老衰した, 老いぼれた; 消えていく, はかない; 【法】（期限切れで）無効の, 失効した	破旧，破败；衰老；不稳定，不可靠；失效，无效	노후하여 몹시 낡고 쇠약한 상태
+714	kajo	optional_medium	Korean_Trans	부두, 하역장; (철도) 플랫폼	KOで鉄道プラットホーム義が抜ける。	scope_ko:8	0	8	{Ｂ}【海】岸壁, 波止場; 河岸（かし）, 荷揚げ場; 【鉄】プラットホーム	码头，站台，月台	부두
+715	kaldrono	optional_low	Korean_Trans	가마솥, 큰 냄비; (지리) 칼데라	KOに地理義（カルデラ）を最小補完。	scope_ko:6	0	6	{Ｂ}かま, 大なべ; 【地理】カルデラ, 釜状陥没	大锅，圆陡的山谷（凹地）	가마솥, 큰 솥
+716	kalendaro	keep	-	-	ZH/KOとも日常語としての核心義（カレンダー）は保持。	balanced	1	1	{Ｂ}カレンダー, 暦; 暦法	历法；日历，月历，月份牌	달력
+718	kalkuli	optional_low	Korean_Trans	계산하다, 수를 세다; ...로 간주하다	KOに「見なす」義を軽く補完。	scope_ko:6	0	6	{Ｂ}［他］計算する; 数える; 見なす	数数，计算；算作	수를 세거나 계산하다
+720	kalumnii	optional_low	Korean_Trans	근거 없이 남을 중상·비방하다	KOの語間スペース欠落を最小修正。	style_ko:4	0	4	{Ｂ}［他］中傷する, 誹謗（ひぼう）する, 名誉を毀損（きそん）する	污蔑，诽谤	근거없이남을중상·비방하다
+721	kamarado	optional_low	Korean_Trans	동료, 동무; (호칭) 동지	KOで同僚・同志義を最小補完。	scope_ko:5	0	5	{Ｂ}仲間, 同僚; （呼びかけで）同志	同伴，伙伴；同志（称呼）	동무, 친구
+724	kampo	optional_medium	Korean_Trans	밭, 들판; 분야, 범위; (물리) 장; (정보) 필드	KOが農地義中心で専門義が不足。	scope_ko:8	0	8	{Ｂ}野原, 田畑; 場, 分野, 範囲; 【理】場; 【情】フィールド	田地，场地；领域，范围；（理）场	밭, 들판
+725	kanalo	optional_low	Chinese_Trans	运河，沟渠，水道；海峡；（通信）频道；（解）管道	ZHで通信・解剖義が不足。	scope_zh:6	6	0	{Ｂ}運河, 堀, 水路; 【海】水道; 【通】チャンネル; 【解】管; 《転》伝達手段, 経路	运河；沟渠，水道；海峡	운하, 수로, 【통신】채널, 【해부】관, 경로
+726	kandelo	optional_medium	Chinese_Trans|Korean_Trans	蜡烛；（理）坎德拉（光度单位） / 양초; (물리) 칸델라(광도 단위)	ZH/KOとも単位義が欠落。	scope_zh:8|scope_ko:8	8	8	{Ｂ}ろうそく; 【理】カンデラ（光度の単位，cd）	烛，蜡烛	양초, 촛불
+728	kanti	optional_low	Chinese_Trans|Korean_Trans	唱，歌唱；（鸟）啼鸣；（转）讴歌 / 노래하다; (새가) 지저귀다; (비유) 찬미하다	ZH/KOで鳥のさえずり・転義が不足。	scope_zh:6|scope_ko:6	6	6	{Ｂ}［他］歌う; （鳥が）さえずる; 《転》心地よい音を奏でる; （詩や歌で）褒めたたえる	唱	노래하다
+731	kapitalo	keep	-	-	ZH/KOとも資本の核心義として成立。	balanced	1	1	{Ｂ}【経】資本; 資本金, 資金; 《転》資本, 元手	资产，资金，资本	자본, 사업이나 투자에 쓰는 돈
+732	kapo	optional_medium	Chinese_Trans	头；头脑；（量词）人/头；先端；领导者	ZHが頭部義のみで多義幅が不足。	scope_zh:8	8	0	{Ｂ}頭, 首, 頭部; 頭脳; 一人, 一頭; 《転》頂上部, 先端, 先頭; 指導者	头，头部	머리, 두뇌, 선두, 지도자
+734	kapti	optional_low	Chinese_Trans|Korean_Trans	捉住，抓住；把握；（转）迷住 / 잡다, 붙잡다; 파악하다; (비유) 매료시키다	ZH/KOで把握・比喩義を最小補完。	scope_zh:6|scope_ko:6	6	6	{Ｂ}［他］つかまえる, 捕らえる; つかむ, 把握する; とりこにする	捉，抓住	잡다, 붙잡다
+739	karno	optional_low	Korean_Trans	살, 육체; (식물) 과육	KOで植物の果肉義を補完。	scope_ko:5	0	5	{Ｂ}肉, 肉体, >>〜; 【植】果肉	肉，肉体，果肉	살, 육체
+741	karto	optional_medium	Korean_Trans	카드, 쪽지; 증서·신분증; (놀이) 카드패	KOが「紙カード」寄りで語義幅が狭い。	scope_ko:8	0	8	{Ｂ}カード, （紙の）札; はがき; （トランプの）札; 【電】基板（地図は別語を用いる）	卡片；证件；纸牌	종이로 된 카드
+744	kaso	optional_medium	Korean_Trans	금고; 회계, 계산대	KOで会計義が欠落。	scope_ko:8	0	8	{Ｂ}金庫; 会計	钱柜，财务处	금고
+746	katalogo	keep	-	-	ZH/KOとも一般義+情報義を保持。	balanced	1	1	{Ｂ}カタログ, 目録 / 【情】ディレクトリ・リスト	目录；（计）目录列表	목록；（컴퓨터） 디렉터리
+748	kategorio	optional_low	Korean_Trans	종류, 부류, 범주; (철학) 범주	KOに哲学義を最小補完。	scope_ko:5	0	5	{Ｂ}部類, 部門, 種類, 等級; 【哲】カテゴリー, 範疇（はんちゅう）	种类，类别；范畴	종류나 범주로 나눈 부류
+752	kazo	keep	-	-	ZH/KOとも文法・法・医の主要義を保持。	balanced	1	1	{Ｂ}【Ｇ】格; 【法】訴訟事件; 事例; 【医】症例	格；案情，案件；病例	【문법】격, 【법률】소송 사건, 사례, 【의학】증례
+755	kaŝi	optional_low	Chinese_Trans	隐藏，遮掩；隐瞒，保密	ZHが「藏」のみで秘匿義が弱い。	scope_zh:5	5	0	{Ｂ}［他］隠す, 覆い隠す; 秘密にする, 秘める	藏	감추다, 숨기다
+762	kelo	optional_low	Korean_Trans	지하실, 저장고; (비유) 지하 저장 와인	KOに転義（貯蔵ワイン）を最小補完。	scope_ko:5	0	5	{Ｂ}地下室, 穴倉, 地下貯蔵庫; 《転》（地下に貯蔵された）ワイン（全体）	地窖，地下室	식료품·포도주 등을 두는 지하실
+764	kerno	optional_medium	Korean_Trans	핵, 씨, 심; 핵심; (물리) 원자핵	KOが核心義のみで物理義が不足。	scope_ko:8	0	8	{Ｂ}核, 種（たね）, 芯（しん）; 《転》核心; 【理】核, =〜	仁，核；中心，核心	사물의 중심이 되는 가장 중요한 부분
+767	kial	optional_low	Korean_Trans	왜, 어째서; 왜 ...인지	KOで接続的用法を軽く補完。	scope_ko:5	0	5	{Ｂ}［副］なぜ, どうして / {Ｂ}［接］なぜ～かということ	为什么	왜, 어째서
+770	kiel	optional_low	Korean_Trans	어떻게, 어떤 방식으로; ...처럼	KOで接続的「〜のように」を補完。	scope_ko:5	0	5	{Ｂ}［副］いかに, どのように / {Ｂ}［接］～のように	怎样；如同；作为	어떻게, 어떤 방식으로
+772	kino	optional_low	Korean_Trans	영화; 영화 제작(영화계)	KOに映画制作義を最小補完。	scope_ko:5	0	5	{Ｂ}映画, 映画制作, >>〜	电影	영화
+776	kisi	optional_low	Korean_Trans	입맞추다, 키스하다; (비유) 살짝 스치다	KOに転義（そっと触れる）を補完。	scope_ko:5	0	5	{Ｂ}［他］キスする, 口づけする; 《転》そっと触れる	吻	입맞추다, 키스하다
+778	klara	optional_medium	Korean_Trans	맑은, 밝은; 명확한, 분명한	KOが清澄義のみで明瞭義が不足。	scope_ko:8	0	8	{Ｂ}澄みきった, 明るい; 明瞭（めいりょう）な, 明白な	清楚；明亮，清澈	맑은
+780	klaso	optional_medium	Korean_Trans	계급, 등급; 학급; (생물 분류) 강(綱)	KOが学級義に寄り、等級・分類義が不足。	scope_ko:8	0	8	{Ｂ}等級, 種類; 階級, 階層; クラス, 学級, 組; 【生】（分類学上の）綱（こう）	阶级；班级；等级	학교에서 같은 단계의 학생 집단, 학급
+781	klera	optional_low	Korean_Trans	교양 있고 학식 있는	KOの語間スペース欠落を最小修正。	style_ko:4	0	4	{Ｂ}教養ある, 学識のある	有文化，有教养，有见识	교양있고유식한
+784	klini	optional_low	Korean_Trans	기울이다, 몸을 굽히다; (비유) 마음을 기울게 하다	KOに比喩義（心を向ける）を最小補完。	scope_ko:5	0	5	{Ｂ}［他］傾ける, 斜めにする; 《転》心を向けさせる	使倾斜，使弯曲，俯身	기울이다, 몸을 굽히다
+791	kolegio	optional_low	Korean_Trans	단과대학, 전문대학; (프랑스 등) 중등학교; (종교·직능) 단체	KOが高等教育義中心で他義が不足。	scope_ko:6	0	6	{Ｂ}【学】（英米などの）カレッジ, 単科大学, 高等専門学校; （仏などの）コレージュ, 中等学校; 【宗】（同じ職能の）集団, 会	学院；专门学校，高等专科学校	단과대학, 전문대학 등 고등 교육 기관
+795	kolo	optional_low	Korean_Trans	목; (비유) 목처럼 가늘어진 부분	KOの語間スペース修正＋転義補完。	style_ko:4|scope_ko:4	0	4	{Ｂ}【解】首; 《転》首状に細くなった部分	颈，脖子	사람과짐승의목
+800	komandi	optional_medium	Korean_Trans	지휘하다, 명령하다; (기계) 조작·제어하다	KOで機械操作・制御義が欠落。	scope_ko:8	0	8	{Ｂ}［他］【軍】指揮する, 指図する, 命令する; 【機】操作する, 制御する	统帅，指挥，命令，控制	군대를 지휘·명령하다

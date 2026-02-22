@@ -1,0 +1,23 @@
+idx	Esperanto	Column	Old	New	Reason
+906	kruro	Chinese_Trans	小腿；腿	腿，脚；（解）小腿（膝至踝）	語義範囲（脚全体/すね）を補完。
+910	kubo	Chinese_Trans	立方体；（菜）丁；立方	立方体；（数）立方；骰子；立方形物体	不自然な「（菜）丁」を除去し語義整合。
+919	kulpa	Chinese_Trans	有罪的，犯罪的	有罪的；有过失的	「犯罪的」偏重を是正。
+920	kulturi	Chinese_Trans	耕种，栽培；培养	培养（才能、文化）；启发，开化；（另义）耕作，栽培	kulturi の中心義を補正し別義を補完。
+922	kuniklo	Chinese_Trans	家兔	家兔；（泛）兔子	一般義を補完。
+928	kuri	Chinese_Trans	跑	跑，奔走；（水等）流动	流れる義を補完。
+935	kuzo	Chinese_Trans	堂（表）兄弟姐妹，表亲	堂（表）兄弟（男）；男表亲	kuzo（男）に合わせて性を明確化。
+950	lado	Chinese_Trans	金属薄板，金属片，铁片，铁皮	金属薄板，铁皮，镀锡铁皮（马口铁）	ブリキ義を補完。
+953	lama	Chinese_Trans	跛，瘸	跛行的，腿脚不便的；（转）不平衡的	中立的表現へ自然化し転義を補完。
+955	lando	Chinese_Trans	国家，国土	国家，国土；地区，地域；祖国，故乡	lando の多義を補完。
+957	lano	Chinese_Trans	毛，毛绒，毛织物	羊毛；（织）毛线，毛织物	毛種別を明確化。
+959	larmo	Chinese_Trans	眼泪	眼泪；一滴液体，水滴	「しずく」義を補完。
+969	legi	Chinese_Trans	读	读；朗读；读懂，解读	legi の多義を補完。
+971	lekcio	Chinese_Trans	演讲，讲学	（大学）讲义，讲课	lekcio の語義を適正化。
+974	leporo	Chinese_Trans	兔属动物	野兔；（泛）兔子	leporo の中心義に補正。
+981	libera	Chinese_Trans	自由	自由的；独立的，不受束缚的；空闲的；宽敞的	libera の多義を補完。
+986	ligno	Chinese_Trans	木质部，木材	木材；木质部分	自然な語順へ修正。
+987	lilio	Chinese_Trans	百合属植物	百合	不自然な分類語尾を自然化。
+991	lipo	Chinese_Trans	唇	嘴唇；（转）口；（植）唇瓣	転義・植物義を補完。
+993	literaturo	Chinese_Trans	文学，关于某个问题的全部文献	文学；文献（某主题相关文献）	文献義を自然化。
+995	lito	Chinese_Trans	床	床，卧床；（动物）窝	寝床・動物のねぐら義を補完。
+999	logiko	Chinese_Trans	逻辑；推理；必然联系	逻辑；逻辑学；道理；必然的结果	論法・道理・必然帰結義を補完。

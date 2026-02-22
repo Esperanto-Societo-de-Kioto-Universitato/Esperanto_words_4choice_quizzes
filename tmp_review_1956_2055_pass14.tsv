@@ -1,0 +1,101 @@
+PhraseID	TopicName_EN	SubtopicName_EN	Esperanto	日本語	中文	한국어	Русский язык	English
+1956	Plane	Booking a Flight	Ĉu ĉi tio estas rekta flugo?	これは直行便ですか？	这是直飞航班吗？	이 비행기는 직항인가요?	Это прямой рейс?	Is this a direct flight?
+1957	Plane	Booking a Flight	Ĉu estas interhalto?	乗り継ぎはありますか？	有中途停留吗？	경유지가 있나요?	Есть остановка по пути?	Is there a stopover?
+1958	Plane	Booking a Flight	Kiam estas la flugo al Romo?	ローマ行きのフライトはいつですか？	飞往罗马的航班什么时候起飞？	로마행 비행기는 언제 출발하나요?	Когда рейс в Рим?	When is the flight to Rome?
+1959	Plane	Booking a Flight	Bonvolu kontroli aliajn flugkompaniojn	他の航空会社もご確認ください。	请查询其他航空公司。	다른 항공사들도 확인해 주세요.	Пожалуйста, проверьте другие авиакомпании.	Please check other airlines.
+1960	Plane	Booking a Flight	Bileto de komerca klaso	ビジネスクラスの航空券	一张商务舱机票。	비즈니스 클래스 항공권입니다.	Билет бизнес-класса.	A business class ticket.
+1961	Plane	Booking a Flight	En kiu valuto ĉi tio estas?	これは何の通貨ですか？	这是什么货币？	이것은 어떤 통화인가요?	В какой это валюте?	What currency is this in?
+1962	Plane	Booking a Flight	Kiajn lokojn vi preferus?	どのお席をご希望ですか？	您想要什么样的座位？	어떤 좌석을 원하시나요?	Какие места вы бы предпочли?	What seats would you prefer?
+1963	Plane	Booking a Flight	En la antaŭa vico	前の方で。	靠近前面。	앞쪽 근처에요.	В переднем ряду.	Near the front.
+1964	Plane	Booking a Flight	En la malantaŭa vico	後ろのほうです。	靠近后面。	뒤쪽 근처에 있습니다.	В заднем ряду.	Near the back.
+1965	Plane	Booking a Flight	Bonvolu doni al mi kvitancon	領収書をください。	请给我一张收据。	영수증을 주세요.	Пожалуйста, дайте мне квитанцию.	Please give me a receipt.
+1966	Plane	Booking a Flight	Ĉu la flughaveno estas malproksime de la urbo?	空港は市内から遠いですか？	机场离市区远吗？	공항이 도심에서 먼가요?	Аэропорт находится далеко от города?	Is the airport far from the city?
+1967	Plane	Booking a Flight	Mi ŝatus rezervi lokon en ĉi tiu aviadilo	この飛行機の座席を予約したいのですが。	我想预订这趟航班的座位。	이 비행기 좌석을 예약하고 싶어요.	Я бы хотела забронировать место на этот самолёт.	I'd like to book a seat on this plane.
+1968	Plane	Booking a Flight	Sur ĉi tiu aviadilo ne plu estas lokoj	この飛行機にはもう空席がありません。	这架飞机已经没有座位了。	이 비행기에는 더 이상 좌석이 없습니다.	На этот самолёт больше нет мест.	There are no more seats on this aeroplane.
+1969	Plane	Booking a Flight	Kio estas via celloko?	ご目的地はどちらですか。	你的目的地是哪里？	목적지가 어디인가요?	Какое у вас направление?	What is your destination?
+1970	Plane	Booking a Flight	Mi ŝatus vojaĝi al Sud-Koreio	韓国に旅行に行きたいです。	我想去韩国旅游。	저는 한국에 여행 가고 싶어요.	Я бы хотел поехать в Южную Корею.	I'd like to travel to South Korea.
+1971	Plane	Booking a Flight	Ĉu mi bezonas vizon por Kenio?	ケニアにビザは必要ですか？	我需要办理肯尼亚签证吗？	케냐에 입국하려면 비자가 필요하나요?	Мне нужна виза в Кению?	Do I need a visa for Kenya?
+1972	Plane	Booking a Flight	Kiam estas la sekva flugo al Hanojo?	次のハノイ行きの便はいつですか？	下一班飞往河内的航班是什么时候？	하노이행 다음 비행기는 언제 출발하나요?	Когда следующий рейс в Ханой?	When is the next flight to Hanoi?
+1973	Plane	Booking a Flight	Kiom ofte estas la flugoj?	フライトの頻度はどのくらいですか。	航班有多频繁？	항공편은 얼마나 자주 있나요?	Как часто выполняются рейсы?	How frequent are the flights?
+1974	Plane	Booking a Flight	Je kioma horo foriras la flugo?	そのフライトは何時に出発しますか？	航班几点起飞？	비행기는 몇 시에 출발하나요?	Во сколько отправляется рейс?	What time does the flight leave?
+1975	Plane	Booking a Flight	Kiom frue mi devas esti ĉe la flughaveno?	空港にはどれくらい早く到着していればいいですか？	我需要提前多早到机场？	공항에는 얼마나 일찍 도착해야 하나요?	За сколько мне нужно прибыть в аэропорт?	How early must I be at the airport?
+1976	Plane	Booking a Flight	Kiom da bagaĝo mi povas preni?	荷物はどれくらい持って行けますか？	我可以带多少行李？	짐은 얼마나 가져갈 수 있나요?	Сколько багажа я могу взять?	How much luggage can I take?
+1977	Plane	Booking a Flight	Kie mi devas ŝanĝi aviadilon?	どこで乗り換えればいいですか？	我应该在哪里转机？	어디에서 비행기를 갈아타야 하나요?	Где мне следует пересесть на другой самолёт?	Where should I change planes?
+1978	Plane	Booking a Flight	Ĉu mi povas fari la transiron en la sama tago?	同じ日に乗り継ぎはできますか？	我可以当天转机吗？	같은 날에 환승할 수 있나요?	Я могу сделать пересадку в тот же день?	Can I make a connection on the same day?
+1979	Plane	Booking a Flight	Mi venis por preni miajn biletojn	チケットを受け取りに来ました。	我来取票。	티켓을 받으러 왔어요.	Я пришёл забрать билеты.	I've come to collect my tickets.
+1980	Plane	Booking a Flight	En kiuj tagoj estas flugoj al Teherano?	テヘラン行きのフライトは何曜日に運航していますか。	有哪些天有飞往德黑兰的航班？	테헤란행 항공편은 어떤 요일에 운항하나요?	По каким дням есть рейсы в Тегеран?	On what days are there flights to Tehran?
+1981	Plane	Booking a Flight	Bonvolu rezervi la sekvan flugon al Amsterdamo	次のアムステルダム行きの便を予約してください。	请预订下一班飞往阿姆斯特丹的航班。	암스테르담으로 가는 다음 항공편을 예약해 주세요.	Пожалуйста, забронируйте ближайший рейс в Амстердам.	Please book the next flight to Amsterdam.
+1982	Plane	Booking a Flight	Mi ŝatus du biletojn de komerca klaso	ビジネスクラスのチケットを2枚お願いします。	我想要两张商务舱机票。	비즈니스 클래스 항공권 두 장을 원합니다.	Я бы хотел два билета бизнес-класса.	I would like two business class tickets.
+1983	Plane	Booking a Flight	Ĉu vi ŝatus sidlokon ĉe la fenestro aŭ ĉe la koridoro?	窓側と通路側、どちらのお席がよろしいですか？	您想要靠窗还是靠走道的座位？	창가 쪽 좌석을 원하시나요, 아니면 통로 쪽 좌석을 원하시나요?	Вы бы хотели место у окна или у прохода?	Would you like a window or an aisle seat?
+1984	Plane	Booking a Flight	Kiom da tempo antaŭ la forveturo ni devas alveni?	出発時刻のどれくらい前に到着すればいいですか？	我们需要提前多久到达？	출발 시간보다 얼마나 일찍 도착해야 하나요?	За сколько до отправления нам нужно приехать?	How soon before the departure time do we have to arrive?
+1985	Plane	Booking a Flight	Mi ŝatus nuligi mian bileton al Helsinko	ヘルシンキ行きのチケットをキャンセルしたいのですが。	我想取消前往赫尔辛基的机票。	헬싱키행 티켓을 취소하고 싶습니다.	Я бы хотел вернуть свой билет до Хельсинки.	I would like to cancel my ticket to Helsinki.
+1986	Plane	Booking a Flight	Kiuj flugoj estas al Turkio?	トルコ行きの便はどのようなものがありますか。	有哪些飞往土耳其的航班？	터키로 가는 항공편에는 어떤 것들이 있나요?	Какие рейсы есть в Турцию?	What flights are there to Turkey?
+1987	Plane	Booking a Flight	Ĉu estas liberaj lokoj sur ĉi tiu flugo?	この便に空席はありますか？	这趟航班还有空位吗？	이 비행기에 빈 좌석이 있나요?	На этот рейс есть свободные места?	Are there any free seats on this flight?
+1988	Plane	Booking a Flight	Ĉu la flugo faras halton en alia urbo?	このフライトは他の都市で乗り継ぎがありますか？	这趟航班中途会在其他城市经停吗？	이 항공편이 다른 도시에 경유하나요?	Самолёт делает остановку в другом городе?	Does the flight make a stopover in another city?
+1989	Plane	Booking a Flight	Kiom da tempo necesas por la transŝanĝo?	乗り継ぎにはどれくらい時間がかかりますか？	转机需要多长时间？	환승하는 데 얼마나 걸리나요?	Сколько времени занимает пересадка?	How long does it take to make a connection?
+1990	Plane	Booking a Flight	Ĉu ni povas iom butikumi en la flughaveno?	空港で買い物はできますか？	我们可以在机场购物吗？	공항에서 쇼핑할 수 있을까요?	Мы можем пройтись по магазинам в аэропорту?	Can we do some shopping in the airport?
+1991	Plane	Booking a Flight	Kiom da ĉokolado mi povas porti tra la dogano?	税関を通してどれくらいのチョコレートを持ち込めますか？	我可以带多少巧克力过海关？	세관을 통과할 때 초콜릿을 얼마나 가져갈 수 있나요?	Сколько шоколада я могу пронести через таможню?	How much chocolate can I take through customs?
+1992	Plane	Booking a Flight	Kiam vi revenos?	いつ戻ってきますか？	你什么时候回来？	언제 돌아오실 예정인가요?	Когда вы вернётесь?	When will you be coming back?
+1993	Plane	Checking in	Vian pasporton, mi petas	パスポートを拝見できますか。	请出示您的护照。	여권을 보여 주세요.	Ваш паспорт, пожалуйста.	Your passport, please.
+1994	Plane	Checking in	Kiu terminalo?	どのターミナルですか？	哪个航站楼？	어느 터미널인가요?	Какой терминал?	Which terminal?
+1995	Plane	Checking in	Kiu elirejo?	どのゲートですか？	哪个登机口？	몇 번 게이트인가요?	Какой выход?	Which gate?
+1996	Plane	Checking in	Agrablan flugon!	どうぞ良いご旅行を！	祝您旅途愉快！	즐거운 비행 되세요!	Приятного полёта!	Enjoy your flight!
+1997	Plane	Checking in	Kien vi flugas?	どちらまでご搭乗ですか？	你要飞去哪儿？	어디로 가는 비행기를 타시나요?	Куда ты летишь?	Where are you flying to?
+1998	Plane	Checking in	Mi flugas al Ĉinio	中国に行きます。	我要去中国。	저는 중국에 갈 거예요.	Я лечу в Китай.	I'm going to China.
+1999	Plane	Checking in	Kie estas la registrejo?	チェックインはどこですか？	请问在哪里办理值机手续？	체크인은 어디에서 하나요?	Где стойка регистрации?	Where's the check-in?
+2000	Plane	Checking in	Kie mi suriru?	どこから乗ればいいですか？	我在哪里登机？	어디에서 탑승하나요?	Куда мне пройти на посадку?	Where do I board?
+2001	Plane	Checking in	Kie estas elirejo 1?	1番ゲートはどこですか？	1号登机口在哪里？	1번 게이트는 어디에 있나요?	Где выход 1?	Where is gate 1?
+2002	Plane	Checking in	Kie estas terminalo A?	ターミナルAはどこですか？	A航站楼在哪里？	터미널 A는 어디에 있나요?	Где терминал А?	Where is terminal A?
+2003	Plane	Checking in	Je kioma horo estas via flugo?	あなたのフライトは何時ですか？	你的航班是几点？	비행기가 몇 시에 출발해요?	Во сколько ваш рейс?	What time is your flight?
+2004	Plane	Checking in	Ĉu la flugo malfruiĝis?	この便は遅れていますか？	航班延误了吗？	비행기가 지연되었나요?	Рейс задержан?	Is the flight delayed?
+2005	Plane	Checking in	Mi ŝatus lokon ĉe la fenestro	窓側の席をお願いします。	我想要一个靠窗的座位。	창가 쪽 좌석으로 부탁드려요.	Я бы хотела место у окна.	I'd like a window seat.
+2006	Plane	Checking in	Mi rezervis per interreto	インターネットで予約しました。	我是通过网络预订的。	인터넷으로 예약했어요.	Я забронировал через интернет.	I booked on the internet.
+2007	Plane	Checking in	Enlanda aŭ internacia?	国内ですか、それとも海外ですか？	国内还是国际？	국내인가요, 아니면 해외인가요?	Внутренний или международный?	Domestic or international?
+2008	Plane	Checking in	Kiu estas la flugnumero?	便名は何ですか？	航班号是多少？	항공편 번호가 어떻게 되나요?	Какой номер рейса?	What's the flight number?
+2009	Plane	Checking in	Ĉi tiu flugo estas prokrastita	この便は遅れています。	本次航班已延误。	이 항공편은 지연되었습니다.	Этот рейс был задержан.	This flight has been delayed.
+2010	Plane	Checking in	Ĉi tiu flugo estis nuligita	この便は欠航となりました。	本次航班已被取消。	이 항공편은 취소되었습니다.	Этот рейс был отменён.	This flight has been cancelled.
+2011	Plane	Checking in	Kiam komenciĝas la enbordiĝo?	ご搭乗はいつから始まりますか。	什么时候开始登机？	탑승은 언제 시작하나요?	Когда начинается посадка?	When does boarding begin?
+2012	Plane	Checking in	Ni iru en la atendejon	ラウンジに行きましょう。	我们去休息室吧。	라운지로 가요.	Давай пойдём в зал ожидания.	Let's go into the lounge.
+2013	Plane	Checking in	Kie estas la senimposta butiko?	免税店はどこですか？	免税店在哪里？	면세점이 어디에 있나요?	Где магазин беспошлинной торговли?	Where is the duty-free shop?
+2014	Plane	Checking in	Bonvolu malplenigi viajn poŝojn	ポケットの中身を全部出してください。	请把你口袋里的东西都掏出来。	주머니를 비워 주세요.	Пожалуйста, выньте всё из карманов.	Please empty your pockets.
+2015	Plane	Checking in	Demetu viajn ŝuojn	靴を脱いでください。	请脱鞋。	신발을 벗으세요.	Снимите обувь.	Take off your shoes.
+2016	Plane	Checking in	Ĉu vi havas likvaĵojn?	液体類はお持ちですか？	你带液体了吗？	액체류를 가지고 계신가요?	У вас есть какие-нибудь жидкости?	Have you got any liquids?
+2017	Plane	Checking in	Kie estas la giĉeto de Emirates?	エミレーツ航空のカウンターはどこですか。	阿联酋航空的柜台在哪里？	에미레이트 항공 카운터가 어디에 있나요?	"Где стойка ""Эмирейтс""?"	Where is the Emirates counter?
+2018	Plane	Checking in	Per kiu flugkompanio vi flugas?	どの航空会社をご利用ですか？	你坐的是哪家航空公司的航班？	어느 항공사를 이용하시나요?	Какой авиакомпанией вы летите?	What airline are you flying?
+2019	Plane	Checking in	Mia aviokompanio estas Lufthansa	私が利用する航空会社はルフトハンザです。	我的航空公司是汉莎航空。	저는 루프트한자 항공을 이용합니다.	"Моя авиакомпания - ""Люфтганза""."	My airline is Lufthansa.
+2020	Plane	Checking in	Ĉu vi havas vian rezervonumeron?	ご予約番号はお持ちですか？	你有你的预订参考号吗？	예약 번호를 가지고 계신가요?	У вас есть номер бронирования?	Have you got your booking reference?
+2021	Plane	Checking in	Jen mia rezervonumero	こちらが私の予約番号です。	这是我的预订参考号。	여기 제 예약 번호입니다.	Вот мой номер бронирования.	Here's my booking reference.
+2022	Plane	Checking in	Ĉu mi povas vidi vian pasporton, mi petas?	パスポートを拝見してもよろしいでしょうか。	请出示您的护照。	여권을 보여주시겠어요?	Я могу посмотреть ваш паспорт, пожалуйста?	May I see your passport, please?
+2023	Plane	Checking in	De kiu pordego foriras ĉi tiu flugo?	この便はどのゲートから出発しますか？	这趟航班是从哪个登机口出发的？	이 비행기는 어느 탑승구에서 출발하나요?	Из какого выхода осуществляется посадка на этот рейс?	What gate does this flight leave from?
+2024	Plane	Checking in	Bonvolu tuj iri al elirejo numero 1	ただいま1番ゲートへお進みください。	请现在前往1号登机口。	지금 1번 게이트로 이동해 주세요.	Пожалуйста, немедленно пройдите к выходу номер 1.	Please go now to gate number 1.
+2025	Plane	Checking in	Ĉu ĉi tiu flugo foriros ĝustatempe?	この便は定刻通りに出発しますか？	这趟航班会准时起飞吗？	이 비행기는 제시간에 출발하나요?	Этот рейс отправится вовремя?	Will this flight leave on time?
+2026	Plane	Checking in	Ni pardonpetas pro la prokrasto	お待たせして申し訳ございません。	对于延误，我们深表歉意。	지연된 점 사과드립니다.	Мы приносим извинения за задержку.	We apologise for the delay.
+2027	Plane	Checking in	Ĉu vi povus malfermi vian sakon, mi petas?	カバンを開けていただけますか。	请把你的包打开好吗？	가방을 열어 주시겠어요?	Не могли бы вы открыть свою сумку, пожалуйста?	Could you open your bag, please?
+2028	Plane	Checking in	Bonvolu meti ĉiujn metalajn objektojn en la pleton	金属製の物はトレイにお入れください。	请将所有金属物品放入托盘。	금속 물품은 모두 쟁반에 넣어 주세요.	Пожалуйста, положите все металлические предметы в лоток.	Please put any metallic objects into the tray.
+2029	Plane	Checking in	Ĉu vi povus demeti vian zonon, mi petas?	ベルトを外していただけますか。	请把皮带取下来好吗？	벨트를 벗어 주시겠어요?	Не могли бы вы снять ремень, пожалуйста?	Could you take off your belt, please?
+2030	Plane	Checking in	Ĉu vi povus demeti vian mantelon, mi petas?	コートをお脱ぎいただけますか。	请把外套脱下来好吗？	코트를 벗어 주시겠어요?	Не могли бы вы снять пальто, пожалуйста?	Could you take off your coat, please?
+2031	Plane	Checking in	Bonvolu elpreni vian tekkomputilon el ĝia ujo	ノートパソコンをケースから取り出してください。	请把您的笔记本电脑从包里拿出来。	노트북을 케이스에서 꺼내 주세요.	Пожалуйста, достаньте ноутбук из чехла.	Please take your laptop out of its case.
+2032	Plane	Checking in	Mi timas, ke vi ne povas traporti tion	申し訳ありませんが、そちらはお持ち込みいただけません。	恐怕这个不能带进去。	죄송하지만 그건 가지고 들어가실 수 없습니다.	Боюсь, вы не можете пронести это с собой.	I'm afraid you can't take that through.
+2033	Plane	Luggage	Tio estas mia bagaĝo	こちらが私の荷物です。	这是我的行李。	이것이 제 짐이에요.	Это мой багаж.	This is my luggage.
+2034	Plane	Luggage	Mi ne havas bagaĝon	荷物は持っていません。	我没有行李。	저는 짐이 없어요.	У меня нет багажа.	I don't have any luggage.
+2035	Plane	Luggage	Kie mi povas pesi la bagaĝon?	荷物はどこで計量できますか？	行李在哪里可以称重？	수하물은 어디에서 무게를 잴 수 있나요?	Где можно взвесить багаж?	Where is the luggage check?
+2036	Plane	Luggage	Kie mi povas trovi portiston?	ポーターはどこにいますか？	请问哪里可以找到行李员？	포터를 어디에서 찾을 수 있나요?	Где я могу найти носильщика?	Where can I find a porter?
+2037	Plane	Luggage	Kiom da valizoj vi havas?	バッグはいくつお持ちですか？	你有几个包？	가방이 몇 개 있으신가요?	Сколько у вас чемоданов?	How many bags have you got?
+2038	Plane	Luggage	Ĉi tiuj estas miaj valizoj	これが私のスーツケースです。	这些是我的行李箱。	이것들은 제 여행가방이에요.	Вот мои чемоданы.	These are my suitcases.
+2039	Plane	Luggage	Jen mia bagaĝetikedo	こちらが私のバッグタグです。	这是我的行李牌。	여기 제 가방 태그입니다.	Вот моя багажная бирка.	Here is my bag tag.
+2040	Plane	Luggage	Kie mi povas ricevi mian bagaĝon?	荷物はどこで受け取れますか？	我在哪里可以取行李？	제 짐은 어디에서 찾을 수 있나요?	Где я могу получить багаж?	Where can I get my luggage?
+2041	Plane	Luggage	Mi ne povas trovi mian bagaĝon	荷物が見つかりません。	我找不到我的行李。	제 짐을 찾을 수 없어요.	Я не могу найти свой багаж.	I can't find my luggage.
+2042	Plane	Luggage	Kie mi povas preni ĉareton?	カートはどこで借りられますか？	请问哪里可以拿到手推车？	카트는 어디에서 받을 수 있나요?	Где я могу взять тележку?	Where can I get a trolley?
+2043	Plane	Luggage	Kie estas la bagaĝaj ŝranketoj?	コインロッカーはどこにありますか。	行李寄存柜在哪里？	짐 보관함은 어디에 있나요?	Где камеры хранения багажа?	Where are the luggage lockers?
+2044	Plane	Luggage	Ĉu vi enregistras iun bagaĝon?	お預けになるお荷物はございますか？	您有行李需要托运吗？	수하물 맡기실 건 있으신가요?	Вы регистрируете какой-нибудь багаж?	Are you checking in any luggage?
+2045	Plane	Luggage	Jes, mi havas unu valizon	はい、スーツケースが一つあります。	是的，我有一个行李箱。	네, 가방 하나 있어요.	Да, у меня один чемодан.	Yes, I've got one suitcase.
+2046	Plane	Luggage	Ĉu vi mem pakis viajn valizojn?	ご自身で荷造りされましたか？	你的行李是你自己收拾的吗？	짐을 직접 싸셨나요?	Вы сами упаковывали чемоданы?	Did you pack your bags yourself?
+2047	Plane	Luggage	Mi havas du manbagaĝojn	手荷物が2つあります。	我有两件手提行李。	저는 기내 반입 수하물이 두 개 있어요.	У меня два предмета ручной клади.	I've got two pieces of hand luggage.
+2048	Plane	Luggage	Vi havas tro da manbagaĵo	お手荷物が多すぎます。	您的随身行李太多了。	기내 반입 수하물이 너무 많으세요.	У вас слишком много ручной клади.	You've got too much hand luggage.
+2049	Plane	Luggage	Ĉu tio estas funtoj aŭ kilogramoj?	それはポンドですか、それともキログラムですか？	这是磅还是公斤？	그게 파운드인가요, 아니면 킬로그램인가요?	Это фунты или килограммы?	Is that pounds or kilograms?
+2050	Plane	Luggage	Vi devos pagi por la superpezo	超過料金をお支払いいただく必要があります。	您需要支付超重费用。	초과 중량 요금을 지불하셔야 합니다.	Вам придётся оплатить перевес.	You have to pay an overweight charge.
+2051	Plane	Luggage	Ĉu mi povas pagi per kanadaj dolaroj?	カナダドルで支払えますか？	可以用加元付款吗？	캐나다 달러로 결제할 수 있나요?	Я могу заплатить канадскими долларами?	Can I pay in Canadian dollars?
+2052	Plane	Luggage	Bonvolu sendi mian bagaĝon al la hotelo	私の荷物をホテルまで送ってください。	请把我的行李送到酒店。	제 짐을 호텔로 보내 주세요.	Отправьте мой багаж в отель, пожалуйста.	Send my luggage to the hotel, please.
+2053	Plane	Luggage	Bonvolu porti ĉi tiun bagaĝon al la taksihaltejo	この荷物をタクシー乗り場まで運んでください。	请把这件行李拿到出租车乘车点。	이 짐을 택시 승강장까지 가져다 주세요.	Пожалуйста, отнесите этот багаж на стоянку такси.	Please take this luggage to the taxi rank.
+2054	Plane	Luggage	Mia bagaĝo perdiĝis	私の荷物がなくなってしまいました。	我的行李丢了。	제 짐이 분실됐어요.	Мой багаж был утерян.	My luggage has been lost.
+2055	Plane	Luggage	Ĉu mi povus vidi vian manbagaĝon, mi petas?	お手荷物を拝見してもよろしいでしょうか。	请把您的随身行李给我看看好吗？	손가방을 보여주시겠어요?	Могу я посмотреть вашу ручную кладь, пожалуйста?	Could I see your hand luggage, please?

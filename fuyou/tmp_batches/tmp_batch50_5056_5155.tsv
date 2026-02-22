@@ -1,0 +1,101 @@
+PhraseID	TopicName_EN	SubtopicName_EN	Esperanto	English	日本語	中文	한국어	Русский язык
+5056	Time & Weather	Calendar	La someraj monatoj estas junio, julio kaj aŭgusto	The summer months are June, July and August.	夏の月は6月、7月、8月です。	夏季包括六月、七月和八月。	여름은 6월, 7월, 8월입니다.	Летние месяцы - это июнь, июль и август.
+5057	Time & Weather	Calendar	La aŭtunaj monatoj estas septembro, oktobro kaj novembro	The autumn months are September, October and November.	秋の月は9月、10月、11月です。	秋季包括九月、十月和十一月。	가을은 9월, 10월, 11월입니다.	Осенние месяцы - это сентябрь, октябрь и ноябрь.
+5058	Time & Weather	Time Expressions	Hodiaŭ tage	Today.	今日	今天	오늘.	Сегодня днём.
+5059	Time & Weather	Time Expressions	Ĉiutage	Every day.	毎日。	每天	매일.	Каждый день.
+5060	Time & Weather	Time Expressions	Morgaŭ	Tomorrow.	明日。	明天。	내일.	Завтра.
+5061	Time & Weather	Time Expressions	Hieraŭ	Yesterday.	昨日	昨天	어제.	Вчера.
+5062	Time & Weather	Time Expressions	Ĝuste nun	Right now.	今すぐ。	现在。	지금 바로.	Прямо сейчас.
+5063	Time & Weather	Time Expressions	La tutan tagon	All day.	一日中	一整天	하루 종일.	Целый день.
+5064	Time & Weather	Time Expressions	Hodiaŭ vespere	Tonight.	今夜	今晚	오늘 밤.	Сегодня вечером.
+5065	Time & Weather	Time Expressions	Ĉi tiun semajnon	This week.	今週	本周	이번 주.	На этой неделе.
+5066	Time & Weather	Time Expressions	Post unu semajno	In a week.	1週間後に。	一周后	일주일 후에요.	Через неделю.
+5067	Time & Weather	Time Expressions	En la venonta monato	Next month.	来月	下个月。	다음 달에.	В следующем месяце.
+5068	Time & Weather	Time Expressions	Ĉi-jare	This year.	今年	今年	올해.	В этом году.
+5069	Time & Weather	Time Expressions	Antaŭ unu jaro	A year ago.	一年前。	一年前。	1년 전.	Год назад.
+5070	Time & Weather	Time Expressions	Hieraŭ nokte	Last night.	昨夜。	昨晚	어젯밤.	Прошлой ночью.
+5071	Time & Weather	Time Expressions	Antaŭ unu horo	An hour ago.	1時間前。	一小时前。	한 시간 전에.	Час назад.
+5072	Time & Weather	Time Expressions	Matene	In the morning.	朝に	早上	아침에.	Утром.
+5073	Time & Weather	Time Expressions	Vespere	In the evening.	夕方に	在晚上	저녁에.	Вечером.
+5074	Time & Weather	Time Expressions	Ĉi-posttagmeze	This afternoon.	今日の午後	今天下午	오늘 오후.	Сегодня днём.
+5075	Time & Weather	Time Expressions	Por morgaŭ	For tomorrow.	明日のために。	明天用。	내일을 위해.	На завтра.
+5076	Time & Weather	Time Expressions	Morgaŭ vespere	Tomorrow night.	明日の夜。	明天晚上。	내일 밤이에요.	Завтра вечером.
+5077	Time & Weather	Time Expressions	Post dek tagoj	In ten days.	10日後に。	十天后。	열흘 후에요.	Через десять дней.
+5078	Time & Weather	Time Expressions	Du semajnoj	A fortnight.	2週間	两周	2주일	Две недели.
+5079	Time & Weather	Time Expressions	Ĉi-monate	This month.	今月	本月	이번 달.	В этом месяце.
+5080	Time & Weather	Time Expressions	Kelkaj monatoj	A few months.	数か月ほど。	几个月。	몇 달 정도요.	Несколько месяцев.
+5081	Time & Weather	Time Expressions	Antaŭ longe	A long time ago.	昔々	很久以前。	오래전에.	Очень давно.
+5082	Time & Weather	Time Expressions	En la antaŭa monato	The previous month.	先月	上个月	지난달	В предыдущем месяце.
+5083	Time & Weather	Time Expressions	Antaŭhieraŭ	The day before yesterday.	一昨日	前天	그저께.	Позавчера.
+5084	Time & Weather	Time Expressions	Hieraŭ vespere	Yesterday evening.	昨日の夕方。	昨晚	어제 저녁에.	Вчера вечером.
+5085	Time & Weather	Time Expressions	Ĉiun kvin minutojn	Every five minutes.	5分ごとに。	每隔五分钟。	5분마다.	Каждые пять минут.
+5086	Time & Weather	Time Expressions	Post dek minutoj	In ten minutes.	10分後に。	十分钟后。	10분 후에요.	Через десять минут.
+5087	Time & Weather	Time Expressions	Post kelkaj horoj	In a couple of hours.	あと数時間で。	几个小时后。	몇 시간 후에요.	Через пару часов.
+5088	Time & Weather	Time Expressions	Por hodiaŭ	For today.	本日は	今天用	오늘을 위해.	На сегодня.
+5089	Time & Weather	Time Expressions	Ĉu jam malfrue?	Is it late?	もう遅いですか？	很晚了吗？	늦었나요?	Уже поздно?
+5090	Time & Weather	Time Expressions	Nun aŭ poste?	Now or later?	今にしますか？それとも後にしますか？	现在还是以后？	지금 하시겠어요, 아니면 나중에 하시겠어요?	Сейчас или позже?
+5091	Time & Weather	Time Expressions	Morgaŭ matene	Tomorrow morning.	明日の朝。	明天早上。	내일 아침에.	Завтра утром.
+5092	Time & Weather	Time Expressions	Postmorgaŭ	The day after tomorrow.	明後日	后天	모레.	Послезавтра.
+5093	Time & Weather	Time Expressions	La sekvantan tagon	The following day.	翌日	第二天	다음 날.	На следующий день.
+5094	Time & Weather	Time Expressions	Post tri semajnoj	In three weeks.	3週間後に。	三周后。	3주 후에요.	Через три недели.
+5095	Time & Weather	Time Expressions	Ĝis aŭgusto	Until August.	8月まで。	直到八月。	8월까지입니다.	До августа.
+5096	Time & Weather	Weather	Estas varme	It's hot.	暑いですね。	很热。	덥네요.	Жарко.
+5097	Time & Weather	Weather	Estas glacie kaj glite	It's icy.	凍っている。	地面结冰了。	얼음이 얼었어요.	Очень холодно.
+5098	Time & Weather	Weather	Estas 22°C	It's 22°C.	気温は22度です。	现在是22摄氏度。	22도예요.	Сейчас 22°C.
+5099	Time & Weather	Weather	Estas nebule	It's foggy.	霧がかかっています。	有雾。	안개가 꼈어요.	Туман.
+5100	Time & Weather	Weather	Estas suna tago	It's a sunny day.	今日は晴れています。	今天阳光明媚。	오늘은 맑고 화창한 날이에요.	Солнечный день.
+5101	Time & Weather	Weather	Kia bela tago!	What a nice day!	なんていい天気なんだろう！	多么美好的一天！	정말 좋은 날이네요!	Какой чудесный день!
+5102	Time & Weather	Weather	Ĉu estas malvarme ekstere?	Is it cold outside?	外は寒いですか？	外面冷吗？	밖이 추운가요?	На улице холодно?
+5103	Time & Weather	Weather	Ne, estas varme	No, it's warm.	いいえ、暖かいです。	不，挺暖和的。	아니요, 따뜻해요.	Нет, тепло.
+5104	Time & Weather	Weather	Pluvas	It's raining.	雨が降っています。	下雨了。	비가 오고 있어요.	Идёт дождь.
+5105	Time & Weather	Weather	Varmegas	It's roasting.	ものすごく暑い。	热得要命。	엄청 덥네요.	Жара.
+5106	Time & Weather	Weather	Frostas	It's freezing.	すごく寒い。	冷死了。	너무 추워요.	Мороз.
+5107	Time & Weather	Weather	Neĝas	It's snowing.	雪が降っています。	正在下雪。	눈이 오고 있어요.	Идёт снег.
+5108	Time & Weather	Weather	Ĉu hieraŭ neĝis?	Did it snow yesterday?	昨日は雪が降りましたか？	昨天下雪了吗？	어제 눈이 왔나요?	Вчера шёл снег?
+5109	Time & Weather	Weather	Kia estas la temperaturo?	What's the temperature?	今、気温は何度ですか？	现在多少度？	지금 온도가 몇 도인가요?	Какая сейчас температура?
+5110	Time & Weather	Weather	Verŝajne ĉirkaŭ 30°C	Probably about 30°C.	おそらく30度くらいです。	大概三十摄氏度左右。	아마 30도 정도일 거예요.	Возможно, около 30°C.
+5111	Time & Weather	Weather	Minus kvin gradoj	Minus five degrees.	マイナス五度。	零下五度	영하 5도입니다.	Минус пять градусов.
+5112	Time & Weather	Weather	Plus tri gradoj	Plus three degrees.	プラス3度です。	零上三度	영상 3도입니다.	Плюс три градуса.
+5113	Time & Weather	Weather	Mi ŝatas la veteron	I like the weather.	天気が好きです。	我喜欢这样的天气。	저는 날씨가 좋아요.	Мне нравится погода.
+5114	Time & Weather	Weather	Kia estas la vetero?	What's the weather like?	天気はどうですか？	天气怎么样？	날씨가 어떻습니까?	Какая сейчас погода?
+5115	Time & Weather	Weather	Pluvetadas	It is sprinkling.	小雨が降っています。	正在下毛毛雨。	이슬비가 내리고 있어요.	Накрапывает дождь.
+5116	Time & Weather	Weather	Hajlas	It's hailing.	ひょうが降っています。	正在下冰雹。	우박이 내리고 있어요.	Идёт град.
+5117	Time & Weather	Weather	Fulmas	It's lightning.	雷が鳴っています。	正在打雷。	번개가 치고 있어요.	Сверкает молния.
+5118	Time & Weather	Weather	Alproksimiĝas fulmotondro	It's stormy.	嵐になっています。	外面有暴风雨。	폭풍이 몰아치고 있어요.	Надвигается гроза.
+5119	Time & Weather	Weather	Estas aĉa tago	It's a nasty day.	ひどい天気だね。	天气真糟糕。	오늘은 날씨가 정말 안 좋아요.	Ненастный день.
+5120	Time & Weather	Weather	Ekstere estas iom malvarmete	It's a bit chilly outside.	外は少し肌寒いですね。	外面有点冷。	밖이 조금 쌀쌀해요.	На улице слегка прохладно.
+5121	Time & Weather	Weather	La vetero estas bona	The weather's fine.	天気はいいです。	天气很好。	날씨가 좋아요.	Погода хорошая.
+5122	Time & Weather	Weather	Ĉu mi bezonas ombrelon?	Do I need an umbrella?	傘は必要ですか？	我需要带伞吗？	우산이 필요할까요?	Мне нужен зонтик?
+5123	Time & Weather	Weather	Ĉesis pluvi	It's stopped raining.	雨がやみました。	雨停了。	비가 그쳤어요.	Дождь перестал.
+5124	Time & Weather	Weather	La ĉielo estas nuba	The sky is cloudy.	空は曇っています。	天空多云。	하늘에 구름이 많이 꼈어요.	Небо облачно.
+5125	Time & Weather	Weather	La ĉielo klariĝas	The sky is clearing up.	空が晴れてきました。	天空正在放晴。	하늘이 맑아지고 있어요.	Небо расчищается.
+5126	Time & Weather	Weather	La suno aperas	The sun is coming out.	太陽が顔を出してきました。	太阳出来了。	해가 나오고 있어요.	Солнце выходит.
+5127	Time & Weather	Weather	La suno brilas	The sun's shining.	太陽が輝いている。	阳光明媚。	해가 비치고 있어요.	Светит солнце.
+5128	Time & Weather	Weather	La vetero estas venta	The weather is windy.	風が強いです。	天气有风。	날씨가 바람이 많이 불어요.	Погода ветреная.
+5129	Time & Weather	Weather	Malvarmas, ĉu ne?	Cold weather, isn't it?	寒いですね？	天气挺冷的，对吧？	날씨가 꽤 춥네요, 그쵸?	Холодно, правда?
+5130	Time & Weather	Weather	Varmegas, ĉu ne?	Hot weather, isn't it?	暑いですね？	天气真热，是吧？	날씨가 정말 덥죠?	Жарко, правда?
+5131	Time & Weather	Weather	Kia bela vetero!	What beautiful weather!	なんていい天気なんだろう！	多么美好的天气！	정말 날씨가 너무 좋네요!	Какая прекрасная погода!
+5132	Time & Weather	Weather	Hodiaŭ la vetero estas bona	The weather today is good.	今日は天気がいいです。	今天天气很好。	오늘은 날씨가 좋아요.	Сегодня хорошая погода.
+5133	Time & Weather	Weather	Ne estas tre agrabla tago	It's not a very nice day.	あまりいい天気ではありません。	今天天气不太好。	오늘은 날씨가 그다지 좋지 않아요.	Не очень приятный день.
+5134	Time & Weather	Weather	Terura vetero, ĉu ne?	Horrible weather, isn't it?	ひどい天気ですね？	这天气真糟糕，不是吗？	날씨가 정말 끔찍하네요, 그렇지 않아요?	Ужасная погода, правда?
+5135	Time & Weather	Weather	Kia estas la vetero hodiaŭ?	How is the weather today?	今日はどんな天気ですか？	今天天气怎么样？	오늘 날씨는 어떻습니까?	Какая сегодня погода?
+5136	Time & Weather	Weather	Forte pluvas	It is raining hard.	激しい雨が降っています。	雨下得很大。	비가 많이 내리고 있어요.	Идёт проливной дождь.
+5137	Time & Weather	Weather	Ekpluvas	It's starting to rain.	雨が降り始めてきました。	开始下雨了。	비가 오기 시작했어요.	Начинается дождь.
+5138	Time & Weather	Weather	Pluvegas	It's pouring with rain.	土砂降りの雨が降っている。	正在下大雨。	비가 억수같이 쏟아지고 있어요.	Идёт проливной дождь.
+5139	Time & Weather	Weather	Estas sub nulo	It's below freezing.	氷点下です。	气温在零度以下。	영하예요.	Минусовая температура.
+5140	Time & Weather	Weather	Hodiaŭ estas kiel en forno	It's like an oven today.	今日はまるでオーブンの中にいるみたいだ。	今天简直像个烤箱。	오늘은 마치 오븐 같아요.	Сегодня пекло.
+5141	Time & Weather	Weather	Kia estas la veterprognozo?	What is the weather forecast?	天気予報はどうなっていますか？	天气预报是什么？	일기예보가 어떻게 되나요?	Какой прогноз погоды?
+5142	Time & Weather	Weather	Morgaŭ estos sune	It will be sunny tomorrow.	明日は晴れるでしょう。	明天将会是晴天。	내일은 맑을 거예요.	Завтра будет солнечно.
+5143	Time & Weather	Weather	Ĉi-nokte frostos	It's going to freeze tonight.	今夜は凍るでしょう。	今晚会降温到零度以下。	오늘 밤에는 기온이 영하로 떨어질 거예요.	Сегодня вечером будут заморозки.
+5144	Time & Weather	Weather	Ŝajnas, ke pluvos	It looks like it's going to rain.	雨が降りそうですね。	看起来要下雨了。	비가 올 것 같아요.	Похоже, будет дождь.
+5145	Time & Weather	Weather	Mi scivolas, ĉu estos fulmotondro	I wonder if there will be a storm.	嵐が来るのかな。	不知道会不会有暴风雨。	폭풍이 올지 궁금해요.	Интересно, будет ли гроза.
+5146	Time & Weather	Weather	La suno ĵus kaŝiĝis	The sun's just gone in.	太陽がちょうど雲に隠れた。	太阳刚刚被云遮住了。	방금 해가 구름에 가렸어요.	Солнце только что зашло.
+5147	Time & Weather	Weather	La vento ĉesis	The wind's dropped.	風がやみました。	风停了。	바람이 잦아들었어요.	Ветер прекратился.
+5148	Time & Weather	Weather	La nuboj disiĝas	The clouds are breaking.	雲が切れてきた。	云层正在散开。	구름이 걷히고 있어요.	Облака рассеиваются.
+5149	Time & Weather	Weather	Ni atendas fulmotondron	We're expecting a thunderstorm.	雷雨の予報が出ています。	我们预计会有雷暴。	천둥번개를 동반한 폭풍우가 올 것으로 예상돼요.	Мы ожидаем грозу.
+5150	Time & Weather	Weather	Blovas forta vento	There's a strong wind.	強い風が吹いています。	风很大。	바람이 세게 불고 있어요.	Дует сильный ветер.
+5151	Time & Weather	Weather	En la ĉielo ne estas eĉ unu nubo	There's not a cloud in the sky.	雲ひとつない青空だ。	天空万里无云。	하늘에 구름 한 점 없어요.	На небе ни облачка.
+5152	Time & Weather	Weather	Tio sonas kiel tondro	That sounds like thunder.	雷の音みたいですね。	听起来像打雷。	천둥 소리 같아요.	Похоже на гром.
+5153	Time & Weather	Weather	La atmosfera premo estas alta	The atmospheric pressure is high.	気圧が高いです。	大气压力较高。	대기압이 높아요.	Атмосферное давление высокое.
+5154	Time & Weather	Weather	Estu singarda, la stratoj estas tre glitaj	Be careful, the streets are very slippery.	気をつけて、道がとても滑りやすくなっています。	小心，路面很滑。	조심하세요, 길이 많이 미끄러워요.	Будь осторожен, улицы очень скользкие.
+5155	Time & Weather	Weather	Kiu estas la plej varma monato en via lando?	What's the warmest month in your country?	あなたの国で一番暑い月はいつですか？	你们国家最热的月份是几月？	당신 나라에서 가장 더운 달은 언제인가요?	Какой самый тёплый месяц в вашей стране?

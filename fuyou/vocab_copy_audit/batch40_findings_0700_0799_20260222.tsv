@@ -1,0 +1,22 @@
+idx	Esperanto	Column	Old	New	Reason
+702	juro	Korean_Trans	법, 법률	법, 법률; 법학	学問義を補完。
+709	kaduka	Chinese_Trans	破旧，破败；衰老；不稳定，不可靠；失效，无效	老朽，荒废；衰老；易消逝，短暂；（法）失效，无效	不自然語義を整理。
+711	kaj	Chinese_Trans	和	和，并且	接続の並列義を補完。
+714	kaldrono	Chinese_Trans	大锅，圆陡的山谷（凹地）	大锅；（地理）火山口凹地（カルデ拉）	地理義を自然化。
+715	kalendaro	Chinese_Trans	历法；日历，月历，月份牌	日历，历法	冗長語を整理。
+732	kapro	Chinese_Trans	山羊属动物	山羊	不自然な分類語尾を自然化。
+742	kaserolo	Chinese_Trans	（长柄平底）蒸锅或炖锅	（长柄深平底）炖锅，深平底锅	調理器具義を自然化。
+744	kastelo	Chinese_Trans	小城堡，别墅	城堡；大宅邸	「小城堡」を修正しJAに整合。
+744	kastelo	Korean_Trans	성, 성곽	성, 성곽; 대저택	大邸宅義を補完。
+750	kavo	Chinese_Trans	坑，腔，膛	洞，空腔，凹陷；（解）腔、窝；（理）波谷	語義を補完し整合。
+752	kaĉo	Chinese_Trans	粥，糊	粥，糊状食物；（转）糟糕食物，糊状物	転義を補完。
+766	kial	Chinese_Trans	为什么	为什么；为何…（连）	接続詞義を補完。
+771	kino	Chinese_Trans	电影	电影；电影制作，电影业	制作・映画界義を補完。
+773	kiom	Chinese_Trans	多少	多少，多么；（连）…多少/…多么	接続詞義を補完。
+775	kisi	Chinese_Trans	吻	亲吻；（转）轻触	転義を補完。
+778	klasika	Chinese_Trans	古典，经典	古典的，经典的；传统的，正统的	語性を自然化。
+779	klaso	Chinese_Trans	阶级；班级；等级	等级，类别；阶级，阶层；班级；（生）纲	生物分類義を補完。
+790	kolegio	Chinese_Trans	学院；专门学校，高等专科学校	学院；专门学校、高等专科学校；（宗）同职能团体	宗教義を補完。
+792	koleri	Chinese_Trans	发怒	发怒，生气（对…）	語義を自然化。
+795	kolombo	Chinese_Trans	鸽属鸟类	鸽子	不自然な分類語尾を自然化。
+798	kolumno	Chinese_Trans	栏，纵列；（数）数位	栏，专栏；纵列；（数）数位	新聞コラム義を補完。

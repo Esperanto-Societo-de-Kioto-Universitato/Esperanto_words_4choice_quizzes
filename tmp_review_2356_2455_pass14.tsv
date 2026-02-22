@@ -1,0 +1,101 @@
+PhraseID	TopicName_EN	SubtopicName_EN	Esperanto	日本語	中文	한국어	Русский язык	English
+2356	Car	Road Signs	Parkumejo	駐車	停车	주차	Парковка	Parking
+2357	Car	Road Signs	Malrapidiĝu	速度を落としてください	慢一点	천천히 하세요.	Снизьте скорость	Slow down
+2358	Car	Road Signs	Vojlaboroj	道路工事	道路施工	도로 공사	Дорожные работы	Roadworks
+2359	Car	Road Signs	Haltu! Trapaso malpermesita!	止まれ！立入禁止！	停下！禁止通行！	멈추세요! 통행 금지입니다!	Стоп! Проход запрещён!	Stop! No entry!
+2360	Car	Road Signs	Parkumado malpermesata	駐車禁止	禁止停车	주차 금지	Парковка запрещена	No parking
+2361	Car	Road Signs	Bushaltejo	バス停	公交车站	버스 정류장	Автобусная остановка	Bus stop
+2362	Car	Road Signs	Unudirekta trafiko	一方通行	单行道	일방통행	Одностороннее движение	One-way
+2363	Car	Road Signs	Rapidlimo	制限速度	限速	제한 속도	Ограничение максимальной скорости	Speed limit
+2364	Car	Road Signs	Eniro malpermesata	立入禁止	禁止入内	출입 금지	Въезд запрещён	No entry
+2365	Car	Road Signs	Vojo fermita	通行止め	道路封闭	도로 통제	Проезд запрещён	Road closed
+2366	Car	Road Signs	Halto malpermesita	駐停車禁止	禁止停车	정차 금지	Остановка запрещена	No stopping
+2367	Car	Road Signs	Busstrio	バス専用レーン	公交专用道	버스 전용차로	Полоса общественного транспорта	Bus lane
+2368	Car	Road Signs	Cedu vojon	道を譲る	让路	양보하세요	Уступи дорогу	Give way
+2369	Car	Road Signs	Preterpasu maldekstre	左側をお通りください	请靠左行驶	좌측으로 이동하세요.	Объезд препятствия слева	Keep left
+2370	Car	Road Signs	Piedira zono	歩行者専用区域	步行区	보행자 전용 구역	Пешеходная дорожка	Pedestrian zone
+2371	Car	Road Signs	Trafikblokiĝo	渋滞	交通堵塞	교통 체증	Затор	Traffic jam
+2372	Car	Road Signs	Malalta ponto	低い橋	低矮桥梁	낮은 교각	Низкий мост	Low bridge
+2373	Car	Road Signs	Senpaga parkumado	無料駐車場	免费停车	무료 주차	Бесплатная парковка	Free parking
+2374	Car	Road Signs	Trafiklumo-regulado	信号機	红绿灯	신호등	Светофорное регулирование	Traffic lights
+2375	Car	Road Signs	Nivelkruciĝo	踏切	道口	건널목	Железнодорожный переезд	Level crossing
+2376	Car	Road Signs	Veturu singarde	運転に気をつけてください。	请小心驾驶	조심해서 운전하세요.	Ведите осторожно.	Drive carefully
+2377	Car	Road Signs	Ne trinku kaj veturu	飲酒運転はやめましょう	请勿酒后驾车	음주 운전을 하지 마세요.	Не употребляйте спиртное за рулём	Don't drink and drive
+2378	Car	Road Signs	Piedira transirejo	横断歩道	人行横道	횡단보도	Пешеходный переход	Pedestrian crossing
+2379	Other Transport	At the Bus Station	Unu bileton, mi petas	チケットを一枚お願いします。	请给我一张票。	표 한 장 주세요.	Один билет, пожалуйста.	One ticket, please.
+2380	Other Transport	At the Bus Station	Kie mi povas aĉeti karton?	カードはどこで買えますか？	我在哪里可以买到卡？	카드는 어디에서 살 수 있나요?	Где мне купить карточку?	Where do I buy a card?
+2381	Other Transport	At the Bus Station	Ĉu ĉi tiu estas la buso al Moskvo?	これはモスクワ行きのバスですか？	这是去莫斯科的公交车吗？	이 버스가 모스크바로 가는 버스인가요?	Это автобус до Москвы?	Is this the bus to Moscow?
+2382	Other Transport	At the Bus Station	Kiam foriras la buso?	バスはいつ出発しますか？	公交车什么时候发车？	버스는 언제 출발하나요?	Во сколько отъезжает автобус?	When does the bus leave?
+2383	Other Transport	At the Bus Station	Mi preferas veturi per aŭtobuso	バスで行くほうが好きです。	我更喜欢坐公交车。	저는 버스를 타고 가는 것을 선호해요.	Я предпочитаю ехать на автобусе.	I prefer to go by bus.
+2384	Other Transport	At the Bus Station	Kie estas la plej proksima bushaltejo?	一番近いバス停はどこですか？	最近的公交车站在哪里？	가장 가까운 버스 정류장이 어디에 있나요?	Где ближайшая автобусная остановка?	Where is the nearest bus stop?
+2385	Other Transport	At the Bus Station	Kien iras ĉi tiu aŭtobuso?	このバスはどこへ行きますか？	这辆公交车到哪里？	이 버스는 어디로 가나요?	Куда идёт этот автобус?	Where does this bus go?
+2386	Other Transport	At the Bus Station	Kiom kostas la biletoj?	チケットはいくらですか？	车票多少钱？	티켓 가격이 얼마인가요?	Сколько стоят билеты?	How much are the tickets?
+2387	Other Transport	At the Bus Station	Mi ŝatus du biletojn, mi petas	チケットを2枚お願いします。	请给我两张票。	티켓 두 장 주세요.	Я бы хотел два билета, пожалуйста.	I'd like two tickets, please.
+2388	Other Transport	At the Bus Station	Revenbileto	往復切符。	往返票	왕복 승차권이요.	Билет туда-обратно.	A return ticket.
+2389	Other Transport	At the Bus Station	Ĉu mi povas aĉeti monatan abonon?	月額パスは購入できますか？	我可以购买月票吗？	월 정기권을 구매할 수 있나요?	Я могу купить проездной на месяц?	Can I buy a monthly pass?
+2390	Other Transport	At the Bus Station	Mi maltrafis la lastan buson	最終バスを逃してしまいました。	我错过了最后一班公交车。	마지막 버스를 놓쳤어요.	Я опоздала на последний автобус.	I have missed the last bus.
+2391	Other Transport	At the Bus Station	Ĉu mi povas ricevi horaron, mi petas?	時刻表をいただけますか。	请给我一份时间表。	시간표를 받을 수 있을까요?	Можно мне расписание, пожалуйста?	Can I have a timetable, please?
+2392	Other Transport	At the Bus Station	Ĉu mi povas aĉeti bileton en la buso?	バスの中で切符を買えますか？	我可以在公交车上买票吗？	버스에서 표를 구매할 수 있나요?	Я могу купить билет в автобусе?	Can I buy a ticket on the bus?
+2393	Other Transport	At the Bus Station	Kiom kostas unudirekta bileto al Mumbajo?	ムンバイまでの片道切符はいくらですか？	去孟买的单程票多少钱？	뭄바이행 편도 요금이 얼마인가요?	Сколько стоит билет в один конец до Мумбая?	How much is a single to Mumbai?
+2394	Other Transport	At the Bus Station	Ĉu estas grupa tarifo?	団体割引はありますか？	有团体优惠吗？	단체 할인 요금이 있나요?	Есть групповой тариф?	Is there a group rate?
+2395	Other Transport	At the Bus Station	Kie mi transiru por Zagrebo?	ザグレブ行きに乗り換えるのはどこですか？	我在哪里换乘去萨格勒布？	자그레브로 가려면 어디에서 환승해야 하나요?	Где мне сделать пересадку до Загреба?	Where do I change for Zagreb?
+2396	Other Transport	At the Bus Station	Pardonu, kie estas la aŭtobusa stacidomo?	すみません、バスターミナルはどこですか？	请问，公交车站在哪里？	실례합니다, 버스 터미널이 어디에 있나요?	Извините, где находится автобусный вокзал?	Excuse me, where's the bus station?
+2397	Other Transport	At the Bus Station	Kiu buso iras al la urbocentro?	市の中心部へ行くバスはどれですか？	哪路公交车去市中心？	어느 버스가 시내 중심지로 가나요?	Какой автобус идёт в центр города?	Which bus goes to the city centre?
+2398	Other Transport	At the Bus Station	Ĉu ĉi tiu buso iras al la plaĝo?	このバスはビーチに行きますか？	这辆公交车去海滩吗？	이 버스는 해변까지 가나요?	Этот автобус идёт на пляж?	Does this bus go to the beach?
+2399	Other Transport	At the Bus Station	Kiom da fojoj hore ĝi iras?	1時間あたりの頻度はどれくらいですか？	每小时的频率是多少？	시간당 빈도는 얼마인가요?	Сколько раз в час он ходит?	What's the frequency per hour?
+2400	Other Transport	At the Bus Station	Kiam foriras la sekva?	次の便はいつ出発しますか？	下一班什么时候出发？	다음 것은 언제 출발하나요?	Когда отправляется следующий?	When does the next one depart?
+2401	Other Transport	At the Bus Station	Ni atendu la sekvan	次のを待ちましょう。	我们等下一个吧。	다음 것을 기다립시다.	Давай подождём следующего.	Let's wait for the next one.
+2402	Other Transport	At the Bus Station	Ĉi tiu buso estas nuligita	このバスは運休となりました。	本班车已取消。	이 버스는 운행이 취소되었습니다.	Этот автобус отменили.	This bus has been cancelled.
+2403	Other Transport	At the Bus Station	Kie estas la biletaŭtomatoj?	券売機はどこですか？	售票机在哪里？	티켓 발매기는 어디에 있나요?	Где находятся билетные автоматы?	Where are the ticket machines?
+2404	Other Transport	At the Bus Station	Ĉu mi devas stampi la bileton antaŭ ol eniri?	乗車前に切符にスタンプを押す必要がありますか？	上车前需要打票吗？	탑승 전에 표에 도장을 찍어야 하나요?	Мне нужно поставить печать на билет перед посадкой?	Do I have to stamp the ticket before boarding?
+2405	Other Transport	At the Bus Station	Ĉu ĉi tio estas la aktuala aŭtobusa horaro?	これが現在のバスの時刻表ですか？	这是最新的公交时刻表吗？	이게 현재 버스 시간표인가요?	Это действующее расписание автобусов?	Is this the current bus timetable?
+2406	Other Transport	At the Bus Station	Je kioma horo foriras la sekva buso al la flughaveno?	次の空港行きのバスは何時に出発しますか？	下一班去机场的公交车几点发车？	다음 공항행 버스는 몇 시에 출발하나요?	Во сколько отправляется следующий автобус в аэропорт?	What time does the next bus for the airport leave?
+2407	Other Transport	At the Bus Station	Kiom ofte veturas la aŭtobusoj al Barcelono?	バルセロナ行きのバスはどのくらいの頻度で運行していますか？	去巴塞罗那的公交车多久一班？	바르셀로나행 버스는 얼마나 자주 운행되나요?	Как часто ходят автобусы до Барселоны?	How often do the buses run to Barcelona?
+2408	Other Transport	At the Bus Station	Je kioma horo estas la sekva buso al Rio-de-Ĵanejro?	次のリオデジャネイロ行きのバスは何時ですか？	下一班去里约热内卢的公交车几点发车？	다음 리우데자네이루행 버스는 몇 시에 출발하나요?	Во сколько следующий автобус в Рио-де-Жанейро?	What time's the next bus to Rio de Janeiro?
+2409	Other Transport	At the Bus Station	De kie foriras la aŭtobuso al Sankt-Peterburgo?	サンクトペテルブルク行きのバスはどこから乗れますか？	去圣彼得堡的公交车从哪里乘坐？	상트페테르부르크행 버스는 어디에서 탈 수 있나요?	Откуда отправляется автобус в Санкт-Петербург?	Where do I get the bus to Saint Petersburg from?
+2410	Other Transport	At the Bus Station	Kiom kostas unuaklasa revenbileto al Kopenhago?	コペンハーゲンまでのファーストクラスの往復料金はいくらですか。	头等舱往返哥本哈根多少钱？	코펜하겐행 일등석 왕복 요금이 얼마인가요?	Сколько стоит билет первого класса туда и обратно до Копенгагена?	How much is a first class return to Copenhagen?
+2411	Other Transport	At the Bus Station	Kiom kostas la veturo ĝis ĉi tiu loko?	こちらの場所までの運賃はいくらですか。	到这里的车费是多少？	이곳까지 요금이 얼마인가요?	Сколько стоит проезд до этого места?	How much is the fare to this place?
+2412	Other Transport	At the Bus Station	Ĉu estas rabatita tarifo?	割引料金はありますか？	有优惠票吗？	할인 요금이 있나요?	Есть льготный тариф?	Is there a reduced fare?
+2413	Other Transport	At the Bus Station	Mi ŝatus infanan unudirektan bileton al Minsko	ミンスクまで子供用の片道切符をお願いします。	我要一张去明斯克的儿童单程票。	민스크행 어린이 1인용 편도 티켓 한 장 주세요.	Я бы хотел детский билет в один конец до Минска.	I'd like a child single to Minsk.
+2414	Other Transport	At the Bus Station	Mi ŝatus returan bileton al Bakuo, kun reveno dimanĉe	日曜日に戻るバク行きの往復をお願いします。	我想预订一张返回巴库的往返票，周日回程。	일요일에 돌아오는 바쿠행 왕복 티켓을 원합니다.	Я бы хотел билет туда и обратно до Баку, чтобы вернуться в воскресенье.	I'd like a return to Baku, coming back on Sunday.
+2415	Other Transport	At the Bus Station	Mi ŝatus pensiulan revenbileton al Bukareŝto	ブカレスト行きのシニア割引の往復切符をお願いします。	我想要一张去布加勒斯特的老年人往返票。	시니어 요금으로 부쿠레슈트행 왕복 티켓을 부탁합니다.	Я бы хотел льготный пенсионный билет до Бухареста и обратно.	I'd like a senior citizens' return to Bucharest.
+2416	Other Transport	At the Bus Station	Vi devos transiri en Oslo	オスロで乗り換える必要があります。	你需要在奥斯陆转车。	오슬로에서 환승하셔야 합니다.	Вам надо будет сделать пересадку в Осло.	You'll need to change at Oslo.
+2417	Other Transport	At the Train Station	Horo de foriro	出発時刻	出发时间	출발 시간	Время отправления	Departure time
+2418	Other Transport	At the Train Station	Kiom kostas la veturo?	運賃はいくらですか？	多少钱？	요금이 얼마인가요?	Сколько стоит проезд?	What's the fare?
+2419	Other Transport	At the Train Station	Kiu platformo?	どのプラットフォームですか？	哪个平台？	어떤 플랫폼인가요?	Какая платформа?	Which platform?
+2420	Other Transport	At the Train Station	Mi maltrafis la trajnon	電車に乗り遅れました。	我错过了火车。	기차를 놓쳤어요.	Я опоздал на поезд.	I missed the train.
+2421	Other Transport	At the Train Station	Mapon, mi petas	地図をお願いします。	请给我一张地图。	지도 한 장 주세요.	Карту, пожалуйста.	A map, please.
+2422	Other Transport	At the Train Station	Kie estas la biletejo?	チケット売り場はどこですか？	售票处在哪里？	매표소가 어디에 있나요?	Где касса?	Where's the ticket office?
+2423	Other Transport	At the Train Station	Unudirektan bileton al Londono	ロンドンまでの片道切符を一枚お願いします。	一张去伦敦的单程票。	런던행 편도 티켓 한 장 주세요.	Билет в одну сторону до Лондона.	A single ticket to London.
+2424	Other Transport	At the Train Station	Ĉu ĝi estas rekta trajno?	これは直通電車ですか？	这是直达列车吗？	직행 열차인가요?	Это прямой поезд?	Is it a direct train?
+2425	Other Transport	At the Train Station	Ĉu tio estas rapidtrajno?	あれは急行列車ですか？	那是快车吗？	저것이 급행열차인가요?	Это поезд-экспресс?	Is that an express train?
+2426	Other Transport	At the Train Station	En kiujn zonojn?	どのエリアですか？	哪些区域？	어떤 구역인가요?	В какие зоны?	Which zones?
+2427	Other Transport	At the Train Station	Kiu direkto?	どちらの方向ですか？	哪个方向？	어느 방향인가요?	Какое направление?	Which direction?
+2428	Other Transport	At the Train Station	Ĉu la trajno alvenos ĝustatempe?	電車は時間通りに来ていますか？	火车准时吗？	기차가 제시간에 도착하나요?	Поезд прибудет вовремя?	Is the train on time?
+2429	Other Transport	At the Train Station	La trajno malfruiĝas	電車が遅れています。	火车晚点了。	기차가 지연되고 있어요.	Поезд опаздывает.	The train's running late.
+2430	Other Transport	At the Train Station	Ĉi tiu trajno estas troamplena	この電車はとても混雑しています。	这趟列车太拥挤了。	이 열차는 너무 혼잡해요.	Этот поезд переполнен.	This train is overcrowded.
+2431	Other Transport	At the Train Station	Atentu la interspacon	足元にご注意ください	注意间隙	발밑을 조심하세요.	Не подходите к краю платформы	Mind the gap
+2432	Other Transport	At the Train Station	Kie estas la taksioj?	タクシーはどこにありますか？	出租车在哪里？	택시는 어디에 있나요?	Где такси?	Where are the taxis?
+2433	Other Transport	At the Train Station	Kie estas la fervoja stacidomo?	駅はどこですか。	火车站在哪里？	기차역이 어디에 있나요?	Где железнодорожный вокзал?	Where's the train station?
+2434	Other Transport	At the Train Station	Kie mi povas aĉeti trajnbileton?	どこで電車の切符を買えますか？	我可以在哪里买火车票？	기차표는 어디에서 살 수 있나요?	Где я могу купить билет на поезд?	Where can I buy a train ticket?
+2435	Other Transport	At the Train Station	Mi ŝatus unudirektan bileton al Toronto	トロントまでの片道切符をお願いします。	我要一张去多伦多的单程票。	토론토행 편도 한 장 주세요.	Я бы хотела билет в один конец до Торонто.	I'd like a single to Toronto.
+2436	Other Transport	At the Train Station	Mi preferas sidlokon ĉe la fenestro	窓側の席を希望します。	我更喜欢靠窗的座位。	저는 창가 쪽 좌석을 선호해요.	Я предпочитаю место у окна.	I prefer a seat by the window.
+2437	Other Transport	At the Train Station	Ĉu mi devas pagi aldone por mia bagaĝo?	荷物に追加料金はかかりますか？	我的行李需要额外付费吗？	제 짐에 대해 추가 요금을 내야 하나요?	Мне нужно доплачивать за багаж?	Do I have to pay extra for my luggage?
+2438	Other Transport	At the Train Station	La biletoj estas multekostaj	チケットは高いです。	票价很贵。	티켓이 비싸요.	Билеты дорогие.	The tickets are expensive.
+2439	Other Transport	At the Train Station	Ĉu mi devas ŝanĝi trajnon?	乗り換えが必要ですか？	我需要换乘吗？	환승해야 하나요?	Мне надо делать пересадку?	Do I have to change trains?
+2440	Other Transport	At the Train Station	Vi devos ŝanĝi trajnon	電車を乗り換える必要があります。	你需要换乘。	환승하셔야 합니다.	Вам придётся пересесть на другой поезд.	You'll have to change trains.
+2441	Other Transport	At the Train Station	Mi ŝatus revenbileton al Dublino	ダブリンまでの往復切符をお願いします。	我想要一张去都柏林的往返票。	더블린행 왕복표를 원합니다.	Я бы хотела билет туда и обратно до Дублина.	I'd like a return to Dublin.
+2442	Other Transport	At the Train Station	Kiun trajnon mi prenu?	どの電車に乗ればいいですか？	我应该乘坐哪趟列车？	어느 열차를 타야 하나요?	На какой поезд мне нужно сесть?	Which train should I take?
+2443	Other Transport	At the Train Station	Kiel mi povas atingi Abu-Dabion?	アブダビへはどうやって行けばいいですか？	我怎么去阿布扎比？	아부다비에 가려면 어떻게 해야 하나요?	Как мне добраться до Абу-Даби?	How do I get to Abu Dhabi?
+2444	Other Transport	At the Train Station	Kiom longe daŭras la vojaĝo?	所要時間はどのくらいですか？	这段旅程需要多长时间？	여정은 얼마나 걸리나요?	Как долго длится путешествие?	How long does the journey take?
+2445	Other Transport	At the Train Station	Ĉu ĉi tiu estas la trajno al Novjorko?	この電車はニューヨーク行きですか？	这是去纽约的火车吗？	이 열차가 뉴욕행인가요?	Это поезд до Нью-Йорка?	Is this the train to New York?
+2446	Other Transport	At the Train Station	La trajno estis nuligita	電車は運休になりました。	火车已被取消。	기차가 취소되었습니다.	Поезд был отменён.	The train has been cancelled.
+2447	Other Transport	At the Train Station	Kie estas kajo numero 1?	1番線はどこですか？	一号站台在哪里？	1번 승강장은 어디에 있나요?	Где платформа номер 1?	Where is platform number 1?
+2448	Other Transport	At the Train Station	Kie estas la atendejo?	待合室はどこですか。	请问候车室在哪里？	대기실이 어디에 있나요?	Где зал ожидания?	Where is the waiting room?
+2449	Other Transport	At the Train Station	Kie estas la horaro de trajnoj?	電車の時刻表はどこにありますか。	请问火车时刻表在哪里？	기차 시간표는 어디에 있나요?	Где расписание движения поездов?	Where is the timetable of trains?
+2450	Other Transport	At the Train Station	Vi povas trovi la horaron tie	時刻表はあちらにあります。	你可以在那边找到时间表。	시간표는 저쪽에서 확인하실 수 있어요.	Вы можете посмотреть расписание вон там.	You can find the timetable over there.
+2451	Other Transport	At the Train Station	Kiam vi volus vojaĝi?	いつご旅行を希望されますか？	您想什么时候出行？	언제 여행을 가고 싶으신가요?	Когда вы бы хотели поехать?	When would you like to travel?
+2452	Other Transport	At the Train Station	Kiam estas la lasta trajno al Istanbulo?	イスタンブール行きの最終列車は何時ですか？	开往伊斯坦布尔的末班火车几点发车？	이스탄불행 마지막 열차는 언제 출발하나요?	Когда последний поезд в Стамбул?	When's the last train to Istanbul?
+2453	Other Transport	At the Train Station	Je kioma horo foriras la sekva trajno al Vilno?	次のビリニュス行きの電車は何時ですか？	下一班开往维尔纽斯的火车几点发车？	빌뉴스행 다음 열차는 몇 시에 출발하나요?	Во сколько идёт следующий поезд до Вильнюса?	What time's the next train to Vilnius?
+2454	Other Transport	At the Train Station	Kiom ofte veturas la trajnoj al Frankfurto?	フランクフルト行きの電車はどのくらいの頻度で運行していますか？	去法兰克福的火车多久一班？	프랑크푸르트행 열차는 얼마나 자주 운행하나요?	Как часто ходят поезда до Франкфурта?	How often do the trains run to Frankfurt?
+2455	Other Transport	At the Train Station	Mi ŝatus aĉeti bileton al Rigo, mi petas	リガ行きのチケットを一枚お願いします。	我想买一张去里加的票。	리가행 티켓을 한 장 구매하고 싶어요.	Я бы хотел купить билет до Риги, пожалуйста.	I would like to buy a ticket to Riga, please.

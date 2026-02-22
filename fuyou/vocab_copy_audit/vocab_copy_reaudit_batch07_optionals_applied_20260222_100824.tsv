@@ -1,0 +1,42 @@
+row	esperanto	column	verdict	status	before	after
+605	historio	Korean_Trans	optional_low	applied	역사, 지나온 과정	역사; 역사학; 유래, 경위; 이야기
+606	hodiaŭ	Chinese_Trans	optional_low	applied	今天	今天；现今，如今
+606	hodiaŭ	Korean_Trans	optional_low	applied	오늘	오늘; 오늘날, 요즘
+609	honesta	Chinese_Trans	optional_low	applied	正直，诚实	正直，诚实；正当，公正
+609	honesta	Korean_Trans	optional_low	applied	정직하고 성실한	정직하고 성실한; 정당하고 공정한
+610	honoro	Korean_Trans	optional_low	applied	명예, 영예	명예, 영예; 존경, 경의
+613	horizonto	Korean_Trans	optional_medium	applied	지평선, 수평선	지평선, 수평선; (비유) 시야, 견문; (지질·토양) 층위
+618	humana	Chinese_Trans	optional_medium	applied	人道，仁爱，仁慈	人道的，仁慈的；有人情味的
+620	humila	Chinese_Trans	optional_medium	applied	自卑，谦逊	谦虚，谦逊；（文）卑微的
+634	ilustri	Chinese_Trans	optional_medium	applied	插图，以图装饰	加插图，图解；（举例）说明
+641	impreso	Korean_Trans	optional_low	applied	인상, 감명	인상, 감명; (사진) 감광
+642	imuna	Korean_Trans	optional_medium	applied	질병에 대한 면역이 있는	면역의; (법) 면책의; (기계) 내성이 있는
+644	indiferenta	Chinese_Trans	optional_low	applied	引不起兴趣的；冷漠	无关紧要的；冷漠的
+647	individuo	Korean_Trans	optional_low	applied	개인	개인; (생물) 개체
+651	infekti	Chinese_Trans	optional_low	applied	传染；感染	传染，感染；（转）感染、影响
+651	infekti	Korean_Trans	optional_low	applied	병을 옮기다, 감염시키다	감염시키다, 병을 옮기다; (비유) 영향을 퍼뜨리다
+656	injekti	Chinese_Trans	optional_medium	applied	注射	注射；（机械）注入
+656	injekti	Korean_Trans	optional_medium	applied	주사하다	주사하다; (기계) 주입하다
+660	insigno	Chinese_Trans	optional_medium	applied	徽章	徽章，胸章；（复）纹章
+660	insigno	Korean_Trans	optional_medium	applied	휘장	휘장, 배지; (복수) 문장(紋章)
+663	instali	Chinese_Trans	optional_medium	applied	设置，安装，建立	安装，设置；使就任；（信息）安装程序
+663	instali	Korean_Trans	optional_medium	applied	기계나 설비를 제자리에 설치하다	설치하다, 장착하다; 취임시키다; (정보) 인스톨하다
+665	instinkto	Chinese_Trans	optional_low	applied	本能，生性，天性	本能；直觉
+665	instinkto	Korean_Trans	optional_low	applied	본능	본능; 직관
+667	instrumento	Chinese_Trans	optional_medium	applied	用具，仪器	器具，仪器；乐器；手段；（法）法律文书
+667	instrumento	Korean_Trans	optional_medium	applied	작업이나 연주에 쓰는 도구, 기구	도구, 기구; 악기; 수단; (법) 법률 문서
+668	insulo	Chinese_Trans	optional_low	applied	岛	岛；（转）孤立区域
+668	insulo	Korean_Trans	optional_low	applied	섬	섬; (비유) 고립된 구역
+673	inter	Korean_Trans	optional_low	applied	둘이나 여럿 사이의 관계	…사이에, …사이에서; …가운데 섞여
+674	interesi	Chinese_Trans	optional_medium	applied	使发生兴趣	使感兴趣；与…有利害关系
+674	interesi	Korean_Trans	optional_medium	applied	흥미를 일으키게 하다, 관심을 갖게 하다	흥미를 갖게 하다; (법·경제) 이해관계를 갖다
+675	interna	Chinese_Trans	optional_low	applied	内部，内在	内部的，内在的；国内的；内心的
+675	interna	Korean_Trans	optional_low	applied	안의, 내부의	내부의, 안의; 국내의; 내면의
+676	interpreti	Chinese_Trans	optional_medium	applied	口译；说明，解释	口译；解释，诠释；（演艺）演绎
+676	interpreti	Korean_Trans	optional_medium	applied	해석하다	통역하다; 해석하다; (공연) 해석해 연기하다
+678	intima	Korean_Trans	optional_low	applied	매우 친밀하고 가까운	친밀한, 가까운; 사적인, 내밀한
+679	inundi	Chinese_Trans	optional_low	applied	泛滥，淹没	泛滥，淹没；（转）充斥
+679	inundi	Korean_Trans	optional_low	applied	물이 넘쳐 땅이나 건물을 잠기게 하다	범람시키다, 물에 잠기게 하다; (비유) 넘쳐흐르게 하다
+688	izoli	Korean_Trans	optional_medium	applied	떼어놓다, 격리·고립시키다	격리하다, 고립시키다; (전기) 절연하다; (화학) 단리하다
+689	ja	Korean_Trans	optional_low	applied	정말그렇다	정말, 참으로, 확실히
+695	jen	Chinese_Trans	optional_medium	applied	（用以引起注意）[〜…〜…]一会儿…，一会儿…	看，这里；瞧，那里（引起注意）

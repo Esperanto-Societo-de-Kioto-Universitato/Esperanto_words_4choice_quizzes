@@ -1,0 +1,17 @@
+row	esperanto	column	token	reason	current	suggested
+161	aŭtomobilo	Japanese_Trans	aŭto	prefix	{Ｂ}自動車（乗用車）, =aŭto	{Ｂ}自動車（乗用車）, =〜
+328	diskuti	Japanese_Trans	disputi	lev1_full	{Ｂ}［自］討議する, 議論する, >>debati, >>disputi, >>polemiki	{Ｂ}［自］討議する, 議論する, >>debati, >>〜, >>polemiki
+368	ekonomio	Japanese_Trans	ekonomiko	lev1_full,prefix	{Ｂ}経済; 節約, =ŝparado; =ekonomiko	{Ｂ}経済; 節約, =ŝparado; =〜
+621	humoro	Japanese_Trans	humuro	lev1_full	{Ｂ}気質; 気分, 機嫌; 《古》（人の性格を左右するとされた）体液（ユーモア=humuroとは別語）	{Ｂ}気質; 気分, 機嫌; 《古》（人の性格を左右するとされた）体液（ユーモア=〜とは別語）
+2058	damaĝi	Japanese_Trans	domaĝi	lev1_full	{Ｂ}［他］損害を与える, 損傷を与える, >>difekti, >>domaĝi	{Ｂ}［他］損害を与える, 損傷を与える, >>〜, >>〜
+2116	foti	Japanese_Trans	fotografi	prefix	{Ｂ}［他］写真にとる, 撮影する, =fotografi	{Ｂ}［他］写真にとる, 撮影する, =〜
+2138	humuro	Japanese_Trans	humoro	lev1_full	{Ｂ}ユーモア（感覚）, こっけい, おかしみ, 諧謔（かいぎゃく）, >>ŝerco, >>sprito（気分=humoroと区別）	{Ｂ}ユーモア（感覚）, こっけい, おかしみ, 諧謔（かいぎゃく）, >>ŝerco, >>sprito（気分=〜と区別）
+2184	komenti	Japanese_Trans	komentarii	prefix	{Ｏ}［他］論評する, 解説する; =komentarii（注釈をつける）	{Ｏ}［他］論評する, 解説する; =〜（注釈をつける）
+2483	budĝeto	Japanese_Trans	buĝeto	lev1_full	{Ｂ}予算, =buĝeto	{Ｂ}予算, =〜
+2695	meĥaniko	Japanese_Trans	mekaniko	lev1_full	{Ｂ}力学（メカニクス）, 機械学, =mekaniko	{Ｂ}力学（メカニクス）, 機械学, =〜
+2696	meĥanismo	Japanese_Trans	mekanismo	lev1_full	{Ｂ}機械装置（メカニズム）, 機構, =mekanismo	{Ｂ}機械装置（メカニズム）, 機構, =〜
+2847	teĥniko	Japanese_Trans	tekniko	lev1_full	{Ｂ}技術（テクノロジー）, =tekniko	{Ｂ}技術（テクノロジー）, =〜
+2886	ĥemio	Japanese_Trans	kemio	lev1_full	{Ｂ}化学（ケミストリー）, =kemio	{Ｂ}化学（ケミストリー）, =〜
+161	aŭtomobilo	Chinese_Trans	aŭto	prefix	同aŭto（汽车）	同〜（汽车）
+2483	budĝeto	Chinese_Trans	buĝeto	lev1_full	同buĝeto（预算）	同〜（预算）
+2483	budĝeto	Korean_Trans	buĝeto	lev1_full	예산, =buĝeto	예산, =〜

@@ -1,0 +1,101 @@
+PhraseID	TopicName_EN	SubtopicName_EN	Esperanto	日本語	中文	한국어	Русский язык	English
+1856	Travel	Giving Directions	Daŭrigu rekten preter kelkaj semaforoj	いくつかの信号をそのまま直進してください。	直行，经过几个红绿灯。	신호등을 지나 계속 직진하세요.	Продолжайте идти прямо мимо светофоров.	Continue straight on past some traffic lights.
+1857	Travel	Giving Directions	Vi iras laŭ la malĝusta vojo	そっちじゃありません。	你走错方向了。	잘못된 방향으로 가고 있어요.	Вы идёте неправильной дорогой.	You're going the wrong way.
+1858	Travel	Giving Directions	Vi prefere veturu per tramo	路面電車に乗ったほうがいいですよ。	你最好坐电车。	트램을 타는 게 좋겠어요.	Вам лучше поехать на трамвае.	You'd better take the tram.
+1859	Travel	Giving Directions	Uzu la subpasejon	地下歩道をご利用ください。	请走地下通道。	지하보도를 이용하세요.	Воспользуйтесь подземным переходом.	Use the pedestrian subway.
+1860	Travel	Giving Directions	Sekvu la indikilojn al la urbocentro	市内中心部の案内標識に従って進んでください。	请按照指示牌前往市中心。	도심 방향 표지판을 따라가세요.	Следуйте указателям, ведущим в центр города.	Follow the signs for the city centre.
+1861	Travel	Giving Directions	Pardonu, mi ne konas la urbon	すみません、その町については知りません。	抱歉，我不认识这个城镇。	죄송하지만, 그 마을에 대해서는 잘 모르겠어요.	Извините, я не знаю города.	Sorry, I don't know the town.
+1862	Travel	Giving Directions	Pardonu, mi ne estas de ĉi tie	すみません、私はこの辺の者ではありません。	不好意思，我不是本地人。	죄송하지만 저는 이 근처 사람이 아니에요.	Извините, я не отсюда.	Sorry, I'm not from around here.
+1863	Travel	At the Tourist Office	Mi estas eksterlandano	私は外国人です。	我是外国人。	저는 외국인입니다.	Я иностранец.	I'm a foreigner.
+1864	Travel	At the Tourist Office	Ĉu estas moteloj ĉi tie?	モーテルはありますか？	附近有汽车旅馆吗？	여기 모텔이 있나요?	Здесь есть мотели?	Are there any motels?
+1865	Travel	At the Tourist Office	Kie estas la urbocentro?	市の中心部はどこですか？	市中心在哪里？	도심이 어디에 있나요?	Где находится центр города?	Where's the city centre?
+1866	Travel	At the Tourist Office	Ĉu vi havas mapon?	地図をお持ちですか？	你有地图吗？	지도 있으신가요?	У вас есть карта?	Have you got a map?
+1867	Travel	At the Tourist Office	Mi volas viziti vidindaĵojn	観光に行きたいです。	我想去观光。	관광을 하고 싶어요.	Я хочу посмотреть достопримечательности.	I want to go sightseeing.
+1868	Travel	At the Tourist Office	Kie mi povas lui aŭton?	どこでレンタカーを借りられますか？	我在哪里可以租车？	어디에서 차량을 렌트할 수 있나요?	Где можно арендовать машину?	Where can I hire a car?
+1869	Travel	At the Tourist Office	Kie staras la aŭtobusoj?	バスはどこですか？	公交车在哪里？	버스는 어디에 있나요?	Где стоят автобусы?	Where are the buses?
+1870	Travel	At the Tourist Office	Kie estas la parko?	公園はどこですか。	公园在哪里？	공원은 어디에 있나요?	Где находится парк?	Where is the park?
+1871	Travel	At the Tourist Office	Kie estas la muzeo?	博物館はどこですか？	博物馆在哪里？	박물관이 어디에 있나요?	Где находится музей?	Where is the museum?
+1872	Travel	At the Tourist Office	Kie estas la katedralo?	大聖堂はどこですか？	大教堂在哪里？	대성당이 어디에 있나요?	Где находится собор?	Where's the cathedral?
+1873	Travel	At the Tourist Office	Kie estas la merkato?	市場はどこですか？	市场在哪里？	시장 어디에 있나요?	Где находится рынок?	Where's the market?
+1874	Travel	At the Tourist Office	Ĉu estas aŭtobuso al la urbo?	町へ行くバスはありますか？	有去市区的公交车吗？	시내로 가는 버스가 있나요?	Есть автобус, который идёт в город?	Is there a bus into town?
+1875	Travel	At the Tourist Office	Ĉu estas drinkejo en la urbo?	この町にパブはありますか？	镇上有酒吧吗？	이 마을에 술집이 있나요?	В этом городе есть бар?	Is there a pub in the town?
+1876	Travel	At the Tourist Office	Ĉu estas teatro en ĉi tiu urbo?	この町に劇場はありますか？	这个镇上有剧院吗？	이 town에 극장이 있나요?	В этом городе есть театр?	Is there a theatre in this town?
+1877	Travel	At the Tourist Office	Kie estas la turista informejo?	観光案内所はどこですか。	请问旅游信息中心在哪里？	관광 안내소가 어디에 있나요?	Где находится туристическое бюро?	Where is the tourist information office?
+1878	Travel	At the Tourist Office	Ĉu vi scias la numeron por voki taksion?	タクシーを呼ぶ電話番号をご存じですか？	你知道打车要拨打什么电话吗？	택시를 부르려면 전화할 수 있는 번호를 알고 계신가요?	Вы знаете номер, по которому можно заказать такси?	Do you know the number to call a taxi?
+1879	Travel	At the Tourist Office	Ĉu vi havas broŝurojn?	パンフレットはございますか？	您有宣传册吗？	혹시 안내 책자 있으신가요?	У вас есть какие-нибудь брошюры?	Have you got any brochures?
+1880	Travel	At the Tourist Office	Ni bezonas ie resti	どこか泊まる場所が必要です。	我们需要找个地方住。	우리가 머물 곳이 필요해요.	Нам надо где-то остановиться.	We need somewhere to stay.
+1881	Travel	At the Tourist Office	Kie estas la plej proksima hotelo?	一番近いホテルはどこですか。	最近的酒店在哪里？	가장 가까운 호텔이 어디에 있나요?	Где ближайший отель?	Where is the nearest hotel?
+1882	Travel	At the Tourist Office	Ĉu mi povas rezervi hotelĉambron ĉi tie?	こちらでホテルの予約はできますか？	我可以在这里预订酒店房间吗？	여기에서 호텔 객실을 예약할 수 있나요?	Могу ли я забронировать здесь номер?	Can I book a hotel room here?
+1883	Travel	At the Tourist Office	Kiom da steloj ĝi havas?	星はいくつありますか？	它有多少颗星？	별이 몇 개나 있나요?	Сколько у него звёзд?	How many stars has it got?
+1884	Travel	At the Tourist Office	Kie estas la flughaveno?	空港はどこですか？	机场在哪里？	공항이 어디에 있나요?	Где находится аэропорт?	Where's the airport?
+1885	Travel	At the Tourist Office	Kie estas la artgalerio?	画廊はどこですか？	画廊在哪里？	미술 갤러리는 어디에 있나요?	Где находится картинная галерея?	Where's the art gallery?
+1886	Travel	At the Tourist Office	Kie estas la ĉefa komerca kvartalo?	メインのショッピングエリアはどこですか？	主要的购物区在哪里？	주요 쇼핑 지역이 어디에 있나요?	Где находится главный торговый район?	Where's the main shopping area?
+1887	Travel	At the Tourist Office	Kie estas la botanika ĝardeno?	植物園はどこですか。	植物园在哪里？	식물원은 어디에 있나요?	Где находится ботанический сад?	Where is the botanical garden?
+1888	Travel	At the Tourist Office	Kie estas la plej proksima restoracio?	一番近いレストランはどこですか？	最近的餐厅在哪里？	가장 가까운 식당이 어디에 있나요?	Где находится ближайший ресторан?	Where's the nearest restaurant?
+1889	Travel	At the Tourist Office	Kie estas la ruinoj?	遺跡はどこですか？	遗址在哪里？	유적지는 어디에 있나요?	Где находятся руины?	Where are the ruins?
+1890	Travel	At the Tourist Office	Mi ŝatus vidi la malnovan urboparton	旧市街を見てみたいです。	我想去看看老城区。	구시가지를 보고 싶어요.	Я бы хотел увидеть старый квартал города.	I would like to see the old town.
+1891	Travel	At the Tourist Office	Ni serĉas loĝejon	宿泊先を探しています。	我们正在找住宿的地方。	저희는 숙소를 찾고 있어요.	Мы ищем, где остановиться.	We're looking for accommodation.
+1892	Travel	At the Tourist Office	Ĉu vi povus rezervi loĝejon por mi?	宿泊先を予約していただけますか？	你能帮我预订住宿吗？	저를 위해 숙소를 예약해 주실 수 있나요?	Не могли бы вы забронировать для меня жильё?	Could you book accommodation for me?
+1893	Travel	At the Tourist Office	Mi ŝatus loĝi en la urbocentro	市の中心部に滞在したいです。	我想住在市中心。	도심에 머물고 싶어요.	Я бы хотела остановиться в центре города.	I'd like to stay in the city centre.
+1894	Travel	At the Tourist Office	Ĉu vi havas liston de junulargastejoj?	ユースホステルのリストはお持ちですか？	你有青年旅舍的名单吗？	청소년 호스텔 목록이 있으신가요?	У вас есть список молодёжных хостелов?	Have you got a list of youth hostels?
+1895	Travel	At the Tourist Office	Ĉu vi povas rekomendi bonajn tendumejojn?	おすすめのキャンプ場はありますか？	你能推荐一些不错的露营地吗？	좋은 캠핑장 추천해주실 수 있나요?	Вы можете порекомендовать хорошие места для кемпинга?	Can you recommend any good campsites?
+1896	Travel	At the Tourist Office	Bonvolu doni al mi mapon de la urbo	市内の地図をいただけますか。	请给我一份城市地图。	도시 지도를 주세요.	Пожалуйста, дайте мне карту города.	Please give me a map of the city.
+1897	Travel	At the Tourist Office	Ĉu vi havas programon de eventoj?	イベントのプログラムはお持ちですか？	你有活动安排表吗？	행사 일정표가 있으신가요?	У вас есть программа мероприятий?	Have you got a programme of events?
+1898	Travel	At the Tourist Office	Kie troviĝas la ĉefaj vidindaĵoj?	主な見どころはどこにありますか？	主要景点都在哪里？	주요 볼거리는 어디에 있나요?	Где находятся основные достопримечательности?	Where are the main points of interest?
+1899	Travel	At the Tourist Office	Ĉu vi povas rekomendi bonan restoracion?	おすすめのレストランはありますか？	你能推荐一家不错的餐厅吗？	좋은 식당을 추천해 주실 수 있나요?	Вы можете порекомендовать хороший ресторан?	Can you recommend a good restaurant?
+1900	Travel	At the Tourist Office	Ĉu vi povas rekomendi bonan drinkejon ĉi tie proksime?	この近くでおすすめのパブはありますか？	你能推荐一下这附近有什么不错的酒吧吗？	이 근처에 괜찮은 펍 추천해 주실 수 있나요?	Можете порекомендовать хороший бар неподалёку?	Can you recommend a good pub near here?
+1901	Travel	At the Tourist Office	Kie mi povas trovi sandviĉejon?	サンドイッチ屋はどこにありますか？	哪里有卖三明治的店？	샌드위치 가게는 어디에서 찾을 수 있나요?	Где я могу найти закусочную?	Where can I find a sandwich shop?
+1902	Travel	At the Tourist Office	Kien plej bone iri por promeni?	散歩するのに一番おすすめの場所はどこですか？	哪里最适合散步？	산책하기에 가장 좋은 곳이 어디인가요?	Куда лучше всего пойти прогуляться?	Where is the best place to go for a stroll?
+1903	Travel	At the Tourist Office	Kiel ni povas atingi la teatron?	劇場へはどうやって行けばいいですか？	我们怎么去剧院？	극장에는 어떻게 가면 되나요?	Как нам добраться до театра?	How do we get to the theatre?
+1904	Travel	At the Tourist Office	Kiu estas la plej bona maniero moviĝi tra la urbo?	この街を移動するのに一番便利な方法は何ですか？	在城市里出行，最方便的方式是什么？	이 도시를 돌아다니기에 가장 좋은 방법이 무엇인가요?	Каков лучший способ передвигаться по городу?	What's the best way of getting around the city?
+1905	Travel	At the Tourist Office	Ĉu estas metrostacio proksime?	近くに地下鉄の駅はありますか？	附近有地铁站吗？	근처에 지하철역이 있나요?	Здесь есть станция метро поблизости?	Is there an underground station nearby?
+1906	Travel	At the Tourist Office	Kie mi povas preni la navedbuson?	シャトルバスはどこから乗れますか？	请问穿梭巴士在哪里乘坐？	셔틀버스는 어디에서 탈 수 있나요?	Где я могу сесть на маршрутный автобус?	Where can I catch the shuttle bus?
+1907	Travel	At the Tourist Office	Ĉu vi havas informojn pri lokaj taksiservoj?	地元のタクシーサービスについて何か情報はありますか？	您有关于本地出租车服务的信息吗？	현지 택시 서비스에 대한 정보가 있으신가요?	У вас есть какая-нибудь информация об услугах местного такси?	Have you got any information on local taxi services?
+1908	Travel	Excursions	Ĉu estas iuj ekskursoj?	ツアーはありますか？	有导览团吗？	투어가 있나요?	Есть ли какие-нибудь экскурсии?	Are there any tours?
+1909	Travel	Excursions	Vi ne povas maltrafi ĝin	絶対に見逃しませんよ。	你绝对不会错过。	놓칠 수 없어요.	Вы её не пропустите.	You can't miss it.
+1910	Travel	Excursions	Ĉu mi povas havi gvidiston?	ガイドをお願いできますか。	可以给我一位导游吗？	안내해 주실 수 있나요?	Можно мне гида?	Can I have a guide?
+1911	Travel	Excursions	Ĉu vi povas foti?	写真を撮ってもらえますか？	你能帮我拍张照吗？	사진 좀 찍어주실 수 있나요?	Можете сфотографировать?	Can you take a photo?
+1912	Travel	Excursions	Ĉu estas iuj unutagaj ekskursoj?	日帰りのツアーはありますか？	有一日游吗？	당일치기 여행이 있나요?	Есть ли какие-нибудь однодневные экскурсии?	Are there any day trips?
+1913	Travel	Excursions	Kiu estas la plej bona vojo?	どのルートが一番良いですか？	哪条路线最好？	어떤 경로가 가장 좋나요?	Какой маршрут лучше всего?	Which is the best route?
+1914	Travel	Excursions	Ĉu estas urba ekskurso?	市内観光ツアーはありますか？	有城市观光团吗？	시티 투어가 있나요?	Есть экскурсия по городу?	Is there a city tour?
+1915	Travel	Excursions	Kiam estas la sekva ekskurso?	次のツアーはいつですか？	下一次旅游团是什么时候？	다음 투어는 언제인가요?	Когда следующая экскурсия?	When's the next tour?
+1916	Travel	Excursions	Kiom kostas ĉi tiu ekskurso?	このツアーの料金はいくらですか？	这个旅游团多少钱？	이 투어는 얼마인가요?	Сколько стоит эта экскурсия?	How much does this tour cost?
+1917	Travel	Excursions	Je kioma horo ĝi komenciĝas?	何時に始まりますか？	几点开始？	몇 시에 시작하나요?	Во сколько она начинается?	What time does it start?
+1918	Travel	Excursions	Je kioma horo ni revenas?	私たちは何時に戻りますか？	我们什么时候回来？	우리는 몇 시에 돌아오나요?	Во сколько мы возвращаемся?	What time do we return?
+1919	Travel	Excursions	Kiu estos nia gvidanto?	私たちの案内役は誰ですか？	谁会带我们？	누가 우리를 안내해 주나요?	Кто будет нашим гидом?	Who will be our guide?
+1920	Travel	Excursions	Ĉu manĝoj estas inkluzivitaj en la prezo?	食事は含まれていますか？	包含餐食吗？	식사가 포함되어 있나요?	Питание включено в стоимость?	Are there any meals included?
+1921	Travel	Excursions	Mi ŝatus grandigi ĉi tiujn fotografiojn	これらの写真を拡大していただけますか。	我想把这些照片放大。	이 사진들을 확대해 주세요.	Я бы хотела увеличить эти фотографии.	I would like these photographs enlarged.
+1922	Travel	Excursions	Kiam estos pretaj la fotoj?	写真はいつご用意できますか？	照片什么时候能准备好？	사진은 언제 준비되나요?	Когда будут готовы фотографии?	When will the photos be ready?
+1923	Travel	Excursions	Ĉu estas iuj ekskursoj?	何かエクスカーションはありますか？	有观光游吗？	관광 투어가 있나요?	Есть ли какие-нибудь экскурсии?	Are there any excursions?
+1924	Travel	Excursions	Jen la listo de ekskursoj	こちらがエクスカーションの一覧です。	以下是游览项目清单。	여기 투어 목록입니다.	Вот список экскурсий.	Here is the list of excursions.
+1925	Travel	Excursions	Pri kio vi interesiĝas?	ご興味のあることは何ですか？	你对什么感兴趣？	어떤 것에 관심이 있으신가요?	Чем вы интересуетесь?	What are you interested in?
+1926	Travel	Excursions	Mi ŝatus rezervi vojaĝon al Berlino	ベルリンへの旅行を予約したいのですが。	我想预订一次去柏林的旅行。	베를린으로 여행을 예약하고 싶어요.	Я бы хотела забронировать поездку в Берлин.	I'd like to book a trip to Berlin.
+1927	Travel	Excursions	Ĉu vi havas iujn broŝurojn pri lokaj vidindaĵoj?	地元の観光名所についてのパンフレットはありますか？	请问有关于本地景点的宣传册吗？	지역 명소에 대한 안내 책자가 있나요?	У вас есть какие-нибудь брошюры о местных достопримечательностях?	Have you got any brochures on local attractions?
+1928	Travel	Excursions	Ĉu estas ekskursoj en la estona?	エストニア語のツアーはありますか？	有提供爱沙尼亚语的导览吗？	에스토니아어로 진행되는 투어가 있나요?	Есть ли какие-нибудь экскурсии на эстонском?	Are there any tours in Estonian?
+1929	Travel	Excursions	Ĉu ni povas mendi biciklan ekskurson?	自転車ツアーを予約できますか？	我们可以预订自行车观光游吗？	자전거 투어를 예약할 수 있을까요?	Мы можем заказать велосипедную экскурсию?	Can we book a bicycle tour?
+1930	Travel	Excursions	Kiuj aŭtobusaj ekskursoj estas disponeblaj?	どのようなバスツアーがありますか？	有哪些巴士旅游线路？	어떤 버스 투어가 있나요?	Какие автобусные экскурсии доступны?	What bus tours are available?
+1931	Travel	Excursions	Kiujn vidindaĵojn ni vidos?	どんな観光名所を見に行く予定ですか？	我们要去参观哪些景点？	어떤 볼거리를 보게 될까요?	Какие достопримечательности мы увидим?	What sights are we going to see?
+1932	Travel	Excursions	Ĉu vi bezonas gvidatan ekskurson?	ガイド付きツアーをご希望ですか？	您需要导览服务吗？	가이드 투어가 필요하신가요?	Вам нужна экскурсия с гидом?	Do you need a guided tour?
+1933	Travel	Excursions	Kiam kaj kie ni povas renkontiĝi?	いつ、どこでお会いしましょうか。	我们什么时候、在哪里见面？	언제 어디에서 만날 수 있을까요?	Когда и где мы можем встретиться?	When and where can we meet?
+1934	Travel	Excursions	Je kioma horo ni foriras?	何時に出発しますか？	我们什么时候出发？	우리는 몇 시에 출발해요?	Во сколько мы отправляемся?	What time do we leave?
+1935	Travel	Excursions	Ĉu mi povas eliri ĉe la hotelo?	ホテルで降りてもいいですか？	我可以在酒店下车吗？	호텔에서 내릴 수 있을까요?	Я могу выйти у отеля?	Can I get off at the hotel?
+1936	Travel	Excursions	Pardonu, ĉu vi povus foti min?	すみません、写真を撮っていただけますか？	不好意思，能帮我拍张照片吗？	실례지만, 사진 좀 찍어주실 수 있으세요?	Извините, вы могли бы меня сфотографировать?	Excuse me, could you take a photo for me?
+1937	Travel	Excursions	Mi ŝatus preni miajn fotojn	写真を受け取りたいのですが。	我想来取我的照片。	사진을 찾으러 왔어요.	Я бы хотела получить фотографии.	I'd like to pick up my photos.
+1938	Travel	Excursions	Kie mi povas aliĝi al la ekskurso?	このエクスカーションの申し込みはどこでできますか？	我可以在哪里报名参加这次游览活动？	어디에서 투어를 신청할 수 있나요?	Где я могу записаться на экскурсию?	Where can I sign up for the excursion?
+1939	Travel	Excursions	Ĉu vi havas broŝuron priskribantan rondvojaĝojn kaj ekskursojn?	ツアーや観光の案内パンフレットはありますか？	请问有介绍旅游和观光行程的宣传册吗？	투어와 여행에 대한 안내 책자가 있나요?	У вас есть брошюра с описанием туров и экскурсий?	Have you got a brochure describing tours and excursions?
+1940	Travel	Excursions	Kion alian interesan oni povas vidi ĉi tie?	他にどんな面白いものがありますか？	还有哪些有趣的景点可以参观？	또 다른 볼거리에는 어떤 흥미로운 것들이 있나요?	Что ещё интересного можно тут увидеть?	What other interesting things are there to see?
+1941	Travel	Excursions	Ĉu vi povas rekomendi vidindaĵan ekskurson?	おすすめの観光ツアーはありますか？	您能推荐一下观光游吗？	관광 투어를 추천해 주실 수 있나요?	Вы можете порекомендовать обзорный тур?	Can you recommend a sightseeing tour?
+1942	Travel	Excursions	Kian ekskurson vi preferus?	どのようなツアーをご希望ですか？	您更倾向于哪种旅游方式？	어떤 종류의 투어를 선호하시나요?	Какого рода тур вы бы предпочли?	What kind of tour would you prefer?
+1943	Travel	Excursions	Mi ŝatus viziti la Parlamentejon	国会議事堂を見学したいです。	我想参观议会大厦。	국회의사당을 방문하고 싶어요.	Я бы хотел посетить здание Парламента.	I would like to visit the Parliament House.
+1944	Travel	Excursions	Mi ŝatus gvidiston, kiu parolas la kartvelan	ジョージア語を話せるガイドをお願いしたいのですが。	我想要一位会说格鲁吉亚语的导游。	조지아어를 구사하는 가이드를 원합니다.	Я хочу гида, говорящего на грузинском.	I'd like a Georgian speaking guide.
+1945	Travel	Excursions	Ĉu tuttaga ekskurso haveblas ĉi tie?	こちらでは終日ツアーは利用できますか？	这里有全天的旅游团吗？	이곳에서 종일 투어를 이용할 수 있나요?	Здесь можно найти полнодневный тур?	Is an all-day tour available here?
+1946	Travel	Excursions	Ĉu mi povas aliĝi al la ekskurso ĉe la hotelo?	ホテルでツアーに参加できますか？	我可以在酒店加入旅游团吗？	호텔에서 투어에 합류할 수 있나요?	Я могу присоединиться к туру в отеле?	Can I join the tour at the hotel?
+1947	Travel	Excursions	Ĉu nun okazas iuj kulturaj eventoj?	今、何か開催中の文化イベントはありますか？	现在有正在举办的文化活动吗？	현재 진행 중인 문화 행사가 있나요?	Сейчас проходят какие-нибудь культурные мероприятия?	Are there any cultural events on at the moment?
+1948	Travel	Excursions	Ĉu nun okazas iuj ekspozicioj?	今、何か展示会は開催されていますか？	现在有正在举办的展览吗？	현재 진행 중인 전시가 있나요?	Сейчас проходят какие-нибудь выставки?	Are there any exhibitions on at the moment?
+1949	Travel	Excursions	Ĉu vi povus diri al ni, kio okazas en la koncertejo?	コンサートホールではどんな催しが行われていますか？	请问您能告诉我们音乐厅最近有哪些演出吗？	콘서트홀에서 어떤 공연이 열리는지 알려주실 수 있나요?	Не могли бы вы сказать нам, что идёт в концертном зале?	Could you tell us what's on at the concert hall?
+1950	Travel	Excursions	Ĉu vi povus diri al mi, kiuj muzeoj estas ĉi tie?	こちらにはどのような美術館や博物館がありますか、教えていただけますか。	请问这里有哪些博物馆？	여기에 어떤 박물관이 있는지 알려주실 수 있나요?	Не могли бы вы, пожалуйста, сказать мне, какие здесь есть музеи?	Would you please tell me what museums are here?
+1951	Travel	Excursions	Ĉu ni havos okazon fari kelkajn fotojn?	写真を撮る機会はありますか？	到时候会有机会拍照吗？	사진을 찍을 수 있는 기회가 있을까요?	У нас будет возможность сделать несколько фотографий?	Will there be an opportunity to take some photographs?
+1952	Travel	Excursions	Ĉu vi povus presi la fotojn de ĉi tiu memorkarto?	このメモリーカードの写真を印刷していただけますか？	您能把这张存储卡里的照片打印出来吗？	이 메모리 카드에 있는 사진을 인화해 주실 수 있나요?	Вы могли бы распечатать фотографии с этой карты памяти?	Could you print the photos from this memory card?
+1953	Travel	Excursions	Mi pensas, ke kelkaj el ĉi tiuj fotoj estas subeksponitaj	これらの写真の中には露出不足のものがあると思います。	我觉得这些照片有些曝光不足。	이 사진들 중 일부는 노출이 부족한 것 같아요.	Я думаю, некоторые из этих фотографий затемнённые.	I think some of these photos are underexposed.
+1954	Plane	Booking a Flight	Kiom kostas la flugoj?	航空券はいくらですか？	机票多少钱？	항공권 가격이 얼마인가요?	Сколько стоят перелёты?	How much are the flights?
+1955	Plane	Booking a Flight	Ekonomiklasa bileto	エコノミークラスのチケット	一张经济舱机票。	이코노미 클래스 항공권입니다.	Билет эконом-класса.	An economy class ticket.

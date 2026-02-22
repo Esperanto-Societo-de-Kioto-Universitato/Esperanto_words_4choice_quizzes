@@ -1,0 +1,25 @@
+idx	Esperanto	Column	Old	New	Reason
+508	frato	Chinese_Trans	兄弟	兄弟；（转）伙伴；（宗）修士	基本義に加えて転義・宗教義を補完。
+508	frato	Korean_Trans	형제, 남자 형제	형제; (전) 친한 동료; (종교) 수도사(브라더)	基本義に加えて転義・宗教義を補完。
+520	froti	Chinese_Trans	摩擦	摩擦，擦，搓	froti の動作義を自然化。
+525	fundamento	Chinese_Trans	基础，地基	基础，地基；（转）根本，基本依据	転義（基本）を補完。
+526	fundo	Chinese_Trans	底，深处，底部	底，深处；背景；（转）谷底，最低点	背景・転義（どん底）を補完。
+528	fungo	Chinese_Trans	真菌	蘑菇；真菌	一般語と分類語を両立。
+534	gajni	Chinese_Trans	赢得，取得	赢得，取得；赚取，获利	「もうける」義を補完。
+534	gajni	Korean_Trans	이겨서 얻다, 이득을 차지하다	이기거나 얻어 내다; 벌다, 이익을 얻다	「もうける」義を補完。
+538	gaso	Chinese_Trans	气体，可燃气；胃气；毒气	气体，煤气；（军）毒气	語義外の「胃气」を除去。
+550	glata	Chinese_Trans	平滑；平坦；流畅	光滑，平坦；（转）圆滑，顺畅	人当たり・流暢の転義を補完。
+551	glavo	Chinese_Trans	刀，剑	刀，剑；（转）武力、权威	転義（象徴）を補完。
+553	globo	Chinese_Trans	球；灯泡	球体，球；（台球、保龄球）球；（机）钢球	不適切な「灯泡」を除去し語義整合。
+554	gluti	Chinese_Trans	咽下，吞	吞下，咽下；（转）吞并，贪婪吸收	転義（むさぼる）を補完。
+559	grajno	Chinese_Trans	谷粒，谷物（指果实）；粒状果实	谷粒，种子；颗粒；（转）微量	一般粒義・転義を補完。
+559	grajno	Korean_Trans	곡식 낟알, 작은 알갱이	곡식 낟알, 씨앗; 알갱이; (비유) 극히 적은 양	一般粒義・転義を補完。
+571	griza	Chinese_Trans	灰色，花白	灰色，灰白；（转）阴郁，暗淡	転義（どんより）を補完。
+573	grundo	Chinese_Trans	土，土壤；地基	土，土壤；地基，地面；水底；（转）基础	水底・転義（下地）を補完。
+574	gruo	Chinese_Trans	鹤属鸟类；起重机，吊车	鹤；起重机，吊车	不自然な分類語尾を自然化。
+578	guto	Chinese_Trans	滴	水滴，一滴；（转）微量	「一滴」および転義を補完。
+586	havi	Chinese_Trans	有	有，拥有	havi の基本義を自然化。
+590	hejti	Chinese_Trans	给…生火，烧火	生火；给…供暖，加热	暖房する義を補完。
+591	hela	Chinese_Trans	明亮，晴朗；浅，淡	明亮，晴朗；（色）浅、淡；（声）清亮	色・音の語義を補完。
+595	herbo	Chinese_Trans	草	草；牧草；（植）草本植物	牧草・草本義を補完。
+598	heroo	Chinese_Trans	英雄；主人公	英雄；主人公；（神）半神	神話義を補完。

@@ -1,0 +1,23 @@
+idx	Esperanto	Column	Old	New	Reason
+2702	muĝi	Chinese_Trans	牛叫，狮吼，虎啸；咆哮，呼啸，轰鸣	（牛等）哞哞叫；轰鸣	JAの中心義（牛の鳴き声）に合わせ、過剰な動物語義を整理。
+2702	muĝi	Korean_Trans	소나 사자가 크게 울다	소 등이 음매 하고 울다; 우르릉거리다	同上。
+2706	neto	Korean_Trans	정서원고	정서한 원고	可読性（語結合）を修正。
+2711	operacii	Chinese_Trans	做手术；运算	做手术；进行作战行动	JAの「作戦を行う」義を反映。
+2717	orienti	Chinese_Trans	使建筑物朝东；定方位（方向）	定方位；指导，使明确方向	語義を「東向き」に限定しすぎていたため修正。
+2717	orienti	Korean_Trans	방위를 정하다	방위를 정하다; 방향을 잡아 주다, 지도하다	JAの「指導する」義を補完。
+2721	pa/ĉjo	Korean_Trans	아빠, 아버지애칭	아빠, 아버지 애칭	スペース修正。
+2726	paralelo	Chinese_Trans	平行线	平行线；类似	JAの「類似」義を補完。
+2728	pavo	Chinese_Trans	孔雀属鸟类；爱虚荣的人	孔雀属鸟类	JAにない転義を除去。
+2731	pendolo	Chinese_Trans	摆，摆锤；秋千	摆，摆锤	JAにない「秋千」義を除去。
+2742	plastiko	Chinese_Trans	造型艺术，塑造术	造型艺术；整形外科	JAの形成外科義を補完。
+2742	plastiko	Korean_Trans	조형술	조형술; 성형외과	同上。
+2753	preskribi	Korean_Trans	규정하다	규정하다; (의학) 처방하다	医療語義（処方）を補完。
+2760	propozicio	Korean_Trans	문장의 최소 단위인 절	절; 명제	JAの「命題」義を補完。
+2771	raŭka	Korean_Trans	쉰목소리의	쉰 목소리의	スペース修正。
+2772	raŭpo	Chinese_Trans	毛虫，青虫；履带，链轨	毛虫，青虫	JAにない機械義を除去。
+2774	reakcio	Chinese_Trans	反动；反应；反作用（力）	反动；（化）反应	JAの定義に合わせて過剰義を整理。
+2776	regimento	Chinese_Trans	[军事]团；一大群，大批，大量	（军事）团，联队	JAの軍事義に絞って修正。
+2778	reklami	Chinese_Trans	为…做广告；吹捧	为…做广告，宣传	不要な感情的語義を除去。
+2788	ribo	Chinese_Trans	茶藨子属植物	醋栗（果）	JAの「果実」義に合わせ具体化。
+2790	riverenci	Korean_Trans	절하다, 경의를표하다	절하다, 경의를 표하다	スペース修正。
+2795	sarki	Korean_Trans	잡초를뽑다, 제초하다	잡초를 뽑다, 제초하다	スペース修正。

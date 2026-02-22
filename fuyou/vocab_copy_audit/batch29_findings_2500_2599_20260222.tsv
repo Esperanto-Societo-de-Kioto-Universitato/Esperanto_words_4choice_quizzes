@@ -1,0 +1,27 @@
+idx	Esperanto	Column	Old	New	Reason
+2500	daŭr/igi	Chinese_Trans	使继续；使持续	使继续，使持续	句読点統一（意味不変の自然化）。
+2501	daŭro	Chinese_Trans	持续的时间	持续，持续期间	名詞として自然な定義へ。
+2502	de/pendi	Korean_Trans	…에 달려 있다	의존하다, 기대다; …에 달려 있다	「依存する」の中心義を補完。
+2503	de/teni (sin)	Chinese_Trans	不让接近，使离开；阻止，抑制，忍住	克制，忍住，抑制（自己）	再帰用法 `sin` に合わせて語義を絞った。
+2503	de/teni (sin)	Korean_Trans	막다, 억제하다	자제하다, 참고 견디다	同上。
+2504	debeto	Korean_Trans	부채, 빚	부채, 빚; (회계) 차변	会計語義（借方）を補完。
+2505	deliri	Korean_Trans	정신착란으로헛소리를하다	정신 착란으로 헛소리를 하다	スペース欠落修正。
+2513	dikti	Korean_Trans	말로불러주어받아쓰게하다	말로 불러 주어 받아쓰게 하다; 지시하다	スペース修正＋「指図する」義補完。
+2525	el/doni	Chinese_Trans	交出；出版	出版，发行；交出，交付	JAの語順に合わせ主要義を整理。
+2525	el/doni	Korean_Trans	출판하다	출판·발행하다; 건네주다	「引き渡す」義を補完。
+2528	elektroniko	Chinese_Trans	电子学	电子工学，电子技术	JAの「電子工学」に整合。
+2528	elektroniko	Korean_Trans	전자공학 분야	전자공학, 일렉트로닉스	語形を辞書的に自然化。
+2530	emocio	Chinese_Trans	感动，激动；感情	感情，情动；感动，激动	中心義（感情）先頭へ整理。
+2531	enketi	Chinese_Trans	审讯；调查	调查，查问	`enketi` の基本義を優先し自然化。
+2535	etapo	Korean_Trans	단계, 일의 한 구분	여정의 한 구간; 단계	「行程の一段階」義を補完。
+2538	faco	Chinese_Trans	（物体的）（平）面	面，表面；（数）面	不自然な括弧表現を修正。
+2543	falĉi	Chinese_Trans	割，刈；屠杀	（用镰刀）割，收割	語義ずれの「屠杀」を除去。
+2544	fasado	Chinese_Trans	（房屋的）正面	（建筑）正面，立面	建築用語として自然化。
+2555	flagri	Korean_Trans	불꽃이너울거리다	불꽃이 너울거리다, 반짝이다	スペース修正＋「きらめく」義補完。
+2561	for/esti	Korean_Trans	결석하다	부재하다, 결석하다	「不在」義を補完。
+2563	foso	Chinese_Trans	坑	坑，壕沟	JAの「堀」義を補完。
+2564	fotelo	Chinese_Trans	圈椅，安乐椅	扶手椅，安乐椅	一般的な対訳へ自然化。
+2573	galo	Korean_Trans	쓸개에서 분비되는 담즙	담즙; (비유) 분노, 씁쓸함	JAの転義（苦々しさ）を補完。
+2575	garaĝo	Chinese_Trans	收费存车处；汽车修理厂；停车场	车库，停车场	JAの「車庫」中心へ調整。
+2577	garni	Chinese_Trans	加固，装设；置备；装饰	装饰，点缀；配菜	料理・装飾で自然な語義へ。
+2585	grego	Chinese_Trans	畜群，混乱的一群	畜群，一群（家畜）	不自然な「混乱」義を除去。
