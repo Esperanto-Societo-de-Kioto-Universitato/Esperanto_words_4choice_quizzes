@@ -436,23 +436,23 @@ def main():
     direction = st.session_state.get("direction", "ja_to_eo")
     base_font = "18px" if direction == "eo_to_ja" else "24px"
     mobile_font = (
-        "13px"
+        "14px"
         if (ultra_compact_ui and direction == "eo_to_ja")
         else (
-            "15px"
+            "16px"
             if ultra_compact_ui
             else (
-                "14px"
+                "15px"
                 if (compact_ui and direction == "eo_to_ja")
-                else ("16px" if compact_ui else ("16px" if direction == "eo_to_ja" else "20px"))
+                else ("17px" if compact_ui else ("16px" if direction == "eo_to_ja" else "20px"))
             )
         )
     )
-    mobile_button_height = "50px" if ultra_compact_ui else ("56px" if compact_ui else "72px")
-    mobile_button_padding = "3px" if ultra_compact_ui else ("4px" if compact_ui else "6px")
+    mobile_button_height = "54px" if ultra_compact_ui else ("60px" if compact_ui else "72px")
+    mobile_button_padding = "4px" if ultra_compact_ui else ("5px" if compact_ui else "6px")
     mobile_main_title_font = "18px" if ultra_compact_ui else ("20px" if compact_ui else "24px")
     mobile_question_font = (
-        "15px" if ultra_compact_ui else ("17px" if compact_ui else ("20px" if direction == "ja_to_eo" else "22px"))
+        "17px" if ultra_compact_ui else ("19px" if compact_ui else ("20px" if direction == "ja_to_eo" else "22px"))
     )
     mobile_page_top_padding = "0.15rem" if ultra_compact_ui else ("0.35rem" if compact_ui else "0.9rem")
     mobile_page_bottom_padding = "0.2rem" if ultra_compact_ui else ("0.4rem" if compact_ui else "0.7rem")
@@ -583,7 +583,7 @@ def main():
                 color: #0e8a2c;
             }}
             .stButton button p, .stButton button span, .stButton button div {{
-                line-height: 1.2 !important;
+                line-height: 1.25 !important;
             }}
             .question-audio-hint {{
                 font-size: 11px;
@@ -596,15 +596,15 @@ def main():
                 max-height: 14dvh;
             }}
             .stButton button {{
-                height: 46px !important;
-                min-height: 46px !important;
-                max-height: 46px !important;
-                padding: 3px !important;
-                font-size: 12px !important;
+                height: 52px !important;
+                min-height: 52px !important;
+                max-height: 52px !important;
+                padding: 4px !important;
+                font-size: 14px !important;
             }}
             .stButton button * {{
-                font-size: 12px !important;
-                line-height: 1.2 !important;
+                font-size: 14px !important;
+                line-height: 1.25 !important;
             }}
         }}
         </style>
