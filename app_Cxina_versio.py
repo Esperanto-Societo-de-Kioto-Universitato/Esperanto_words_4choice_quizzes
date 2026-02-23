@@ -109,7 +109,7 @@ def get_connection():
     try:
         return st.connection("gsheets", type=GSheetsConnection)
     except Exception as e:
-        st.error(f"初始化 Google Sheets 连接失败: {e}")
+        st.error(f"Google Sheets 连接初始化失败: {e}")
         return None
 
 def load_scores(force_refresh: bool = False):
@@ -1032,7 +1032,7 @@ def main():
         st.metric("得分", f"{points:.1f}")
         if st.session_state.spartan_mode and sp_attempts:
             st.caption(f"斯巴达模式：复习部分按通常的{SPARTAN_SCORE_MULTIPLIER*100:.0f}%计分（无准确率加成）")
-            st.caption(f"斯巴达正确率: {sp_accuracy*100:.1f}% ({sp_correct}/{sp_attempts})")
+            st.caption(f"斯巴达正确率：{sp_accuracy*100:.1f}% ({sp_correct}/{sp_attempts})")
         st.write(f"正确 {correct} / {total}")
         st.write(
             f"明细：本篇 基础+难度 {raw_points_main:.1f} / 准确率加成 {accuracy_bonus:.1f}"

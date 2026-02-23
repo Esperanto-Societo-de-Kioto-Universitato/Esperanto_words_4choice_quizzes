@@ -693,7 +693,7 @@ def main():
                         f"- 连续答对加成：第2题起每次连对 +{STREAK_BONUS * STREAK_BONUS_SCALE}",
                         f"- 准确率加成：最终正确率 × 题数 × {ACCURACY_BONUS_PER_Q}",
                         "- 斯巴达模式：复习题按0.7倍计算（无准确率加成）",
-                        "- 同题量下，预计比分单词版高约1.5倍。",
+                        "- 同题量下，预计得分比单词版高约1.5倍。",
                     ]
                 )
             )
@@ -1006,11 +1006,11 @@ def main():
         st.caption("可以通过音频复习。")
         st.write(f"正确 {st.session_state.correct}/{total}")
         st.write(
-            f"明细：主线 基础+连击 {raw_main:.1f} / 斯巴达 {raw_spartan_scaled:.1f}（无准确率加成，含0.7倍） / 准确率加成 {acc_bonus:.1f}"
+            f"明细：本篇 基础+连击 {raw_main:.1f} / 斯巴达 {raw_spartan_scaled:.1f}（无准确率加成，含0.7倍） / 准确率加成 {acc_bonus:.1f}"
         )
         if st.session_state.spartan_mode and sp_attempts:
             st.caption(f"斯巴达模式：复习部分按通常的{SPARTAN_SCORE_MULTIPLIER*100:.0f}%计分（无准确率加成）")
-            st.caption(f"斯巴达正确率: {sp_accuracy*100:.1f}% ({sp_correct}/{sp_attempts})")
+            st.caption(f"斯巴达正确率：{sp_accuracy*100:.1f}% ({sp_correct}/{sp_attempts})")
         if st.session_state.sentence_user_name:
             st.caption("若已有同名用户的分数，将累加。")
             if st.session_state.score_saved:

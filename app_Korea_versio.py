@@ -1031,7 +1031,7 @@ def main():
         st.metric("정답률", f"{accuracy*100:.1f}%")
         st.metric("점수", f"{points:.1f}")
         if st.session_state.spartan_mode and sp_attempts:
-            st.caption(f"스파르타 모드: 복습분을 일반의{SPARTAN_SCORE_MULTIPLIER*100:.0f}%로 합산(정확도 보너스 없음)")
+            st.caption(f"스파르타 모드: 복습분을 일반의 {SPARTAN_SCORE_MULTIPLIER*100:.0f}%로 합산(정확도 보너스 없음)")
             st.caption(f"스파르타 정확도: {sp_accuracy*100:.1f}% ({sp_correct}/{sp_attempts})")
         st.write(f"정답 {correct} / {total}")
         st.write(
@@ -1220,7 +1220,7 @@ def main():
 
     if in_spartan:
         if not compact_question_ui:
-            st.subheader(f"스파르타 복습 남은 {len(st.session_state.spartan_pending)}문제 / 총{len(questions)}문제")
+            st.subheader(f"스파르타 복습 남은 {len(st.session_state.spartan_pending)}문제 / 총 {len(questions)}문제")
             st.caption("틀린 문제만 무작위로 출제합니다. 정답하면 목록에서 사라집니다.")
         title_prefix = "복습"
     else:

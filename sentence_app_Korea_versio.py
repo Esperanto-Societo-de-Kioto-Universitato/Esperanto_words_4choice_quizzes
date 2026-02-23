@@ -1009,7 +1009,7 @@ def main():
             f"내역: 본편 기본+연속 보너스 {raw_main:.1f} / 스파르타 {raw_spartan_scaled:.1f}(정확도 보너스 없음·0.7배 포함) / 정확도 보너스 {acc_bonus:.1f}"
         )
         if st.session_state.spartan_mode and sp_attempts:
-            st.caption(f"스파르타 모드: 복습분을 일반의{SPARTAN_SCORE_MULTIPLIER*100:.0f}%로 합산(정확도 보너스 없음)")
+            st.caption(f"스파르타 모드: 복습분을 일반의 {SPARTAN_SCORE_MULTIPLIER*100:.0f}%로 합산(정확도 보너스 없음)")
             st.caption(f"스파르타 정확도: {sp_accuracy*100:.1f}% ({sp_correct}/{sp_attempts})")
         if st.session_state.sentence_user_name:
             st.caption("같은 사용자명의 점수가 있으면 누적에 합산합니다.")
@@ -1174,7 +1174,7 @@ def main():
     compact_question_ui = compact_ui
     title_prefix = "복습" if in_spartan else f"Q{q_idx+1}/{len(questions)}"
     if in_spartan and not compact_question_ui:
-        st.caption(f"스파르타 복습 남은 {len(st.session_state.spartan_pending)}문제 / 총{len(questions)}문제")
+        st.caption(f"스파르타 복습 남은 {len(st.session_state.spartan_pending)}문제 / 총 {len(questions)}문제")
         st.caption("틀린 문제만 무작위로 출제합니다. 정답하면 목록에서 사라집니다.")
     question_box_cls = "question-box tight" if ultra_compact_ui else "question-box"
     st.markdown(
