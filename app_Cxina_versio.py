@@ -1,4 +1,5 @@
 import datetime
+import inspect
 import random
 import time
 import uuid
@@ -72,12 +73,21 @@ QUIZ_DIRECTIONS = {
 
 @st.cache_data
 def load_groups(seed: int):
-    return vg.build_groups(
-        CSV_PATH,
-        seed=seed,
-        audio_key_fn=vg._default_audio_key,
-        translation_column="Chinese_Trans",
-    )
+    """
+    vocab_grouping の関数シグネチャ差分を吸収する。
+    デプロイ環境で旧版が読み込まれていても TypeError を避ける。
+    """
+    kwargs = {"seed": seed}
+    try:
+        sig = inspect.signature(vg.build_groups)
+        if "audio_key_fn" in sig.parameters:
+            kwargs["audio_key_fn"] = vg._default_audio_key
+        if "translation_column" in sig.parameters:
+            kwargs["translation_column"] = "Chinese_Trans"
+    except Exception:
+        # 署名取得に失敗した場合は最小引数でフォールバック
+        pass
+    return vg.build_groups(CSV_PATH, **kwargs)
 
 
 def is_mobile_client() -> bool:
