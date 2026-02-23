@@ -72,11 +72,13 @@ QUIZ_DIRECTIONS = {
 
 
 @st.cache_data
-def load_groups(seed: int):
+def load_groups(seed: int, csv_mtime_ns: int):
     """
     vocab_grouping の関数シグネチャ差分を吸収する。
     デプロイ環境で旧版が読み込まれていても TypeError を避ける。
     """
+    # 把 CSV mtime 纳入缓存键，CSV 更新后自动失效重建缓存
+    del csv_mtime_ns
     kwargs = {"seed": seed}
     try:
         sig = inspect.signature(vg.build_groups)
@@ -652,9 +654,14 @@ def main():
         }}
         @media (max-width: 768px) {{
             .stButton button {{
-                height: {mobile_button_height};
+                height: auto;
                 min-height: {mobile_button_height};
-                max-height: {mobile_button_height};
+                max-height: none;
+                overflow: visible;
+                text-overflow: clip;
+                white-space: normal;
+                overflow-wrap: anywhere;
+                word-break: break-word;
                 font-size: {mobile_option_font} !important;
                 font-weight: 700 !important;
                 line-height: 1.35 !important;
@@ -727,9 +734,14 @@ def main():
                 max-height: none;
             }}
             .stButton button {{
-                height: 124px !important;
+                height: auto !important;
                 min-height: 124px !important;
-                max-height: 124px !important;
+                max-height: none !important;
+                overflow: visible !important;
+                text-overflow: clip !important;
+                white-space: normal !important;
+                overflow-wrap: anywhere !important;
+                word-break: break-word !important;
                 padding: 8px !important;
                 font-size: 45px !important;
             }}
@@ -798,6 +810,77 @@ def main():
             document.addEventListener('touchstart', unlockAudio, { once: true });
             document.addEventListener('click', unlockAudio, { once: true });
         })();
+
+        (function() {
+            if (window.__esperantoOptionAutoFitInstalled) {
+                if (typeof window.__esperantoOptionAutoFitSchedule === "function") {
+                    window.__esperantoOptionAutoFitSchedule();
+                }
+                return;
+            }
+            window.__esperantoOptionAutoFitInstalled = true;
+
+            const MOBILE_BP = 768;
+            const MIN_FONT_PX = 16;
+            const MIN_RATIO = 0.62;
+            const HEIGHT_TOLERANCE = 6;
+            const MAX_STEPS = 22;
+
+            function applySize(btn, nodes, px) {
+                const size = `${px}px`;
+                btn.style.fontSize = size;
+                nodes.forEach((n) => {
+                    n.style.fontSize = size;
+                });
+            }
+
+            function fitOne(btn) {
+                if (window.innerWidth > MOBILE_BP) return;
+                const base = parseFloat(btn.dataset.baseFontPx || getComputedStyle(btn).fontSize || "0");
+                if (!base || Number.isNaN(base)) return;
+                if (!btn.dataset.baseFontPx) {
+                    btn.dataset.baseFontPx = String(base);
+                }
+
+                const minHeight = parseFloat(getComputedStyle(btn).minHeight || "0");
+                const targetHeight = (Number.isFinite(minHeight) && minHeight > 0) ? (minHeight + HEIGHT_TOLERANCE) : 180;
+                const minFont = Math.max(MIN_FONT_PX, base * MIN_RATIO);
+                const nodes = btn.querySelectorAll("p, div, span");
+
+                applySize(btn, nodes, base);
+                if (btn.offsetHeight <= targetHeight) return;
+
+                let size = base;
+                let step = 0;
+                while (btn.offsetHeight > targetHeight && size > minFont && step < MAX_STEPS) {
+                    size -= 1;
+                    applySize(btn, nodes, size);
+                    step += 1;
+                }
+            }
+
+            function fitOptionButtons() {
+                if (window.innerWidth > MOBILE_BP) return;
+                const buttons = document.querySelectorAll('div.stButton > button[kind="primary"]');
+                buttons.forEach(fitOne);
+            }
+
+            let rafId = null;
+            function scheduleFit() {
+                if (rafId !== null) return;
+                rafId = window.requestAnimationFrame(() => {
+                    rafId = null;
+                    fitOptionButtons();
+                });
+            }
+
+            window.__esperantoOptionAutoFitSchedule = scheduleFit;
+
+            const observer = new MutationObserver(scheduleFit);
+            observer.observe(document.body, { childList: true, subtree: true });
+            window.addEventListener("resize", scheduleFit, { passive: true });
+            scheduleFit();
+        })();
         </script>
         """,
         unsafe_allow_html=True
@@ -826,7 +909,7 @@ def main():
         seed = st.number_input("随机种子 (1-8192)", min_value=1, max_value=8192, step=1, key="seed")
         # st.session_state.seed = seed # key="seed"にしたので不要
         # st.session_state.shuffle_every_time = st.checkbox("毎回ランダムに並べる（シード無視）", value=st.session_state.shuffle_every_time)
-        groups = load_groups(seed)
+        groups = load_groups(seed, CSV_PATH.stat().st_mtime_ns)
         pos_list = sorted({g.pos for g in groups})
         pos_label_map = {p: POS_JP.get(p, p) for p in pos_list}
         pos_choice = st.selectbox("选择词性", pos_list, format_func=lambda p: pos_label_map.get(p, p), key="pos_select")
@@ -1213,7 +1296,14 @@ def main():
                     if data:
                         st.audio(data, format=mime, start_time=0)
         if st.button("再次挑战同一分组", key="retry_btn"):
-            group = next((g for g in load_groups(st.session_state.seed) if g.id == st.session_state.group_id), None)
+            group = next(
+                (
+                    g
+                    for g in load_groups(st.session_state.seed, CSV_PATH.stat().st_mtime_ns)
+                    if g.id == st.session_state.group_id
+                ),
+                None,
+            )
             if group:
                 rng = random.Random()
                 start_quiz(group, rng=rng)

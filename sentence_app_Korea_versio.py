@@ -35,8 +35,10 @@ SCORE_READ_RETRY_BASE_SEC = 0.35
 
 
 @st.cache_data
-def load_phrase_df():
-    return pd.read_csv(PHRASE_CSV)
+def load_phrase_df(csv_path: str, mtime_ns: int):
+    # mtime_ns를 캐시 키에 포함해 CSV 갱신 시 자동 재로딩한다
+    del mtime_ns
+    return pd.read_csv(csv_path)
 
 
 def is_mobile_client() -> bool:
@@ -570,9 +572,14 @@ def main():
         }}
         @media (max-width: 768px) {{
             .stButton button {{
-                height: {mobile_button_height};
+                height: auto;
                 min-height: {mobile_button_height};
-                max-height: {mobile_button_height};
+                max-height: none;
+                overflow: visible;
+                text-overflow: clip;
+                white-space: normal;
+                overflow-wrap: anywhere;
+                word-break: break-word;
                 font-size: {mobile_option_font} !important;
                 font-weight: 700 !important;
                 padding: {mobile_button_padding};
@@ -647,9 +654,14 @@ def main():
                 max-height: none;
             }}
             .stButton button {{
-                height: 124px !important;
+                height: auto !important;
                 min-height: 124px !important;
-                max-height: 124px !important;
+                max-height: none !important;
+                overflow: visible !important;
+                text-overflow: clip !important;
+                white-space: normal !important;
+                overflow-wrap: anywhere !important;
+                word-break: break-word !important;
                 padding: 8px !important;
                 font-size: 45px !important;
             }}
@@ -705,6 +717,77 @@ def main():
             document.addEventListener('touchstart', unlockAudio, { once: true });
             document.addEventListener('click', unlockAudio, { once: true });
         })();
+
+        (function() {
+            if (window.__esperantoOptionAutoFitInstalled) {
+                if (typeof window.__esperantoOptionAutoFitSchedule === "function") {
+                    window.__esperantoOptionAutoFitSchedule();
+                }
+                return;
+            }
+            window.__esperantoOptionAutoFitInstalled = true;
+
+            const MOBILE_BP = 768;
+            const MIN_FONT_PX = 16;
+            const MIN_RATIO = 0.62;
+            const HEIGHT_TOLERANCE = 6;
+            const MAX_STEPS = 22;
+
+            function applySize(btn, nodes, px) {
+                const size = `${px}px`;
+                btn.style.fontSize = size;
+                nodes.forEach((n) => {
+                    n.style.fontSize = size;
+                });
+            }
+
+            function fitOne(btn) {
+                if (window.innerWidth > MOBILE_BP) return;
+                const base = parseFloat(btn.dataset.baseFontPx || getComputedStyle(btn).fontSize || "0");
+                if (!base || Number.isNaN(base)) return;
+                if (!btn.dataset.baseFontPx) {
+                    btn.dataset.baseFontPx = String(base);
+                }
+
+                const minHeight = parseFloat(getComputedStyle(btn).minHeight || "0");
+                const targetHeight = (Number.isFinite(minHeight) && minHeight > 0) ? (minHeight + HEIGHT_TOLERANCE) : 180;
+                const minFont = Math.max(MIN_FONT_PX, base * MIN_RATIO);
+                const nodes = btn.querySelectorAll("p, div, span");
+
+                applySize(btn, nodes, base);
+                if (btn.offsetHeight <= targetHeight) return;
+
+                let size = base;
+                let step = 0;
+                while (btn.offsetHeight > targetHeight && size > minFont && step < MAX_STEPS) {
+                    size -= 1;
+                    applySize(btn, nodes, size);
+                    step += 1;
+                }
+            }
+
+            function fitOptionButtons() {
+                if (window.innerWidth > MOBILE_BP) return;
+                const buttons = document.querySelectorAll('div.stButton > button[kind="primary"]');
+                buttons.forEach(fitOne);
+            }
+
+            let rafId = null;
+            function scheduleFit() {
+                if (rafId !== null) return;
+                rafId = window.requestAnimationFrame(() => {
+                    rafId = null;
+                    fitOptionButtons();
+                });
+            }
+
+            window.__esperantoOptionAutoFitSchedule = scheduleFit;
+
+            const observer = new MutationObserver(scheduleFit);
+            observer.observe(document.body, { childList: true, subtree: true });
+            window.addEventListener("resize", scheduleFit, { passive: true });
+            scheduleFit();
+        })();
         </script>
         """,
         unsafe_allow_html=True,
@@ -755,7 +838,7 @@ def main():
     st.session_state.setdefault("compact_hide_option_audio", True)
     st.session_state.setdefault("compact_hide_prompt_audio", True)
 
-    df = load_phrase_df()
+    df = load_phrase_df(str(PHRASE_CSV), PHRASE_CSV.stat().st_mtime_ns)
     groups = build_groups(df)
 
     with st.sidebar:
