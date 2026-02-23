@@ -6,11 +6,11 @@ import pandas as pd
 import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 
+from data_sources import PHRASE_CSV
 import vocab_grouping as vg
 
 # パス設定（単独アプリとして実行）
 BASE_DIR = Path(__file__).resolve().parent
-PHRASE_CSV = BASE_DIR / "phrases_eo_en_ja_zh_ko_ru_fulfilled_251130.csv"
 PHRASE_AUDIO_DIR = BASE_DIR / "Esperanto例文5000文_収録音声"
 
 # スコア設定
@@ -439,7 +439,8 @@ def main():
     if "mobile_hide_streamlit_chrome" not in st.session_state:
         st.session_state.mobile_hide_streamlit_chrome = False
 
-    compact_ui = bool(st.session_state.mobile_compact_ui)
+    requested_compact_ui = bool(st.session_state.mobile_compact_ui)
+    compact_ui = is_mobile and requested_compact_ui
     ultra_compact_ui = compact_ui and bool(st.session_state.mobile_ultra_compact)
     direction = st.session_state.get("direction", "ja_to_eo")
     base_font = "18px" if direction == "eo_to_ja" else "24px"
@@ -768,7 +769,7 @@ def main():
             key="mobile_compact_ui",
             help="モバイルではON推奨。デスクトップ表示には影響しません。",
         )
-        if st.session_state.mobile_compact_ui:
+        if compact_ui:
             st.checkbox(
                 "スマホ最適化時は選択肢の音声を自動で隠す",
                 key="compact_hide_option_audio",
@@ -792,7 +793,7 @@ def main():
         st.caption("出題方向にかかわらず、音声はトグルONで選択肢に表示されます。モバイルで重い場合はOFF推奨。")
         st.caption(
             f"端末判定: {'モバイル' if is_mobile else 'デスクトップ'} / "
-            f"最適化UI: {'ON' if st.session_state.mobile_compact_ui else 'OFF'}"
+            f"最適化UI: {'ON' if compact_ui else 'OFF'}"
         )
 
         if st.button("クイズ開始", use_container_width=True):
@@ -1172,7 +1173,7 @@ def main():
         prompt_text = question["prompt_eo"]
     else:
         prompt_text = question["prompt_ja"]
-    compact_question_ui = bool(st.session_state.get("mobile_compact_ui", False))
+    compact_question_ui = compact_ui
     title_prefix = "復習" if in_spartan else f"Q{q_idx+1}/{len(questions)}"
     if in_spartan and not compact_question_ui:
         st.caption(f"スパルタ復習 残り{len(st.session_state.spartan_pending)}問 / 全{len(questions)}問")

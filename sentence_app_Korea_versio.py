@@ -6,11 +6,11 @@ import pandas as pd
 import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 
+from data_sources import PHRASE_CSV
 import vocab_grouping as vg
 
 # パス설정（単独アプリとして実行）
 BASE_DIR = Path(__file__).resolve().parent
-PHRASE_CSV = BASE_DIR / "phrases_eo_en_ja_zh_ko_ru_fulfilled_251130.csv"
 PHRASE_AUDIO_DIR = BASE_DIR / "Esperanto例文5000文_収録音声"
 
 # スコア설정
@@ -109,7 +109,7 @@ def play_phrase_audio(
     data, mime, key = find_phrase_audio(phrase_id, phrase)
     if not data:
         return
-    cap = caption or f"🔊 발음을 듣기【{key}】"
+    cap = caption or f"🔊 발음 듣기[{key}]"
     if show_caption:
         st.caption(cap)
     offset = (abs(hash(f"{instance}-{phrase_id}-{key}-{random.random()}")) % 1000000) / 1_000_000 + 1e-6
@@ -439,7 +439,8 @@ def main():
     if "mobile_hide_streamlit_chrome" not in st.session_state:
         st.session_state.mobile_hide_streamlit_chrome = False
 
-    compact_ui = bool(st.session_state.mobile_compact_ui)
+    requested_compact_ui = bool(st.session_state.mobile_compact_ui)
+    compact_ui = is_mobile and requested_compact_ui
     ultra_compact_ui = compact_ui and bool(st.session_state.mobile_ultra_compact)
     direction = st.session_state.get("direction", "ja_to_eo")
     base_font = "18px" if direction == "eo_to_ja" else "24px"
@@ -766,7 +767,7 @@ def main():
             key="mobile_compact_ui",
             help="모바일에서는 ON 권장. 데스크톱 표시에는 영향이 없습니다.",
         )
-        if st.session_state.mobile_compact_ui:
+        if compact_ui:
             st.checkbox(
                 "모바일 최적화 시 선택지 음성을 자동으로 숨기기",
                 key="compact_hide_option_audio",
@@ -790,7 +791,7 @@ def main():
         st.caption("출제 방향과 상관없이 토글을 켜면 선택지에 음성이 표시됩니다. 모바일에서 무거우면 OFF를 권장합니다.")
         st.caption(
             f"기기 판정: {'모바일' if is_mobile else '데스크톱'} / "
-            f"최적화 UI: {'ON' if st.session_state.mobile_compact_ui else 'OFF'}"
+            f"최적화 UI: {'ON' if compact_ui else 'OFF'}"
         )
 
         if st.button("퀴즈 시작", use_container_width=True):
@@ -1005,7 +1006,7 @@ def main():
         st.caption("음성으로 다시 확인할 수 있습니다.")
         st.write(f"정답 {st.session_state.correct}/{total}")
         st.write(
-            f"내역: 본편 기본+스트릭 {raw_main:.1f} / 스파르타 {raw_spartan_scaled:.1f}(정확도 보너스 없음·0.7배 포함) / 정확도 보너스 {acc_bonus:.1f}"
+            f"내역: 본편 기본+연속 보너스 {raw_main:.1f} / 스파르타 {raw_spartan_scaled:.1f}(정확도 보너스 없음·0.7배 포함) / 정확도 보너스 {acc_bonus:.1f}"
         )
         if st.session_state.spartan_mode and sp_attempts:
             st.caption(f"스파르타 모드: 복습분을 일반의{SPARTAN_SCORE_MULTIPLIER*100:.0f}%로 합산(정확도 보너스 없음)")
@@ -1121,7 +1122,7 @@ def main():
             st.caption("음성으로 다시 확인할 수 있습니다.")
             for w in wrong:
                 st.write(f"- {w['prompt_ja']} / {w['prompt_eo']}")
-                st.write(f"　정답「{w['answer_ja']} / {w['answer']}」、당신의 답변「{w['selected_ja']} / {w['selected']}」")
+                st.write(f"　정답 [{w['answer_ja']} / {w['answer']}], 내 답변 [{w['selected_ja']} / {w['selected']}]")
                 play_phrase_audio(w["phrase_id"], w["answer"], autoplay=False, caption="🔊 발음 확인")
         if correct_list:
             st.markdown("### 정답한 문제(확인용)")
@@ -1170,7 +1171,7 @@ def main():
         prompt_text = question["prompt_eo"]
     else:
         prompt_text = question["prompt_ja"]
-    compact_question_ui = bool(st.session_state.get("mobile_compact_ui", False))
+    compact_question_ui = compact_ui
     title_prefix = "복습" if in_spartan else f"Q{q_idx+1}/{len(questions)}"
     if in_spartan and not compact_question_ui:
         st.caption(f"스파르타 복습 남은 {len(st.session_state.spartan_pending)}문제 / 총{len(questions)}문제")
@@ -1186,8 +1187,8 @@ def main():
     if compact_question_ui:
         st.markdown(
             f"<div class='compact-progress'>"
-            f"정답 <strong>{correct_so_far}/{total_questions}</strong> ・ "
-            f"연속 <strong>{st.session_state.streak}회</strong> ・ "
+            f"정답 <strong>{correct_so_far}/{total_questions}</strong> · "
+            f"연속 <strong>{st.session_state.streak}회</strong> · "
             f"남은 <strong>{remaining}문제</strong>"
             f"</div>",
             unsafe_allow_html=True,

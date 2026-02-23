@@ -1,17 +1,17 @@
 import datetime
 import random
 import uuid
-import tempfile
 from pathlib import Path
 
 import streamlit as st
 import pandas as pd
 
+from data_sources import VOCAB_CSV
 import vocab_grouping as vg
 
 # パス설정
 # 語彙データ（日本語を含む多言語版）
-CSV_PATH = Path("2890 Gravaj Esperantaj Vortoj kun Signifoj en la Japana, Ĉina kaj Korea_251129_plajnova.csv")
+CSV_PATH = VOCAB_CSV
 AUDIO_DIR = Path("audio")
 SCORE_FILE = Path("scores.json")
 
@@ -69,12 +69,12 @@ QUIZ_DIRECTIONS = {
 
 @st.cache_data
 def load_groups(seed: int):
-    df = pd.read_csv(CSV_PATH)
-    if "Korean_Trans" in df.columns:
-        df["Japanese_Trans"] = df["Korean_Trans"]
-    tmp = Path(tempfile.gettempdir()) / "vocab_ko_temp.csv"
-    df.to_csv(tmp, index=False)
-    return vg.build_groups(tmp, seed=seed, audio_key_fn=vg._default_audio_key)
+    return vg.build_groups(
+        CSV_PATH,
+        seed=seed,
+        audio_key_fn=vg._default_audio_key,
+        translation_column="Korean_Trans",
+    )
 
 
 def is_mobile_client() -> bool:
@@ -508,7 +508,8 @@ def main():
     if "mobile_hide_streamlit_chrome" not in st.session_state:
         st.session_state.mobile_hide_streamlit_chrome = False
 
-    compact_ui = bool(st.session_state.mobile_compact_ui)
+    requested_compact_ui = bool(st.session_state.mobile_compact_ui)
+    compact_ui = is_mobile and requested_compact_ui
     ultra_compact_ui = compact_ui and bool(st.session_state.mobile_ultra_compact)
     direction_for_style = st.session_state.get("quiz_direction", "eo_to_ja")
     base_font = "18px" if direction_for_style == "eo_to_ja" else "24px"
@@ -819,7 +820,7 @@ def main():
             key="mobile_compact_ui",
             help="모바일에서는 ON 권장. 데스크톱 표시에는 영향이 없습니다.",
         )
-        if st.session_state.mobile_compact_ui:
+        if compact_ui:
             st.checkbox(
                 "모바일 최적화 시 선택지 음성을 자동으로 숨기기",
                 key="compact_hide_option_audio",
@@ -842,7 +843,7 @@ def main():
             )
         st.caption(
             f"기기 판정: {'모바일' if is_mobile else '데스크톱'} / "
-            f"최적화 UI: {'ON' if st.session_state.mobile_compact_ui else 'OFF'}"
+            f"최적화 UI: {'ON' if compact_ui else 'OFF'}"
         )
         if st.button("퀴즈 시작", disabled=not selected_group, use_container_width=True):
             # 出題順は常にランダム（シードはグループ分けのみに使用）
@@ -1157,7 +1158,7 @@ def main():
             st.markdown("### 틀린 문제")
             st.caption("음성으로 다시 확인할 수 있습니다.")
             for w in wrong:
-                st.write(f"- {w['prompt']}: 정답「{w['answer']} / {w['answer_eo']}」, 당신의 답변「{w['selected']}」 ({w['phase']})")
+                st.write(f"- {w['prompt']}: 정답 [{w['answer']} / {w['answer_eo']}], 내 답변 [{w['selected']}] ({w['phase']})")
                 if w.get("audio_key"):
                     data, mime = find_audio(w["audio_key"])
                     if data:
@@ -1198,7 +1199,7 @@ def main():
     question = questions[current_q_idx]
     audio_key = question["options"][question["answer_index"]].get("audio_key")
     direction = st.session_state.quiz_direction
-    compact_question_ui = bool(st.session_state.get("mobile_compact_ui", False))
+    compact_question_ui = compact_ui
 
     # 出題単語（一番上に大きく表示）
     if direction == "ja_to_eo":
@@ -1212,7 +1213,7 @@ def main():
             hide_prompt_audio = compact_question_ui and st.session_state.get("compact_hide_prompt_audio", True)
             if not hide_prompt_audio:
                 if not compact_question_ui:
-                    st.caption(f"🔊 발음 듣기(문제문·자동 재생)【{audio_key}】")
+                    st.caption(f"🔊 발음 듣기(문제문·자동 재생)[{audio_key}]")
                 simple_audio_player(audio_key, question_index=q_index, instance="prompt")
             else:
                 st.markdown("<div class='question-audio-hint'>🔇 문제문 음성은 모바일 최적화에서 숨김</div>", unsafe_allow_html=True)
@@ -1236,8 +1237,8 @@ def main():
     if compact_question_ui:
         st.markdown(
             f"<div class='compact-progress'>"
-            f"정답 <strong>{correct_so_far}/{total_questions}</strong> ・ "
-            f"연속 <strong>{st.session_state.streak}회</strong> ・ "
+            f"정답 <strong>{correct_so_far}/{total_questions}</strong> · "
+            f"연속 <strong>{st.session_state.streak}회</strong> · "
             f"남은 <strong>{remaining}문제</strong>"
             f"</div>",
             unsafe_allow_html=True,
@@ -1271,7 +1272,7 @@ def main():
         # 問題文の音声（결과画面でのみ再生）
         if audio_key:
             st.markdown("---")
-            st.caption(f"🔊 발음 확인(자동 재생)【{audio_key}】")
+            st.caption(f"🔊 발음 확인(자동 재생)[{audio_key}]")
             simple_audio_player(audio_key, question_index=q_index, instance="result")
 
         # 「次へ」ボタン

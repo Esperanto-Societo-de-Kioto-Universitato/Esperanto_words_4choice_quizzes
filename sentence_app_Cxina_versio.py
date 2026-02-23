@@ -6,11 +6,11 @@ import pandas as pd
 import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 
+from data_sources import PHRASE_CSV
 import vocab_grouping as vg
 
 # パス设置（単独アプリとして実行）
 BASE_DIR = Path(__file__).resolve().parent
-PHRASE_CSV = BASE_DIR / "phrases_eo_en_ja_zh_ko_ru_fulfilled_251130.csv"
 PHRASE_AUDIO_DIR = BASE_DIR / "Esperanto例文5000文_収録音声"
 
 # スコア设置
@@ -439,7 +439,8 @@ def main():
     if "mobile_hide_streamlit_chrome" not in st.session_state:
         st.session_state.mobile_hide_streamlit_chrome = False
 
-    compact_ui = bool(st.session_state.mobile_compact_ui)
+    requested_compact_ui = bool(st.session_state.mobile_compact_ui)
+    compact_ui = is_mobile and requested_compact_ui
     ultra_compact_ui = compact_ui and bool(st.session_state.mobile_ultra_compact)
     direction = st.session_state.get("direction", "ja_to_eo")
     base_font = "18px" if direction == "eo_to_ja" else "24px"
@@ -766,7 +767,7 @@ def main():
             key="mobile_compact_ui",
             help="移动端建议开启；不会影响桌面端显示。",
         )
-        if st.session_state.mobile_compact_ui:
+        if compact_ui:
             st.checkbox(
                 "紧凑UI下自动隐藏选项音频",
                 key="compact_hide_option_audio",
@@ -790,7 +791,7 @@ def main():
         st.caption("无论出题方向，只要开启开关就会显示选项音频。移动端卡顿时建议关闭。")
         st.caption(
             f"设备判定: {'移动端' if is_mobile else '桌面端'} / "
-            f"优化UI: {'ON' if st.session_state.mobile_compact_ui else 'OFF'}"
+            f"优化UI: {'ON' if compact_ui else 'OFF'}"
         )
 
         if st.button("开始测验", use_container_width=True):
@@ -1121,7 +1122,7 @@ def main():
             st.caption("可以通过音频复习。")
             for w in wrong:
                 st.write(f"- {w['prompt_ja']} / {w['prompt_eo']}")
-                st.write(f"　正确「{w['answer_ja']} / {w['answer']}」，你的回答「{w['selected_ja']} / {w['selected']}」")
+                st.write(f"　正确答案\u201c{w['answer_ja']} / {w['answer']}\u201d，你的回答\u201c{w['selected_ja']} / {w['selected']}\u201d")
                 play_phrase_audio(w["phrase_id"], w["answer"], autoplay=False, caption="🔊 确认发音")
         if correct_list:
             st.markdown("### 答对的题目（仅供确认）")
@@ -1170,7 +1171,7 @@ def main():
         prompt_text = question["prompt_eo"]
     else:
         prompt_text = question["prompt_ja"]
-    compact_question_ui = bool(st.session_state.get("mobile_compact_ui", False))
+    compact_question_ui = compact_ui
     title_prefix = "复习" if in_spartan else f"Q{q_idx+1}/{len(questions)}"
     if in_spartan and not compact_question_ui:
         st.caption(f"斯巴达复习 剩余{len(st.session_state.spartan_pending)}题 / 共{len(questions)}题")
@@ -1186,8 +1187,8 @@ def main():
     if compact_question_ui:
         st.markdown(
             f"<div class='compact-progress'>"
-            f"正确 <strong>{correct_so_far}/{total_questions}</strong> ・ "
-            f"连对 <strong>{st.session_state.streak}次</strong> ・ "
+            f"正确 <strong>{correct_so_far}/{total_questions}</strong> · "
+            f"连对 <strong>{st.session_state.streak}次</strong> · "
             f"剩余 <strong>{remaining}题</strong>"
             f"</div>",
             unsafe_allow_html=True,

@@ -6,11 +6,12 @@ from pathlib import Path
 import streamlit as st
 import pandas as pd
 
+from data_sources import VOCAB_CSV
 import vocab_grouping as vg
 
 # パス設定
 # 語彙データ（日本語を含む多言語版）
-CSV_PATH = Path("2890 Gravaj Esperantaj Vortoj kun Signifoj en la Japana, Ĉina kaj Korea_251129_plajnova.csv")
+CSV_PATH = VOCAB_CSV
 AUDIO_DIR = Path("audio")
 SCORE_FILE = Path("scores.json")
 
@@ -68,7 +69,12 @@ QUIZ_DIRECTIONS = {
 
 @st.cache_data
 def load_groups(seed: int):
-    return vg.build_groups(CSV_PATH, seed=seed, audio_key_fn=vg._default_audio_key)
+    return vg.build_groups(
+        CSV_PATH,
+        seed=seed,
+        audio_key_fn=vg._default_audio_key,
+        translation_column="Japanese_Trans",
+    )
 
 
 def is_mobile_client() -> bool:
@@ -502,7 +508,8 @@ def main():
     if "mobile_hide_streamlit_chrome" not in st.session_state:
         st.session_state.mobile_hide_streamlit_chrome = False
 
-    compact_ui = bool(st.session_state.mobile_compact_ui)
+    requested_compact_ui = bool(st.session_state.mobile_compact_ui)
+    compact_ui = is_mobile and requested_compact_ui
     ultra_compact_ui = compact_ui and bool(st.session_state.mobile_ultra_compact)
     direction_for_style = st.session_state.get("quiz_direction", "eo_to_ja")
     base_font = "18px" if direction_for_style == "eo_to_ja" else "24px"
@@ -813,7 +820,7 @@ def main():
             key="mobile_compact_ui",
             help="モバイルではON推奨。デスクトップ表示には影響しません。",
         )
-        if st.session_state.mobile_compact_ui:
+        if compact_ui:
             st.checkbox(
                 "スマホ最適化時は選択肢の音声を自動で隠す",
                 key="compact_hide_option_audio",
@@ -836,7 +843,7 @@ def main():
             )
         st.caption(
             f"端末判定: {'モバイル' if is_mobile else 'デスクトップ'} / "
-            f"最適化UI: {'ON' if st.session_state.mobile_compact_ui else 'OFF'}"
+            f"最適化UI: {'ON' if compact_ui else 'OFF'}"
         )
         if st.button("クイズ開始", disabled=not selected_group, use_container_width=True):
             # 出題順は常にランダム（シードはグループ分けのみに使用）
@@ -1192,7 +1199,7 @@ def main():
     question = questions[current_q_idx]
     audio_key = question["options"][question["answer_index"]].get("audio_key")
     direction = st.session_state.quiz_direction
-    compact_question_ui = bool(st.session_state.get("mobile_compact_ui", False))
+    compact_question_ui = compact_ui
 
     # 出題単語（一番上に大きく表示）
     if direction == "ja_to_eo":

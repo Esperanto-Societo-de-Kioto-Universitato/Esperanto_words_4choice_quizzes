@@ -1,17 +1,17 @@
 import datetime
 import random
 import uuid
-import tempfile
 from pathlib import Path
 
 import streamlit as st
 import pandas as pd
 
+from data_sources import VOCAB_CSV
 import vocab_grouping as vg
 
 # パス设置
 # 語彙データ（日本語を含む多言語版）
-CSV_PATH = Path("2890 Gravaj Esperantaj Vortoj kun Signifoj en la Japana, Ĉina kaj Korea_251129_plajnova.csv")
+CSV_PATH = VOCAB_CSV
 AUDIO_DIR = Path("audio")
 SCORE_FILE = Path("scores.json")
 
@@ -50,7 +50,7 @@ POS_JP = {
     "correlative": "对应词",
     "numeral": "数词",
     "bare_adverb": "原形副词",
-    "pronoun": "代名词",
+    "pronoun": "代词",
     "other": "其他",
 }
 
@@ -69,12 +69,12 @@ QUIZ_DIRECTIONS = {
 
 @st.cache_data
 def load_groups(seed: int):
-    df = pd.read_csv(CSV_PATH)
-    if "Chinese_Trans" in df.columns:
-        df["Japanese_Trans"] = df["Chinese_Trans"]
-    tmp = Path(tempfile.gettempdir()) / "vocab_cn_temp.csv"
-    df.to_csv(tmp, index=False)
-    return vg.build_groups(tmp, seed=seed, audio_key_fn=vg._default_audio_key)
+    return vg.build_groups(
+        CSV_PATH,
+        seed=seed,
+        audio_key_fn=vg._default_audio_key,
+        translation_column="Chinese_Trans",
+    )
 
 
 def is_mobile_client() -> bool:
@@ -508,7 +508,8 @@ def main():
     if "mobile_hide_streamlit_chrome" not in st.session_state:
         st.session_state.mobile_hide_streamlit_chrome = False
 
-    compact_ui = bool(st.session_state.mobile_compact_ui)
+    requested_compact_ui = bool(st.session_state.mobile_compact_ui)
+    compact_ui = is_mobile and requested_compact_ui
     ultra_compact_ui = compact_ui and bool(st.session_state.mobile_ultra_compact)
     direction_for_style = st.session_state.get("quiz_direction", "eo_to_ja")
     base_font = "18px" if direction_for_style == "eo_to_ja" else "24px"
@@ -819,7 +820,7 @@ def main():
             key="mobile_compact_ui",
             help="移动端建议开启；不会影响桌面端显示。",
         )
-        if st.session_state.mobile_compact_ui:
+        if compact_ui:
             st.checkbox(
                 "紧凑UI下自动隐藏选项音频",
                 key="compact_hide_option_audio",
@@ -842,7 +843,7 @@ def main():
             )
         st.caption(
             f"设备判定: {'移动端' if is_mobile else '桌面端'} / "
-            f"优化UI: {'ON' if st.session_state.mobile_compact_ui else 'OFF'}"
+            f"优化UI: {'ON' if compact_ui else 'OFF'}"
         )
         if st.button("开始测验", disabled=not selected_group, use_container_width=True):
             # 出題順は常にランダム（シードはグループ分けのみに使用）
@@ -1157,7 +1158,7 @@ def main():
             st.markdown("### 答错的题目")
             st.caption("可以通过音频复习。")
             for w in wrong:
-                st.write(f"- {w['prompt']}: 正解「{w['answer']} / {w['answer_eo']}」，你的回答「{w['selected']}」 ({w['phase']})")
+                st.write(f"- {w['prompt']}: 正确答案\u201c{w['answer']} / {w['answer_eo']}\u201d，你的回答\u201c{w['selected']}\u201d ({w['phase']})")
                 if w.get("audio_key"):
                     data, mime = find_audio(w["audio_key"])
                     if data:
@@ -1198,7 +1199,7 @@ def main():
     question = questions[current_q_idx]
     audio_key = question["options"][question["answer_index"]].get("audio_key")
     direction = st.session_state.quiz_direction
-    compact_question_ui = bool(st.session_state.get("mobile_compact_ui", False))
+    compact_question_ui = compact_ui
 
     # 出題単語（一番上に大きく表示）
     if direction == "ja_to_eo":
@@ -1236,8 +1237,8 @@ def main():
     if compact_question_ui:
         st.markdown(
             f"<div class='compact-progress'>"
-            f"正确 <strong>{correct_so_far}/{total_questions}</strong> ・ "
-            f"连对 <strong>{st.session_state.streak}次</strong> ・ "
+            f"正确 <strong>{correct_so_far}/{total_questions}</strong> · "
+            f"连对 <strong>{st.session_state.streak}次</strong> · "
             f"剩余 <strong>{remaining}题</strong>"
             f"</div>",
             unsafe_allow_html=True,

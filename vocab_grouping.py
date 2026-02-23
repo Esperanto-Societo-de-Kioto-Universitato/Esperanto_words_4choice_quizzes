@@ -8,6 +8,8 @@ from typing import Callable, Dict, List, Optional, Sequence, Tuple
 
 import pandas as pd
 
+from data_sources import VOCAB_CSV
+
 
 # -------- パラメータ --------
 # ランダムシードは 1〜8192 を想定（それ以外も受け付けるが再現性のため範囲を推奨）
@@ -278,13 +280,20 @@ def choose_group_count(total: int) -> int:
 
 # -------- コア処理 --------
 def load_vocab(
-    csv_path: Path, audio_key_fn: Optional[Callable[[str], str]] = None
+    csv_path: Path,
+    audio_key_fn: Optional[Callable[[str], str]] = None,
+    translation_column: str = "Japanese_Trans",
 ) -> List[VocabEntry]:
     df = pd.read_csv(csv_path)
+    if translation_column not in df.columns:
+        raise KeyError(
+            f"Column '{translation_column}' not found in {csv_path}. "
+            f"Available columns: {', '.join(map(str, df.columns))}"
+        )
     entries: List[VocabEntry] = []
     for idx, row in df.iterrows():
         eo = str(row["Esperanto"]).strip()
-        ja = str(row["Japanese_Trans"]).strip()
+        ja = str(row[translation_column]).strip()
         level = float(row["Unified_Level"])
         pos = classify_pos(eo)
         audio_key = audio_key_fn(eo) if audio_key_fn else None
@@ -407,12 +416,17 @@ def build_groups(
     csv_path: Path,
     seed: int = DEFAULT_SEED,
     audio_key_fn: Optional[Callable[[str], str]] = None,
+    translation_column: str = "Japanese_Trans",
 ) -> List[Group]:
     # personal_pronoun と pronoun は統合して 1 品詞として扱う
     COMBINED_POS = {"personal_pronoun": "pronoun", "pronoun": "pronoun"}
 
     rng = random.Random(seed)
-    entries = load_vocab(csv_path, audio_key_fn=audio_key_fn)
+    entries = load_vocab(
+        csv_path,
+        audio_key_fn=audio_key_fn,
+        translation_column=translation_column,
+    )
 
     groups: List[Group] = []
     by_pos: Dict[str, List[VocabEntry]] = {}
@@ -573,7 +587,7 @@ def main():
     parser.add_argument(
         "--csv",
         type=Path,
-        default=Path("2890 Gravaj Esperantaj Vortoj kun Signifoj en la Japana, Ĉina kaj Korea_251129_plajnova.csv"),
+        default=VOCAB_CSV,
         help="Path to the vocabulary CSV.",
     )
     parser.add_argument(
