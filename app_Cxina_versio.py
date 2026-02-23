@@ -1,5 +1,6 @@
 import datetime
 import random
+import time
 import uuid
 from pathlib import Path
 
@@ -37,6 +38,8 @@ MOBILE_UA_TOKENS = (
     "android",
     "mobile",
 )
+SCORE_READ_RETRIES = 3
+SCORE_READ_RETRY_BASE_SEC = 0.35
 
 POS_JP = {
     "noun": "名词",
@@ -112,26 +115,48 @@ def get_connection():
         st.error(f"Google Sheets 连接初始化失败: {e}")
         return None
 
+
+def _read_sheet_with_retry(conn, worksheet: str, force_refresh: bool):
+    ttl = 0 if force_refresh else 60
+    last_error = None
+    for attempt in range(SCORE_READ_RETRIES):
+        try:
+            return conn.read(worksheet=worksheet, ttl=ttl)
+        except Exception as e:
+            last_error = e
+            if attempt + 1 < SCORE_READ_RETRIES:
+                time.sleep(SCORE_READ_RETRY_BASE_SEC * (attempt + 1))
+    if last_error is not None:
+        raise last_error
+    return pd.DataFrame()
+
+
 def load_scores(force_refresh: bool = False):
     """Google Sheetsからスコアを読み込む"""
     conn = get_connection()
+    cached_scores = st.session_state.get("cached_scores", [])
     if conn is None:
+        if cached_scores:
+            st.session_state.score_load_error = None
+            st.session_state.score_refresh_needed = False
+            return cached_scores
         st.session_state.score_load_error = "无法初始化 Google Sheets 连接。"
         return []
     try:
-        # ワークシート "Scores" からデータを読み込む
-        # API制限（1分間に60リクエスト）を回避するため、キャッシュ有効時間を设置
-        # ttl=60秒（1分間は再取得せずキャッシュを使う）
-        df = conn.read(worksheet="Scores", ttl=0 if force_refresh else 60)
+        # 一时网络波动时进行短重试
+        df = _read_sheet_with_retry(conn, worksheet="Scores", force_refresh=force_refresh)
         st.session_state.score_load_error = None
-        if df.empty:
+        st.session_state.score_refresh_needed = False
+        if df is None or df.empty:
             return []
         # DataFrameを辞書のリストに変換
         return df.to_dict(orient="records")
     except Exception as e:
-        # エラー時はユーザーに通知せず静かに空リストを返す（頻繁なエラー表示を防ぐ）
-        # st.error(f"ランキングデータの読み込みに失敗しました: {e}")
         print(f"Ranking load error: {e}")
+        if cached_scores:
+            st.session_state.score_load_error = None
+            st.session_state.score_refresh_needed = False
+            return cached_scores
         st.session_state.score_load_error = f"获取排行榜失败: {e}"
         return []
 
@@ -449,6 +474,7 @@ def init_state():
     st.session_state.setdefault("streak", 0)
     st.session_state.setdefault("answers", [])
     st.session_state.setdefault("score_saved", False)
+    st.session_state.setdefault("score_refresh_needed", False)
     st.session_state.setdefault("last_saved_key", None)
     st.session_state.setdefault("score_load_error", None)
     st.session_state.setdefault("spartan_mode", False)
@@ -477,6 +503,7 @@ def start_quiz(group, rng):
     st.session_state.streak = 0
     st.session_state.answers = []
     st.session_state.score_saved = False
+    st.session_state.score_refresh_needed = False
     st.session_state.last_saved_key = None
     st.session_state.showing_result = False
     st.session_state.spartan_pending = []
@@ -864,6 +891,7 @@ def main():
             st.session_state.answers = []
             st.session_state.showing_result = False
             st.session_state.score_saved = False
+            st.session_state.score_refresh_needed = False
             st.session_state.last_saved_key = None
             st.session_state.spartan_pending = []
             st.session_state.in_spartan_round = False
@@ -895,8 +923,9 @@ def main():
         or not st.session_state.cached_scores
     )
 
+    force_refresh_scores = st.session_state.get("score_refresh_needed", False)
     if should_load:
-        scores = load_scores(force_refresh=True)
+        scores = load_scores(force_refresh=force_refresh_scores)
         st.session_state.cached_scores = scores
     else:
         scores = st.session_state.cached_scores
@@ -1078,6 +1107,7 @@ def main():
                     # Scores更新（ログ）
                     if save_score(record):
                         st.session_state.score_saved = True
+                        st.session_state.score_refresh_needed = True
                         st.rerun()
                     else:
                         st.error("保存失败。请检查 secrets 设置。")

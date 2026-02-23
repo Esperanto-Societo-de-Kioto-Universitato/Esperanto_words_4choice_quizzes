@@ -1,6 +1,0 @@
-PhraseID	Rule	Decision	Reason	Esperanto	日本語	中文	한국어	Русский язык
-457	EO_NEG_CJK_POS_yes_no	ALLOW_CONTEXT	No clear semantic mismatch; negation-related wording is natural/idiomatic and consistent with RU/EO meaning in context.	Vi ne havas akcenton	なまりが全くないですね。	你没有口音。	당신은 억양이 없네요.	У тебя нет акцента.
-985	EO_NEG_CJK_POS_yes_no	ALLOW_CONTEXT	No clear semantic mismatch; negation-related wording is natural/idiomatic and consistent with RU/EO meaning in context.	Mi ne havas infanojn	子どもはいません。	我没有孩子。	저는 자녀가 없습니다.	У меня нет детей.
-4998	EO_NEG_CJK_POS_yes_no	ALLOW_CONTEXT	No clear semantic mismatch; negation-related wording is natural/idiomatic and consistent with RU/EO meaning in context.	Ni jam tiel longe ne kontaktis unu la alian	ずいぶん長い間ご無沙汰していますね。	我们好久没有联系了。	정말 오랜만에 연락드리네요.	Мы уже так давно не общались.
-5129	EO_NEG_CJK_POS_yes_no	ALLOW_CONTEXT	No clear semantic mismatch; negation-related wording is natural/idiomatic and consistent with RU/EO meaning in context.	Malvarmas, ĉu ne?	寒いですね？	天气挺冷的，对吧？	날씨가 꽤 춥네요, 그쵸?	Холодно, правда?
-5130	EO_NEG_CJK_POS_yes_no	ALLOW_CONTEXT	No clear semantic mismatch; negation-related wording is natural/idiomatic and consistent with RU/EO meaning in context.	Varmegas, ĉu ne?	暑いですね？	天气真热，是吧？	날씨가 정말 덥죠?	Жарко, правда?

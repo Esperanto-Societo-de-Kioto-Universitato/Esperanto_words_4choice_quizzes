@@ -1,5 +1,0 @@
-row	esperanto	severity	column	issue_type	current	suggested_minimal	rationale
-1832	vazo	high	Japanese_Trans	root_leak_in_compound	{Ｂ}容器, うつわ, つぼ, かめ, 花びん, はち, >>〜, >>〜, >>〜 / 【解】（複合語で）脈管, =angio, >>sangovazo	{Ｂ}容器, うつわ, つぼ, かめ, 花びん, はち, >>〜, >>〜, >>〜 / 【解】（複合語で）脈管, =angio, >>sango〜	クイズ答え漏洩防止ルール（語根そのものは「〜」でのみ表示）に抵触。
-2624	kankro	optional_low	Korean_Trans	scope_narrow_vs_ja	게	게; (천문) 게자리(황도12궁)	JAが「動物/天文」の2義。ZHは天文義を保持しているため、KOにも最小補完すると日中韓バランスが改善。
-2628	karpo	optional_medium	Chinese_Trans|Korean_Trans	scope_narrow_vs_ja	鲤鱼 / 잉어	鲤鱼；[解] 腕骨（腕根） / 잉어; (해부) 수근(손목뼈)	JAが「魚/解剖」の2義だがZH/KOが魚義のみ。学習辞書としては解剖義を短く併記する方が自然。
-2810	skorpio	optional_low	Korean_Trans	scope_narrow_vs_ja	전갈	전갈; (천문) 전갈자리(황도12궁)	JA/ZHが天文義を持つため、KOにも天文義を最小追加すると3言語整合が取れる。

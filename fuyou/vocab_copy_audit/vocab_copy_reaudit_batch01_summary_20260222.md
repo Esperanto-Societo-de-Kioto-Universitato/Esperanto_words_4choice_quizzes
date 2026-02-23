@@ -1,1 +1,0 @@
-# Batch 01 (Rows 1-100) Re-Audit Summary (2026-02-22)\n\n- Scope: rows 1-100 of `...copy.csv`\n- Strict integrity: leakage 0 / empty 0 / mask artifact 0 / bracket mismatch 0\n- Candidate adjudication (22 rows): keep=13, optional_medium=2, optional_low=7\n- No high-priority issue found.\n

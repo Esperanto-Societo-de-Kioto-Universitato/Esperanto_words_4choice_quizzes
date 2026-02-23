@@ -1,1 +1,0 @@
-# Batch 05 (Rows 401-500) Re-Audit Summary (2026-02-22)\n\n- Candidate adjudication (25 rows): keep=12, optional_medium=4, optional_low=9\n- No high-priority issue found.\n

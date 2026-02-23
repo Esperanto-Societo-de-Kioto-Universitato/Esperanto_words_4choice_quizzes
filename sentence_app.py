@@ -1,5 +1,6 @@
 import datetime
 import random
+import time
 from pathlib import Path
 
 import pandas as pd
@@ -29,6 +30,8 @@ MOBILE_UA_TOKENS = (
     "android",
     "mobile",
 )
+SCORE_READ_RETRIES = 3
+SCORE_READ_RETRY_BASE_SEC = 0.35
 
 
 @st.cache_data
@@ -183,19 +186,44 @@ def build_questions(entries, levels, rng: random.Random):
     return questions
 
 
+def _read_sheet_with_retry(conn, worksheet: str, force_refresh: bool):
+    ttl = 0 if force_refresh else 60
+    last_error = None
+    for attempt in range(SCORE_READ_RETRIES):
+        try:
+            return conn.read(worksheet=worksheet, ttl=ttl)
+        except Exception as e:
+            last_error = e
+            if attempt + 1 < SCORE_READ_RETRIES:
+                time.sleep(SCORE_READ_RETRY_BASE_SEC * (attempt + 1))
+    if last_error is not None:
+        raise last_error
+    return pd.DataFrame()
+
+
 def load_scores(force_refresh: bool = False):
     conn = get_connection()
+    cached_scores = st.session_state.get("cached_scores", [])
     if conn is None:
+        if cached_scores:
+            st.session_state.score_load_error = None
+            st.session_state.score_refresh_needed = False
+            return cached_scores
         st.session_state.score_load_error = "Google Sheets 接続を初期化できませんでした。"
         return []
     try:
-        df = conn.read(worksheet=SCORES_SHEET, ttl=0 if force_refresh else 60)
+        df = _read_sheet_with_retry(conn, worksheet=SCORES_SHEET, force_refresh=force_refresh)
         st.session_state.score_load_error = None
+        st.session_state.score_refresh_needed = False
         if df is None or df.empty:
             return []
         records = df.to_dict(orient="records")
         return [r for r in records if r.get("mode") == "sentence"] or []
     except Exception as e:
+        if cached_scores:
+            st.session_state.score_load_error = None
+            st.session_state.score_refresh_needed = False
+            return cached_scores
         st.session_state.score_load_error = f"ランキングの取得に失敗しました: {e}"
         return []
 
@@ -713,6 +741,7 @@ def main():
     st.session_state.setdefault("showing_result", False)
     st.session_state.setdefault("direction", "ja_to_eo")
     st.session_state.setdefault("score_saved", False)
+    st.session_state.setdefault("score_refresh_needed", False)
     st.session_state.setdefault("score_load_error", None)
     st.session_state.setdefault("cached_scores", [])
     st.session_state.setdefault("cached_scores_all", [])
@@ -816,6 +845,7 @@ def main():
                 st.session_state.last_is_correct = False
                 st.session_state.last_result_msg = ""
                 st.session_state.score_saved = False
+                st.session_state.score_refresh_needed = False
                 st.session_state.spartan_pending = []
                 st.session_state.in_spartan_round = False
                 st.session_state.spartan_current_q_idx = None
@@ -836,6 +866,7 @@ def main():
             st.session_state.answers = []
             st.session_state.showing_result = False
             st.session_state.score_saved = False
+            st.session_state.score_refresh_needed = False
             st.session_state.spartan_pending = []
             st.session_state.in_spartan_round = False
             st.session_state.spartan_current_q_idx = None
@@ -867,7 +898,8 @@ def main():
         or st.session_state.score_saved
         or not st.session_state.cached_scores
     ):
-        scores = load_scores(force_refresh=True)
+        force_refresh_scores = st.session_state.get("score_refresh_needed", False)
+        scores = load_scores(force_refresh=force_refresh_scores)
         st.session_state.cached_scores = scores
     else:
         scores = st.session_state.cached_scores
@@ -1052,6 +1084,7 @@ def main():
                         ok_main = update_user_stats_main(st.session_state.sentence_user_name, points, now)
                         if ok_sentence and ok_main:
                             st.session_state.score_saved = True
+                            st.session_state.score_refresh_needed = True
                             st.rerun()
                         else:
                             st.warning("スコアログは保存しましたが、累積スコアの反映に失敗しました。少し時間をおいて再試行してください。")
@@ -1144,6 +1177,7 @@ def main():
             st.session_state.answers = []
             st.session_state.showing_result = False
             st.session_state.score_saved = False
+            st.session_state.score_refresh_needed = False
             st.session_state.spartan_pending = []
             st.session_state.in_spartan_round = False
             st.session_state.spartan_current_q_idx = None
