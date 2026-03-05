@@ -53,6 +53,13 @@ def load_phrase_df(csv_path: str, mtime_ns: int):
     return pd.read_csv(csv_path)
 
 
+def safe_mtime_ns(path: Path) -> int:
+    try:
+        return path.stat().st_mtime_ns
+    except OSError:
+        return 0
+
+
 def is_mobile_client() -> bool:
     """通过请求头（含 Client Hints）+ URL 参数判断是否为移动端。"""
     try:
@@ -182,15 +189,36 @@ def build_groups(df: pd.DataFrame):
 
     groups = {}
     for _, row in df.iterrows():
-        topic = str(row[col_topic]).strip()
-        subtopic = str(row[col_subtopic]).strip()
+        topic_raw = row.get(col_topic)
+        subtopic_raw = row.get(col_subtopic)
+        phrase_raw = row.get(col_eo)
+        ja_raw = row.get(col_ja)
+        level_raw = row.get(col_level)
+        id_raw = row.get(col_id)
+
+        if any(pd.isna(v) for v in (topic_raw, subtopic_raw, phrase_raw, ja_raw, level_raw, id_raw)):
+            continue
+
+        topic = str(topic_raw).strip()
+        subtopic = str(subtopic_raw).strip()
+        phrase = str(phrase_raw).strip()
+        japanese = str(ja_raw).strip()
+        if not topic or not subtopic or not phrase or not japanese:
+            continue
+
+        try:
+            phrase_id = int(id_raw)
+            level = int(level_raw)
+        except (TypeError, ValueError):
+            continue
+
         key = (topic, subtopic)
         groups.setdefault(key, []).append(
             {
-                "phrase_id": int(row[col_id]),
-                "phrase": str(row[col_eo]).strip(),
-                "japanese": str(row[col_ja]).strip(),
-                "level": int(row[col_level]),
+                "phrase_id": phrase_id,
+                "phrase": phrase,
+                "japanese": japanese,
+                "level": level,
             }
         )
     return groups
@@ -996,8 +1024,15 @@ def main():
     st.session_state.setdefault("compact_hide_option_audio", True)
     st.session_state.setdefault("compact_hide_prompt_audio", True)
 
-    df = load_phrase_df(str(PHRASE_CSV), PHRASE_CSV.stat().st_mtime_ns)
-    groups = build_groups(df)
+    try:
+        df = load_phrase_df(str(PHRASE_CSV), safe_mtime_ns(PHRASE_CSV))
+        groups = build_groups(df)
+    except Exception as e:
+        st.error(f"例句数据加载失败: {e}")
+        st.stop()
+    if not groups:
+        st.error("例句数据为空，请检查 CSV 内容。")
+        st.stop()
 
     with st.sidebar:
         st.header("设置")

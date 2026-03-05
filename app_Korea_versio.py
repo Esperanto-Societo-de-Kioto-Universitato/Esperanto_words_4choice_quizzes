@@ -105,6 +105,13 @@ def load_groups(seed: int, csv_mtime_ns: int):
     return vg.build_groups(CSV_PATH, **kwargs)
 
 
+def safe_mtime_ns(path: Path) -> int:
+    try:
+        return path.stat().st_mtime_ns
+    except OSError:
+        return 0
+
+
 def is_mobile_client() -> bool:
     """헤더(Client Hints 포함) + URL 파라미터로 모바일 여부를 판정한다."""
     try:
@@ -1023,7 +1030,14 @@ def main():
         seed = st.number_input("랜덤 시드 (1-8192)", min_value=1, max_value=8192, step=1, key="seed")
         # st.session_state.seed = seed # key="seed"にしたので不要
         # st.session_state.shuffle_every_time = st.checkbox("毎回ランダムに並べる（シード無視）", value=st.session_state.shuffle_every_time)
-        groups = load_groups(seed, CSV_PATH.stat().st_mtime_ns)
+        try:
+            groups = load_groups(seed, safe_mtime_ns(CSV_PATH))
+        except Exception as e:
+            st.error(f"문제 데이터를 불러오지 못했습니다: {e}")
+            st.stop()
+        if not groups:
+            st.error("문제 데이터가 비어 있습니다. CSV 내용을 확인해주세요.")
+            st.stop()
         pos_list = sorted({g.pos for g in groups})
         pos_label_map = {p: POS_JP.get(p, p) for p in pos_list}
         pos_choice = st.selectbox("품사를 선택", pos_list, format_func=lambda p: pos_label_map.get(p, p), key="pos_select")
@@ -1432,7 +1446,7 @@ def main():
             group = next(
                 (
                     g
-                    for g in load_groups(st.session_state.seed, CSV_PATH.stat().st_mtime_ns)
+                    for g in load_groups(st.session_state.seed, safe_mtime_ns(CSV_PATH))
                     if g.id == st.session_state.group_id
                 ),
                 None,

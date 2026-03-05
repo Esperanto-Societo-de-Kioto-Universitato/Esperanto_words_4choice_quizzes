@@ -285,16 +285,34 @@ def load_vocab(
     translation_column: str = "Japanese_Trans",
 ) -> List[VocabEntry]:
     df = pd.read_csv(csv_path)
-    if translation_column not in df.columns:
+    required_columns = ["Esperanto", "Unified_Level", translation_column]
+    missing_columns = [c for c in required_columns if c not in df.columns]
+    if missing_columns:
         raise KeyError(
-            f"Column '{translation_column}' not found in {csv_path}. "
+            f"Missing columns {missing_columns} in {csv_path}. "
             f"Available columns: {', '.join(map(str, df.columns))}"
         )
     entries: List[VocabEntry] = []
     for idx, row in df.iterrows():
-        eo = str(row["Esperanto"]).strip()
-        ja = str(row[translation_column]).strip()
-        level = float(row["Unified_Level"])
+        eo_raw = row.get("Esperanto")
+        tr_raw = row.get(translation_column)
+        level_raw = row.get("Unified_Level")
+
+        if pd.isna(eo_raw) or pd.isna(tr_raw) or pd.isna(level_raw):
+            continue
+
+        eo = str(eo_raw).strip()
+        ja = str(tr_raw).strip()
+        if not eo or not ja:
+            continue
+
+        try:
+            level = float(level_raw)
+        except (TypeError, ValueError):
+            continue
+        if not math.isfinite(level):
+            continue
+
         pos = classify_pos(eo)
         audio_key = audio_key_fn(eo) if audio_key_fn else None
         entries.append(
