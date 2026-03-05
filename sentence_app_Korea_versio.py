@@ -33,6 +33,12 @@ MOBILE_UA_TOKENS = (
     "android",
     "mobile",
 )
+DESKTOP_UA_TOKENS = (
+    "windows nt",
+    "macintosh",
+    "x11",
+    "cros",
+)
 SCORE_READ_RETRIES = 3
 SCORE_READ_RETRY_BASE_SEC = 0.35
 SCORE_WRITE_RETRIES = 3
@@ -59,13 +65,26 @@ def is_mobile_client() -> bool:
     ch_platform = normalized.get("sec-ch-ua-platform", "")
     qp_mobile = str(st.query_params.get("mobile", "")).strip().lower()
 
-    if qp_mobile in {"1", "true", "yes", "on"}:
-        return True
     if ch_mobile in {"?1", "1", "true"}:
         return True
     if any(token in ch_platform for token in ("android", "ios", "iphone", "ipad")):
         return True
-    return any(token in ua for token in MOBILE_UA_TOKENS)
+    if any(token in ua for token in MOBILE_UA_TOKENS):
+        return True
+
+    qp_is_mobile = qp_mobile in {"1", "true", "yes", "on"}
+    if not qp_is_mobile:
+        return False
+
+    # クエリ強制は「UA/Platformが取れない場合」か「明確なデスクトップでない場合」だけ許可。
+    has_signal = bool(ua or ch_platform or ch_mobile)
+    looks_desktop = (
+        any(token in ch_platform for token in ("windows", "mac", "linux", "chrome os", "cros"))
+        or any(token in ua for token in DESKTOP_UA_TOKENS)
+    )
+    if not has_signal:
+        return True
+    return not looks_desktop
 
 
 def is_debug_mode() -> bool:
@@ -555,6 +574,29 @@ def show_rankings(stats_data, key_suffix: str = "", score_rows=None):
         st.dataframe(to_df(hof), use_container_width=True, hide_index=True)
 
 
+def render_cross_language_footer(current_key: str):
+    links = [
+        ("vocab_zh", "词汇版（中文）", "https://esperantowords4choicequizzes-cxina-versio.streamlit.app"),
+        ("sentence_zh", "例句版（中文）", "https://esperantowords4choicequizzes-fwvq3dnm2jq85gbaztjlyy.streamlit.app"),
+        ("vocab_ko", "어휘 버전(한국어)", "https://esperantowords4choicequizzes-korea-versio.streamlit.app"),
+        ("sentence_ko", "문장 버전(한국어)", "https://esperantowords4choicequizzes-korea-version-frazoj.streamlit.app"),
+        ("vocab_ja", "語彙版（日本語）", "https://esperantowords4choicequizzes-bzgev2astlasx4app3futb.streamlit.app"),
+        ("sentence_ja", "文章版（日本語）", "https://esperantowords4choicequizzes-tiexjo7fx5elylbsywxgxz.streamlit.app"),
+    ]
+    foreign_links = [item for item in links if item[0] != current_key]
+    link_html = " ・ ".join(
+        f"<a href='{url}' target='_blank' rel='noopener noreferrer'>{label}</a>" for _, label, url in foreign_links
+    )
+    st.markdown(
+        f"""
+        <div style="margin-top: 1.4rem; padding-top: 0.55rem; border-top: 1px solid #e5e7eb; font-size: 0.80rem; color: #6b7280;">
+            다른 언어 버전: {link_html}
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
 def main():
     st.set_page_config(
         page_title="에스페란토 예문 퀴즈",
@@ -653,7 +695,7 @@ def main():
         div.stButton > button[kind="secondary"] {{
             border-color: #009900 !important;
         }}
-        .stButton button {{
+        [data-testid="stMain"] .stButton button {{
             height: 120px;
             min-height: 120px;
             max-height: 120px;
@@ -670,13 +712,13 @@ def main():
             text-align: center;
             padding: 12px;
         }}
-        .stButton button * {{
+        [data-testid="stMain"] .stButton button * {{
             font-size: {base_font} !important;
             font-weight: 700 !important;
             line-height: 1.35 !important;
         }}
         @media (max-width: 768px) {{
-            .stButton button {{
+            [data-testid="stMain"] .stButton button {{
                 height: auto;
                 min-height: {mobile_button_height};
                 max-height: none;
@@ -689,12 +731,12 @@ def main():
                 font-weight: 700 !important;
                 padding: {mobile_button_padding};
             }}
-            .stButton button * {{
+            [data-testid="stMain"] .stButton button * {{
                 font-size: {mobile_option_font} !important;
                 font-weight: 700 !important;
                 line-height: 1.35 !important;
             }}
-            .stButton {{
+            [data-testid="stMain"] .stButton {{
                 margin-bottom: 0.2rem !important;
             }}
             p {{
@@ -745,7 +787,7 @@ def main():
             .compact-progress strong {{
                 color: #0e8a2c;
             }}
-            .stButton button p, .stButton button span, .stButton button div {{
+            [data-testid="stMain"] .stButton button p, [data-testid="stMain"] .stButton button span, [data-testid="stMain"] .stButton button div {{
                 line-height: 1.25 !important;
             }}
             .question-audio-hint {{
@@ -758,7 +800,7 @@ def main():
             .question-box.tight {{
                 max-height: none;
             }}
-            .stButton button {{
+            [data-testid="stMain"] .stButton button {{
                 height: auto !important;
                 min-height: 124px !important;
                 max-height: none !important;
@@ -770,7 +812,7 @@ def main():
                 padding: 8px !important;
                 font-size: 45px !important;
             }}
-            .stButton button p, .stButton button div, .stButton button span, .stButton button * {{
+            [data-testid="stMain"] .stButton button p, [data-testid="stMain"] .stButton button div, [data-testid="stMain"] .stButton button span, [data-testid="stMain"] .stButton button * {{
                 font-size: 45px !important;
                 line-height: 1.3 !important;
             }}
@@ -789,11 +831,17 @@ def main():
             try {
                 const isNarrow = window.innerWidth <= 768;
                 const params = new URLSearchParams(window.location.search);
-                const already = sessionStorage.getItem("mobile_query_bootstrapped") === "1";
-                if (isNarrow && params.get("mobile") !== "1" && !already) {
+                const hasMobileParam = params.get("mobile") === "1";
+                if (isNarrow && !hasMobileParam) {
                     params.set("mobile", "1");
-                    sessionStorage.setItem("mobile_query_bootstrapped", "1");
                     const target = window.location.pathname + "?" + params.toString() + window.location.hash;
+                    window.location.replace(target);
+                    return;
+                }
+                if (!isNarrow && hasMobileParam) {
+                    params.delete("mobile");
+                    const query = params.toString();
+                    const target = window.location.pathname + (query ? "?" + query : "") + window.location.hash;
                     window.location.replace(target);
                     return;
                 }
@@ -873,7 +921,7 @@ def main():
 
             function fitOptionButtons() {
                 if (window.innerWidth > MOBILE_BP) return;
-                const buttons = document.querySelectorAll('div.stButton > button[kind="primary"]');
+                const buttons = document.querySelectorAll('[data-testid="stMain"] div.stButton > button[kind="primary"]');
                 buttons.forEach(fitOne);
             }
 
@@ -1200,6 +1248,7 @@ def main():
             st.session_state.cached_scores_all = all_scores
             st.subheader("랭킹(전체: 단어+예문)")
             show_rankings(main_rank, key_suffix="_main", score_rows=all_scores)
+        render_cross_language_footer("sentence_ko")
         return
 
     direction = st.session_state.direction
@@ -1418,6 +1467,7 @@ def main():
             st.session_state.spartan_attempts = 0
             st.session_state.spartan_correct_count = 0
             st.rerun()
+        render_cross_language_footer("sentence_ko")
         return
 
     # 出題対象（通常 or スパルタ）
@@ -1506,7 +1556,7 @@ def main():
             caption="🔊 정답 발음(자동 재생)",
             instance=f"result-{q_idx}",
         )
-        if st.button("다음", type="primary", use_container_width=True):
+        if st.button("다음으로", type="primary", use_container_width=True):
             if in_spartan:
                 st.session_state.showing_result = False
                 st.session_state.spartan_current_q_idx = None
@@ -1514,6 +1564,7 @@ def main():
                 st.session_state.q_index += 1
                 st.session_state.showing_result = False
             st.rerun()
+        render_cross_language_footer("sentence_ko")
         return
 
     option_labels = [opt["phrase"] if direction == "ja_to_eo" else opt["japanese"] for opt in question["options"]]
@@ -1591,6 +1642,8 @@ def main():
                     st.session_state.spartan_pending.append(current_q_idx)
             st.session_state.showing_result = True
             st.rerun()
+
+    render_cross_language_footer("sentence_ko")
 
 
 if __name__ == "__main__":

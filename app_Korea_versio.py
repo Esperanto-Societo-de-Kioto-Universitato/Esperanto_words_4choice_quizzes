@@ -41,6 +41,12 @@ MOBILE_UA_TOKENS = (
     "android",
     "mobile",
 )
+DESKTOP_UA_TOKENS = (
+    "windows nt",
+    "macintosh",
+    "x11",
+    "cros",
+)
 SCORE_READ_RETRIES = 3
 SCORE_READ_RETRY_BASE_SEC = 0.35
 SCORE_WRITE_RETRIES = 3
@@ -111,13 +117,26 @@ def is_mobile_client() -> bool:
     ch_platform = normalized.get("sec-ch-ua-platform", "")
     qp_mobile = str(st.query_params.get("mobile", "")).strip().lower()
 
-    if qp_mobile in {"1", "true", "yes", "on"}:
-        return True
     if ch_mobile in {"?1", "1", "true"}:
         return True
     if any(token in ch_platform for token in ("android", "ios", "iphone", "ipad")):
         return True
-    return any(token in ua for token in MOBILE_UA_TOKENS)
+    if any(token in ua for token in MOBILE_UA_TOKENS):
+        return True
+
+    qp_is_mobile = qp_mobile in {"1", "true", "yes", "on"}
+    if not qp_is_mobile:
+        return False
+
+    # クエリ強制は「UA/Platformが取れない場合」か「明確なデスクトップでない場合」だけ許可。
+    has_signal = bool(ua or ch_platform or ch_mobile)
+    looks_desktop = (
+        any(token in ch_platform for token in ("windows", "mac", "linux", "chrome os", "cros"))
+        or any(token in ua for token in DESKTOP_UA_TOKENS)
+    )
+    if not has_signal:
+        return True
+    return not looks_desktop
 
 
 def is_debug_mode() -> bool:
@@ -477,6 +496,29 @@ def show_rankings(stats_data, score_rows=None):
         st.dataframe(to_df(hof), use_container_width=True, hide_index=True)
 
 
+def render_cross_language_footer(current_key: str):
+    links = [
+        ("vocab_zh", "词汇版（中文）", "https://esperantowords4choicequizzes-cxina-versio.streamlit.app"),
+        ("sentence_zh", "例句版（中文）", "https://esperantowords4choicequizzes-fwvq3dnm2jq85gbaztjlyy.streamlit.app"),
+        ("vocab_ko", "어휘 버전(한국어)", "https://esperantowords4choicequizzes-korea-versio.streamlit.app"),
+        ("sentence_ko", "문장 버전(한국어)", "https://esperantowords4choicequizzes-korea-version-frazoj.streamlit.app"),
+        ("vocab_ja", "語彙版（日本語）", "https://esperantowords4choicequizzes-bzgev2astlasx4app3futb.streamlit.app"),
+        ("sentence_ja", "文章版（日本語）", "https://esperantowords4choicequizzes-tiexjo7fx5elylbsywxgxz.streamlit.app"),
+    ]
+    foreign_links = [item for item in links if item[0] != current_key]
+    link_html = " ・ ".join(
+        f"<a href='{url}' target='_blank' rel='noopener noreferrer'>{label}</a>" for _, label, url in foreign_links
+    )
+    st.markdown(
+        f"""
+        <div style="margin-top: 1.4rem; padding-top: 0.55rem; border-top: 1px solid #e5e7eb; font-size: 0.80rem; color: #6b7280;">
+            다른 언어 버전: {link_html}
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
 def format_stage_label(stages):
     def map_stage(s):
         if s.startswith("beginner"):
@@ -832,11 +874,17 @@ def main():
             try {
                 const isNarrow = window.innerWidth <= 768;
                 const params = new URLSearchParams(window.location.search);
-                const already = sessionStorage.getItem("mobile_query_bootstrapped") === "1";
-                if (isNarrow && params.get("mobile") !== "1" && !already) {
+                const hasMobileParam = params.get("mobile") === "1";
+                if (isNarrow && !hasMobileParam) {
                     params.set("mobile", "1");
-                    sessionStorage.setItem("mobile_query_bootstrapped", "1");
                     const target = window.location.pathname + "?" + params.toString() + window.location.hash;
+                    window.location.replace(target);
+                    return;
+                }
+                if (!isNarrow && hasMobileParam) {
+                    params.delete("mobile");
+                    const query = params.toString();
+                    const target = window.location.pathname + (query ? "?" + query : "") + window.location.hash;
                     window.location.replace(target);
                     return;
                 }
@@ -1190,6 +1238,7 @@ def main():
 
             st.subheader("랭킹(전체: 단어+예문)")
             show_rankings(load_rankings(), score_rows=scores)
+        render_cross_language_footer("vocab_ko")
         return
 
     q_index = st.session_state.q_index
@@ -1392,6 +1441,7 @@ def main():
                 rng = random.Random()
                 start_quiz(group, rng=rng)
                 st.rerun()
+        render_cross_language_footer("vocab_ko")
         return
 
     # 出題対象の選択（通常/スパルタ）
@@ -1498,6 +1548,7 @@ def main():
                 st.session_state.q_index += 1
                 st.session_state.showing_result = False
             st.rerun()
+        render_cross_language_footer("vocab_ko")
         return
 
     # 回答待ちモード: 4択ボタンを出題直下に配置（출제 방향でラベル切り替え）
@@ -1578,6 +1629,8 @@ def main():
             st.session_state.last_is_correct = False
             st.session_state.last_correct_answer = option_labels[question['answer_index']]
             st.rerun()
+
+    render_cross_language_footer("vocab_ko")
 
 
 if __name__ == "__main__":
