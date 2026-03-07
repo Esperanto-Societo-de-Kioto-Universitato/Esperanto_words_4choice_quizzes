@@ -9,14 +9,21 @@ import streamlit as st
 import pandas as pd
 
 from data_sources import VOCAB_CSV
-from score_append_utils import append_score_row_fast
+from score_append_utils import (
+    append_score_row_fast,
+    append_score_row_safe,
+    compute_user_score_totals,
+    load_sheet_records,
+    upsert_user_total,
+)
 from score_row_utils import normalize_score_row, normalize_score_rows
 import vocab_grouping as vg
 
 # パス设置
 # 語彙データ（日本語を含む多言語版）
+BASE_DIR = Path(__file__).resolve().parent
 CSV_PATH = VOCAB_CSV
-AUDIO_DIR = Path("audio")
+AUDIO_DIR = BASE_DIR / "audio"
 SCORE_FILE = Path("scores.json")
 
 # スコア设置
@@ -54,6 +61,8 @@ SCORE_WRITE_RETRY_BASE_SEC = 0.4
 SCORES_SHEET = "Scores"
 USER_STATS_SHEET = "UserStats"
 DEBUG_QUERY_VALUES = {"1", "true", "yes", "on"}
+RECENT_SCORES_LIMIT = 200
+AUDIO_CACHE_MAX_ENTRIES = 256
 
 POS_JP = {
     "noun": "名词",
@@ -187,8 +196,12 @@ def load_scores(force_refresh: bool = False):
     cached_scores = st.session_state.get("cached_scores", [])
     if conn is None:
         if cached_scores:
-            st.session_state.score_load_error = None
-            st.session_state.score_refresh_needed = False
+            if force_refresh:
+                st.session_state.score_load_error = "重新获取最新排行榜失败，当前显示上次缓存的数据。"
+                st.session_state.score_refresh_needed = True
+            else:
+                st.session_state.score_load_error = None
+                st.session_state.score_refresh_needed = False
             return normalize_score_rows(cached_scores, fallback_mode="vocab")
         st.session_state.score_load_error = "无法初始化 Google Sheets 连接。"
         return []
@@ -204,61 +217,15 @@ def load_scores(force_refresh: bool = False):
     except Exception as e:
         print(f"Ranking load error: {e}")
         if cached_scores:
-            st.session_state.score_load_error = None
-            st.session_state.score_refresh_needed = False
+            if force_refresh:
+                st.session_state.score_load_error = f"重新获取最新排行榜失败，当前显示上次缓存的数据: {e}"
+                st.session_state.score_refresh_needed = True
+            else:
+                st.session_state.score_load_error = None
+                st.session_state.score_refresh_needed = False
             return normalize_score_rows(cached_scores, fallback_mode="vocab")
         st.session_state.score_load_error = f"获取排行榜失败: {e}"
         return []
-
-def _score_record_exists(df: pd.DataFrame, record: dict) -> bool:
-    if df is None or df.empty:
-        return False
-    save_id = str(record.get("save_id", "")).strip()
-    if save_id and "save_id" in df.columns:
-        return df["save_id"].fillna("").astype(str).str.strip().eq(save_id).any()
-
-    user = str(record.get("user", "")).strip()
-    ts = str(record.get("ts", "")).strip()
-    if not user or not ts:
-        return False
-    if "user" not in df.columns or "ts" not in df.columns:
-        return False
-    mask = df["user"].fillna("").astype(str).str.strip().eq(user)
-    mask &= df["ts"].fillna("").astype(str).str.strip().eq(ts)
-    if "points" in df.columns:
-        mask &= pd.to_numeric(df["points"], errors="coerce").fillna(0.0).eq(
-            safe_float(record.get("points", 0.0), 0.0)
-        )
-    return bool(mask.any())
-
-
-def _append_score_record(df: pd.DataFrame, record: dict) -> pd.DataFrame:
-    new_row = pd.DataFrame([record])
-    if df is None or df.empty:
-        return new_row
-    return pd.concat([df, new_row], ignore_index=True, sort=False)
-
-
-def _build_user_stats_from_scores(scores_df: pd.DataFrame, ts: str) -> pd.DataFrame:
-    columns = ["user", "total_points", "last_updated"]
-    if scores_df is None or scores_df.empty or "user" not in scores_df.columns:
-        return pd.DataFrame(columns=columns)
-
-    normalized = scores_df.copy()
-    normalized["user"] = normalized["user"].fillna("").astype(str).str.strip()
-    normalized = normalized[normalized["user"] != ""]
-    if normalized.empty:
-        return pd.DataFrame(columns=columns)
-
-    if "points" not in normalized.columns:
-        normalized["points"] = 0.0
-    normalized["points"] = pd.to_numeric(normalized["points"], errors="coerce").fillna(0.0)
-
-    agg = normalized.groupby("user", as_index=False)["points"].sum()
-    agg = agg.rename(columns={"points": "total_points"})
-    agg["last_updated"] = ts
-    return agg[columns]
-
 
 def save_score(record: dict):
     """Google Sheetsにスコアを追記する"""
@@ -268,81 +235,33 @@ def save_score(record: dict):
     fast_saved = append_score_row_fast(record_to_save, worksheet_name=SCORES_SHEET)
     if fast_saved is True:
         return True
-
-    conn = get_connection()
-    if conn is None:
-        return False
-
-    last_error = None
-
-    for attempt in range(SCORE_WRITE_RETRIES):
-        try:
-            df = _read_sheet_with_retry(conn, worksheet=SCORES_SHEET, force_refresh=True)
-            if df is None or df.empty:
-                df = pd.DataFrame()
-            if _score_record_exists(df, record_to_save):
-                return True
-
-            updated_df = _append_score_record(df, record_to_save)
-            conn.update(worksheet=SCORES_SHEET, data=updated_df)
-
-            verify_df = _read_sheet_with_retry(conn, worksheet=SCORES_SHEET, force_refresh=True)
-            if _score_record_exists(verify_df, record_to_save):
-                return True
-            last_error = RuntimeError("保存后校验未确认到记录。")
-        except Exception as e:
-            last_error = e
-
-        if attempt + 1 < SCORE_WRITE_RETRIES:
-            time.sleep(SCORE_WRITE_RETRY_BASE_SEC * (attempt + 1))
-
-    st.error(f"保存分数失败: {last_error}")
-    return False
+    return append_score_row_safe(
+        record_to_save,
+        worksheet_name=SCORES_SHEET,
+        retries=SCORE_WRITE_RETRIES,
+        retry_base_sec=SCORE_WRITE_RETRY_BASE_SEC,
+    )
 
 
 def update_user_stats(user: str, points: float, ts: str):
     """UserStatsシート（累積スコア）を更新する"""
     del points
-    conn = get_connection()
-    if conn is None:
+    records = load_sheet_records(SCORES_SHEET, refresh=True)
+    if records is None:
+        print("UserStats update error: Scores sheet could not be read.")
         return False
-
-    normalized_user = str(user).strip()
-    last_error = None
-
-    for attempt in range(SCORE_WRITE_RETRIES):
-        try:
-            scores_df = _read_sheet_with_retry(conn, worksheet=SCORES_SHEET, force_refresh=True)
-            stats_df = _build_user_stats_from_scores(scores_df, ts)
-
-            expected_total = None
-            if normalized_user and not stats_df.empty:
-                target_row = stats_df[stats_df["user"] == normalized_user]
-                if not target_row.empty:
-                    expected_total = safe_float(target_row.iloc[0]["total_points"], 0.0)
-            if normalized_user and expected_total is None:
-                raise RuntimeError("在 Scores 重建汇总时无法定位目标用户的累计分。")
-
-            conn.update(worksheet=USER_STATS_SHEET, data=stats_df)
-
-            if not normalized_user:
-                return True
-            verify_df = _read_sheet_with_retry(conn, worksheet=USER_STATS_SHEET, force_refresh=True)
-            if verify_df is not None and not verify_df.empty and "user" in verify_df.columns:
-                mask = verify_df["user"].fillna("").astype(str).str.strip().eq(normalized_user)
-                if mask.any():
-                    actual_total = safe_float(verify_df.loc[mask].iloc[0].get("total_points"), 0.0)
-                    if abs(actual_total - expected_total) <= 0.001 or actual_total > expected_total:
-                        return True
-            last_error = RuntimeError("UserStats 校验未确认到期望值。")
-        except Exception as e:
-            last_error = e
-
-        if attempt + 1 < SCORE_WRITE_RETRIES:
-            time.sleep(SCORE_WRITE_RETRY_BASE_SEC * (attempt + 1))
-
-    print(f"UserStats update error: {last_error}")
-    return False
+    totals = compute_user_score_totals(records, user)
+    ok = upsert_user_total(
+        USER_STATS_SHEET,
+        user=user,
+        total_points=totals["overall"],
+        last_updated=ts,
+        retries=SCORE_WRITE_RETRIES,
+        retry_base_sec=SCORE_WRITE_RETRY_BASE_SEC,
+    )
+    if not ok:
+        print("UserStats update error: row upsert failed.")
+    return ok
 
 
 def load_rankings():
@@ -585,7 +504,7 @@ def format_group_label(group):
     return f"{POS_JP.get(group.pos, group.pos)} / {stage_label} / 组{gid_num} ({group.size}词)"
 
 
-@st.cache_data(show_spinner=False, max_entries=1024)
+@st.cache_data(show_spinner=False, max_entries=AUDIO_CACHE_MAX_ENTRIES)
 def find_audio(akey: str):
     """
     音声ファイルの読み込みをキャッシュして重複I/Oを防ぐ。
@@ -1361,7 +1280,7 @@ def main():
                         st.error("保存失败。请检查 secrets 设置。")
 
         if scores:
-            with st.expander("最近的分数", expanded=False):
+            with st.expander(f"最近的分数（最新{RECENT_SCORES_LIMIT}条）", expanded=False):
                 # 列順を軽く整える（存在する列のみ）
                 import pandas as pd
                 preferred_cols = [
@@ -1383,7 +1302,8 @@ def main():
                     "spartan_accuracy",
                     "accuracy_bonus_main",
                 ]
-                df_recent = pd.DataFrame(scores)
+                recent_rows = list(reversed(scores[-RECENT_SCORES_LIMIT:]))
+                df_recent = pd.DataFrame(recent_rows)
                 cols = [c for c in preferred_cols if c in df_recent.columns] if not df_recent.empty else []
                 if cols:
                     df_recent = df_recent[cols + [c for c in df_recent.columns if c not in cols]]
