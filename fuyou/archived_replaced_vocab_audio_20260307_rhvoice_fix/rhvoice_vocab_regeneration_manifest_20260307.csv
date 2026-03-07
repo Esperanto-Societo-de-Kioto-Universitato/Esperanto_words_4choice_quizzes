@@ -1,3 +1,0 @@
-phase,entry,source_file,archived_to,sha16,duration_seconds,voice,note
-archive_old_exact,bonvoli,bonvoli.wav,fuyou/archived_replaced_vocab_audio_20260307_rhvoice_fix/bonvoli.wav,afe04e1aac493039,1.030,,pre-regeneration current exact (known stale; matched old bon/voli audio)
-install_new_exact,bonvoli,bonvoli.wav,,d2ad513a5df22a69,1.030,spomenka,regenerated from current CSV word with RHVoice-test
