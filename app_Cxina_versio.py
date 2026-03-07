@@ -200,7 +200,7 @@ def load_scores(force_refresh: bool = False):
                 st.session_state.score_load_error = "重新获取最新排行榜失败，当前显示上次缓存的数据。"
                 st.session_state.score_refresh_needed = True
             else:
-                st.session_state.score_load_error = None
+                st.session_state.score_load_error = "未能获取最新排行榜，当前显示上次缓存的数据。"
                 st.session_state.score_refresh_needed = False
             return normalize_score_rows(cached_scores, fallback_mode="vocab")
         st.session_state.score_load_error = "无法初始化 Google Sheets 连接。"
@@ -221,7 +221,7 @@ def load_scores(force_refresh: bool = False):
                 st.session_state.score_load_error = f"重新获取最新排行榜失败，当前显示上次缓存的数据: {e}"
                 st.session_state.score_refresh_needed = True
             else:
-                st.session_state.score_load_error = None
+                st.session_state.score_load_error = f"未能获取最新排行榜，当前显示上次缓存的数据: {e}"
                 st.session_state.score_refresh_needed = False
             return normalize_score_rows(cached_scores, fallback_mode="vocab")
         st.session_state.score_load_error = f"获取排行榜失败: {e}"

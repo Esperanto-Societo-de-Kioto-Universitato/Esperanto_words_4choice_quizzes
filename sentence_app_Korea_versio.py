@@ -300,7 +300,7 @@ def load_scores(force_refresh: bool = False):
                 st.session_state.score_load_error = "최신 랭킹을 다시 가져오지 못해 이전 캐시 데이터를 표시합니다."
                 st.session_state.score_refresh_needed = True
             else:
-                st.session_state.score_load_error = None
+                st.session_state.score_load_error = "최신 랭킹을 가져오지 못해 이전 캐시 데이터를 표시합니다."
                 st.session_state.score_refresh_needed = False
             return normalize_score_rows(cached_scores, fallback_mode="vocab")
         st.session_state.score_load_error = "Google Sheets 연결을 초기화할 수 없습니다."
@@ -319,7 +319,7 @@ def load_scores(force_refresh: bool = False):
                 st.session_state.score_load_error = f"최신 랭킹을 다시 가져오지 못해 이전 캐시 데이터를 표시합니다: {e}"
                 st.session_state.score_refresh_needed = True
             else:
-                st.session_state.score_load_error = None
+                st.session_state.score_load_error = f"최신 랭킹을 가져오지 못해 이전 캐시 데이터를 표시합니다: {e}"
                 st.session_state.score_refresh_needed = False
             normalized_cached = normalize_score_rows(cached_scores, fallback_mode="vocab")
             return [r for r in normalized_cached if r.get("mode") == "sentence"] or []

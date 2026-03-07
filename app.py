@@ -200,7 +200,7 @@ def load_scores(force_refresh: bool = False):
                 st.session_state.score_load_error = "最新ランキングの再取得に失敗したため、前回のデータを表示しています。"
                 st.session_state.score_refresh_needed = True
             else:
-                st.session_state.score_load_error = None
+                st.session_state.score_load_error = "最新ランキングを取得できなかったため、前回のデータを表示しています。"
                 st.session_state.score_refresh_needed = False
             return normalize_score_rows(cached_scores, fallback_mode="vocab")
         st.session_state.score_load_error = "Google Sheets 接続を初期化できませんでした。"
@@ -221,7 +221,7 @@ def load_scores(force_refresh: bool = False):
                 st.session_state.score_load_error = f"最新ランキングの取得に失敗したため、前回のデータを表示しています: {e}"
                 st.session_state.score_refresh_needed = True
             else:
-                st.session_state.score_load_error = None
+                st.session_state.score_load_error = f"最新ランキングを取得できなかったため、前回のデータを表示しています: {e}"
                 st.session_state.score_refresh_needed = False
             return normalize_score_rows(cached_scores, fallback_mode="vocab")
         st.session_state.score_load_error = f"ランキングの取得に失敗しました: {e}"
