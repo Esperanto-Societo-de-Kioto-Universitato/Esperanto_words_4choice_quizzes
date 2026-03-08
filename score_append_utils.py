@@ -7,7 +7,7 @@ import gspread
 import streamlit as st
 from gspread.utils import rowcol_to_a1
 
-from score_row_utils import SENTENCE_MODE, VOCAB_MODE, infer_mode
+from score_row_utils import SENTENCE_MODE, VOCAB_MODE, infer_mode, iter_unique_score_rows
 
 
 _CREDENTIAL_KEYS = {
@@ -193,6 +193,38 @@ def _save_id_exists(ws: gspread.Worksheet, headers, save_id: str) -> bool:
     return any(str(v).strip() == save_id for v in values[1:])
 
 
+def _confirm_save_id_exists(
+    ws: gspread.Worksheet,
+    cache_key: Optional[str],
+    headers,
+    save_id: str,
+    *,
+    attempts: int = 3,
+    delay_base_sec: float = 0.2,
+) -> bool:
+    if not save_id:
+        return False
+    if _save_id_exists(ws, headers, save_id):
+        return True
+
+    worksheet_name = getattr(ws, "title", "")
+    for attempt in range(1, max(1, attempts)):
+        time.sleep(delay_base_sec * attempt)
+        retry_ws, retry_cache_key = _open_worksheet(worksheet_name, refresh=True)
+        if retry_ws is None:
+            continue
+        retry_headers = headers
+        try:
+            retry_headers = _ensure_headers(retry_ws, retry_cache_key, headers)
+        except Exception:
+            pass
+        if _save_id_exists(retry_ws, retry_headers, save_id):
+            return True
+    if cache_key:
+        _HEADER_CACHE.pop(cache_key, None)
+    return False
+
+
 def _append_score_row_once(record: Dict, worksheet_name: str, *, refresh: bool) -> Optional[bool]:
     ws, cache_key = _open_worksheet(worksheet_name, refresh=refresh)
     if ws is None:
@@ -224,7 +256,7 @@ def _append_score_row_once(record: Dict, worksheet_name: str, *, refresh: bool) 
                 recent_ids.add(save_id)
         return True
     except Exception:
-        if save_id and _save_id_exists(ws, headers, save_id):
+        if save_id and _confirm_save_id_exists(ws, cache_key, headers, save_id):
             recent_ids.add(save_id)
             return True
         _invalidate_cache(cache_key)
@@ -280,7 +312,7 @@ def compute_user_score_totals(records, user: str) -> Dict[str, float]:
     totals = {"overall": 0.0, "vocab": 0.0, "sentence": 0.0}
     if not normalized_user:
         return totals
-    for row in records or []:
+    for row in iter_unique_score_rows(records):
         if str(row.get("user", "")).strip() != normalized_user:
             continue
         points = _safe_float(row.get("points", 0.0), 0.0)

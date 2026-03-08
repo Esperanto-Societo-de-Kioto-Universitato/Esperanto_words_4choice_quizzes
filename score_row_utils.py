@@ -80,9 +80,21 @@ def normalize_score_row(row: Dict, fallback_mode: str = VOCAB_MODE) -> Dict:
     return normalized
 
 
+def iter_unique_score_rows(rows: Iterable[Dict]):
+    seen_save_ids = set()
+    for row in rows or []:
+        if not isinstance(row, dict):
+            continue
+        save_id = str(row.get("save_id", "")).strip()
+        if save_id:
+            if save_id in seen_save_ids:
+                continue
+            seen_save_ids.add(save_id)
+        yield row
+
+
 def normalize_score_rows(rows: Iterable[Dict], fallback_mode: str = VOCAB_MODE) -> List[Dict]:
     return [
         normalize_score_row(row, fallback_mode=fallback_mode)
-        for row in rows or []
-        if isinstance(row, dict)
+        for row in iter_unique_score_rows(rows)
     ]

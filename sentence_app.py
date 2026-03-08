@@ -336,7 +336,8 @@ def load_scores(force_refresh: bool = False):
                 st.session_state.score_load_error = "最新ランキングの再取得に失敗したため、前回のデータを表示しています。"
             else:
                 st.session_state.score_load_error = "最新ランキングを取得できなかったため、前回のデータを表示しています。"
-            return normalize_score_rows(cached_scores, fallback_mode="vocab")
+            normalized_cached = normalize_score_rows(cached_scores, fallback_mode="vocab")
+            return [r for r in normalized_cached if r.get("mode") == "sentence"] or []
         st.session_state.score_load_error = "Google Sheets 接続を初期化できませんでした。"
         st.session_state.score_refresh_needed = False
         return []
@@ -364,6 +365,17 @@ def load_scores(force_refresh: bool = False):
 
 def _load_status(source: str = "unavailable", *, exact: bool = False, error: str = None):
     return {"source": source, "exact": exact, "error": error}
+
+
+def _sentence_ranking_status_notice(status):
+    if not status:
+        return None, None
+    source = status.get("source")
+    if source == "cache":
+        return "info", "文章ランキングは前回取得したデータを暫定表示しています。"
+    if source == "unavailable":
+        return "warning", "文章ランキングを取得できなかったため、表示を省略しています。少し時間をおいて再読み込みしてください。"
+    return None, None
 
 
 def load_scores_all(force_refresh: bool = False, *, include_status: bool = False):
@@ -448,17 +460,34 @@ def update_user_stats_main(user: str, points: float, ts: str, totals=None):
     return _update_stats(USER_STATS_MAIN, user, points, ts, totals=totals)
 
 
-def load_rankings(force_refresh: bool = False):
+def load_rankings(force_refresh: bool = False, *, include_status: bool = False):
     conn = get_connection()
+    cached_sentence_rank = st.session_state.get("cached_sentence_rank", [])
+
+    def finish(records, *, source: str, exact: bool, error: str = None):
+        status = _load_status(source, exact=exact, error=error)
+        if include_status:
+            return records, status
+        return records
+
     if conn is None:
-        return []
+        if cached_sentence_rank:
+            return finish(
+                cached_sentence_rank,
+                source="cache",
+                exact=False,
+                error="Google Sheets 接続を初期化できませんでした。",
+            )
+        return finish([], source="unavailable", exact=False, error="Google Sheets 接続を初期化できませんでした。")
     try:
         df = _read_sheet_with_retry(conn, worksheet=USER_STATS_SHEET, force_refresh=force_refresh)
         if df is None or df.empty:
-            return []
-        return df.to_dict(orient="records")
-    except Exception:
-        return []
+            return finish([], source="live", exact=True)
+        return finish(df.to_dict(orient="records"), source="live", exact=True)
+    except Exception as e:
+        if cached_sentence_rank:
+            return finish(cached_sentence_rank, source="cache", exact=False, error=str(e))
+        return finish([], source="unavailable", exact=False, error=str(e))
 
 
 def load_main_rankings(force_refresh: bool = False, *, include_status: bool = False):
@@ -1113,6 +1142,8 @@ def main():
     st.session_state.setdefault("score_load_error", None)
     st.session_state.setdefault("score_sync_warning", None)
     st.session_state.setdefault("cached_scores", [])
+    st.session_state.setdefault("cached_sentence_rank", [])
+    st.session_state.setdefault("cached_sentence_rank_status", _load_status())
     st.session_state.setdefault("cached_scores_all", [])
     st.session_state.setdefault("cached_scores_all_status", _load_status())
     st.session_state.setdefault("cached_main_rank", [])
@@ -1311,9 +1342,24 @@ def main():
     main_rank = st.session_state.get("cached_main_rank", [])
     main_rank_status = st.session_state.get("cached_main_rank_status", _load_status())
     main_rank_loaded = False
+    sentence_rank = st.session_state.get("cached_sentence_rank", [])
+    sentence_rank_status = st.session_state.get("cached_sentence_rank_status", _load_status())
+    sentence_rank_loaded = False
     all_scores = st.session_state.get("cached_scores_all", [])
     all_scores_status = st.session_state.get("cached_scores_all_status", _load_status())
     all_scores_loaded = False
+
+    def get_sentence_rankings():
+        nonlocal sentence_rank, sentence_rank_status, sentence_rank_loaded
+        if not sentence_rank_loaded:
+            sentence_rank, sentence_rank_status = load_rankings(
+                force_refresh=force_refresh_rankings,
+                include_status=True,
+            )
+            st.session_state.cached_sentence_rank = sentence_rank
+            st.session_state.cached_sentence_rank_status = sentence_rank_status
+            sentence_rank_loaded = True
+        return sentence_rank, sentence_rank_status
 
     def get_main_rankings():
         nonlocal main_rank, main_rank_status, main_rank_loaded
@@ -1396,10 +1442,15 @@ def main():
     if not questions:
         st.info("サイドバーでトピック/サブトピックとレベルを選んで開始してください。")
         st.caption("単語版に近い操作感で、例文の4択クイズを遊べます。")
-        sentence_rank = load_rankings(force_refresh=force_refresh_rankings)
+        sentence_rank, sentence_rank_status = get_sentence_rankings()
+        sentence_rank_notice_level, sentence_rank_notice = _sentence_ranking_status_notice(sentence_rank_status)
         if sentence_rank:
             st.subheader("ランキング")
+            if sentence_rank_notice:
+                getattr(st, sentence_rank_notice_level)(sentence_rank_notice)
             show_rankings(sentence_rank, key_suffix="_sentence", score_rows=scores)
+        elif sentence_rank_notice:
+            getattr(st, sentence_rank_notice_level)(sentence_rank_notice)
         main_rank, main_rank_status = get_main_rankings()
         all_scores, all_scores_status = get_all_scores()
         overall_rank_rows, overall_rank_scores, overall_rank_notice = _resolve_overall_ranking_table(
@@ -1551,6 +1602,8 @@ def main():
                         else:
                             st.session_state.sentence_saved_total_projection = optimistic_projection
                         st.session_state.score_refresh_needed = True
+                        st.session_state.cached_sentence_rank = []
+                        st.session_state.cached_sentence_rank_status = _load_status()
                         st.session_state.cached_scores_all = []
                         st.session_state.cached_scores_all_status = _load_status()
                         st.session_state.cached_main_rank = []
@@ -1588,10 +1641,15 @@ def main():
                 if cols:
                     df_recent = df_recent[cols + [c for c in df_recent.columns if c not in cols]]
                 st.dataframe(df_recent, hide_index=True, use_container_width=True)
-        ranking = load_rankings(force_refresh=force_refresh_rankings)
+        ranking, ranking_status = get_sentence_rankings()
+        ranking_notice_level, ranking_notice = _sentence_ranking_status_notice(ranking_status)
         if ranking:
             st.subheader("ランキング")
+            if ranking_notice:
+                getattr(st, ranking_notice_level)(ranking_notice)
             show_rankings(ranking, key_suffix="_sentence", score_rows=scores)
+        elif ranking_notice:
+            getattr(st, ranking_notice_level)(ranking_notice)
         main_rank, main_rank_status = get_main_rankings()
         all_scores, all_scores_status = get_all_scores()
         overall_rank_rows, overall_rank_scores, overall_rank_notice = _resolve_overall_ranking_table(
