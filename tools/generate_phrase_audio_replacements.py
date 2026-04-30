@@ -17,7 +17,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--candidate-csv",
-        default="phrases_audio_replacement_candidates_20260306.csv",
+        default="fuyou_/phrases_audio_replacement_candidates_20260306.csv",
         help="CSV listing replacement candidates.",
     )
     parser.add_argument(
@@ -32,7 +32,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--report-csv",
-        default="phrases_audio_replacement_generation_20260306.csv",
+        default="fuyou_/phrases_audio_replacement_generation_20260306.csv",
         help="Write generation results here.",
     )
     parser.add_argument(

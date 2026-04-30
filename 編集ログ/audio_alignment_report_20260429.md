@@ -18,8 +18,8 @@
 
 ## 実施内容
 
-- 差し替え候補一覧を作成: `fuyou/phrases_audio_replacement_candidates_20260429.csv`
-- RHVoice/Spomenka で exact-key WAV を生成: `fuyou/phrases_audio_replacement_generation_20260429.csv`
+- 差し替え候補一覧を作成: `編集ログ/phrases_audio_replacement_candidates_20260429.csv`
+- RHVoice/Spomenka で exact-key WAV を生成: `編集ログ/phrases_audio_replacement_generation_20260429.csv`
 - 旧prefix/legacy音声を退避: `Esperanto例文5000文_収録音声/archived_replaced_audio_20260429/`
 - 退避件数: 222
 

@@ -69,17 +69,17 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--candidate-csv",
-        default=str(ROOT / "fuyou" / "phrases_audio_replacement_candidates_20260429.csv"),
+        default=str(ROOT / "編集ログ" / "phrases_audio_replacement_candidates_20260429.csv"),
         help="Write fallback/missing candidates to this CSV.",
     )
     parser.add_argument(
         "--generation-csv",
-        default=str(ROOT / "fuyou" / "phrases_audio_replacement_generation_20260429.csv"),
+        default=str(ROOT / "編集ログ" / "phrases_audio_replacement_generation_20260429.csv"),
         help="Write generation/archive results to this CSV.",
     )
     parser.add_argument(
         "--report-md",
-        default=str(ROOT / "fuyou" / "audio_alignment_report_20260429.md"),
+        default=str(ROOT / "編集ログ" / "audio_alignment_report_20260429.md"),
         help="Write a short Markdown alignment report.",
     )
     parser.add_argument(
