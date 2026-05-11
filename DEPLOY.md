@@ -35,10 +35,11 @@ https://<your-app>.streamlit.app/?classic=1
 ## 1. シークレットの準備（ローカルで開かない）
 - `gen-lang-client-0360673218-9b47aa22b42f.json` は **コミットしない**（`.gitignore` 済み）。
 - JSON を開く必要がある場合はローカルで確認し、`private_key` の改行を `\n` に置換しておく。
+- 秘密鍵をチャット、GitHub、README、Issue、PR本文に貼ってしまった場合、その鍵は漏洩済みとして扱い、Google Cloudで削除して新しい鍵を作り直す。
 
 ## 2. Streamlit Cloud の Secrets 設定
-1. Streamlit Cloud のデプロイページで **Secrets** を開く。
-2. 以下を貼り付け、`project_id`・`client_email`・`private_key` を JSON から転記する（改行は `\n`）。
+1. Streamlit Cloud のデプロイ済みアプリで **Settings** → **Secrets** を開く。
+2. 以下を貼り付け、`project_id`・`client_email`・`private_key` を JSON から転記する（1行形式では改行を `\n` として入れる）。
    ```toml
    [connections.gsheets]
    type = "service_account"
@@ -46,8 +47,16 @@ https://<your-app>.streamlit.app/?classic=1
    private_key = "-----BEGIN PRIVATE KEY-----\\n...\\n-----END PRIVATE KEY-----\\n"
    client_email = "streamlit-sheets-sa@gen-lang-client-0360673218.iam.gserviceaccount.com"
    spreadsheet = "https://docs.google.com/spreadsheets/d/1WnlZ2BACdf3uCha0JOscdk2wPselC_VVm_Ua6VlhC-I"
+   token_uri = "https://oauth2.googleapis.com/token"
    ```
-3. 保存後にアプリを再デプロイする。
+3. 複数行形式で貼る場合は、TOMLの複数行文字列を使う。
+   ```toml
+   private_key = """-----BEGIN PRIVATE KEY-----
+   ...
+   -----END PRIVATE KEY-----
+   """
+   ```
+4. 保存後にアプリを再起動または再デプロイし、ログにGoogle Sheets認証エラーが出ないことを確認する。
 
 ## 3. 動作確認（手順）
 1. デプロイされたアプリをスマホで開き、スマホUIが表示されることを確認。

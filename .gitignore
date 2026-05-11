@@ -27,8 +27,24 @@ git-helper-cross-platform-bundle/
 
 # Streamlit secrets (do not commit real credentials)
 .streamlit/secrets.toml
+.streamlit/secrets.*.toml
+!.streamlit/secrets.example.toml
+
+# Local env files
+.env
+.env.*
+!.env.example
 
 # Google service account keys (keep out of VCS)
 gen-lang-client-*.json
 gen-lang-client-*.json:Zone.Identifier
 *.serviceaccount.json
+*service-account*.json
+*service_account*.json
+*credentials*.json
+credentials*.json
+google-credentials*.json
+*.pem
+*.key
+*.p12
+*.p8
