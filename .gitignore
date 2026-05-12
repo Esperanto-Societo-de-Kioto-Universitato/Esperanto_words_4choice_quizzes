@@ -1,4 +1,4 @@
-# Secrets and local credentials
+# Secrets
 .streamlit/secrets.toml
 .streamlit/secrets.*.toml
 !.streamlit/secrets.example.toml
@@ -6,24 +6,13 @@
 .env.*
 !.env.example
 gen-lang-client-*.json
-*service-account*.json
-*service_account*.json
-*credentials*.json
-credentials*.json
-google-credentials*.json
-*.pem
-*.key
-*.p12
-*.p8
 
-# Generated dependencies and test output
+# Generated files
 __pycache__/
 *.py[cod]
 node_modules/
 test-results/
 playwright-report/
-.venv/
-venv/
 
 # Large local assets
 audio/
@@ -41,4 +30,3 @@ git-helper-cross-platform-bundle/
 
 # OS noise
 .DS_Store
-*:Zone.Identifier
