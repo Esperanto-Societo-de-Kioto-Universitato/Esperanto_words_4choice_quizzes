@@ -1,4 +1,4 @@
-const CACHE_VERSION = "esperanto-mobile-pwa-2026-05-12-1";
+const CACHE_VERSION = "esperanto-mobile-pwa-2026-05-13-1";
 const APP_CACHE = `${CACHE_VERSION}:app`;
 const RUNTIME_CACHE = `${CACHE_VERSION}:runtime`;
 
@@ -58,7 +58,7 @@ self.addEventListener("fetch", (event) => {
   }
 
   if (url.pathname.includes("/mobile_app/") || url.pathname.endsWith("/mobile-sw.js")) {
-    event.respondWith(cacheFirst(request, APP_CACHE));
+    event.respondWith(networkFirst(request));
   }
 });
 

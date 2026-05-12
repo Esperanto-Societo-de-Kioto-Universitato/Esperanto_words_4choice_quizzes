@@ -1,4 +1,4 @@
-const APP_VERSION = "2026-05-12-mobile-audio-drive-1";
+const APP_VERSION = "2026-05-13-mobile-audio-component-2";
 const STORAGE_PREFIX = "esperanto-choice-mobile";
 const SESSION_KEY = `${STORAGE_PREFIX}:session:v2`;
 const SETTINGS_KEY = `${STORAGE_PREFIX}:settings:v2`;
@@ -10,17 +10,18 @@ const DATA_URLS = {
   audioManifest: "./data/audio_manifest.json",
 };
 
-const VOCAB_AUDIO_BASE = "../audio/";
-const SENTENCE_AUDIO_BASE = "../Esperanto例文5000文_収録音声/";
+const IS_STREAMLIT_COMPONENT = window.location.pathname.includes("/component/");
+const VOCAB_AUDIO_BASE = IS_STREAMLIT_COMPONENT ? "./audio/" : "../audio/";
+const SENTENCE_AUDIO_BASE = IS_STREAMLIT_COMPONENT ? "./sentence-audio/" : "../Esperanto例文5000文_収録音声/";
 const DRIVE_AUDIO_DOWNLOAD_BASE = "https://drive.google.com/uc?export=download&id=";
+const AUDIO_PLAYBACK_TIMEOUT_MS = 12000;
 const DEFAULT_AUDIO_CONFIG = {
-  enabled: !window.location.pathname.includes("/component/"),
+  enabled: true,
   vocabBaseUrl: VOCAB_AUDIO_BASE,
   sentenceBaseUrl: SENTENCE_AUDIO_BASE,
   driveDownloadBaseUrl: DRIVE_AUDIO_DOWNLOAD_BASE,
   useDriveManifest: false,
 };
-const IS_STREAMLIT_COMPONENT = window.location.pathname.includes("/component/");
 const BASE_POINTS = 10;
 const STREAK_BONUS = 0.5;
 const SENTENCE_SCORE_SCALE = 2.0 / 1.5;
@@ -182,6 +183,8 @@ const state = {
   frameHeightTimer: null,
   lastFrameHeight: 0,
   latestScoreSyncResult: null,
+  audioPlayer: null,
+  audioPlaybackToken: 0,
 };
 
 init().catch((error) => {
@@ -369,8 +372,8 @@ function applyAudioConfig(config) {
 
 function normalizeAudioConfig(config) {
   const candidate = isPlainObject(config) ? config : {};
-  const vocabBaseUrl = String(candidate.vocabBaseUrl || "").trim();
-  const sentenceBaseUrl = String(candidate.sentenceBaseUrl || "").trim();
+  const vocabBaseUrl = String(candidate.vocabBaseUrl || DEFAULT_AUDIO_CONFIG.vocabBaseUrl || "").trim();
+  const sentenceBaseUrl = String(candidate.sentenceBaseUrl || DEFAULT_AUDIO_CONFIG.sentenceBaseUrl || "").trim();
   const driveDownloadBaseUrl = String(
     candidate.driveDownloadBaseUrl
     || state.data.audioManifest.downloadBaseUrl
@@ -391,7 +394,7 @@ function normalizeAudioConfig(config) {
     };
   }
   return {
-    enabled: Boolean((candidate.enabled || useManifestAudio) && (vocabBaseUrl || sentenceBaseUrl || useManifestAudio)),
+    enabled: Boolean(candidate.enabled !== false && (vocabBaseUrl || sentenceBaseUrl || useManifestAudio)),
     vocabBaseUrl: ensureTrailingSlash(vocabBaseUrl),
     sentenceBaseUrl: ensureTrailingSlash(sentenceBaseUrl),
     driveDownloadBaseUrl,
@@ -1558,15 +1561,85 @@ function displayOption(option, direction) {
   return direction === "ja_to_eo" ? option.eo : option.ja;
 }
 
-function playAudio(mode, option) {
-  const url = getAudioUrl(mode, option);
-  if (!url) {
+async function playAudio(mode, option) {
+  const urls = getAudioUrls(mode, option);
+  if (!urls.length) {
     showToast("音声ファイルがありません。");
     return;
   }
-  const audio = new Audio(url);
-  audio.play().catch(() => {
-    showToast("音声を再生できませんでした。");
+  state.audioPlaybackToken += 1;
+  const token = state.audioPlaybackToken;
+  let lastError = null;
+  for (const url of urls) {
+    try {
+      await playAudioUrl(url, token);
+      return;
+    } catch (error) {
+      if (token !== state.audioPlaybackToken) {
+        return;
+      }
+      lastError = error;
+    }
+  }
+  console.warn("Audio playback failed", lastError);
+  showToast("音声を再生できませんでした。通信状態と音量設定を確認してください。");
+}
+
+function getAudioPlayer() {
+  if (!state.audioPlayer) {
+    state.audioPlayer = new Audio();
+    state.audioPlayer.preload = "auto";
+    state.audioPlayer.playsInline = true;
+  }
+  return state.audioPlayer;
+}
+
+function playAudioUrl(url, token) {
+  const audio = getAudioPlayer();
+  return new Promise((resolve, reject) => {
+    let settled = false;
+    const timeoutId = window.setTimeout(() => {
+      finish(false, new Error("Audio playback timed out"));
+    }, AUDIO_PLAYBACK_TIMEOUT_MS);
+    const cleanup = () => {
+      window.clearTimeout(timeoutId);
+      audio.removeEventListener("error", onError);
+    };
+    const finish = (ok, value) => {
+      if (settled) {
+        return;
+      }
+      settled = true;
+      cleanup();
+      if (ok) {
+        resolve(value);
+      } else {
+        reject(value);
+      }
+    };
+    const onError = () => {
+      finish(false, audio.error || new Error("Audio load failed"));
+    };
+    audio.addEventListener("error", onError, { once: true });
+    try {
+      audio.pause();
+      audio.removeAttribute("src");
+      audio.load();
+      if (token !== state.audioPlaybackToken) {
+        finish(false, new Error("Audio playback superseded"));
+        return;
+      }
+      audio.src = url;
+      audio.load();
+      const playPromise = audio.play();
+      if (playPromise && typeof playPromise.then === "function") {
+        playPromise.then(() => finish(true)).catch((error) => finish(false, error));
+      } else {
+        finish(true);
+      }
+    } catch (error) {
+      finish(false, error);
+    }
   });
 }
 
@@ -1584,18 +1657,23 @@ function hasAudioForMode(mode) {
 }
 
 function getAudioUrl(mode, option) {
+  return getAudioUrls(mode, option)[0] || "";
+}
+
+function getAudioUrls(mode, option) {
   if (!state.audioConfig.enabled || !option?.audioKey) {
-    return "";
+    return [];
   }
+  const urls = [];
   const base = getAudioBaseUrl(mode);
   if (base) {
-    return encodeURI(`${base}${option.audioKey}.wav`);
+    urls.push(encodeURI(`${base}${option.audioKey}.wav`));
   }
   const fileId = getAudioManifestFileId(mode, option.audioKey);
   if (fileId) {
-    return buildDriveAudioUrl(fileId);
+    urls.push(buildDriveAudioUrl(fileId));
   }
-  return "";
+  return [...new Set(urls)];
 }
 
 function getAudioBaseUrl(mode) {

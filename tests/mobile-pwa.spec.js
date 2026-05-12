@@ -64,6 +64,23 @@ test("mobile quiz state survives reload", async ({ page }) => {
   await expect(page.locator("#quizView")).toHaveClass(/is-active/);
   await expect(page.locator(".choice-button").first()).toBeVisible();
   await expect(page.locator("#promptAudioButton")).toBeVisible();
+  const audioUrlPattern = /\/audio\/.+\.wav$/;
+  const audioRequestPromise = page.waitForRequest(
+    (request) => audioUrlPattern.test(request.url()),
+    { timeout: 5000 },
+  );
+  const audioResponsePromise = page.waitForResponse(
+    (response) => audioUrlPattern.test(response.url()),
+    { timeout: 5000 },
+  );
+  const [audioRequest, audioResponse] = await Promise.all([
+    audioRequestPromise,
+    audioResponsePromise,
+    page.locator("#promptAudioButton").click(),
+  ]);
+  expect(audioRequest.url()).toContain("/audio/");
+  expect(audioResponse.status()).toBe(200);
+  expect(audioResponse.headers()["content-type"] || "").toMatch(/audio|octet-stream/);
 
   const quizMetrics = await page.evaluate(() => {
     const grid = document.querySelector("#choiceGrid");
