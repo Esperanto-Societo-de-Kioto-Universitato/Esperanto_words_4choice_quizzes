@@ -1,4 +1,4 @@
-const APP_VERSION = "2026-05-11-mobile-pwa-3";
+const APP_VERSION = "2026-05-12-mobile-audio-drive-1";
 const STORAGE_PREFIX = "esperanto-choice-mobile";
 const SESSION_KEY = `${STORAGE_PREFIX}:session:v2`;
 const SETTINGS_KEY = `${STORAGE_PREFIX}:settings:v2`;
@@ -7,14 +7,18 @@ const HISTORY_KEY = `${STORAGE_PREFIX}:history:v2`;
 const DATA_URLS = {
   vocab: "./data/vocab.json",
   sentences: "./data/sentences.json",
+  audioManifest: "./data/audio_manifest.json",
 };
 
 const VOCAB_AUDIO_BASE = "../audio/";
 const SENTENCE_AUDIO_BASE = "../Esperanto例文5000文_収録音声/";
+const DRIVE_AUDIO_DOWNLOAD_BASE = "https://drive.google.com/uc?export=download&id=";
 const DEFAULT_AUDIO_CONFIG = {
   enabled: !window.location.pathname.includes("/component/"),
   vocabBaseUrl: VOCAB_AUDIO_BASE,
   sentenceBaseUrl: SENTENCE_AUDIO_BASE,
+  driveDownloadBaseUrl: DRIVE_AUDIO_DOWNLOAD_BASE,
+  useDriveManifest: false,
 };
 const IS_STREAMLIT_COMPONENT = window.location.pathname.includes("/component/");
 const BASE_POINTS = 10;
@@ -166,6 +170,7 @@ const state = {
   data: {
     vocab: [],
     sentences: [],
+    audioManifest: createEmptyAudioManifest(),
   },
   vocabGroups: [],
   settings: { ...DEFAULT_SETTINGS },
@@ -191,12 +196,15 @@ async function init() {
   loadLocalState();
   setView("loading");
   await registerServiceWorker();
-  const [vocabPayload, sentencePayload] = await Promise.all([
+  const [vocabPayload, sentencePayload, audioManifestPayload] = await Promise.all([
     fetchJson(DATA_URLS.vocab),
     fetchJson(DATA_URLS.sentences),
+    fetchOptionalJson(DATA_URLS.audioManifest, createEmptyAudioManifest()),
   ]);
   state.data.vocab = Array.isArray(vocabPayload.entries) ? vocabPayload.entries : [];
   state.data.sentences = Array.isArray(sentencePayload.entries) ? sentencePayload.entries : [];
+  state.data.audioManifest = sanitizeAudioManifest(audioManifestPayload);
+  state.audioConfig = normalizeAudioConfig(state.audioConfig);
   if (state.data.vocab.length < 4 || state.data.sentences.length < 4) {
     throw new Error("クイズデータが不足しています。");
   }
@@ -363,14 +371,62 @@ function normalizeAudioConfig(config) {
   const candidate = isPlainObject(config) ? config : {};
   const vocabBaseUrl = String(candidate.vocabBaseUrl || "").trim();
   const sentenceBaseUrl = String(candidate.sentenceBaseUrl || "").trim();
+  const driveDownloadBaseUrl = String(
+    candidate.driveDownloadBaseUrl
+    || state.data.audioManifest.downloadBaseUrl
+    || DRIVE_AUDIO_DOWNLOAD_BASE,
+  ).trim();
+  const hasManifestAudio = hasAudioManifestForMode("vocab") || hasAudioManifestForMode("sentence");
+  const useManifestAudio = Boolean(candidate.useDriveManifest || hasManifestAudio);
   if (!IS_STREAMLIT_COMPONENT) {
-    return { ...DEFAULT_AUDIO_CONFIG };
+    return {
+      ...DEFAULT_AUDIO_CONFIG,
+      driveDownloadBaseUrl,
+      useDriveManifest: useManifestAudio,
+      enabled: Boolean(DEFAULT_AUDIO_CONFIG.enabled && (
+        DEFAULT_AUDIO_CONFIG.vocabBaseUrl
+        || DEFAULT_AUDIO_CONFIG.sentenceBaseUrl
+        || useManifestAudio
+      )),
+    };
   }
   return {
-    enabled: Boolean(candidate.enabled && (vocabBaseUrl || sentenceBaseUrl)),
+    enabled: Boolean((candidate.enabled || useManifestAudio) && (vocabBaseUrl || sentenceBaseUrl || useManifestAudio)),
     vocabBaseUrl: ensureTrailingSlash(vocabBaseUrl),
     sentenceBaseUrl: ensureTrailingSlash(sentenceBaseUrl),
+    driveDownloadBaseUrl,
+    useDriveManifest: useManifestAudio,
   };
+}
+
+function createEmptyAudioManifest() {
+  return {
+    provider: "",
+    downloadBaseUrl: DRIVE_AUDIO_DOWNLOAD_BASE,
+    vocab: {},
+    sentence: {},
+  };
+}
+
+function sanitizeAudioManifest(payload) {
+  const manifest = isPlainObject(payload) ? payload : {};
+  return {
+    provider: String(manifest.provider || ""),
+    downloadBaseUrl: String(manifest.downloadBaseUrl || DRIVE_AUDIO_DOWNLOAD_BASE).trim() || DRIVE_AUDIO_DOWNLOAD_BASE,
+    vocab: sanitizeAudioIdMap(manifest.vocab),
+    sentence: sanitizeAudioIdMap(manifest.sentence),
+  };
+}
+
+function sanitizeAudioIdMap(value) {
+  if (!isPlainObject(value)) {
+    return {};
+  }
+  return Object.fromEntries(
+    Object.entries(value)
+      .map(([key, fileId]) => [String(key || "").trim(), String(fileId || "").trim()])
+      .filter(([key, fileId]) => key && /^[-_A-Za-z0-9]+$/.test(fileId)),
+  );
 }
 
 function handleScoreSyncResult(result) {
@@ -492,6 +548,15 @@ async function fetchJson(url) {
     return await response.json();
   } finally {
     window.clearTimeout(timeoutId);
+  }
+}
+
+async function fetchOptionalJson(url, fallback) {
+  try {
+    return await fetchJson(url);
+  } catch (error) {
+    console.warn(`Optional data not available: ${url}`, error);
+    return fallback;
   }
 }
 
@@ -1494,12 +1559,12 @@ function displayOption(option, direction) {
 }
 
 function playAudio(mode, option) {
-  const base = getAudioBaseUrl(mode);
-  if (!base || !option?.audioKey) {
+  const url = getAudioUrl(mode, option);
+  if (!url) {
     showToast("音声ファイルがありません。");
     return;
   }
-  const audio = new Audio(encodeURI(`${base}${option.audioKey}.wav`));
+  const audio = new Audio(url);
   audio.play().catch(() => {
     showToast("音声を再生できませんでした。");
   });
@@ -1507,11 +1572,27 @@ function playAudio(mode, option) {
 
 function hasPlayableAudio(option) {
   const mode = getCurrentQuestion()?.mode || state.settings.mode;
-  return hasAudioForMode(mode) && Boolean(option?.hasAudio);
+  return Boolean(option?.hasAudio && getAudioUrl(mode, option));
 }
 
 function hasAudioForMode(mode) {
-  return Boolean(state.audioConfig.enabled && getAudioBaseUrl(mode));
+  return Boolean(state.audioConfig.enabled && (
+    getAudioBaseUrl(mode)
+    || hasAudioManifestForMode(mode)
+    || state.audioConfig.useDriveManifest
+  ));
+}
+
+function getAudioUrl(mode, option) {
+  if (!state.audioConfig.enabled || !option?.audioKey) {
+    return "";
+  }
+  const fileId = getAudioManifestFileId(mode, option.audioKey);
+  if (fileId) {
+    return buildDriveAudioUrl(fileId);
+  }
+  const base = getAudioBaseUrl(mode);
+  return base ? encodeURI(`${base}${option.audioKey}.wav`) : "";
 }
 
 function getAudioBaseUrl(mode) {
@@ -1519,6 +1600,22 @@ function getAudioBaseUrl(mode) {
     return state.audioConfig.sentenceBaseUrl;
   }
   return state.audioConfig.vocabBaseUrl;
+}
+
+function hasAudioManifestForMode(mode) {
+  const entries = mode === "sentence" ? state.data.audioManifest.sentence : state.data.audioManifest.vocab;
+  return Boolean(entries && Object.keys(entries).length);
+}
+
+function getAudioManifestFileId(mode, audioKey) {
+  const entries = mode === "sentence" ? state.data.audioManifest.sentence : state.data.audioManifest.vocab;
+  return entries?.[String(audioKey || "").trim()] || "";
+}
+
+function buildDriveAudioUrl(fileId) {
+  const encodedId = encodeURIComponent(fileId);
+  const base = state.audioConfig.driveDownloadBaseUrl || DRIVE_AUDIO_DOWNLOAD_BASE;
+  return base.includes("{id}") ? base.replace("{id}", encodedId) : `${base}${encodedId}`;
 }
 
 function ensureTrailingSlash(value) {

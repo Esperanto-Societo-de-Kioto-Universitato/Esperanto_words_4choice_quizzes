@@ -9,16 +9,22 @@
 - エントリポイント: `mobile_app/index.html`
 - Streamlit連携: `mobile_streamlit_bridge.py`
 - サービスワーカー: `mobile-sw.js`
-- PWA用データ: `mobile_app/data/vocab.json`, `mobile_app/data/sentences.json`
+- PWA用データ: `mobile_app/data/vocab.json`, `mobile_app/data/sentences.json`, `mobile_app/data/audio_manifest.json`
 - スマホ状態保存: ブラウザの `localStorage`
 - 進行中クイズの保護: 再開導線を表示し、新規開始で上書きする前に確認
 - スマホ版スコア保存: 結果画面の「ランキングに保存」から `mobile_score_sync.py` 経由でGoogle Sheetsの `Scores` / `UserStats` / `UserStatsSentence` に反映
-- 音声: 静的PWA単独起動では利用可。Streamlit Cloud内蔵表示では、`[mobile_audio]` に外部配信URLを設定した場合だけ有効。
+- 音声: スマホ版は `mobile_app/data/audio_manifest.json` のGoogle DriveファイルID対応表から直接再生。音声本体はGitHubへ入れない。
 
 Streamlitの静的ファイル配信はHTML/JSアプリ配信向けではないため、Streamlit Cloudではカスタムコンポーネントとして埋め込みます。CSV更新後は次を実行してJSONを更新します。
 
 ```bash
 python3 tools/build_mobile_data.py
+```
+
+Google Drive上の音声ファイルを入れ替えた場合は次も実行します。
+
+```bash
+python3 tools/build_drive_audio_manifest.py
 ```
 
 PCでスマホUIを強制表示する確認URL:
@@ -59,18 +65,19 @@ https://<your-app>.streamlit.app/?classic=1
    ```
 4. 保存後にアプリを再起動または再デプロイし、ログにGoogle Sheets認証エラーが出ないことを確認する。
 
-## 2.1. スマホ版音声を有効化する場合
-音声ファイルをGitHubへ大量投入せず、Cloud Storageなどの外部配信先へ配置する。各ファイルは `<base_url>/<audioKey>.wav` で取得できる形にする。
+## 2.1. スマホ版音声
+スマホ版音声は、同梱済みの `mobile_app/data/audio_manifest.json` を使って公開Google Driveから再生する。音声フォルダ本体の `audio/` と `Esperanto例文5000文_収録音声/` はGitHubへ入れない。
 
-Streamlit Cloud の **Settings** → **Secrets** に、必要な場合だけ次を追加する。
+通常はSecrets設定不要。Drive直リンクのベースURLや、Cloud Storage等の `<base_url>/<audioKey>.wav` 形式へ切り替えたい場合だけ、Streamlit Cloud の **Settings** → **Secrets** に次を追加する。
 
 ```toml
 [mobile_audio]
+drive_download_base_url = "https://drive.google.com/uc?export=download&id="
 vocab_base_url = "https://example.com/audio/"
 sentence_base_url = "https://example.com/sentence-audio/"
 ```
 
-この設定が空の場合、スマホ版の音声選択はオフのままになる。PC/従来版は従来通り `st.audio()` で音声を扱う。
+PC/従来版は従来通り、ローカルの音声フォルダが存在する場合に `st.audio()` で音声を扱う。
 
 ## 3. 動作確認（手順）
 1. デプロイされたアプリをスマホで開き、スマホUIが表示されることを確認。
@@ -79,7 +86,7 @@ sentence_base_url = "https://example.com/sentence-audio/"
 4. 不正解を出した場合、復習対象が保持されることを確認。
 5. 設定画面へ戻った場合に「続きから再開」が表示され、新規開始時に上書き確認が出ることを確認。
 6. ユーザー名を入れた状態で完了し、結果画面の「ランキングに保存」でGoogle Sheetsの累積得点に加算されることを確認。
-7. `[mobile_audio]` を設定した場合は、スマホ版の音声設定をオンにして再生できることを確認。
+7. スマホ版の音声設定をオンにし、単語・例文の音声が再生できることを確認。
 8. 結果画面と成績画面がスマホ幅で読みやすいことを確認。
 9. 従来版を確認する場合は `?classic=1` を付けて開く。
 

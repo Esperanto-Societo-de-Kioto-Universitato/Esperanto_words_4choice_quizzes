@@ -1,4 +1,4 @@
-const CACHE_VERSION = "esperanto-mobile-pwa-2026-05-11-3";
+const CACHE_VERSION = "esperanto-mobile-pwa-2026-05-12-1";
 const APP_CACHE = `${CACHE_VERSION}:app`;
 const RUNTIME_CACHE = `${CACHE_VERSION}:runtime`;
 
@@ -10,6 +10,7 @@ const APP_SHELL = [
   "./mobile_app/icon.svg",
   "./mobile_app/data/vocab.json",
   "./mobile_app/data/sentences.json",
+  "./mobile_app/data/audio_manifest.json",
 ];
 
 self.addEventListener("install", (event) => {
@@ -42,7 +43,11 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  if (url.pathname.endsWith("/vocab.json") || url.pathname.endsWith("/sentences.json")) {
+  if (
+    url.pathname.endsWith("/vocab.json")
+    || url.pathname.endsWith("/sentences.json")
+    || url.pathname.endsWith("/audio_manifest.json")
+  ) {
     event.respondWith(networkFirst(request));
     return;
   }

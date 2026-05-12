@@ -33,6 +33,8 @@ test("mobile quiz state survives reload", async ({ page }) => {
   const appUrl = process.env.MOBILE_APP_URL || "http://127.0.0.1:8765/mobile_app/";
   await page.goto(appUrl, { waitUntil: "networkidle" });
   await expect(page.locator("#setupView")).toHaveClass(/is-active/);
+  await expect(page.locator("#audioMode")).toBeEnabled();
+  await expect(page.locator("#audioMode")).toHaveValue("prompt");
 
   await page.locator("#modeSentence").click();
   await expect(page.locator("#modeSentence")).toHaveAttribute("aria-selected", "true");
@@ -61,6 +63,7 @@ test("mobile quiz state survives reload", async ({ page }) => {
   await page.locator("#quizNav").click();
   await expect(page.locator("#quizView")).toHaveClass(/is-active/);
   await expect(page.locator(".choice-button").first()).toBeVisible();
+  await expect(page.locator("#promptAudioButton")).toBeVisible();
 
   const quizMetrics = await page.evaluate(() => {
     const grid = document.querySelector("#choiceGrid");

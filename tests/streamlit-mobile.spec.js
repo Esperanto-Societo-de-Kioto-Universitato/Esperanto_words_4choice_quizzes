@@ -36,6 +36,8 @@ test("Streamlit mobile entry uses the localStorage app and survives reload", asy
   await expect(mobileApp.locator("#startButton")).toBeEnabled({ timeout: 15000 });
   await mobileApp.locator("#homeNav").click();
   await expect(mobileApp.locator("#setupView")).toHaveClass(/is-active/);
+  await expect(mobileApp.locator("#audioMode")).toBeEnabled();
+  await expect(mobileApp.locator("#audioMode")).toHaveValue("prompt");
 
   await mobileApp.locator("#modeSentence").click();
   await expect(mobileApp.locator("#modeSentence")).toHaveAttribute("aria-selected", "true");
@@ -71,6 +73,7 @@ test("Streamlit mobile entry uses the localStorage app and survives reload", asy
   await mobileApp.locator("#quizNav").click();
   await expect(mobileApp.locator("#quizView")).toHaveClass(/is-active/);
   await expect(mobileApp.locator(".choice-button").first()).toBeVisible();
+  await expect(mobileApp.locator("#promptAudioButton")).toBeVisible();
 
   const quizMetrics = await mobileApp.locator("body").evaluate(() => {
     const grid = document.querySelector("#choiceGrid");
