@@ -608,14 +608,16 @@ select {
 
 .review-list,
 .history-list,
-.ranking-list {
+.ranking-list,
+.diagnostics-list {
   display: grid;
   gap: 10px;
 }
 
 .review-item,
 .history-item,
-.ranking-item {
+.ranking-item,
+.diagnostic-item {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--surface);
@@ -755,6 +757,28 @@ select {
   white-space: nowrap;
 }
 
+.diagnostics-view p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.diagnostic-item {
+  display: grid;
+  gap: 4px;
+}
+
+.diagnostic-item strong {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.diagnostic-item span {
+  color: var(--ink);
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
 .section-title-row {
   display: flex;
   align-items: center;
@@ -782,7 +806,7 @@ select {
   left: 0;
   z-index: 30;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   min-height: calc(var(--nav-height) + env(safe-area-inset-bottom));
   padding: 6px 10px calc(6px + env(safe-area-inset-bottom));
   border-top: 1px solid var(--line);

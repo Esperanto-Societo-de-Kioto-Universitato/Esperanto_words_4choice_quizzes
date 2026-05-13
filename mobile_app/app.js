@@ -1,4 +1,4 @@
-const APP_VERSION = "2026-05-13-mobile-ranking-timeout-1";
+const APP_VERSION = "2026-05-13-mobile-diagnostics-1";
 const STORAGE_PREFIX = "esperanto-choice-mobile";
 const SESSION_KEY = `${STORAGE_PREFIX}:session:v2`;
 const SETTINGS_KEY = `${STORAGE_PREFIX}:settings:v2`;
@@ -33,6 +33,8 @@ const HISTORY_MAX_ITEMS = 100;
 const HISTORY_RECOVERY_LIMITS = [50, 20, 5, 0];
 const RANKING_CACHE_TTL_MS = 120000;
 const RANKING_REQUEST_TIMEOUT_MS = 20000;
+const SCORE_SYNC_RETRY_DELAY_MS = 10000;
+const SCORE_SYNC_AUTO_RETRY_MAX = 3;
 
 const POS_LABELS = {
   noun: "名詞",
@@ -121,6 +123,7 @@ const els = {
   quizView: document.querySelector("#quizView"),
   resultView: document.querySelector("#resultView"),
   historyView: document.querySelector("#historyView"),
+  diagnosticsView: document.querySelector("#diagnosticsView"),
   errorView: document.querySelector("#errorView"),
   errorMessage: document.querySelector("#errorMessage"),
   reloadButton: document.querySelector("#reloadButton"),
@@ -170,9 +173,12 @@ const els = {
   rankingTabs: document.querySelectorAll("[data-ranking-tab]"),
   rankingList: document.querySelector("#rankingList"),
   clearHistoryButton: document.querySelector("#clearHistoryButton"),
+  diagnosticsRefreshButton: document.querySelector("#diagnosticsRefreshButton"),
+  diagnosticsList: document.querySelector("#diagnosticsList"),
   homeNav: document.querySelector("#homeNav"),
   quizNav: document.querySelector("#quizNav"),
   historyNav: document.querySelector("#historyNav"),
+  diagnosticsNav: document.querySelector("#diagnosticsNav"),
   toast: document.querySelector("#toast"),
 };
 
@@ -200,6 +206,7 @@ const state = {
   lastAutoPromptAudioKey: "",
   scoreSyncRetryQueuedFor: "",
   scoreSyncRetryTimeout: null,
+  diagnosticsRenderToken: 0,
 };
 
 init().catch((error) => {
@@ -345,6 +352,8 @@ function bindEvents() {
     setView("history");
     requestRankings();
   });
+  els.diagnosticsNav.addEventListener("click", () => setView("diagnostics"));
+  els.diagnosticsRefreshButton.addEventListener("click", renderDiagnostics);
 
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "hidden") {
@@ -501,6 +510,8 @@ function handleScoreSyncResult(result) {
   }
   session.scoreSyncStatus = result.ok ? "saved" : "error";
   session.scoreSyncMessage = String(result.message || (result.ok ? "ランキングに保存しました。" : "保存に失敗しました。"));
+  session.scoreSyncRecoverable = result.ok ? "" : String(result.recoverable || "");
+  session.scoreSyncRetryCount = 0;
   state.latestScoreSyncResult = result;
   if (result.ok) {
     state.rankings.loadedAt = 0;
@@ -573,7 +584,7 @@ function syncFrameHeight() {
     document.body.scrollHeight,
     els.app?.scrollHeight || 0,
   ));
-  const fixedNavView = ["quiz", "result", "history", "error"].includes(state.currentView);
+  const fixedNavView = ["quiz", "result", "history", "diagnostics", "error"].includes(state.currentView);
   const desiredHeight = fixedNavView
     ? interactiveHeight
     : Math.max(minHeight, contentHeight + 8);
@@ -733,6 +744,8 @@ function sanitizeSession(value) {
     scoreSaveId: String(value.scoreSaveId || ""),
     scoreSyncRequestId: String(value.scoreSyncRequestId || ""),
     scoreSyncStatus,
+    scoreSyncRecoverable: String(value.scoreSyncRecoverable || ""),
+    scoreSyncRetryCount: clampInteger(value.scoreSyncRetryCount, 0, SCORE_SYNC_AUTO_RETRY_MAX, 0),
     scoreSyncMessage: scoreSyncStatus === "pending"
       ? "前回の保存結果を確認中です。重複を防ぎながら自動で再送します。"
       : String(value.scoreSyncMessage || ""),
@@ -1181,6 +1194,8 @@ function startQuiz({ replaceActive = false } = {}) {
     scoreSaveId: "",
     scoreSyncRequestId: "",
     scoreSyncStatus: "idle",
+    scoreSyncRecoverable: "",
+    scoreSyncRetryCount: 0,
     scoreSyncMessage: "",
     startedAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
@@ -1565,6 +1580,9 @@ function renderScoreSyncControls(summary) {
   els.syncScoreButton.textContent = "ランキングに保存";
   if (session.scoreSyncStatus === "error") {
     els.syncScoreStatus.classList.add("is-error");
+    if (session.scoreSyncRecoverable === "totals_update") {
+      els.syncScoreButton.textContent = "累積得点を再更新";
+    }
     els.syncScoreStatus.textContent = session.scoreSyncMessage || "保存に失敗しました。もう一度お試しください。";
   } else {
     els.syncScoreStatus.textContent = `Google Sheetsの累積得点へ${summary.points.toFixed(1)}点を加算します。`;
@@ -1622,6 +1640,7 @@ function schedulePendingScoreSyncRetry() {
     if (!userName) {
       current.scoreSyncStatus = "error";
       current.scoreSyncMessage = "保存するにはユーザー名が必要です。";
+      current.scoreSyncRetryCount = 0;
       state.scoreSyncRetryQueuedFor = "";
       saveSession();
       if (state.currentView === "result") {
@@ -1629,30 +1648,48 @@ function schedulePendingScoreSyncRetry() {
       }
       return;
     }
+    if (current.scoreSyncRetryCount >= SCORE_SYNC_AUTO_RETRY_MAX) {
+      current.scoreSyncStatus = "error";
+      current.scoreSyncMessage = "保存結果を確認できませんでした。通信状態を確認して、もう一度「ランキングに保存」を押してください。";
+      current.scoreSyncRetryCount = 0;
+      state.scoreSyncRetryQueuedFor = "";
+      saveSession();
+      if (state.currentView === "result") {
+        renderResult();
+      }
+      return;
+    }
+    current.scoreSyncRetryCount += 1;
     sendScoreSyncRequest(
       current,
       computeResultSummary(current),
       "前回の保存結果を確認できなかったため、同じ保存IDで安全に再送しています。",
+      { autoRetry: true },
     );
-  }, 500);
+  }, SCORE_SYNC_RETRY_DELAY_MS);
 }
 
-function sendScoreSyncRequest(session, summary, message) {
+function sendScoreSyncRequest(session, summary, message, options = {}) {
   if (!session.scoreSaveId) {
     session.scoreSaveId = `mobile-${session.id}`;
   }
+  const retryMode = session.scoreSyncRecoverable || "";
+  if (!options.autoRetry) {
+    session.scoreSyncRetryCount = 0;
+  }
   session.scoreSyncRequestId = createId();
   session.scoreSyncStatus = "pending";
+  session.scoreSyncRecoverable = "";
   session.scoreSyncMessage = message;
-  state.scoreSyncRetryQueuedFor = `${session.id}:${session.scoreSaveId}:${session.scoreSyncRequestId}`;
+  state.scoreSyncRetryQueuedFor = "";
   saveSession();
   if (state.currentView === "result") {
     renderResult();
   }
-  streamlitHost.setComponentValue(buildScoreSyncPayload(session, summary));
+  streamlitHost.setComponentValue(buildScoreSyncPayload(session, summary, retryMode));
 }
 
-function buildScoreSyncPayload(session, summary) {
+function buildScoreSyncPayload(session, summary, retryMode = "") {
   const settings = session.settings || {};
   const spartanAccuracy = session.spartanAttempts ? session.spartanCorrect / session.spartanAttempts : 0;
   return {
@@ -1687,6 +1724,7 @@ function buildScoreSyncPayload(session, summary) {
     startedAt: session.startedAt,
     completedAt: session.completedAt,
     ts: new Date().toISOString(),
+    retryMode,
   };
 }
 
@@ -1841,6 +1879,131 @@ function renderHistory() {
       return item;
     }),
   );
+}
+
+function renderDiagnostics() {
+  state.diagnosticsRenderToken += 1;
+  const renderToken = state.diagnosticsRenderToken;
+  const sessionStatus = state.session
+    ? `${sessionStatusLabel(state.session.status)} / ${state.session.settings?.mode === "sentence" ? "例文" : "単語"}`
+    : "保存中のクイズなし";
+  const manifestVocabCount = Object.keys(state.data.audioManifest.vocab || {}).length;
+  const manifestSentenceCount = Object.keys(state.data.audioManifest.sentence || {}).length;
+  const storageBytes = estimateLocalStorageBytes();
+  const rows = [
+    ["アプリ版", APP_VERSION],
+    ["実行形式", IS_STREAMLIT_COMPONENT ? "Streamlit Cloud組み込み" : "静的/PWA"],
+    ["クイズデータ", `単語 ${state.data.vocab.length}件 / 例文 ${state.data.sentences.length}件`],
+    ["音声設定", state.audioConfig.enabled ? audioDiagnosticText() : "オフ"],
+    ["音声manifest", `単語 ${manifestVocabCount}件 / 例文 ${manifestSentenceCount}件`],
+    ["クイズ保存", sessionStatus],
+    ["端末履歴", `${state.history.length}/${HISTORY_MAX_ITEMS}件`],
+    ["端末保存使用量", storageBytes ? `概算 ${formatBytes(storageBytes)}` : "未使用"],
+    ["ランキング", rankingDiagnosticText()],
+    ["スコア保存", scoreSyncDiagnosticText()],
+    ["Service Worker", serviceWorkerDiagnosticText()],
+  ];
+  els.diagnosticsList.replaceChildren(...rows.map(([label, value]) => createDiagnosticItem(label, value)));
+  requestFrameHeightSync();
+  updateStorageEstimate(renderToken);
+}
+
+function createDiagnosticItem(labelText, valueText) {
+  const item = document.createElement("article");
+  item.className = "diagnostic-item";
+  const label = document.createElement("strong");
+  label.textContent = labelText;
+  const value = document.createElement("span");
+  value.textContent = valueText;
+  item.append(label, value);
+  return item;
+}
+
+function sessionStatusLabel(status) {
+  return {
+    active: "進行中",
+    complete: "完了",
+  }[status] || "なし";
+}
+
+function audioDiagnosticText() {
+  const source = [];
+  if (state.audioConfig.vocabBaseUrl) {
+    source.push("単語URLあり");
+  }
+  if (state.audioConfig.sentenceBaseUrl) {
+    source.push("例文URLあり");
+  }
+  if (state.audioConfig.useDriveManifest) {
+    source.push("Driveフォールバックあり");
+  }
+  return source.length ? source.join(" / ") : "音声URLなし";
+}
+
+function rankingDiagnosticText() {
+  const status = {
+    idle: "未取得",
+    loading: "取得中",
+    ready: "取得済み",
+    error: "エラー",
+    unavailable: "Streamlit外",
+  }[state.rankings.status] || state.rankings.status;
+  const updated = state.rankings.updatedAt ? ` / ${formatDate(state.rankings.updatedAt)}` : "";
+  return `${status}${updated}${state.rankings.message ? ` / ${state.rankings.message}` : ""}`;
+}
+
+function scoreSyncDiagnosticText() {
+  const session = state.session;
+  if (!isCompleteSession(session)) {
+    return "完了済みクイズなし";
+  }
+  const status = {
+    idle: "未保存",
+    pending: "保存中",
+    saved: "保存済み",
+    error: "エラー",
+  }[session.scoreSyncStatus] || session.scoreSyncStatus;
+  const recoverable = session.scoreSyncRecoverable === "totals_update" ? " / 累積再更新可" : "";
+  return `${status}${recoverable}${session.scoreSyncMessage ? ` / ${session.scoreSyncMessage}` : ""}`;
+}
+
+function serviceWorkerDiagnosticText() {
+  if (IS_STREAMLIT_COMPONENT) {
+    return "Streamlit組み込みでは無効";
+  }
+  if (!("serviceWorker" in navigator)) {
+    return "非対応";
+  }
+  return navigator.serviceWorker.controller ? "有効" : "登録待ちまたは未制御";
+}
+
+function estimateLocalStorageBytes() {
+  try {
+    return [SESSION_KEY, SETTINGS_KEY, HISTORY_KEY]
+      .map((key) => (window.localStorage.getItem(key) || "").length * 2)
+      .reduce((acc, value) => acc + value, 0);
+  } catch (error) {
+    return 0;
+  }
+}
+
+async function updateStorageEstimate(renderToken) {
+  if (!navigator.storage?.estimate || state.currentView !== "diagnostics") {
+    return;
+  }
+  try {
+    const estimate = await navigator.storage.estimate();
+    if (state.currentView !== "diagnostics" || state.diagnosticsRenderToken !== renderToken) {
+      return;
+    }
+    const used = estimate.usage ? formatBytes(estimate.usage) : "不明";
+    const quota = estimate.quota ? formatBytes(estimate.quota) : "不明";
+    const item = createDiagnosticItem("ブラウザ保存領域", `${used} / ${quota}`);
+    els.diagnosticsList.append(item);
+    requestFrameHeightSync();
+  } catch (error) {
+    console.warn("Storage estimate failed", error);
+  }
 }
 
 function computeResultSummary(session) {
@@ -2141,7 +2304,7 @@ function ensureTrailingSlash(value) {
 
 function setView(view) {
   state.currentView = view;
-  els.app?.classList.remove("view-loading", "view-setup", "view-quiz", "view-result", "view-history", "view-error");
+  els.app?.classList.remove("view-loading", "view-setup", "view-quiz", "view-result", "view-history", "view-diagnostics", "view-error");
   els.app?.classList.add(`view-${view}`);
   const viewMap = {
     loading: els.loadingView,
@@ -2149,6 +2312,7 @@ function setView(view) {
     quiz: els.quizView,
     result: els.resultView,
     history: els.historyView,
+    diagnostics: els.diagnosticsView,
     error: els.errorView,
   };
   Object.entries(viewMap).forEach(([name, element]) => {
@@ -2157,11 +2321,15 @@ function setView(view) {
   els.homeNav.classList.toggle("is-selected", view === "setup");
   els.quizNav.classList.toggle("is-selected", view === "quiz" || view === "result");
   els.historyNav.classList.toggle("is-selected", view === "history");
+  els.diagnosticsNav.classList.toggle("is-selected", view === "diagnostics");
   if (view === "setup") {
     renderSetup();
   }
   if (view === "result") {
     renderResult();
+  }
+  if (view === "diagnostics") {
+    renderDiagnostics();
   }
   if (view === "quiz") {
     window.requestAnimationFrame(scrollHostToTop);
@@ -2478,4 +2646,15 @@ function formatDate(value) {
   } catch {
     return "";
   }
+}
+
+function formatBytes(value) {
+  const bytes = Number(value) || 0;
+  if (bytes < 1024) {
+    return `${bytes} B`;
+  }
+  if (bytes < 1024 * 1024) {
+    return `${(bytes / 1024).toFixed(1)} KB`;
+  }
+  return `${(bytes / 1024 / 1024).toFixed(1)} MB`;
 }

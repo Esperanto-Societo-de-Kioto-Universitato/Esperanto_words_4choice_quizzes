@@ -9,6 +9,8 @@ import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 
 from data_sources import PHRASE_CSV
+from ranking_utils import rank_dict as shared_rank_dict
+from ranking_utils import summarize_rankings_from_stats as shared_summarize_rankings_from_stats
 from score_append_utils import (
     append_score_row_fast,
     append_score_row_safe,
@@ -659,46 +661,16 @@ def summarize_scores(scores):
 
 
 def summarize_rankings_from_stats(stats_data, score_rows=None):
-    totals = {}
-    if stats_data and isinstance(stats_data, list):
-        first_row = stats_data[0] if stats_data else {}
-        is_raw_log = "total_points" not in first_row and "points" in first_row
-    else:
-        is_raw_log = False
-
-    if is_raw_log:
-        for r in stats_data or []:
-            user = str(r.get("user", "")).strip()
-            if not user:
-                continue
-            totals[user] = totals.get(user, 0.0) + safe_float(r.get("points", 0), 0.0)
-    else:
-        for r in stats_data or []:
-            user = str(r.get("user", "")).strip()
-            if not user:
-                continue
-            val = r.get("total_points")
-            if val is None:
-                for k in r.keys():
-                    if "total_points" in k:
-                        val = r[k]
-                        break
-            totals[user] = max(safe_float(totals.get(user, 0.0), 0.0), safe_float(val, 0.0))
-
     scores = score_rows if score_rows is not None else load_scores()
-    score_totals, totals_today, totals_month, _ = summarize_scores(scores)
-    if totals:
-        for user, log_total in score_totals.items():
-            totals[user] = max(safe_float(totals.get(user, 0.0), 0.0), safe_float(log_total, 0.0))
-    else:
-        totals = score_totals
-    hof = {u: p for u, p in totals.items() if p >= HOF_THRESHOLD}
-    return totals, totals_today, totals_month, hof
+    return shared_summarize_rankings_from_stats(
+        stats_data,
+        score_rows=scores,
+        hof_threshold=HOF_THRESHOLD,
+    )
 
 
 def rank_dict(d, top_n=None):
-    items = sorted(d.items(), key=lambda x: x[1], reverse=True)
-    return items[:top_n] if top_n else items
+    return shared_rank_dict(d, top_n=top_n)
 
 
 def show_rankings(stats_data, key_suffix: str = "", score_rows=None):

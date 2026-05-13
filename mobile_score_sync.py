@@ -1,3 +1,4 @@
+import time
 import uuid
 
 from score_append_utils import (
@@ -38,7 +39,7 @@ def _safe_int(value, default=0):
         return default
 
 
-def _score_result(payload, *, ok, message, warning=None):
+def _score_result(payload, *, ok, message, warning=None, recoverable=""):
     return {
         "type": "score_save_result",
         "requestId": str(payload.get("requestId", "")),
@@ -46,6 +47,7 @@ def _score_result(payload, *, ok, message, warning=None):
         "ok": bool(ok),
         "message": message,
         "warning": warning or "",
+        "recoverable": recoverable or "",
     }
 
 
@@ -126,8 +128,18 @@ def _append_score(record):
     )
 
 
+def _load_score_records_for_totals():
+    for attempt in range(SCORE_WRITE_RETRIES):
+        records = load_sheet_records(SCORES_SHEET, refresh=True)
+        if records is not None:
+            return records
+        if attempt + 1 < SCORE_WRITE_RETRIES:
+            time.sleep(SCORE_WRITE_RETRY_BASE_SEC * (attempt + 1))
+    return None
+
+
 def _update_totals(record):
-    records = load_sheet_records(SCORES_SHEET, refresh=True)
+    records = _load_score_records_for_totals()
     if records is None:
         return False, False
 
@@ -180,7 +192,8 @@ def save_mobile_score_request(payload):
         return _score_result(
             payload,
             ok=False,
-            message="スコアログは保存しましたが、累積得点の更新に失敗しました。もう一度保存を押すと再試行できます。",
+            message="スコアログは保存済みです。累積得点の更新だけ失敗したため、もう一度押すと同じ保存IDで安全に再更新します。",
+            recoverable="totals_update",
         )
 
     points = _safe_float(record.get("points"), 0.0)

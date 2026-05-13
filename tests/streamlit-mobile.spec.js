@@ -198,6 +198,13 @@ test("Streamlit mobile result and history stay readable", async ({ page }) => {
   await expect(mobileApp.locator("#rankingStatus")).not.toContainText("取得しています", { timeout: 25000 });
   await expect(mobileApp.locator("#rankingStatus")).toHaveText(/ランキングを(更新|取得)|Streamlit Cloud|Secrets|通信状態/, { timeout: 5000 });
   await expect(mobileApp.locator("#historyList .history-item").first()).toContainText("単語");
+
+  await mobileApp.locator("#diagnosticsNav").click();
+  await expect(mobileApp.locator("#diagnosticsView")).toHaveClass(/is-active/);
+  await expect(mobileApp.locator("#diagnosticsList")).toContainText("Streamlit Cloud組み込み");
+  await expect(mobileApp.locator("#diagnosticsList")).toContainText("クイズデータ");
+  await expect(mobileApp.locator("#diagnosticsList")).toContainText("スコア保存");
+  await expect(mobileApp.locator("#diagnosticsList")).toContainText("Service Worker");
   expect(errors).toEqual([]);
 });
 

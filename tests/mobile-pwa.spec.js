@@ -190,6 +190,13 @@ test("mobile result and history stay readable", async ({ page }) => {
   await expect(page.locator("#clearHistoryButton")).toHaveText("端末履歴のみ消去");
   await expect(page.locator("#rankingStatus")).toContainText("Streamlit Cloud版");
   await expect(page.locator("#historyList .history-item").first()).toContainText("単語");
+
+  await page.locator("#diagnosticsNav").click();
+  await expect(page.locator("#diagnosticsView")).toHaveClass(/is-active/);
+  await expect(page.locator("#diagnosticsList")).toContainText("静的/PWA");
+  await expect(page.locator("#diagnosticsList")).toContainText("クイズデータ");
+  await expect(page.locator("#diagnosticsList")).toContainText("端末保存使用量");
+  await expect(page.locator("#diagnosticsList")).toContainText("Service Worker");
   await expect(errors).toEqual([]);
 });
 

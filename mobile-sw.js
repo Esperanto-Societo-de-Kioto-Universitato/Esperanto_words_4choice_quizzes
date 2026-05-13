@@ -1,4 +1,4 @@
-const CACHE_VERSION = "esperanto-mobile-pwa-2026-05-13-6";
+const CACHE_VERSION = "esperanto-mobile-pwa-2026-05-13-7";
 const APP_CACHE = `${CACHE_VERSION}:app`;
 const RUNTIME_CACHE = `${CACHE_VERSION}:runtime`;
 const RUNTIME_CACHE_MAX_ENTRIES = 400;

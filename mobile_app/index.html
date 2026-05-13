@@ -193,6 +193,14 @@
           <div id="historyList" class="history-list"></div>
         </section>
 
+        <section id="diagnosticsView" class="state-view diagnostics-view">
+          <div class="section-title-row">
+            <h2>診断</h2>
+            <button id="diagnosticsRefreshButton" class="text-button" type="button">更新</button>
+          </div>
+          <div id="diagnosticsList" class="diagnostics-list"></div>
+        </section>
+
         <section id="errorView" class="state-view error-view">
           <h2>読み込みに失敗しました</h2>
           <p id="errorMessage"></p>
@@ -204,6 +212,7 @@
         <button id="homeNav" class="is-selected" type="button">ホーム</button>
         <button id="quizNav" type="button">クイズ</button>
         <button id="historyNav" type="button">成績</button>
+        <button id="diagnosticsNav" type="button">診断</button>
       </nav>
 
       <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
