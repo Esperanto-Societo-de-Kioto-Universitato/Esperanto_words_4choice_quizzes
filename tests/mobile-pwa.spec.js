@@ -168,6 +168,12 @@ test("mobile app can quiz with Chinese and Korean target translations", async ({
   await page.goto(zhUrl.toString(), { waitUntil: "networkidle" });
   await expect(page.locator("#modeVocab")).toHaveText("单词");
   await expect(page.locator("#directionSelect option[value='eo_to_ja']")).toHaveText("世界语 → 中文");
+  await expect(page.locator("#historyNav")).toHaveText("成绩");
+  await expect(page.locator("#diagnosticsNav")).toHaveText("诊断");
+  await page.locator("#historyNav").click();
+  await expect(page.locator("#clearHistoryButton")).toHaveText("仅清除本机记录");
+  await expect(page.locator("#rankingStatus")).toContainText("Streamlit Cloud 版");
+  await page.locator("#homeNav").click();
   await page.locator("#startButton").scrollIntoViewIfNeeded();
   await page.locator("#startButton").click();
   await expect(page.locator("#quizView")).toHaveClass(/is-active/);
@@ -192,6 +198,12 @@ test("mobile app can quiz with Chinese and Korean target translations", async ({
   await koPage.goto(koUrl.toString(), { waitUntil: "networkidle" });
   await expect(koPage.locator("#modeSentence")).toHaveText("예문");
   await expect(koPage.locator("#directionSelect option[value='eo_to_ja']")).toHaveText("에스페란토 → 한국어");
+  await expect(koPage.locator("#historyNav")).toHaveText("성적");
+  await expect(koPage.locator("#diagnosticsNav")).toHaveText("진단");
+  await koPage.locator("#diagnosticsNav").click();
+  await expect(koPage.locator("#diagnosticsList")).toContainText("퀴즈 데이터");
+  await expect(koPage.locator("#diagnosticsList")).toContainText("기기 저장 사용량");
+  await koPage.locator("#homeNav").click();
   await expect(koPage.locator("#modeSentence")).toHaveAttribute("aria-selected", "true");
   await koPage.locator("#startButton").scrollIntoViewIfNeeded();
   await koPage.locator("#startButton").click();

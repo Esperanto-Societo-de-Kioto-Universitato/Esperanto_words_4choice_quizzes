@@ -1,4 +1,4 @@
-const APP_VERSION = "2026-05-13-mobile-diagnostics-1";
+const APP_VERSION = "2026-05-15-mobile-i18n-1";
 const STORAGE_PREFIX = "esperanto-choice-mobile";
 const SESSION_KEY = `${STORAGE_PREFIX}:session:v2`;
 const SETTINGS_KEY = `${STORAGE_PREFIX}:settings:v2`;
@@ -94,6 +94,106 @@ const TARGET_LANG_META = {
       navDiagnostics: "診断",
       loadFailed: "読み込みに失敗しました",
       next: "次へ",
+      unknown: "不明",
+      none: "なし",
+      error: "エラー",
+      dataShortage: "クイズデータが不足しています。",
+      clearHistoryConfirm: "この端末内の成績履歴だけを消去します。Google Sheetsのランキングや累積得点、進行中のクイズは消えません。実行しますか？",
+      clearHistoryDone: "端末内の成績履歴だけを消去しました。ランキングは消えていません。",
+      scoreSavedMessage: "ランキングに保存しました。",
+      scoreSaveFailedMessage: "保存に失敗しました。",
+      rankingUpdatedMessage: "ランキングを更新しました。",
+      rankingFailedMessage: "ランキングを取得できませんでした。",
+      scorePendingRestored: "前回の保存結果を確認中です。重複を防ぎながら自動で再送します。",
+      saveFailed: "保存できません",
+      historySavedAfterCleanup: "履歴を整理して保存済み",
+      historyCleanupToast: "端末保存容量が足りないため、古い成績履歴を整理しました。",
+      sessionCleanupToast: "端末保存容量が足りないため、成績履歴を整理してクイズ状態を保存しました。",
+      autoSaved: "自動保存済み",
+      sessionDiscarded: "進行中のクイズを破棄しました",
+      rankingUnavailable: "ランキング表示はStreamlit Cloud版で利用できます。",
+      rankingLoading: "Google Sheetsからランキングを取得しています。",
+      rankingTimeout: "ランキング取得に時間がかかっています。通信状態を確認して、更新を押してください。",
+      replaceActiveConfirm: "進行中のクイズがあります。現在の進行を終了して、新しいクイズを開始しますか？",
+      activeKept: "進行中のクイズを保持しました。",
+      noQuestions: "選択した条件では問題を作成できません。",
+      reviewPhase: "復習",
+      streak: "連続",
+      remaining: "残り",
+      choiceAudioAria: "選択肢の音声を再生",
+      incorrectPrefix: "不正解。正解",
+      scoreUnavailable: "ランキング保存はStreamlit Cloud版で利用できます。",
+      scoreNeedsUser: "ユーザー名を入力して開始するとランキングに保存できます。",
+      scoreSaving: "保存中...",
+      scoreSavingMessage: "Google Sheetsへ保存しています。",
+      scoreSavedButton: "ランキング保存済み",
+      scoreSavedAdd: "今回の{points}点を加算しました。",
+      scoreRetryTotals: "累積得点を再更新",
+      scoreRetryMessage: "保存に失敗しました。もう一度お試しください。",
+      scoreWillAdd: "Google Sheetsの累積得点へ{points}点を加算します。",
+      scoreUserRequired: "保存するにはユーザー名が必要です。",
+      scoreRetryLimit: "保存結果を確認できませんでした。通信状態を確認して、もう一度「ランキングに保存」を押してください。",
+      scoreAutoRetry: "前回の保存結果を確認できなかったため、同じ保存IDで安全に再送しています。",
+      noWrongTitle: "間違えた問題はありません",
+      noWrongBody: "この結果は端末内の成績に保存されています。",
+      reviewAudioAria: "エスペラント正解の音声を再生",
+      answer: "回答",
+      rankingRetry: "再試行",
+      rankingLoadingShort: "読み込み中です。",
+      rankingIdle: "未更新",
+      rankingPrompt: "更新を押すとランキングを取得します。",
+      rankingSecretHint: "Streamlit CloudのSecrets設定とGoogle Sheets共有権限を確認してください。",
+      rankingEmpty: "{tab}のランキングはまだありません。",
+      currentUser: "あなた",
+      historyEmptyTitle: "成績はまだありません",
+      historyEmptyBody: "クイズを完了するとここに残ります。",
+      noStoredQuiz: "保存中のクイズなし",
+      appVersion: "アプリ版",
+      runtime: "実行形式",
+      streamlitEmbedded: "Streamlit Cloud組み込み",
+      staticPwa: "静的/PWA",
+      quizData: "クイズデータ",
+      entriesCount: "単語 {vocab}件 / 例文 {sentences}件",
+      audioSettings: "音声設定",
+      audioManifest: "音声manifest",
+      quizSave: "クイズ保存",
+      localHistory: "端末履歴",
+      storageUse: "端末保存使用量",
+      storageApprox: "概算 {value}",
+      storageUnused: "未使用",
+      scoreSave: "スコア保存",
+      vocabAudioTest: "単語音声テスト",
+      sentenceAudioTest: "例文音声テスト",
+      sessionActive: "進行中",
+      audioVocabUrl: "単語URLあり",
+      audioSentenceUrl: "例文URLあり",
+      audioDriveFallback: "Driveフォールバックあり",
+      audioNoUrl: "音声URLなし",
+      sample: "サンプル",
+      noAudioTest: "テスト可能な音声がありません",
+      audioPlaying: "再生中...",
+      audioTest: "再生テスト",
+      audioTestMissing: "テスト可能な音声が見つかりません。",
+      audioTesting: "{key}.wav を再生しています。",
+      audioTestSuccess: "{key}.wav を再生できました。",
+      audioTestToast: "{mode}音声を再生できました。",
+      audioTestFailed: "再生できませんでした。{hint}",
+      rankingStatusIdle: "未取得",
+      rankingStatusLoading: "取得中",
+      rankingStatusReady: "取得済み",
+      rankingStatusUnavailable: "Streamlit外",
+      scoreStatusNoComplete: "完了済みクイズなし",
+      scoreStatusIdle: "未保存",
+      scoreStatusPending: "保存中",
+      scoreStatusSaved: "保存済み",
+      scoreRecoverableTotals: " / 累積再更新可",
+      serviceWorkerDisabled: "Streamlit組み込みでは無効",
+      unsupported: "非対応",
+      serviceWorkerActive: "有効",
+      serviceWorkerPending: "登録待ちまたは未制御",
+      browserStorage: "ブラウザ保存領域",
+      audioMissing: "音声ファイルがありません。",
+      audioFailed: "音声を再生できませんでした。通信状態と音量設定を確認してください。",
     },
   },
   zh: {
@@ -152,6 +252,106 @@ const TARGET_LANG_META = {
       navDiagnostics: "诊断",
       loadFailed: "读取失败",
       next: "下一题",
+      unknown: "不明",
+      none: "无",
+      error: "错误",
+      dataShortage: "测验数据不足。",
+      clearHistoryConfirm: "只清除这台设备内的成绩记录。Google Sheets 排行榜、累计得分和正在进行的测验不会被删除。要执行吗？",
+      clearHistoryDone: "已只清除本机成绩记录。排行榜没有删除。",
+      scoreSavedMessage: "已保存到排行榜。",
+      scoreSaveFailedMessage: "保存失败。",
+      rankingUpdatedMessage: "排行榜已更新。",
+      rankingFailedMessage: "无法取得排行榜。",
+      scorePendingRestored: "正在确认上次保存结果。会用同一保存ID安全重试，避免重复加分。",
+      saveFailed: "无法保存",
+      historySavedAfterCleanup: "已整理记录并保存",
+      historyCleanupToast: "本机保存容量不足，因此已整理旧成绩记录。",
+      sessionCleanupToast: "本机保存容量不足，因此已整理成绩记录并保存测验状态。",
+      autoSaved: "已自动保存",
+      sessionDiscarded: "已丢弃进行中的测验",
+      rankingUnavailable: "排行榜保存可在 Streamlit Cloud 版使用。",
+      rankingLoading: "正在从 Google Sheets 读取排行榜。",
+      rankingTimeout: "排行榜读取耗时较长。请检查网络状态后点击更新。",
+      replaceActiveConfirm: "有进行中的测验。要结束当前进度并开始新测验吗？",
+      activeKept: "已保留进行中的测验。",
+      noQuestions: "所选条件无法生成题目。",
+      reviewPhase: "复习",
+      streak: "连续",
+      remaining: "剩余",
+      choiceAudioAria: "播放选项音频",
+      incorrectPrefix: "答错了。正确答案",
+      scoreUnavailable: "排行榜保存可在 Streamlit Cloud 版使用。",
+      scoreNeedsUser: "输入用户名并开始后即可保存到排行榜。",
+      scoreSaving: "保存中...",
+      scoreSavingMessage: "正在保存到 Google Sheets。",
+      scoreSavedButton: "已保存到排行榜",
+      scoreSavedAdd: "本次已加上 {points} 分。",
+      scoreRetryTotals: "重新更新累计得分",
+      scoreRetryMessage: "保存失败。请再试一次。",
+      scoreWillAdd: "将向 Google Sheets 累计得分加上 {points} 分。",
+      scoreUserRequired: "保存需要用户名。",
+      scoreRetryLimit: "无法确认保存结果。请检查网络状态后再次点击“保存到排行榜”。",
+      scoreAutoRetry: "无法确认上次保存结果，因此正在使用同一保存ID安全重试。",
+      noWrongTitle: "没有答错的问题",
+      noWrongBody: "这个结果已保存到本机成绩。",
+      reviewAudioAria: "播放世界语正确答案音频",
+      answer: "回答",
+      rankingRetry: "重试",
+      rankingLoadingShort: "正在读取。",
+      rankingIdle: "未更新",
+      rankingPrompt: "点击更新即可读取排行榜。",
+      rankingSecretHint: "请检查 Streamlit Cloud 的 Secrets 设置和 Google Sheets 共享权限。",
+      rankingEmpty: "{tab}排行榜还没有数据。",
+      currentUser: "你",
+      historyEmptyTitle: "还没有成绩",
+      historyEmptyBody: "完成测验后会显示在这里。",
+      noStoredQuiz: "没有保存中的测验",
+      appVersion: "应用版本",
+      runtime: "运行形式",
+      streamlitEmbedded: "Streamlit Cloud 内嵌",
+      staticPwa: "静态/PWA",
+      quizData: "测验数据",
+      entriesCount: "单词 {vocab} 件 / 例句 {sentences} 件",
+      audioSettings: "音频设置",
+      audioManifest: "音频manifest",
+      quizSave: "测验保存",
+      localHistory: "本机记录",
+      storageUse: "本机保存用量",
+      storageApprox: "约 {value}",
+      storageUnused: "未使用",
+      scoreSave: "分数保存",
+      vocabAudioTest: "单词音频测试",
+      sentenceAudioTest: "例句音频测试",
+      sessionActive: "进行中",
+      audioVocabUrl: "有单词URL",
+      audioSentenceUrl: "有例句URL",
+      audioDriveFallback: "有Drive后备",
+      audioNoUrl: "没有音频URL",
+      sample: "样本",
+      noAudioTest: "没有可测试的音频",
+      audioPlaying: "播放中...",
+      audioTest: "播放测试",
+      audioTestMissing: "找不到可测试的音频。",
+      audioTesting: "正在播放 {key}.wav。",
+      audioTestSuccess: "已成功播放 {key}.wav。",
+      audioTestToast: "已播放{mode}音频。",
+      audioTestFailed: "无法播放。{hint}",
+      rankingStatusIdle: "未取得",
+      rankingStatusLoading: "取得中",
+      rankingStatusReady: "已取得",
+      rankingStatusUnavailable: "Streamlit外",
+      scoreStatusNoComplete: "没有已完成的测验",
+      scoreStatusIdle: "未保存",
+      scoreStatusPending: "保存中",
+      scoreStatusSaved: "已保存",
+      scoreRecoverableTotals: " / 可重新更新累计",
+      serviceWorkerDisabled: "Streamlit 内嵌时禁用",
+      unsupported: "不支持",
+      serviceWorkerActive: "有效",
+      serviceWorkerPending: "等待注册或尚未控制",
+      browserStorage: "浏览器保存空间",
+      audioMissing: "没有音频文件。",
+      audioFailed: "无法播放音频。请检查网络状态和音量设置。",
     },
   },
   ko: {
@@ -210,6 +410,106 @@ const TARGET_LANG_META = {
       navDiagnostics: "진단",
       loadFailed: "불러오기에 실패했습니다",
       next: "다음",
+      unknown: "알 수 없음",
+      none: "없음",
+      error: "오류",
+      dataShortage: "퀴즈 데이터가 부족합니다.",
+      clearHistoryConfirm: "이 기기 안의 성적 기록만 삭제합니다. Google Sheets 랭킹, 누적 점수, 진행 중인 퀴즈는 삭제되지 않습니다. 실행할까요?",
+      clearHistoryDone: "기기 내 성적 기록만 삭제했습니다. 랭킹은 삭제되지 않았습니다.",
+      scoreSavedMessage: "랭킹에 저장했습니다.",
+      scoreSaveFailedMessage: "저장에 실패했습니다.",
+      rankingUpdatedMessage: "랭킹을 업데이트했습니다.",
+      rankingFailedMessage: "랭킹을 가져오지 못했습니다.",
+      scorePendingRestored: "이전 저장 결과를 확인 중입니다. 같은 저장 ID로 안전하게 재전송하여 중복 가산을 막습니다.",
+      saveFailed: "저장할 수 없습니다",
+      historySavedAfterCleanup: "기록을 정리하고 저장함",
+      historyCleanupToast: "기기 저장 공간이 부족하여 오래된 성적 기록을 정리했습니다.",
+      sessionCleanupToast: "기기 저장 공간이 부족하여 성적 기록을 정리하고 퀴즈 상태를 저장했습니다.",
+      autoSaved: "자동 저장됨",
+      sessionDiscarded: "진행 중인 퀴즈를 폐기했습니다",
+      rankingUnavailable: "랭킹 표시는 Streamlit Cloud 버전에서 사용할 수 있습니다.",
+      rankingLoading: "Google Sheets에서 랭킹을 가져오는 중입니다.",
+      rankingTimeout: "랭킹을 가져오는 데 시간이 걸리고 있습니다. 통신 상태를 확인한 뒤 새로고침을 누르세요.",
+      replaceActiveConfirm: "진행 중인 퀴즈가 있습니다. 현재 진행을 끝내고 새 퀴즈를 시작할까요?",
+      activeKept: "진행 중인 퀴즈를 유지했습니다.",
+      noQuestions: "선택한 조건으로는 문제를 만들 수 없습니다.",
+      reviewPhase: "복습",
+      streak: "연속",
+      remaining: "남음",
+      choiceAudioAria: "선택지 음성 재생",
+      incorrectPrefix: "오답. 정답",
+      scoreUnavailable: "랭킹 저장은 Streamlit Cloud 버전에서 사용할 수 있습니다.",
+      scoreNeedsUser: "사용자 이름을 입력하고 시작하면 랭킹에 저장할 수 있습니다.",
+      scoreSaving: "저장 중...",
+      scoreSavingMessage: "Google Sheets에 저장하고 있습니다.",
+      scoreSavedButton: "랭킹 저장 완료",
+      scoreSavedAdd: "이번 {points}점을 더했습니다.",
+      scoreRetryTotals: "누적 점수 다시 업데이트",
+      scoreRetryMessage: "저장에 실패했습니다. 다시 시도해 주세요.",
+      scoreWillAdd: "Google Sheets 누적 점수에 {points}점을 더합니다.",
+      scoreUserRequired: "저장하려면 사용자 이름이 필요합니다.",
+      scoreRetryLimit: "저장 결과를 확인할 수 없었습니다. 통신 상태를 확인하고 다시 “랭킹에 저장”을 누르세요.",
+      scoreAutoRetry: "이전 저장 결과를 확인하지 못해 같은 저장 ID로 안전하게 재전송합니다.",
+      noWrongTitle: "틀린 문제가 없습니다",
+      noWrongBody: "이 결과는 기기 내 성적에 저장되었습니다.",
+      reviewAudioAria: "에스페란토 정답 음성 재생",
+      answer: "선택",
+      rankingRetry: "재시도",
+      rankingLoadingShort: "불러오는 중입니다.",
+      rankingIdle: "업데이트 전",
+      rankingPrompt: "새로고침을 누르면 랭킹을 가져옵니다.",
+      rankingSecretHint: "Streamlit Cloud Secrets 설정과 Google Sheets 공유 권한을 확인하세요.",
+      rankingEmpty: "{tab} 랭킹은 아직 없습니다.",
+      currentUser: "나",
+      historyEmptyTitle: "아직 성적이 없습니다",
+      historyEmptyBody: "퀴즈를 완료하면 여기에 남습니다.",
+      noStoredQuiz: "저장 중인 퀴즈 없음",
+      appVersion: "앱 버전",
+      runtime: "실행 형식",
+      streamlitEmbedded: "Streamlit Cloud 내장",
+      staticPwa: "정적/PWA",
+      quizData: "퀴즈 데이터",
+      entriesCount: "단어 {vocab}개 / 예문 {sentences}개",
+      audioSettings: "음성 설정",
+      audioManifest: "음성 manifest",
+      quizSave: "퀴즈 저장",
+      localHistory: "기기 기록",
+      storageUse: "기기 저장 사용량",
+      storageApprox: "대략 {value}",
+      storageUnused: "사용 안 함",
+      scoreSave: "점수 저장",
+      vocabAudioTest: "단어 음성 테스트",
+      sentenceAudioTest: "예문 음성 테스트",
+      sessionActive: "진행 중",
+      audioVocabUrl: "단어 URL 있음",
+      audioSentenceUrl: "예문 URL 있음",
+      audioDriveFallback: "Drive 대체 있음",
+      audioNoUrl: "음성 URL 없음",
+      sample: "샘플",
+      noAudioTest: "테스트 가능한 음성이 없습니다",
+      audioPlaying: "재생 중...",
+      audioTest: "재생 테스트",
+      audioTestMissing: "테스트 가능한 음성을 찾을 수 없습니다.",
+      audioTesting: "{key}.wav 를 재생하고 있습니다.",
+      audioTestSuccess: "{key}.wav 를 재생할 수 있었습니다.",
+      audioTestToast: "{mode} 음성을 재생했습니다.",
+      audioTestFailed: "재생할 수 없었습니다. {hint}",
+      rankingStatusIdle: "미취득",
+      rankingStatusLoading: "가져오는 중",
+      rankingStatusReady: "가져옴",
+      rankingStatusUnavailable: "Streamlit 외부",
+      scoreStatusNoComplete: "완료된 퀴즈 없음",
+      scoreStatusIdle: "미저장",
+      scoreStatusPending: "저장 중",
+      scoreStatusSaved: "저장됨",
+      scoreRecoverableTotals: " / 누적 재업데이트 가능",
+      serviceWorkerDisabled: "Streamlit 내장에서는 비활성",
+      unsupported: "미지원",
+      serviceWorkerActive: "활성",
+      serviceWorkerPending: "등록 대기 또는 미제어",
+      browserStorage: "브라우저 저장 영역",
+      audioMissing: "음성 파일이 없습니다.",
+      audioFailed: "음성을 재생할 수 없었습니다. 통신 상태와 음량 설정을 확인하세요.",
     },
   },
 };
@@ -442,8 +742,8 @@ const state = {
   autoPromptAudioAllowedUntil: 0,
   lastAutoPromptAudioKey: "",
   audioDiagnostics: {
-    vocab: { status: "idle", message: "未確認", audioKey: "" },
-    sentence: { status: "idle", message: "未確認", audioKey: "" },
+    vocab: { status: "idle", message: "", audioKey: "" },
+    sentence: { status: "idle", message: "", audioKey: "" },
   },
   scoreSyncRetryQueuedFor: "",
   scoreSyncRetryTimeout: null,
@@ -474,7 +774,7 @@ async function init() {
   state.data.audioManifest = sanitizeAudioManifest(audioManifestPayload);
   state.audioConfig = normalizeAudioConfig(state.audioConfig);
   if (state.data.vocab.length < 4 || state.data.sentences.length < 4) {
-    throw new Error("クイズデータが不足しています。");
+    throw new Error(t("dataShortage"));
   }
   state.vocabGroups = buildVocabGroups(state.data.vocab, state.settings.seed);
   normalizeSettings();
@@ -490,7 +790,7 @@ async function init() {
     setView("setup");
   }
   schedulePendingScoreSyncRetry();
-  updateSaveStatus("準備完了");
+  updateSaveStatus(t("ready"));
 }
 
 function bindEvents() {
@@ -557,11 +857,11 @@ function bindEvents() {
     if (!state.history.length) {
       return;
     }
-    if (window.confirm("この端末内の成績履歴だけを消去します。Google Sheetsのランキングや累積得点、進行中のクイズは消えません。実行しますか？")) {
+    if (window.confirm(t("clearHistoryConfirm"))) {
       state.history = [];
       saveHistory();
       renderHistory();
-      showToast("端末内の成績履歴だけを消去しました。ランキングは消えていません。");
+      showToast(t("clearHistoryDone"));
     }
   });
   els.rankingRefreshButton.addEventListener("click", () => requestRankings({ force: true }));
@@ -679,6 +979,17 @@ function currentLangMeta() {
 function t(key) {
   const meta = currentLangMeta();
   return meta.labels[key] || TARGET_LANG_META.ja.labels[key] || key;
+}
+
+function formatText(key, replacements = {}) {
+  return Object.entries(replacements).reduce(
+    (text, [name, value]) => text.replaceAll(`{${name}}`, String(value)),
+    t(key),
+  );
+}
+
+function modeLabel(mode) {
+  return mode === "sentence" ? currentLangMeta().modeSentence : currentLangMeta().modeVocab;
 }
 
 function applyMobileConfig(config) {
@@ -907,7 +1218,7 @@ function handleScoreSyncResult(result) {
     return;
   }
   session.scoreSyncStatus = result.ok ? "saved" : "error";
-  session.scoreSyncMessage = String(result.message || (result.ok ? "ランキングに保存しました。" : "保存に失敗しました。"));
+  session.scoreSyncMessage = String(result.message || (result.ok ? t("scoreSavedMessage") : t("scoreSaveFailedMessage")));
   session.scoreSyncRecoverable = result.ok ? "" : String(result.recoverable || "");
   session.scoreSyncRetryCount = 0;
   state.latestScoreSyncResult = result;
@@ -936,7 +1247,7 @@ function handleRankingResult(result) {
   window.clearTimeout(state.rankingRequestTimeout);
   state.rankingRequestTimeout = null;
   state.rankings.status = result.ok ? "ready" : "error";
-  state.rankings.message = String(result.message || (result.ok ? "ランキングを更新しました。" : "ランキングを取得できませんでした。"));
+  state.rankings.message = String(result.message || (result.ok ? t("rankingUpdatedMessage") : t("rankingFailedMessage")));
   state.rankings.updatedAt = String(result.updatedAt || new Date().toISOString());
   state.rankings.loadedAt = Date.now();
   state.rankings.rankings = sanitizeRankingsPayload(result.rankings);
@@ -1145,7 +1456,7 @@ function sanitizeSession(value) {
     scoreSyncRecoverable: String(value.scoreSyncRecoverable || ""),
     scoreSyncRetryCount: clampInteger(value.scoreSyncRetryCount, 0, SCORE_SYNC_AUTO_RETRY_MAX, 0),
     scoreSyncMessage: scoreSyncStatus === "pending"
-      ? "前回の保存結果を確認中です。重複を防ぎながら自動で再送します。"
+      ? t("scorePendingRestored")
       : String(value.scoreSyncMessage || ""),
     startedAt: String(value.startedAt || new Date().toISOString()),
     updatedAt: String(value.updatedAt || new Date().toISOString()),
@@ -1211,7 +1522,7 @@ function writeJson(key, value, { allowRecovery = true } = {}) {
     if (allowRecovery && recoverLocalStorageWrite(key, value, error)) {
       return true;
     }
-    updateSaveStatus("保存できません");
+    updateSaveStatus(t("saveFailed"));
     return false;
   }
 }
@@ -1226,8 +1537,8 @@ function recoverLocalStorageWrite(key, value, error) {
       try {
         window.localStorage.setItem(HISTORY_KEY, JSON.stringify(trimmed));
         state.history = trimmed;
-        updateSaveStatus("履歴を整理して保存済み");
-        showToast("端末保存容量が足りないため、古い成績履歴を整理しました。");
+        updateSaveStatus(t("historySavedAfterCleanup"));
+        showToast(t("historyCleanupToast"));
         return true;
       } catch (retryError) {
         console.warn(`Failed to recover ${HISTORY_KEY} with ${limit} items`, retryError);
@@ -1239,8 +1550,8 @@ function recoverLocalStorageWrite(key, value, error) {
     window.localStorage.removeItem(HISTORY_KEY);
     state.history = [];
     window.localStorage.setItem(key, JSON.stringify(value));
-    updateSaveStatus("履歴を整理して保存済み");
-    showToast("端末保存容量が足りないため、成績履歴を整理してクイズ状態を保存しました。");
+    updateSaveStatus(t("historySavedAfterCleanup"));
+    showToast(t("sessionCleanupToast"));
     return true;
   } catch (retryError) {
     console.warn(`Failed to recover ${key}`, retryError);
@@ -1269,7 +1580,7 @@ function saveSession() {
     state.session.updatedAt = new Date().toISOString();
   }
   if (writeJson(SESSION_KEY, state.session)) {
-    updateSaveStatus("自動保存済み");
+    updateSaveStatus(t("autoSaved"));
   }
 }
 
@@ -1278,7 +1589,7 @@ function clearStoredSession() {
   state.session = null;
   try {
     window.localStorage.removeItem(SESSION_KEY);
-    updateSaveStatus("進行中のクイズを破棄しました");
+    updateSaveStatus(t("sessionDiscarded"));
   } catch (error) {
     console.warn(`Failed to remove ${SESSION_KEY}`, error);
     writeJson(SESSION_KEY, null);
@@ -1302,7 +1613,7 @@ function saveHistory() {
 function requestRankings({ force = false } = {}) {
   if (!IS_STREAMLIT_COMPONENT) {
     state.rankings.status = "unavailable";
-    state.rankings.message = "ランキング表示はStreamlit Cloud版で利用できます。";
+    state.rankings.message = t("rankingUnavailable");
     renderCloudRankings();
     return;
   }
@@ -1323,14 +1634,14 @@ function requestRankings({ force = false } = {}) {
   window.clearTimeout(state.rankingRequestTimeout);
   state.rankings.status = "loading";
   state.rankings.requestId = createId();
-  state.rankings.message = "Google Sheetsからランキングを取得しています。";
+  state.rankings.message = t("rankingLoading");
   const requestId = state.rankings.requestId;
   state.rankingRequestTimeout = window.setTimeout(() => {
     if (state.rankings.status !== "loading" || state.rankings.requestId !== requestId) {
       return;
     }
     state.rankings.status = "error";
-    state.rankings.message = "ランキング取得に時間がかかっています。通信状態を確認して、更新を押してください。";
+    state.rankings.message = t("rankingTimeout");
     renderCloudRankings();
   }, RANKING_REQUEST_TIMEOUT_MS);
   renderCloudRankings();
@@ -1559,9 +1870,9 @@ function getCheckedLevels() {
 function startQuiz({ replaceActive = false } = {}) {
   let shouldDiscardActive = false;
   if (isActiveSession(state.session) && !replaceActive) {
-    const replace = window.confirm("進行中のクイズがあります。現在の進行を終了して、新しいクイズを開始しますか？");
+    const replace = window.confirm(t("replaceActiveConfirm"));
     if (!replace) {
-      showToast("進行中のクイズを保持しました。");
+      showToast(t("activeKept"));
       resumeStoredSession();
       return false;
     }
@@ -1580,7 +1891,7 @@ function startQuiz({ replaceActive = false } = {}) {
     ? buildVocabQuestions(settings, rng)
     : buildSentenceQuestions(settings, rng);
   if (questions.length < 1) {
-    showToast("選択した条件では問題を作成できません。");
+    showToast(t("noQuestions"));
     return;
   }
   state.session = {
@@ -1722,7 +2033,7 @@ function renderQuiz() {
 
   const currentNumber = Math.min(session.qIndex + 1, session.questions.length);
   const phaseText = session.inSpartan
-    ? `復習 ${session.spartanPending.length}問`
+    ? `${t("reviewPhase")} ${session.spartanPending.length}`
     : `Q${currentNumber}/${session.questions.length}`;
   const prompt = displayPrompt(question, session.settings.direction);
   els.phaseLabel.textContent = phaseText;
@@ -1735,9 +2046,9 @@ function renderQuiz() {
     ? 1
     : answeredMain / Math.max(session.questions.length, 1);
   els.progressBar.style.width = `${Math.round(progress * 100)}%`;
-  els.correctStat.textContent = `正解 ${session.correct}/${session.questions.length}`;
-  els.streakStat.textContent = `連続 ${session.streak}`;
-  els.remainingStat.textContent = `残り ${remainingCount(session)}`;
+  els.correctStat.textContent = `${t("correct")} ${session.correct}/${session.questions.length}`;
+  els.streakStat.textContent = `${t("streak")} ${session.streak}`;
+  els.remainingStat.textContent = `${t("remaining")} ${remainingCount(session)}`;
 
   renderFeedback();
   renderChoices(question);
@@ -1791,7 +2102,7 @@ function renderChoices(question) {
         audioButton.type = "button";
         audioButton.className = "choice-audio-button";
         audioButton.textContent = "♪";
-        audioButton.setAttribute("aria-label", "選択肢の音声を再生");
+        audioButton.setAttribute("aria-label", t("choiceAudioAria"));
         audioButton.addEventListener("click", () => playAudio(question.mode, option));
         card.append(audioButton);
       }
@@ -1838,7 +2149,7 @@ function answerCurrentQuestion(selectedIndex) {
   session.feedback = {
     correct: false,
     selectedIndex,
-    message: `不正解。正解: ${correctText}`,
+    message: `${t("incorrectPrefix")}: ${correctText}`,
   };
   saveSession();
   renderQuiz();
@@ -1962,26 +2273,26 @@ function renderScoreSyncControls(summary) {
   if (!IS_STREAMLIT_COMPONENT) {
     els.syncScoreButton.disabled = true;
     els.syncScoreButton.textContent = t("saveRanking");
-    els.syncScoreStatus.textContent = "ランキング保存はStreamlit Cloud版で利用できます。";
+    els.syncScoreStatus.textContent = t("scoreUnavailable");
     return;
   }
   if (!userName) {
     els.syncScoreButton.disabled = true;
     els.syncScoreButton.textContent = t("saveRanking");
-    els.syncScoreStatus.textContent = "ユーザー名を入力して開始するとランキングに保存できます。";
+    els.syncScoreStatus.textContent = t("scoreNeedsUser");
     return;
   }
   if (session.scoreSyncStatus === "pending") {
     els.syncScoreButton.disabled = true;
-    els.syncScoreButton.textContent = "保存中...";
-    els.syncScoreStatus.textContent = session.scoreSyncMessage || "Google Sheetsへ保存しています。";
+    els.syncScoreButton.textContent = t("scoreSaving");
+    els.syncScoreStatus.textContent = session.scoreSyncMessage || t("scoreSavingMessage");
     return;
   }
   if (session.scoreSyncStatus === "saved") {
     els.syncScoreButton.disabled = true;
-    els.syncScoreButton.textContent = state.mobileConfig.targetLang === "ja" ? "ランキング保存済み" : `${t("saveRanking")} OK`;
+    els.syncScoreButton.textContent = t("scoreSavedButton");
     els.syncScoreStatus.classList.add("is-success");
-    els.syncScoreStatus.textContent = session.scoreSyncMessage || `今回の${summary.points.toFixed(1)}${currentLangMeta().pointUnit}を加算しました。`;
+    els.syncScoreStatus.textContent = session.scoreSyncMessage || formatText("scoreSavedAdd", { points: summary.points.toFixed(1) });
     return;
   }
   els.syncScoreButton.disabled = false;
@@ -1989,11 +2300,11 @@ function renderScoreSyncControls(summary) {
   if (session.scoreSyncStatus === "error") {
     els.syncScoreStatus.classList.add("is-error");
     if (session.scoreSyncRecoverable === "totals_update") {
-      els.syncScoreButton.textContent = "累積得点を再更新";
+      els.syncScoreButton.textContent = t("scoreRetryTotals");
     }
-    els.syncScoreStatus.textContent = session.scoreSyncMessage || "保存に失敗しました。もう一度お試しください。";
+    els.syncScoreStatus.textContent = session.scoreSyncMessage || t("scoreRetryMessage");
   } else {
-    els.syncScoreStatus.textContent = `Google Sheetsの累積得点へ${summary.points.toFixed(1)}${currentLangMeta().pointUnit}を加算します。`;
+    els.syncScoreStatus.textContent = formatText("scoreWillAdd", { points: summary.points.toFixed(1) });
   }
 }
 
@@ -2006,14 +2317,14 @@ function syncScoreToSheets() {
   const userName = String(session.settings.userName || "").trim();
   if (!IS_STREAMLIT_COMPONENT) {
     session.scoreSyncStatus = "error";
-    session.scoreSyncMessage = "ランキング保存はStreamlit Cloud版で利用できます。";
+    session.scoreSyncMessage = t("scoreUnavailable");
     saveSession();
     renderResult();
     return;
   }
   if (!userName) {
     session.scoreSyncStatus = "error";
-    session.scoreSyncMessage = "保存するにはユーザー名が必要です。";
+    session.scoreSyncMessage = t("scoreUserRequired");
     saveSession();
     renderResult();
     return;
@@ -2021,7 +2332,7 @@ function syncScoreToSheets() {
   if (session.scoreSyncStatus === "saved" || session.scoreSyncStatus === "pending") {
     return;
   }
-  sendScoreSyncRequest(session, summary, "Google Sheetsへ保存しています。");
+  sendScoreSyncRequest(session, summary, t("scoreSavingMessage"));
 }
 
 function schedulePendingScoreSyncRetry() {
@@ -2047,7 +2358,7 @@ function schedulePendingScoreSyncRetry() {
     const userName = String(current.settings.userName || "").trim();
     if (!userName) {
       current.scoreSyncStatus = "error";
-      current.scoreSyncMessage = "保存するにはユーザー名が必要です。";
+      current.scoreSyncMessage = t("scoreUserRequired");
       current.scoreSyncRetryCount = 0;
       state.scoreSyncRetryQueuedFor = "";
       saveSession();
@@ -2058,7 +2369,7 @@ function schedulePendingScoreSyncRetry() {
     }
     if (current.scoreSyncRetryCount >= SCORE_SYNC_AUTO_RETRY_MAX) {
       current.scoreSyncStatus = "error";
-      current.scoreSyncMessage = "保存結果を確認できませんでした。通信状態を確認して、もう一度「ランキングに保存」を押してください。";
+      current.scoreSyncMessage = t("scoreRetryLimit");
       current.scoreSyncRetryCount = 0;
       state.scoreSyncRetryQueuedFor = "";
       saveSession();
@@ -2071,7 +2382,7 @@ function schedulePendingScoreSyncRetry() {
     sendScoreSyncRequest(
       current,
       computeResultSummary(current),
-      "前回の保存結果を確認できなかったため、同じ保存IDで安全に再送しています。",
+      t("scoreAutoRetry"),
       { autoRetry: true },
     );
   }, SCORE_SYNC_RETRY_DELAY_MS);
@@ -2143,12 +2454,7 @@ function renderReview() {
   if (!wrongAnswers.length) {
     const empty = document.createElement("div");
     empty.className = "review-item";
-    const messages = {
-      ja: ["間違えた問題はありません", "この結果は端末内の成績に保存されています。"],
-      zh: ["没有答错的问题", "这个结果已保存到本机成绩。"],
-      ko: ["틀린 문제가 없습니다", "이 결과는 기기 내 성적에 저장되었습니다."],
-    }[state.mobileConfig.targetLang];
-    empty.innerHTML = `<strong>${escapeHtml(messages[0])}</strong><p>${escapeHtml(messages[1])}</p>`;
+    empty.innerHTML = `<strong>${escapeHtml(t("noWrongTitle"))}</strong><p>${escapeHtml(t("noWrongBody"))}</p>`;
     els.reviewList.replaceChildren(empty);
     return;
   }
@@ -2172,15 +2478,14 @@ function renderReview() {
         audioButton.type = "button";
         audioButton.className = "review-audio-button";
         audioButton.textContent = "♪";
-        audioButton.setAttribute("aria-label", "エスペラント正解の音声を再生");
+        audioButton.setAttribute("aria-label", t("reviewAudioAria"));
         audioButton.addEventListener("click", () => playAudio(question.mode, correct));
         heading.append(audioButton);
       }
       const correctLine = document.createElement("p");
       correctLine.textContent = `${t("correct")}: ${correctText}`;
       const selectedLine = document.createElement("p");
-      const answerLabel = { ja: "回答", zh: "回答", ko: "선택" }[state.mobileConfig.targetLang] || "回答";
-      selectedLine.textContent = `${answerLabel}: ${selectedText || "-"}`;
+      selectedLine.textContent = `${t("answer")}: ${selectedText || "-"}`;
       item.append(heading, correctLine, selectedLine);
       return item;
     }),
@@ -2197,9 +2502,9 @@ function renderCloudRankings() {
 
   if (state.rankings.status === "loading") {
     els.rankingRefreshButton.disabled = false;
-    els.rankingRefreshButton.textContent = { ja: "再試行", zh: "重试", ko: "재시도" }[state.mobileConfig.targetLang];
-    els.rankingStatus.textContent = state.rankings.message || "ランキングを取得しています。";
-    els.rankingList.replaceChildren(createRankingMessage({ ja: "読み込み中です。", zh: "正在读取。", ko: "불러오는 중입니다." }[state.mobileConfig.targetLang]));
+    els.rankingRefreshButton.textContent = t("rankingRetry");
+    els.rankingStatus.textContent = state.rankings.message || t("rankingLoading");
+    els.rankingList.replaceChildren(createRankingMessage(t("rankingLoadingShort")));
     requestFrameHeightSync();
     return;
   }
@@ -2207,25 +2512,25 @@ function renderCloudRankings() {
   els.rankingRefreshButton.disabled = false;
   els.rankingRefreshButton.textContent = t("refresh");
   if (state.rankings.status === "idle") {
-    els.rankingStatus.textContent = { ja: "未更新", zh: "未更新", ko: "업데이트 전" }[state.mobileConfig.targetLang];
-    els.rankingList.replaceChildren(createRankingMessage({ ja: "更新を押すとランキングを取得します。", zh: "按更新即可读取排行榜。", ko: "새로고침을 누르면 랭킹을 불러옵니다." }[state.mobileConfig.targetLang]));
+    els.rankingStatus.textContent = t("rankingIdle");
+    els.rankingList.replaceChildren(createRankingMessage(t("rankingPrompt")));
     requestFrameHeightSync();
     return;
   }
   if (state.rankings.status === "unavailable" || state.rankings.status === "error") {
-    els.rankingStatus.textContent = state.rankings.message || "ランキングを取得できませんでした。";
-    els.rankingList.replaceChildren(createRankingMessage({ ja: "Streamlit CloudのSecrets設定とGoogle Sheets共有権限を確認してください。", zh: "请检查 Streamlit Cloud 的 Secrets 设置和 Google Sheets 共享权限。", ko: "Streamlit Cloud Secrets 설정과 Google Sheets 공유 권한을 확인하세요." }[state.mobileConfig.targetLang]));
+    els.rankingStatus.textContent = state.rankings.message || t("rankingFailedMessage");
+    els.rankingList.replaceChildren(createRankingMessage(t("rankingSecretHint")));
     requestFrameHeightSync();
     return;
   }
 
   const updatedAt = state.rankings.updatedAt ? formatDate(state.rankings.updatedAt) : "";
   els.rankingStatus.textContent = updatedAt
-    ? `${state.rankings.message || "ランキングを更新しました。"} / ${updatedAt}`
-    : state.rankings.message || "ランキングを更新しました。";
+    ? `${state.rankings.message || t("rankingUpdatedMessage")} / ${updatedAt}`
+    : state.rankings.message || t("rankingUpdatedMessage");
   const rows = state.rankings.rankings[tab] || [];
   if (!rows.length) {
-    els.rankingList.replaceChildren(createRankingMessage({ ja: `${rankingTabLabel(tab)}のランキングはまだありません。`, zh: `${rankingTabLabel(tab)}排行榜还没有数据。`, ko: `${rankingTabLabel(tab)} 랭킹은 아직 없습니다.` }[state.mobileConfig.targetLang]));
+    els.rankingList.replaceChildren(createRankingMessage(formatText("rankingEmpty", { tab: rankingTabLabel(tab) })));
     requestFrameHeightSync();
     return;
   }
@@ -2254,7 +2559,7 @@ function createRankingItem(row) {
   const name = document.createElement("strong");
   name.textContent = row.user;
   const note = document.createElement("p");
-  note.textContent = row.isCurrentUser ? ({ ja: "あなた", zh: "你", ko: "나" }[state.mobileConfig.targetLang]) : "";
+  note.textContent = row.isCurrentUser ? t("currentUser") : "";
   user.append(name, note);
   const points = document.createElement("div");
   points.className = "ranking-points";
@@ -2277,12 +2582,7 @@ function renderHistory() {
   if (!state.history.length) {
     const empty = document.createElement("div");
     empty.className = "history-item";
-    const messages = {
-      ja: ["成績はまだありません", "クイズを完了するとここに残ります。"],
-      zh: ["还没有成绩", "完成测验后会显示在这里。"],
-      ko: ["아직 성적이 없습니다", "퀴즈를 완료하면 여기에 남습니다."],
-    }[state.mobileConfig.targetLang];
-    empty.innerHTML = `<strong>${escapeHtml(messages[0])}</strong><p>${escapeHtml(messages[1])}</p>`;
+    empty.innerHTML = `<strong>${escapeHtml(t("historyEmptyTitle"))}</strong><p>${escapeHtml(t("historyEmptyBody"))}</p>`;
     els.historyList.replaceChildren(empty);
     return;
   }
@@ -2290,7 +2590,7 @@ function renderHistory() {
     ...state.history.map((record) => {
       const item = document.createElement("article");
       item.className = "history-item";
-      const mode = record.mode === "sentence" ? currentLangMeta().modeSentence : currentLangMeta().modeVocab;
+      const mode = modeLabel(record.mode);
       const date = formatDate(record.completedAt);
       item.innerHTML = `
         <strong>${escapeHtml(mode)} ${escapeHtml(record.points.toFixed(1))}${escapeHtml(currentLangMeta().pointUnit)}</strong>
@@ -2305,30 +2605,30 @@ function renderDiagnostics() {
   state.diagnosticsRenderToken += 1;
   const renderToken = state.diagnosticsRenderToken;
   const sessionStatus = state.session
-    ? `${sessionStatusLabel(state.session.status)} / ${state.session.settings?.mode === "sentence" ? "例文" : "単語"}`
-    : "保存中のクイズなし";
+    ? `${sessionStatusLabel(state.session.status)} / ${modeLabel(state.session.settings?.mode)}`
+    : t("noStoredQuiz");
   const manifestVocabCount = Object.keys(state.data.audioManifest.vocab || {}).length;
   const manifestSentenceCount = Object.keys(state.data.audioManifest.sentence || {}).length;
   const storageBytes = estimateLocalStorageBytes();
   const rows = [
-    ["アプリ版", APP_VERSION],
-    ["実行形式", IS_STREAMLIT_COMPONENT ? "Streamlit Cloud組み込み" : "静的/PWA"],
-    ["クイズデータ", `単語 ${state.data.vocab.length}件 / 例文 ${state.data.sentences.length}件`],
-    ["音声設定", state.audioConfig.enabled ? audioDiagnosticText() : "オフ"],
-    ["音声manifest", `単語 ${manifestVocabCount}件 / 例文 ${manifestSentenceCount}件`],
-    ["クイズ保存", sessionStatus],
-    ["端末履歴", `${state.history.length}/${HISTORY_MAX_ITEMS}件`],
-    ["端末保存使用量", storageBytes ? `概算 ${formatBytes(storageBytes)}` : "未使用"],
-    ["ランキング", rankingDiagnosticText()],
-    ["スコア保存", scoreSyncDiagnosticText()],
+    [t("appVersion"), APP_VERSION],
+    [t("runtime"), IS_STREAMLIT_COMPONENT ? t("streamlitEmbedded") : t("staticPwa")],
+    [t("quizData"), formatText("entriesCount", { vocab: state.data.vocab.length, sentences: state.data.sentences.length })],
+    [t("audioSettings"), state.audioConfig.enabled ? audioDiagnosticText() : t("audioOff")],
+    [t("audioManifest"), formatText("entriesCount", { vocab: manifestVocabCount, sentences: manifestSentenceCount })],
+    [t("quizSave"), sessionStatus],
+    [t("localHistory"), `${state.history.length}/${HISTORY_MAX_ITEMS}`],
+    [t("storageUse"), storageBytes ? formatText("storageApprox", { value: formatBytes(storageBytes) }) : t("storageUnused")],
+    [t("ranking"), rankingDiagnosticText()],
+    [t("scoreSave"), scoreSyncDiagnosticText()],
     ["Service Worker", serviceWorkerDiagnosticText()],
   ];
   const items = rows.map(([label, value]) => createDiagnosticItem(label, value));
   items.splice(
     5,
     0,
-    createAudioDiagnosticItem("単語音声テスト", "vocab"),
-    createAudioDiagnosticItem("例文音声テスト", "sentence"),
+    createAudioDiagnosticItem(t("vocabAudioTest"), "vocab"),
+    createAudioDiagnosticItem(t("sentenceAudioTest"), "sentence"),
   );
   els.diagnosticsList.replaceChildren(...items);
   requestFrameHeightSync();
@@ -2348,28 +2648,28 @@ function createDiagnosticItem(labelText, valueText) {
 
 function sessionStatusLabel(status) {
   return {
-    active: "進行中",
-    complete: "完了",
-  }[status] || "なし";
+    active: t("sessionActive"),
+    complete: t("complete"),
+  }[status] || t("none");
 }
 
 function audioDiagnosticText() {
   const source = [];
   if (state.audioConfig.vocabBaseUrl) {
-    source.push("単語URLあり");
+    source.push(t("audioVocabUrl"));
   }
   if (state.audioConfig.sentenceBaseUrl) {
-    source.push("例文URLあり");
+    source.push(t("audioSentenceUrl"));
   }
   if (state.audioConfig.useDriveManifest) {
-    source.push("Driveフォールバックあり");
+    source.push(t("audioDriveFallback"));
   }
-  return source.length ? source.join(" / ") : "音声URLなし";
+  return source.length ? source.join(" / ") : t("audioNoUrl");
 }
 
 function createAudioDiagnosticItem(labelText, mode) {
   const sample = getAudioDiagnosticSample(mode);
-  const status = state.audioDiagnostics[mode] || { status: "idle", message: "未確認", audioKey: "" };
+  const status = state.audioDiagnostics[mode] || { status: "idle", message: t("unknown"), audioKey: "" };
   const item = document.createElement("article");
   item.className = "diagnostic-item diagnostic-audio-item";
 
@@ -2377,7 +2677,7 @@ function createAudioDiagnosticItem(labelText, mode) {
   label.textContent = labelText;
   const summary = document.createElement("span");
   const sampleKey = sample?.audioKey || status.audioKey || "";
-  summary.textContent = sampleKey ? `サンプル: ${sampleKey}.wav` : "テスト可能な音声がありません";
+  summary.textContent = sampleKey ? `${t("sample")}: ${sampleKey}.wav` : t("noAudioTest");
 
   const controls = document.createElement("div");
   controls.className = "diagnostic-audio-actions";
@@ -2385,14 +2685,14 @@ function createAudioDiagnosticItem(labelText, mode) {
   button.id = mode === "sentence" ? "audioDiagSentenceButton" : "audioDiagVocabButton";
   button.className = "text-button";
   button.type = "button";
-  button.textContent = status.status === "running" ? "再生中..." : "再生テスト";
+  button.textContent = status.status === "running" ? t("audioPlaying") : t("audioTest");
   button.disabled = !sample || status.status === "running";
   button.addEventListener("click", () => runAudioDiagnostic(mode));
 
   const statusText = document.createElement("p");
   statusText.id = mode === "sentence" ? "audioDiagSentenceStatus" : "audioDiagVocabStatus";
   statusText.className = `diagnostic-audio-status is-${status.status || "idle"}`;
-  statusText.textContent = status.message || "未確認";
+  statusText.textContent = status.message || t("unknown");
   controls.append(button, statusText);
   item.append(label, summary, controls);
   return item;
@@ -2415,21 +2715,21 @@ function setAudioDiagnosticState(mode, status, message, audioKey = "") {
 async function runAudioDiagnostic(mode) {
   const sample = getAudioDiagnosticSample(mode);
   if (!sample) {
-    setAudioDiagnosticState(mode, "error", "テスト可能な音声が見つかりません。");
+    setAudioDiagnosticState(mode, "error", t("audioTestMissing"));
     renderDiagnostics();
     return;
   }
   const urls = getAudioUrls(mode, sample);
   const primaryUrl = urls[0] || "";
-  setAudioDiagnosticState(mode, "running", `${sample.audioKey}.wav を再生しています。`, sample.audioKey);
+  setAudioDiagnosticState(mode, "running", formatText("audioTesting", { key: sample.audioKey }), sample.audioKey);
   renderDiagnostics();
   const ok = await playAudio(mode, sample, { silentFailure: true });
   if (ok) {
-    setAudioDiagnosticState(mode, "success", `${sample.audioKey}.wav を再生できました。`, sample.audioKey);
-    showToast(`${mode === "sentence" ? "例文" : "単語"}音声を再生できました。`);
+    setAudioDiagnosticState(mode, "success", formatText("audioTestSuccess", { key: sample.audioKey }), sample.audioKey);
+    showToast(formatText("audioTestToast", { mode: modeLabel(mode) }));
   } else {
-    const hint = primaryUrl ? `URL: ${primaryUrl}` : "音声URLなし";
-    setAudioDiagnosticState(mode, "error", `再生できませんでした。${hint}`, sample.audioKey);
+    const hint = primaryUrl ? `URL: ${primaryUrl}` : t("audioNoUrl");
+    setAudioDiagnosticState(mode, "error", formatText("audioTestFailed", { hint }), sample.audioKey);
   }
   if (state.currentView === "diagnostics") {
     renderDiagnostics();
@@ -2438,11 +2738,11 @@ async function runAudioDiagnostic(mode) {
 
 function rankingDiagnosticText() {
   const status = {
-    idle: "未取得",
-    loading: "取得中",
-    ready: "取得済み",
-    error: "エラー",
-    unavailable: "Streamlit外",
+    idle: t("rankingStatusIdle"),
+    loading: t("rankingStatusLoading"),
+    ready: t("rankingStatusReady"),
+    error: t("error"),
+    unavailable: t("rankingStatusUnavailable"),
   }[state.rankings.status] || state.rankings.status;
   const updated = state.rankings.updatedAt ? ` / ${formatDate(state.rankings.updatedAt)}` : "";
   return `${status}${updated}${state.rankings.message ? ` / ${state.rankings.message}` : ""}`;
@@ -2451,26 +2751,26 @@ function rankingDiagnosticText() {
 function scoreSyncDiagnosticText() {
   const session = state.session;
   if (!isCompleteSession(session)) {
-    return "完了済みクイズなし";
+    return t("scoreStatusNoComplete");
   }
   const status = {
-    idle: "未保存",
-    pending: "保存中",
-    saved: "保存済み",
-    error: "エラー",
+    idle: t("scoreStatusIdle"),
+    pending: t("scoreStatusPending"),
+    saved: t("scoreStatusSaved"),
+    error: t("error"),
   }[session.scoreSyncStatus] || session.scoreSyncStatus;
-  const recoverable = session.scoreSyncRecoverable === "totals_update" ? " / 累積再更新可" : "";
+  const recoverable = session.scoreSyncRecoverable === "totals_update" ? t("scoreRecoverableTotals") : "";
   return `${status}${recoverable}${session.scoreSyncMessage ? ` / ${session.scoreSyncMessage}` : ""}`;
 }
 
 function serviceWorkerDiagnosticText() {
   if (IS_STREAMLIT_COMPONENT) {
-    return "Streamlit組み込みでは無効";
+    return t("serviceWorkerDisabled");
   }
   if (!("serviceWorker" in navigator)) {
-    return "非対応";
+    return t("unsupported");
   }
-  return navigator.serviceWorker.controller ? "有効" : "登録待ちまたは未制御";
+  return navigator.serviceWorker.controller ? t("serviceWorkerActive") : t("serviceWorkerPending");
 }
 
 function estimateLocalStorageBytes() {
@@ -2492,9 +2792,9 @@ async function updateStorageEstimate(renderToken) {
     if (state.currentView !== "diagnostics" || state.diagnosticsRenderToken !== renderToken) {
       return;
     }
-    const used = estimate.usage ? formatBytes(estimate.usage) : "不明";
-    const quota = estimate.quota ? formatBytes(estimate.quota) : "不明";
-    const item = createDiagnosticItem("ブラウザ保存領域", `${used} / ${quota}`);
+    const used = estimate.usage ? formatBytes(estimate.usage) : t("unknown");
+    const quota = estimate.quota ? formatBytes(estimate.quota) : t("unknown");
+    const item = createDiagnosticItem(t("browserStorage"), `${used} / ${quota}`);
     els.diagnosticsList.append(item);
     requestFrameHeightSync();
   } catch (error) {
@@ -2658,7 +2958,7 @@ async function playAudio(mode, option, { silentFailure = false } = {}) {
   const urls = getAudioUrls(mode, option);
   if (!urls.length) {
     if (!silentFailure) {
-      showToast("音声ファイルがありません。");
+      showToast(t("audioMissing"));
     }
     return false;
   }
@@ -2678,7 +2978,7 @@ async function playAudio(mode, option, { silentFailure = false } = {}) {
   }
   console.warn("Audio playback failed", lastError);
   if (!silentFailure) {
-    showToast("音声を再生できませんでした。通信状態と音量設定を確認してください。");
+    showToast(t("audioFailed"));
   }
   return false;
 }
@@ -2888,7 +3188,7 @@ function showFatalError(error) {
   console.error(error);
   els.errorMessage.textContent = error?.message || String(error);
   setView("error");
-  updateSaveStatus("エラー");
+  updateSaveStatus(t("error"));
 }
 
 function isActiveSession(session) {
