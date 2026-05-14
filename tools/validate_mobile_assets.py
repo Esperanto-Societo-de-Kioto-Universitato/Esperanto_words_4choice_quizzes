@@ -93,6 +93,16 @@ def phrase_audio_key(phrase_id: int, phrase: str) -> str:
     return f"{phrase_id - 155:04d}_{_default_audio_key(phrase)}"
 
 
+def expected_translations(row: dict[str, str], mapping: dict[str, str], fallback: str) -> dict[str, str]:
+    values = {lang: clean(row.get(column)) for lang, column in mapping.items()}
+    fallback_text = clean(fallback)
+    return {
+        "ja": values.get("ja") or fallback_text,
+        "zh": values.get("zh") or values.get("ja") or fallback_text,
+        "ko": values.get("ko") or values.get("ja") or fallback_text,
+    }
+
+
 def expected_vocab_rows(report: ValidationReport) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     for index, row in enumerate(read_csv(VOCAB_CSV)):
@@ -106,6 +116,15 @@ def expected_vocab_rows(report: ValidationReport) -> list[dict[str, Any]]:
                 "id": index,
                 "eo": esperanto,
                 "ja": japanese,
+                "translations": expected_translations(
+                    row,
+                    {
+                        "ja": "Japanese_Trans",
+                        "zh": "Chinese_Trans",
+                        "ko": "Korean_Trans",
+                    },
+                    japanese,
+                ),
                 "level": level,
                 "audioKey": _default_audio_key(esperanto),
             }
@@ -133,6 +152,15 @@ def expected_sentence_rows(report: ValidationReport) -> list[dict[str, Any]]:
                 "id": phrase_id,
                 "eo": phrase,
                 "ja": japanese,
+                "translations": expected_translations(
+                    row,
+                    {
+                        "ja": "日本語",
+                        "zh": "中文",
+                        "ko": "한국어",
+                    },
+                    japanese,
+                ),
                 "level": level,
                 "topic": topic,
                 "subtopic": subtopic,
@@ -191,6 +219,18 @@ def validate_entries(
                         f"{prefix}: {field} mismatch: data={clean(entry.get(field))!r}, "
                         f"expected={clean(expected.get(field))!r}"
                     )
+            translations = entry.get("translations")
+            expected_trans = expected.get("translations") or {}
+            if not isinstance(translations, dict):
+                report.error(f"{prefix}: translations must be an object with ja/zh/ko")
+            else:
+                for lang in ("ja", "zh", "ko"):
+                    if clean(translations.get(lang)) != clean(expected_trans.get(lang)):
+                        report.error(
+                            f"{prefix}: translations.{lang} mismatch: "
+                            f"data={clean(translations.get(lang))!r}, "
+                            f"expected={clean(expected_trans.get(lang))!r}"
+                        )
         audio_key = clean(entry.get("audioKey"))
         if not audio_key:
             continue
@@ -271,24 +311,29 @@ def validate_manifest(
 
 
 def validate_duplicate_display_choices(entries: list[dict[str, Any]], report: ValidationReport) -> None:
-    duplicates = {
-        key: count
-        for key, count in Counter(
-            (
-                clean(entry.get("topic")),
-                clean(entry.get("subtopic")),
-                clean(entry.get("eo")),
-                clean(entry.get("ja")),
-            )
-            for entry in entries
-        ).items()
-        if count > 1
-    }
-    if duplicates:
-        rendered = "; ".join(f"{count}x {key[2]!r} / {key[3]!r}" for key, count in list(duplicates.items())[:5])
+    notes: list[str] = []
+    for lang in ("ja", "zh", "ko"):
+        duplicates = {
+            key: count
+            for key, count in Counter(
+                (
+                    clean(entry.get("topic")),
+                    clean(entry.get("subtopic")),
+                    clean(entry.get("eo")),
+                    clean((entry.get("translations") or {}).get(lang) if isinstance(entry.get("translations"), dict) else entry.get("ja")),
+                )
+                for entry in entries
+            ).items()
+            if count > 1
+        }
+        if duplicates:
+            rendered = "; ".join(f"{count}x {key[2]!r} / {key[3]!r}" for key, count in list(duplicates.items())[:3])
+            notes.append(f"{lang}: {rendered}")
+    if notes:
         report.note(
             "sentence: duplicate display rows are kept as quiz targets; "
-            f"wrong-choice generation must avoid identical labels ({rendered})"
+            "wrong-choice generation must avoid identical labels "
+            f"({' | '.join(notes)})"
         )
 
 

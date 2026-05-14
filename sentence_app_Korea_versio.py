@@ -17,6 +17,7 @@ from score_append_utils import (
     upsert_user_total,
 )
 from score_row_utils import infer_mode, normalize_score_row, normalize_score_rows
+from mobile_streamlit_bridge import render_mobile_app_entry
 import vocab_grouping as vg
 
 # パス설정（単独アプリとして実行）
@@ -761,6 +762,8 @@ def main():
     )
 
     is_mobile = is_mobile_client()
+    if render_mobile_app_entry(is_mobile, source="sentence_ko", target_lang="ko", default_mode="sentence"):
+        return
     if "mobile_compact_ui" not in st.session_state:
         st.session_state.mobile_compact_ui = is_mobile
     if "compact_hide_option_audio" not in st.session_state:

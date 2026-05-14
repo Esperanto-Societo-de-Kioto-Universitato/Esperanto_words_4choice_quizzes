@@ -35,22 +35,234 @@ const RANKING_CACHE_TTL_MS = 120000;
 const RANKING_REQUEST_TIMEOUT_MS = 20000;
 const SCORE_SYNC_RETRY_DELAY_MS = 10000;
 const SCORE_SYNC_AUTO_RETRY_MAX = 3;
+const SUPPORTED_TARGET_LANGS = new Set(["ja", "zh", "ko"]);
+
+const TARGET_LANG_META = {
+  ja: {
+    htmlLang: "ja",
+    intlLocale: "ja-JP",
+    name: "日本語",
+    esperantoName: "エスペラント",
+    appTitle: "Esperanto 4択",
+    modeVocab: "単語",
+    modeSentence: "例文",
+    wordUnit: "語",
+    pointUnit: "点",
+    labels: {
+      loading: "データを読み込んでいます",
+      ready: "準備完了",
+      userName: "ユーザー名",
+      direction: "出題方向",
+      seed: "シード",
+      pos: "品詞",
+      group: "グループ",
+      topic: "トピック",
+      subtopic: "サブトピック",
+      levels: "レベル",
+      audio: "音声",
+      audioPrompt: "問題を自動再生",
+      audioAll: "問題自動＋選択肢",
+      audioOff: "オフ",
+      spartan: "スパルタ復習",
+      start: "クイズ開始",
+      resumeShort: "続き",
+      resumeTitle: "保存されたクイズがあります",
+      resumeAction: "続きから再開",
+      result: "結果",
+      complete: "完了",
+      accuracy: "正答率",
+      points: "得点",
+      correct: "正解",
+      saveRanking: "ランキングに保存",
+      retry: "同じ設定でもう一度",
+      newQuiz: "新しいクイズ",
+      review: "復習",
+      history: "成績",
+      clearHistory: "端末履歴のみ消去",
+      ranking: "ランキング",
+      rankingBeforeLoad: "読み込み前",
+      refresh: "更新",
+      rankingOverall: "累積",
+      rankingToday: "本日",
+      rankingMonth: "今月",
+      rankingHof: "殿堂",
+      diagnostics: "診断",
+      reload: "再読み込み",
+      navHome: "ホーム",
+      navQuiz: "クイズ",
+      navHistory: "成績",
+      navDiagnostics: "診断",
+      loadFailed: "読み込みに失敗しました",
+      next: "次へ",
+    },
+  },
+  zh: {
+    htmlLang: "zh-Hans",
+    intlLocale: "zh-CN",
+    name: "中文",
+    esperantoName: "世界语",
+    appTitle: "世界语4选1",
+    modeVocab: "单词",
+    modeSentence: "例句",
+    wordUnit: "词",
+    pointUnit: "分",
+    labels: {
+      loading: "正在读取数据",
+      ready: "准备完成",
+      userName: "用户名",
+      direction: "出题方向",
+      seed: "种子",
+      pos: "词性",
+      group: "分组",
+      topic: "主题",
+      subtopic: "子主题",
+      levels: "等级",
+      audio: "音频",
+      audioPrompt: "自动播放题目",
+      audioAll: "题目自动＋选项",
+      audioOff: "关闭",
+      spartan: "错题强化复习",
+      start: "开始测验",
+      resumeShort: "继续",
+      resumeTitle: "有保存的测验",
+      resumeAction: "从上次继续",
+      result: "结果",
+      complete: "完成",
+      accuracy: "正确率",
+      points: "得分",
+      correct: "答对",
+      saveRanking: "保存到排行榜",
+      retry: "用相同设置再做一次",
+      newQuiz: "新测验",
+      review: "复习",
+      history: "成绩",
+      clearHistory: "仅清除本机记录",
+      ranking: "排行榜",
+      rankingBeforeLoad: "尚未读取",
+      refresh: "更新",
+      rankingOverall: "累计",
+      rankingToday: "今日",
+      rankingMonth: "本月",
+      rankingHof: "殿堂",
+      diagnostics: "诊断",
+      reload: "重新读取",
+      navHome: "主页",
+      navQuiz: "测验",
+      navHistory: "成绩",
+      navDiagnostics: "诊断",
+      loadFailed: "读取失败",
+      next: "下一题",
+    },
+  },
+  ko: {
+    htmlLang: "ko",
+    intlLocale: "ko-KR",
+    name: "한국어",
+    esperantoName: "에스페란토",
+    appTitle: "에스페란토 4지선다",
+    modeVocab: "단어",
+    modeSentence: "예문",
+    wordUnit: "어",
+    pointUnit: "점",
+    labels: {
+      loading: "데이터를 불러오는 중입니다",
+      ready: "준비 완료",
+      userName: "사용자 이름",
+      direction: "출제 방향",
+      seed: "시드",
+      pos: "품사",
+      group: "그룹",
+      topic: "주제",
+      subtopic: "하위 주제",
+      levels: "레벨",
+      audio: "음성",
+      audioPrompt: "문제 자동 재생",
+      audioAll: "문제 자동＋선택지",
+      audioOff: "끄기",
+      spartan: "오답 집중 복습",
+      start: "퀴즈 시작",
+      resumeShort: "이어서",
+      resumeTitle: "저장된 퀴즈가 있습니다",
+      resumeAction: "이어서 재개",
+      result: "결과",
+      complete: "완료",
+      accuracy: "정답률",
+      points: "점수",
+      correct: "정답",
+      saveRanking: "랭킹에 저장",
+      retry: "같은 설정으로 다시",
+      newQuiz: "새 퀴즈",
+      review: "복습",
+      history: "성적",
+      clearHistory: "기기 기록만 삭제",
+      ranking: "랭킹",
+      rankingBeforeLoad: "불러오기 전",
+      refresh: "새로고침",
+      rankingOverall: "누적",
+      rankingToday: "오늘",
+      rankingMonth: "이번 달",
+      rankingHof: "명예의 전당",
+      diagnostics: "진단",
+      reload: "다시 불러오기",
+      navHome: "홈",
+      navQuiz: "퀴즈",
+      navHistory: "성적",
+      navDiagnostics: "진단",
+      loadFailed: "불러오기에 실패했습니다",
+      next: "다음",
+    },
+  },
+};
 
 const POS_LABELS = {
-  noun: "名詞",
-  verb: "動詞",
-  adjective: "形容詞",
-  adverb: "副詞",
-  preposition: "前置詞",
-  conjunction: "接続詞",
-  prefix: "接頭辞",
-  suffix: "接尾辞",
-  correlative: "相関詞",
-  numeral: "数詞",
-  bare_adverb: "原形副詞",
-  pronoun: "代名詞",
-  personal_pronoun: "代名詞",
-  other: "その他",
+  ja: {
+    noun: "名詞",
+    verb: "動詞",
+    adjective: "形容詞",
+    adverb: "副詞",
+    preposition: "前置詞",
+    conjunction: "接続詞",
+    prefix: "接頭辞",
+    suffix: "接尾辞",
+    correlative: "相関詞",
+    numeral: "数詞",
+    bare_adverb: "原形副詞",
+    pronoun: "代名詞",
+    personal_pronoun: "代名詞",
+    other: "その他",
+  },
+  zh: {
+    noun: "名词",
+    verb: "动词",
+    adjective: "形容词",
+    adverb: "副词",
+    preposition: "介词",
+    conjunction: "连词",
+    prefix: "前缀",
+    suffix: "后缀",
+    correlative: "对应词",
+    numeral: "数词",
+    bare_adverb: "原形副词",
+    pronoun: "代词",
+    personal_pronoun: "代词",
+    other: "其他",
+  },
+  ko: {
+    noun: "명사",
+    verb: "동사",
+    adjective: "형용사",
+    adverb: "부사",
+    preposition: "전치사",
+    conjunction: "접속사",
+    prefix: "접두사",
+    suffix: "접미사",
+    correlative: "상관사",
+    numeral: "수사",
+    bare_adverb: "원형 부사",
+    pronoun: "대명사",
+    personal_pronoun: "대명사",
+    other: "기타",
+  },
 };
 
 const POS_ORDER = [
@@ -70,9 +282,21 @@ const POS_ORDER = [
 ];
 
 const STAGE_LABELS = {
-  beginner: "初級",
-  intermediate: "中級",
-  advanced: "上級",
+  ja: {
+    beginner: "初級",
+    intermediate: "中級",
+    advanced: "上級",
+  },
+  zh: {
+    beginner: "初级",
+    intermediate: "中级",
+    advanced: "高级",
+  },
+  ko: {
+    beginner: "초급",
+    intermediate: "중급",
+    advanced: "상급",
+  },
 };
 
 const DEFAULT_SETTINGS = {
@@ -128,7 +352,9 @@ const els = {
   reloadButton: document.querySelector("#reloadButton"),
   modeVocab: document.querySelector("#modeVocab"),
   modeSentence: document.querySelector("#modeSentence"),
+  loadingText: document.querySelector("#loadingView p"),
   resumeNotice: document.querySelector("#resumeNotice"),
+  resumeNoticeTitle: document.querySelector("#resumeNotice strong"),
   resumeMeta: document.querySelector("#resumeMeta"),
   resumeNoticeButton: document.querySelector("#resumeNoticeButton"),
   setupForm: document.querySelector("#setupForm"),
@@ -144,6 +370,7 @@ const els = {
   levelChips: document.querySelector("#levelChips"),
   audioMode: document.querySelector("#audioMode"),
   spartanMode: document.querySelector("#spartanMode"),
+  startButton: document.querySelector("#startButton"),
   phaseLabel: document.querySelector("#phaseLabel"),
   promptText: document.querySelector("#promptText"),
   promptAudioButton: document.querySelector("#promptAudioButton"),
@@ -164,6 +391,7 @@ const els = {
   retryButton: document.querySelector("#retryButton"),
   newQuizButton: document.querySelector("#newQuizButton"),
   reviewList: document.querySelector("#reviewList"),
+  cloudRankingTitle: document.querySelector("#cloudRankingTitle"),
   historyList: document.querySelector("#historyList"),
   cloudRankingSection: document.querySelector("#cloudRankingSection"),
   rankingStatus: document.querySelector("#rankingStatus"),
@@ -173,6 +401,12 @@ const els = {
   clearHistoryButton: document.querySelector("#clearHistoryButton"),
   diagnosticsRefreshButton: document.querySelector("#diagnosticsRefreshButton"),
   diagnosticsList: document.querySelector("#diagnosticsList"),
+  resultPhaseLabel: document.querySelector("#resultView .phase-label"),
+  resultMetricLabels: document.querySelectorAll("#resultView .result-metrics small"),
+  reviewTitle: document.querySelector(".review-section h3"),
+  historyTitle: document.querySelector("#historyView h2"),
+  diagnosticsTitle: document.querySelector("#diagnosticsView h2"),
+  errorTitle: document.querySelector("#errorView h2"),
   homeNav: document.querySelector("#homeNav"),
   quizNav: document.querySelector("#quizNav"),
   historyNav: document.querySelector("#historyNav"),
@@ -188,6 +422,11 @@ const state = {
   },
   vocabGroups: [],
   settings: { ...DEFAULT_SETTINGS },
+  mobileConfig: {
+    targetLang: detectInitialTargetLang(),
+    defaultMode: detectInitialDefaultMode(),
+    source: "static",
+  },
   audioConfig: { ...DEFAULT_AUDIO_CONFIG },
   session: null,
   history: [],
@@ -221,6 +460,8 @@ async function init() {
   installFrameHeightSync();
   bindEvents();
   loadLocalState();
+  applyDefaultModeToIdleState();
+  applyStaticText();
   setView("loading");
   await registerServiceWorker();
   const [vocabPayload, sentencePayload, audioManifestPayload] = await Promise.all([
@@ -390,6 +631,9 @@ function installStreamlitMessageHandler() {
     if (message.args?.audioConfig) {
       applyAudioConfig(message.args.audioConfig);
     }
+    if (message.args?.mobileConfig) {
+      applyMobileConfig(message.args.mobileConfig);
+    }
     const result = message.args?.scoreSyncResult;
     if (result) {
       handleScoreSyncResult(result);
@@ -398,6 +642,161 @@ function installStreamlitMessageHandler() {
     if (rankingResult) {
       handleRankingResult(rankingResult);
     }
+  });
+}
+
+function detectInitialTargetLang() {
+  const params = new URLSearchParams(window.location.search);
+  return normalizeTargetLang(params.get("lang") || params.get("target_lang") || params.get("targetLang") || "ja");
+}
+
+function detectInitialDefaultMode() {
+  const params = new URLSearchParams(window.location.search);
+  const mode = String(params.get("mode") || params.get("defaultMode") || "").trim().toLowerCase();
+  return ["vocab", "sentence"].includes(mode) ? mode : DEFAULT_SETTINGS.mode;
+}
+
+function normalizeTargetLang(value) {
+  const text = String(value || "").trim().toLowerCase().replace("_", "-");
+  if (["zh", "cn", "zh-cn", "zh-hans", "chinese"].includes(text)) {
+    return "zh";
+  }
+  if (["ko", "kr", "korean"].includes(text)) {
+    return "ko";
+  }
+  return SUPPORTED_TARGET_LANGS.has(text) ? text : "ja";
+}
+
+function normalizeDefaultMode(value) {
+  const mode = String(value || "").trim().toLowerCase();
+  return ["vocab", "sentence"].includes(mode) ? mode : DEFAULT_SETTINGS.mode;
+}
+
+function currentLangMeta() {
+  return TARGET_LANG_META[state.mobileConfig.targetLang] || TARGET_LANG_META.ja;
+}
+
+function t(key) {
+  const meta = currentLangMeta();
+  return meta.labels[key] || TARGET_LANG_META.ja.labels[key] || key;
+}
+
+function applyMobileConfig(config) {
+  const candidate = isPlainObject(config) ? config : {};
+  const next = {
+    source: String(candidate.source || state.mobileConfig.source || "static"),
+    targetLang: normalizeTargetLang(candidate.targetLang || state.mobileConfig.targetLang),
+    defaultMode: normalizeDefaultMode(candidate.defaultMode || state.mobileConfig.defaultMode),
+  };
+  const previous = JSON.stringify(state.mobileConfig);
+  state.mobileConfig = next;
+  if (previous !== JSON.stringify(state.mobileConfig)) {
+    if (!isActiveSession(state.session) && !isCompleteSession(state.session)) {
+      applyDefaultModeToIdleState();
+    }
+    applyStaticText();
+    if (state.currentView === "setup") {
+      renderSetup();
+    } else if (state.currentView === "history") {
+      renderHistory();
+    } else if (state.currentView === "diagnostics") {
+      renderDiagnostics();
+    }
+  }
+}
+
+function applyDefaultModeToIdleState() {
+  if (!isActiveSession(state.session) && !isCompleteSession(state.session)) {
+    state.settings.mode = state.mobileConfig.defaultMode;
+  }
+}
+
+function applyStaticText() {
+  const meta = currentLangMeta();
+  document.documentElement.lang = meta.htmlLang;
+  document.title = meta.appTitle;
+  const appleTitle = document.querySelector("meta[name='apple-mobile-web-app-title']");
+  if (appleTitle) {
+    appleTitle.setAttribute("content", meta.appTitle);
+  }
+  const brandTitle = document.querySelector(".brand-copy h1");
+  if (brandTitle) {
+    brandTitle.textContent = meta.appTitle;
+  }
+  setText(els.loadingText, t("loading"));
+  setText(els.modeVocab, meta.modeVocab);
+  setText(els.modeSentence, meta.modeSentence);
+  setText(els.resumeButton, t("resumeShort"));
+  setText(els.resumeNoticeTitle, t("resumeTitle"));
+  setText(els.resumeNoticeButton, t("resumeAction"));
+  setText(document.querySelector("label[for='userName']"), t("userName"));
+  setText(document.querySelector("label[for='directionSelect']"), t("direction"));
+  setText(document.querySelector("label[for='seedInput']"), t("seed"));
+  setText(document.querySelector("label[for='posSelect']"), t("pos"));
+  setText(document.querySelector("label[for='groupSelect']"), t("group"));
+  setText(document.querySelector("label[for='topicSelect']"), t("topic"));
+  setText(document.querySelector("label[for='subtopicSelect']"), t("subtopic"));
+  setText(document.querySelector(".chip-fieldset legend"), t("levels"));
+  setText(document.querySelector("label[for='audioMode']"), t("audio"));
+  setText(document.querySelector("#spartanMode + span"), t("spartan"));
+  setText(els.startButton, t("start"));
+  setText(els.resultPhaseLabel, t("result"));
+  setText(els.syncScoreButton, t("saveRanking"));
+  setText(els.retryButton, t("retry"));
+  setText(els.newQuizButton, t("newQuiz"));
+  setText(els.reviewTitle, t("review"));
+  setText(els.historyTitle, t("history"));
+  setText(els.clearHistoryButton, t("clearHistory"));
+  setText(els.cloudRankingTitle, t("ranking"));
+  if (els.rankingStatus?.textContent === TARGET_LANG_META.ja.labels.rankingBeforeLoad || !els.rankingStatus?.textContent) {
+    setText(els.rankingStatus, t("rankingBeforeLoad"));
+  }
+  setText(els.rankingRefreshButton, t("refresh"));
+  setText(els.diagnosticsTitle, t("diagnostics"));
+  setText(els.diagnosticsRefreshButton, t("refresh"));
+  setText(els.errorTitle, t("loadFailed"));
+  setText(els.reloadButton, t("reload"));
+  setText(els.nextButton, t("next"));
+  setText(els.homeNav, t("navHome"));
+  setText(els.quizNav, t("navQuiz"));
+  setText(els.historyNav, t("navHistory"));
+  setText(els.diagnosticsNav, t("navDiagnostics"));
+  els.resultMetricLabels.forEach((node, index) => {
+    setText(node, [t("accuracy"), t("points"), t("correct")][index]);
+  });
+  setAudioModeLabels();
+  setRankingTabLabels();
+  updateDirectionLabels();
+}
+
+function setText(element, text) {
+  if (element) {
+    element.textContent = text;
+  }
+}
+
+function setAudioModeLabels() {
+  [...els.audioMode.options].forEach((option) => {
+    option.textContent = {
+      prompt: t("audioPrompt"),
+      all: t("audioAll"),
+      off: t("audioOff"),
+    }[option.value] || option.textContent;
+  });
+}
+
+function setRankingTabLabels() {
+  els.rankingTabs.forEach((button) => {
+    button.textContent = rankingTabLabel(button.dataset.rankingTab || "overall");
+  });
+}
+
+function updateDirectionLabels() {
+  const meta = currentLangMeta();
+  [...els.directionSelect.options].forEach((option) => {
+    option.textContent = option.value === "ja_to_eo"
+      ? `${meta.name} → ${meta.esperantoName}`
+      : `${meta.esperantoName} → ${meta.name}`;
   });
 }
 
@@ -723,6 +1122,8 @@ function sanitizeSession(value) {
     : "idle";
   const session = {
     ...value,
+    source: String(value.source || ""),
+    targetLang: normalizeTargetLang(value.targetLang || state.mobileConfig.targetLang),
     settings: sanitizeSettings(value.settings),
     qIndex: clampInteger(value.qIndex, 0, questionCount, 0),
     correct: clampInteger(value.correct, 0, questionCount, 0),
@@ -939,6 +1340,8 @@ function requestRankings({ force = false } = {}) {
     user: String(state.settings.userName || "").trim(),
     force: Boolean(force),
     appVersion: APP_VERSION,
+    mobileSource: state.mobileConfig.source,
+    targetLang: state.mobileConfig.targetLang,
     ts: new Date().toISOString(),
   });
 }
@@ -1019,6 +1422,7 @@ function switchMode(mode) {
 
 function renderSetup() {
   const mode = state.settings.mode;
+  updateDirectionLabels();
   els.modeVocab.classList.toggle("is-selected", mode === "vocab");
   els.modeSentence.classList.toggle("is-selected", mode === "sentence");
   els.modeVocab.setAttribute("aria-selected", String(mode === "vocab"));
@@ -1040,8 +1444,9 @@ function renderSetup() {
 }
 
 function renderVocabControls() {
+  const meta = currentLangMeta();
   const posValues = unique(state.vocabGroups.map((group) => group.pos))
-    .sort((a, b) => posSortIndex(a) - posSortIndex(b) || labelForPos(a).localeCompare(labelForPos(b), "ja"));
+    .sort((a, b) => posSortIndex(a) - posSortIndex(b) || labelForPos(a).localeCompare(labelForPos(b), meta.intlLocale));
   replaceOptions(
     els.posSelect,
     posValues.map((pos) => ({ value: pos, label: labelForPos(pos) })),
@@ -1053,7 +1458,7 @@ function renderVocabControls() {
     els.groupSelect,
     groups.map((group) => ({
       value: group.id,
-      label: `${formatStageLabel(group.stages)} ${group.indexLabel} (${group.entries.length}語)`,
+      label: `${formatStageLabel(group.stages)} ${group.indexLabel} (${group.entries.length}${meta.wordUnit})`,
     })),
   );
   els.groupSelect.value = state.settings.groupId;
@@ -1181,6 +1586,8 @@ function startQuiz({ replaceActive = false } = {}) {
   state.session = {
     id: createId(),
     appVersion: APP_VERSION,
+    source: state.mobileConfig.source,
+    targetLang: state.mobileConfig.targetLang,
     status: "active",
     settings,
     questions,
@@ -1264,10 +1671,11 @@ function buildSentenceQuestions(settings, rng) {
 }
 
 function buildQuestionFromEntry({ mode, correct, pool, stages, rng }) {
+  const correctTarget = targetText(correct);
   const wrongPool = pool.filter((entry) => (
     entry !== correct
     && entry.eo !== correct.eo
-    && entry.ja !== correct.ja
+    && targetText(entry) !== correctTarget
   ));
   if (wrongPool.length < 3) {
     return null;
@@ -1275,7 +1683,8 @@ function buildQuestionFromEntry({ mode, correct, pool, stages, rng }) {
   const options = shuffle([...sample(wrongPool, 3, rng), correct], rng).map((entry) => ({
     id: entry.id,
     eo: entry.eo,
-    ja: entry.ja,
+    ja: targetText(entry),
+    translations: isPlainObject(entry.translations) ? { ...entry.translations } : undefined,
     level: Number(entry.level),
     audioKey: entry.audioKey,
     hasAudio: Boolean(entry.hasAudio),
@@ -1284,7 +1693,7 @@ function buildQuestionFromEntry({ mode, correct, pool, stages, rng }) {
   return {
     mode,
     promptEo: correct.eo,
-    promptJa: correct.ja,
+    promptJa: correctTarget,
     stages: [...stages],
     level: Number(correct.level),
     answerIndex,
@@ -1534,7 +1943,9 @@ function renderResult() {
     return;
   }
   const summary = computeResultSummary(session);
-  els.resultTitle.textContent = summary.accuracy >= 1 ? "全問正解" : "クイズ完了";
+  els.resultTitle.textContent = summary.accuracy >= 1
+    ? { ja: "全問正解", zh: "全部答对", ko: "전부 정답" }[state.mobileConfig.targetLang]
+    : { ja: "クイズ完了", zh: "测验完成", ko: "퀴즈 완료" }[state.mobileConfig.targetLang];
   els.accuracyMetric.textContent = `${Math.round(summary.accuracy * 100)}%`;
   els.pointsMetric.textContent = summary.points.toFixed(1);
   els.countMetric.textContent = `${summary.correct}/${summary.total}`;
@@ -1550,13 +1961,13 @@ function renderScoreSyncControls(summary) {
 
   if (!IS_STREAMLIT_COMPONENT) {
     els.syncScoreButton.disabled = true;
-    els.syncScoreButton.textContent = "ランキングに保存";
+    els.syncScoreButton.textContent = t("saveRanking");
     els.syncScoreStatus.textContent = "ランキング保存はStreamlit Cloud版で利用できます。";
     return;
   }
   if (!userName) {
     els.syncScoreButton.disabled = true;
-    els.syncScoreButton.textContent = "ランキングに保存";
+    els.syncScoreButton.textContent = t("saveRanking");
     els.syncScoreStatus.textContent = "ユーザー名を入力して開始するとランキングに保存できます。";
     return;
   }
@@ -1568,13 +1979,13 @@ function renderScoreSyncControls(summary) {
   }
   if (session.scoreSyncStatus === "saved") {
     els.syncScoreButton.disabled = true;
-    els.syncScoreButton.textContent = "ランキング保存済み";
+    els.syncScoreButton.textContent = state.mobileConfig.targetLang === "ja" ? "ランキング保存済み" : `${t("saveRanking")} OK`;
     els.syncScoreStatus.classList.add("is-success");
-    els.syncScoreStatus.textContent = session.scoreSyncMessage || `今回の${summary.points.toFixed(1)}点を加算しました。`;
+    els.syncScoreStatus.textContent = session.scoreSyncMessage || `今回の${summary.points.toFixed(1)}${currentLangMeta().pointUnit}を加算しました。`;
     return;
   }
   els.syncScoreButton.disabled = false;
-  els.syncScoreButton.textContent = "ランキングに保存";
+  els.syncScoreButton.textContent = t("saveRanking");
   if (session.scoreSyncStatus === "error") {
     els.syncScoreStatus.classList.add("is-error");
     if (session.scoreSyncRecoverable === "totals_update") {
@@ -1582,7 +1993,7 @@ function renderScoreSyncControls(summary) {
     }
     els.syncScoreStatus.textContent = session.scoreSyncMessage || "保存に失敗しました。もう一度お試しください。";
   } else {
-    els.syncScoreStatus.textContent = `Google Sheetsの累積得点へ${summary.points.toFixed(1)}点を加算します。`;
+    els.syncScoreStatus.textContent = `Google Sheetsの累積得点へ${summary.points.toFixed(1)}${currentLangMeta().pointUnit}を加算します。`;
   }
 }
 
@@ -1695,6 +2106,8 @@ function buildScoreSyncPayload(session, summary, retryMode = "") {
     saveId: session.scoreSaveId,
     sessionId: session.id,
     appVersion: APP_VERSION,
+    mobileSource: session.source || state.mobileConfig.source,
+    targetLang: session.targetLang || state.mobileConfig.targetLang,
     user: String(settings.userName || "").trim(),
     mode: settings.mode === "sentence" ? "sentence" : "vocab",
     direction: settings.direction,
@@ -1730,7 +2143,12 @@ function renderReview() {
   if (!wrongAnswers.length) {
     const empty = document.createElement("div");
     empty.className = "review-item";
-    empty.innerHTML = "<strong>間違えた問題はありません</strong><p>この結果は端末内の成績に保存されています。</p>";
+    const messages = {
+      ja: ["間違えた問題はありません", "この結果は端末内の成績に保存されています。"],
+      zh: ["没有答错的问题", "这个结果已保存到本机成绩。"],
+      ko: ["틀린 문제가 없습니다", "이 결과는 기기 내 성적에 저장되었습니다."],
+    }[state.mobileConfig.targetLang];
+    empty.innerHTML = `<strong>${escapeHtml(messages[0])}</strong><p>${escapeHtml(messages[1])}</p>`;
     els.reviewList.replaceChildren(empty);
     return;
   }
@@ -1759,9 +2177,10 @@ function renderReview() {
         heading.append(audioButton);
       }
       const correctLine = document.createElement("p");
-      correctLine.textContent = `正解: ${correctText}`;
+      correctLine.textContent = `${t("correct")}: ${correctText}`;
       const selectedLine = document.createElement("p");
-      selectedLine.textContent = `回答: ${selectedText || "-"}`;
+      const answerLabel = { ja: "回答", zh: "回答", ko: "선택" }[state.mobileConfig.targetLang] || "回答";
+      selectedLine.textContent = `${answerLabel}: ${selectedText || "-"}`;
       item.append(heading, correctLine, selectedLine);
       return item;
     }),
@@ -1778,24 +2197,24 @@ function renderCloudRankings() {
 
   if (state.rankings.status === "loading") {
     els.rankingRefreshButton.disabled = false;
-    els.rankingRefreshButton.textContent = "再試行";
+    els.rankingRefreshButton.textContent = { ja: "再試行", zh: "重试", ko: "재시도" }[state.mobileConfig.targetLang];
     els.rankingStatus.textContent = state.rankings.message || "ランキングを取得しています。";
-    els.rankingList.replaceChildren(createRankingMessage("読み込み中です。"));
+    els.rankingList.replaceChildren(createRankingMessage({ ja: "読み込み中です。", zh: "正在读取。", ko: "불러오는 중입니다." }[state.mobileConfig.targetLang]));
     requestFrameHeightSync();
     return;
   }
 
   els.rankingRefreshButton.disabled = false;
-  els.rankingRefreshButton.textContent = "更新";
+  els.rankingRefreshButton.textContent = t("refresh");
   if (state.rankings.status === "idle") {
-    els.rankingStatus.textContent = "未更新";
-    els.rankingList.replaceChildren(createRankingMessage("更新を押すとランキングを取得します。"));
+    els.rankingStatus.textContent = { ja: "未更新", zh: "未更新", ko: "업데이트 전" }[state.mobileConfig.targetLang];
+    els.rankingList.replaceChildren(createRankingMessage({ ja: "更新を押すとランキングを取得します。", zh: "按更新即可读取排行榜。", ko: "새로고침을 누르면 랭킹을 불러옵니다." }[state.mobileConfig.targetLang]));
     requestFrameHeightSync();
     return;
   }
   if (state.rankings.status === "unavailable" || state.rankings.status === "error") {
     els.rankingStatus.textContent = state.rankings.message || "ランキングを取得できませんでした。";
-    els.rankingList.replaceChildren(createRankingMessage("Streamlit CloudのSecrets設定とGoogle Sheets共有権限を確認してください。"));
+    els.rankingList.replaceChildren(createRankingMessage({ ja: "Streamlit CloudのSecrets設定とGoogle Sheets共有権限を確認してください。", zh: "请检查 Streamlit Cloud 的 Secrets 设置和 Google Sheets 共享权限。", ko: "Streamlit Cloud Secrets 설정과 Google Sheets 공유 권한을 확인하세요." }[state.mobileConfig.targetLang]));
     requestFrameHeightSync();
     return;
   }
@@ -1806,7 +2225,7 @@ function renderCloudRankings() {
     : state.rankings.message || "ランキングを更新しました。";
   const rows = state.rankings.rankings[tab] || [];
   if (!rows.length) {
-    els.rankingList.replaceChildren(createRankingMessage(`${rankingTabLabel(tab)}のランキングはまだありません。`));
+    els.rankingList.replaceChildren(createRankingMessage({ ja: `${rankingTabLabel(tab)}のランキングはまだありません。`, zh: `${rankingTabLabel(tab)}排行榜还没有数据。`, ko: `${rankingTabLabel(tab)} 랭킹은 아직 없습니다.` }[state.mobileConfig.targetLang]));
     requestFrameHeightSync();
     return;
   }
@@ -1835,22 +2254,22 @@ function createRankingItem(row) {
   const name = document.createElement("strong");
   name.textContent = row.user;
   const note = document.createElement("p");
-  note.textContent = row.isCurrentUser ? "あなた" : "";
+  note.textContent = row.isCurrentUser ? ({ ja: "あなた", zh: "你", ko: "나" }[state.mobileConfig.targetLang]) : "";
   user.append(name, note);
   const points = document.createElement("div");
   points.className = "ranking-points";
-  points.textContent = `${Number(row.points || 0).toFixed(1)}点`;
+  points.textContent = `${Number(row.points || 0).toFixed(1)}${currentLangMeta().pointUnit}`;
   item.append(rank, user, points);
   return item;
 }
 
 function rankingTabLabel(tab) {
   return {
-    overall: "累積",
-    today: "本日",
-    month: "今月",
-    hof: "殿堂",
-  }[tab] || "累積";
+    overall: t("rankingOverall"),
+    today: t("rankingToday"),
+    month: t("rankingMonth"),
+    hof: t("rankingHof"),
+  }[tab] || t("rankingOverall");
 }
 
 function renderHistory() {
@@ -1858,7 +2277,12 @@ function renderHistory() {
   if (!state.history.length) {
     const empty = document.createElement("div");
     empty.className = "history-item";
-    empty.innerHTML = "<strong>成績はまだありません</strong><p>クイズを完了するとここに残ります。</p>";
+    const messages = {
+      ja: ["成績はまだありません", "クイズを完了するとここに残ります。"],
+      zh: ["还没有成绩", "完成测验后会显示在这里。"],
+      ko: ["아직 성적이 없습니다", "퀴즈를 완료하면 여기에 남습니다."],
+    }[state.mobileConfig.targetLang];
+    empty.innerHTML = `<strong>${escapeHtml(messages[0])}</strong><p>${escapeHtml(messages[1])}</p>`;
     els.historyList.replaceChildren(empty);
     return;
   }
@@ -1866,11 +2290,11 @@ function renderHistory() {
     ...state.history.map((record) => {
       const item = document.createElement("article");
       item.className = "history-item";
-      const mode = record.mode === "sentence" ? "例文" : "単語";
+      const mode = record.mode === "sentence" ? currentLangMeta().modeSentence : currentLangMeta().modeVocab;
       const date = formatDate(record.completedAt);
       item.innerHTML = `
-        <strong>${escapeHtml(mode)} ${escapeHtml(record.points.toFixed(1))}点</strong>
-        <p>${escapeHtml(date)} / ${escapeHtml(record.correct)}/${escapeHtml(record.total)} 正解 / ${escapeHtml(Math.round(record.accuracy * 100))}%</p>
+        <strong>${escapeHtml(mode)} ${escapeHtml(record.points.toFixed(1))}${escapeHtml(currentLangMeta().pointUnit)}</strong>
+        <p>${escapeHtml(date)} / ${escapeHtml(record.correct)}/${escapeHtml(record.total)} ${escapeHtml(t("correct"))} / ${escapeHtml(Math.round(record.accuracy * 100))}%</p>
       `;
       return item;
     }),
@@ -2151,6 +2575,16 @@ function displayOption(option, direction) {
   return direction === "ja_to_eo" ? option.eo : option.ja;
 }
 
+function targetText(entry) {
+  const translations = isPlainObject(entry?.translations) ? entry.translations : {};
+  return String(
+    translations[state.mobileConfig.targetLang]
+    || translations.ja
+    || entry?.ja
+    || "",
+  ).trim();
+}
+
 function isPromptEsperanto(direction) {
   return direction === "eo_to_ja";
 }
@@ -2425,14 +2859,14 @@ function refreshResumeButton() {
 }
 
 function describeStoredSession(session) {
-  const mode = session.settings?.mode === "sentence" ? "例文" : "単語";
+  const mode = session.settings?.mode === "sentence" ? currentLangMeta().modeSentence : currentLangMeta().modeVocab;
   if (isCompleteSession(session)) {
     const summary = computeResultSummary(session);
-    return `${mode} / 完了 / ${summary.correct}/${summary.total} 正解`;
+    return `${mode} / ${t("complete")} / ${summary.correct}/${summary.total} ${t("correct")}`;
   }
   const current = Math.min(Number(session.qIndex || 0) + 1, session.questions.length);
   const review = Array.isArray(session.spartanPending) && session.spartanPending.length
-    ? ` / 復習 ${session.spartanPending.length}問`
+    ? ` / ${t("review")} ${session.spartanPending.length}`
     : "";
   return `${mode} / Q${current}/${session.questions.length}${review}`;
 }
@@ -2628,12 +3062,14 @@ function evenChunks(items, parts) {
 function formatStageLabel(stages) {
   return stages.map((stage) => {
     const [name, number] = stage.split("_");
-    return `${STAGE_LABELS[name] || name}${number || ""}`;
+    const labels = STAGE_LABELS[state.mobileConfig.targetLang] || STAGE_LABELS.ja;
+    return `${labels[name] || name}${number || ""}`;
   }).join("+");
 }
 
 function labelForPos(pos) {
-  return POS_LABELS[pos] || pos;
+  const labels = POS_LABELS[state.mobileConfig.targetLang] || POS_LABELS.ja;
+  return labels[pos] || POS_LABELS.ja[pos] || pos;
 }
 
 function posSortIndex(pos) {
@@ -2710,7 +3146,7 @@ function escapeHtml(value) {
 
 function formatDate(value) {
   try {
-    return new Intl.DateTimeFormat("ja-JP", {
+    return new Intl.DateTimeFormat(currentLangMeta().intlLocale, {
       month: "2-digit",
       day: "2-digit",
       hour: "2-digit",

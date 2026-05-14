@@ -1,6 +1,6 @@
 # Esperanto 4択学習アプリ
 
-このリポジトリには、既存の Streamlit 版に加えて、スマートフォン向けの `localStorage` 保存型クイズUIがあります。スマホで `app.py` または `sentence_app.py` を開くと、Streamlit Cloud上でもこのUIを優先表示します。
+このリポジトリには、既存の Streamlit 版に加えて、スマートフォン向けの `localStorage` 保存型クイズUIがあります。スマホで `app.py`、`sentence_app.py`、中国語版、韓国語版を開くと、Streamlit Cloud上でもこのUIを優先表示します。
 
 ## Streamlit Cloudでのスマホ利用
 
@@ -25,6 +25,7 @@ http://127.0.0.1:8501/?classic=1
 ## スマホ向けUIの特徴
 
 - 単語クイズと例文クイズに対応
+- 日本語版に加えて、中国語版・韓国語版の単語/例文アプリでも同じスマホUIを使い、出題方向に応じて日本語・中文・한국어の翻訳を切り替え
 - 回答ごとに進行状態、回答履歴、得点、復習対象を端末内の `localStorage` へ自動保存
 - Streamlitの再読み込みやセッション切れ後も、同じ端末・同じブラウザなら進行中のクイズを復元
 - 進行中クイズがある場合は、設定画面に「続きから再開」を表示し、新規開始による上書き前に確認
@@ -64,7 +65,7 @@ http://127.0.0.1:8765/mobile_app/
 python3 tools/build_mobile_data.py
 ```
 
-例文データはCSV上の5000件をすべて含めます。同じエスペラント文・同じ日本語訳の行も出題対象に残しつつ、4択の誤答候補では同一表示の選択肢を避けます。
+単語/例文JSONには、互換用の日本語訳に加えて `translations.ja`、`translations.zh`、`translations.ko` を含めます。例文データはCSV上の5000件をすべて含めます。同じエスペラント文・同じ翻訳の行も出題対象に残しつつ、4択の誤答候補では対象言語で同一表示の選択肢を避けます。
 
 ## スマホ版で音声を使う場合
 
@@ -138,4 +139,8 @@ npx playwright install chromium
 ```bash
 streamlit run app.py
 streamlit run sentence_app.py
+streamlit run app_Cxina_versio.py
+streamlit run app_Korea_versio.py
+streamlit run sentence_app_Cxina_versio.py
+streamlit run sentence_app_Korea_versio.py
 ```

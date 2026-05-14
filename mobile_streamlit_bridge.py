@@ -15,6 +15,12 @@ DRIVE_AUDIO_DOWNLOAD_BASE = "https://drive.google.com/uc?export=download&id="
 COMPONENT_VOCAB_AUDIO_BASE = "./audio/"
 COMPONENT_SENTENCE_AUDIO_BASE = "./sentence-audio/"
 MOBILE_RANKING_CACHE_TTL_SEC = 120
+SUPPORTED_MOBILE_LANGS = {"ja", "zh", "ko"}
+MOBILE_CLASSIC_LINK_LABELS = {
+    "ja": "従来のStreamlit版を開く",
+    "zh": "打开传统 Streamlit 版",
+    "ko": "기존 Streamlit 버전 열기",
+}
 
 _mobile_component = components.declare_component(
     "esperanto_mobile_pwa",
@@ -60,7 +66,22 @@ def _mobile_audio_config() -> dict:
     }
 
 
-def render_mobile_app_entry(is_mobile: bool, *, source: str) -> bool:
+def _mobile_lang_from_source(source: str) -> str:
+    suffix = str(source or "").rsplit("_", 1)[-1].lower()
+    return suffix if suffix in SUPPORTED_MOBILE_LANGS else "ja"
+
+
+def _mobile_mode_from_source(source: str) -> str:
+    return "sentence" if str(source or "").startswith("sentence") else "vocab"
+
+
+def render_mobile_app_entry(
+    is_mobile: bool,
+    *,
+    source: str,
+    target_lang: str | None = None,
+    default_mode: str | None = None,
+) -> bool:
     """Render the localStorage-backed mobile app inside Streamlit Cloud.
 
     Streamlit's built-in static file serving is intentionally limited and does not
@@ -70,6 +91,13 @@ def render_mobile_app_entry(is_mobile: bool, *, source: str) -> bool:
     """
     if not should_render_mobile_app(is_mobile):
         return False
+
+    lang = str(target_lang or _mobile_lang_from_source(source)).strip().lower()
+    if lang not in SUPPORTED_MOBILE_LANGS:
+        lang = "ja"
+    mode = str(default_mode or _mobile_mode_from_source(source)).strip().lower()
+    if mode not in {"vocab", "sentence"}:
+        mode = "vocab"
 
     st.session_state.setdefault("mobile_score_sync_result", None)
     st.session_state.setdefault("mobile_score_sync_processed", {})
@@ -113,6 +141,11 @@ def render_mobile_app_entry(is_mobile: bool, *, source: str) -> bool:
     )
     component_value = _mobile_component(
         source=source,
+        mobileConfig={
+            "source": source,
+            "targetLang": lang,
+            "defaultMode": mode,
+        },
         scoreSyncResult=st.session_state.mobile_score_sync_result,
         rankingResult=st.session_state.mobile_ranking_result,
         audioConfig=_mobile_audio_config(),
@@ -152,11 +185,12 @@ def render_mobile_app_entry(is_mobile: bool, *, source: str) -> bool:
                 for key in list(processed.keys())[:-100]:
                     processed.pop(key, None)
             st.rerun()
+    classic_label = MOBILE_CLASSIC_LINK_LABELS.get(lang, MOBILE_CLASSIC_LINK_LABELS["ja"])
     st.markdown(
-        """
+        f"""
         <div style="padding: 8px 12px 16px; text-align: center; font-size: 13px;">
             <a href="?classic=1" target="_self" rel="nofollow" style="color: #075f46; font-weight: 700;">
-                従来のStreamlit版を開く
+                {classic_label}
             </a>
         </div>
         """,

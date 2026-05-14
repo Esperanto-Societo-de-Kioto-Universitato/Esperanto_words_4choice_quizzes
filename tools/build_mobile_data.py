@@ -44,6 +44,16 @@ def _safe_int(value: str) -> int | None:
         return None
 
 
+def _translations(row: dict[str, str], mapping: dict[str, str], fallback: str) -> dict[str, str]:
+    values = {lang: _clean(row.get(column)) for lang, column in mapping.items()}
+    fallback_text = _clean(fallback)
+    return {
+        "ja": values.get("ja") or fallback_text,
+        "zh": values.get("zh") or values.get("ja") or fallback_text,
+        "ko": values.get("ko") or values.get("ja") or fallback_text,
+    }
+
+
 def _read_csv(path: Path) -> list[dict[str, str]]:
     with path.open("r", encoding="utf-8-sig", newline="") as handle:
         return list(csv.DictReader(handle))
@@ -64,6 +74,15 @@ def build_vocab_payload() -> dict[str, object]:
     for index, row in enumerate(_read_csv(VOCAB_CSV)):
         esperanto = _clean(row.get("Esperanto"))
         japanese = _clean(row.get("Japanese_Trans"))
+        translations = _translations(
+            row,
+            {
+                "ja": "Japanese_Trans",
+                "zh": "Chinese_Trans",
+                "ko": "Korean_Trans",
+            },
+            japanese,
+        )
         level = _safe_float(_clean(row.get("Unified_Level")))
         if not esperanto or not japanese or level is None:
             continue
@@ -73,6 +92,7 @@ def build_vocab_payload() -> dict[str, object]:
                 "id": index,
                 "eo": esperanto,
                 "ja": japanese,
+                "translations": translations,
                 "level": level,
                 "pos": classify_pos(esperanto),
                 "audioKey": audio_key,
@@ -97,6 +117,15 @@ def build_sentence_payload() -> dict[str, object]:
         subtopic = _clean(row.get("SubtopicName_EN"))
         phrase = _clean(row.get("Esperanto"))
         japanese = _clean(row.get("日本語"))
+        translations = _translations(
+            row,
+            {
+                "ja": "日本語",
+                "zh": "中文",
+                "ko": "한국어",
+            },
+            japanese,
+        )
         if phrase_id is None or level is None:
             continue
         if not topic or not subtopic or not phrase or not japanese:
@@ -111,6 +140,7 @@ def build_sentence_payload() -> dict[str, object]:
                 "subtopic": subtopic,
                 "eo": phrase,
                 "ja": japanese,
+                "translations": translations,
                 "audioKey": audio_key,
                 "hasAudio": (PHRASE_AUDIO_DIR / f"{audio_key}.wav").exists(),
             }

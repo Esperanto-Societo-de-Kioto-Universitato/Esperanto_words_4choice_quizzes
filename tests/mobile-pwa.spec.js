@@ -159,6 +159,52 @@ test("mobile quiz state survives reload", async ({ page }) => {
   expect(errors).toEqual([]);
 });
 
+test("mobile app can quiz with Chinese and Korean target translations", async ({ page, browser }) => {
+  const appUrl = process.env.MOBILE_APP_URL || "http://127.0.0.1:8765/mobile_app/";
+
+  const zhUrl = new URL(appUrl);
+  zhUrl.searchParams.set("lang", "zh");
+  zhUrl.searchParams.set("mode", "vocab");
+  await page.goto(zhUrl.toString(), { waitUntil: "networkidle" });
+  await expect(page.locator("#modeVocab")).toHaveText("单词");
+  await expect(page.locator("#directionSelect option[value='eo_to_ja']")).toHaveText("世界语 → 中文");
+  await page.locator("#startButton").scrollIntoViewIfNeeded();
+  await page.locator("#startButton").click();
+  await expect(page.locator("#quizView")).toHaveClass(/is-active/);
+  const zhQuestion = await page.evaluate(() => {
+    const session = JSON.parse(localStorage.getItem("esperanto-choice-mobile:session:v2"));
+    return session.questions[0];
+  });
+  expect(zhQuestion.promptJa).toMatch(/[\u4e00-\u9fff]/);
+  expect(zhQuestion.options.every((option) => /[\u4e00-\u9fff]/.test(option.ja))).toBe(true);
+
+  const koContext = await browser.newContext({
+    viewport: { width: 393, height: 851 },
+    isMobile: true,
+    hasTouch: true,
+    deviceScaleFactor: 2.75,
+    userAgent: "Mozilla/5.0 (Linux; Android 13; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Mobile Safari/537.36",
+  });
+  const koPage = await koContext.newPage();
+  const koUrl = new URL(appUrl);
+  koUrl.searchParams.set("lang", "ko");
+  koUrl.searchParams.set("mode", "sentence");
+  await koPage.goto(koUrl.toString(), { waitUntil: "networkidle" });
+  await expect(koPage.locator("#modeSentence")).toHaveText("예문");
+  await expect(koPage.locator("#directionSelect option[value='eo_to_ja']")).toHaveText("에스페란토 → 한국어");
+  await expect(koPage.locator("#modeSentence")).toHaveAttribute("aria-selected", "true");
+  await koPage.locator("#startButton").scrollIntoViewIfNeeded();
+  await koPage.locator("#startButton").click();
+  await expect(koPage.locator("#quizView")).toHaveClass(/is-active/);
+  const koQuestion = await koPage.evaluate(() => {
+    const session = JSON.parse(localStorage.getItem("esperanto-choice-mobile:session:v2"));
+    return session.questions[0];
+  });
+  expect(koQuestion.promptJa).toMatch(/[가-힣]/);
+  expect(koQuestion.options.every((option) => /[가-힣]/.test(option.ja))).toBe(true);
+  await koContext.close();
+});
+
 test("mobile result and history stay readable", async ({ page }) => {
   const errors = [];
   page.on("console", (message) => {
