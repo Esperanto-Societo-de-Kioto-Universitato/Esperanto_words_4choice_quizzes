@@ -9,7 +9,7 @@ test.use({
 });
 
 async function answerRemainingCorrectly(page, scope) {
-  for (let guard = 0; guard < 40; guard += 1) {
+  for (let guard = 0; guard < 120; guard += 1) {
     const session = await page.evaluate(() => JSON.parse(localStorage.getItem("esperanto-choice-mobile:session:v2")));
     if (session.status === "complete") {
       return;
@@ -35,6 +35,7 @@ test("mobile quiz state survives reload", async ({ page }) => {
   await expect(page.locator("#setupView")).toHaveClass(/is-active/);
   await expect(page.locator("#audioMode")).toBeEnabled();
   await expect(page.locator("#audioMode")).toHaveValue("prompt");
+  await expect(page.locator("#lengthSelect")).toHaveCount(0);
 
   await page.locator("#modeSentence").click();
   await expect(page.locator("#modeSentence")).toHaveAttribute("aria-selected", "true");
@@ -105,6 +106,7 @@ test("mobile quiz state survives reload", async ({ page }) => {
   expect(firstPrompt && firstPrompt.trim().length).toBeGreaterThan(0);
 
   const startedSession = await page.evaluate(() => JSON.parse(localStorage.getItem("esperanto-choice-mobile:session:v2")));
+  expect(startedSession.settings).not.toHaveProperty("length");
   const answerIndex = startedSession.questions[startedSession.qIndex].answerIndex;
   const wrongIndex = (answerIndex + 1) % startedSession.questions[startedSession.qIndex].options.length;
   await page.locator(`.choice-button[data-index="${wrongIndex}"]`).click();
@@ -179,7 +181,6 @@ test("mobile result and history stay readable", async ({ page }) => {
       return original.call(this, key, value);
     };
   });
-  await page.locator("#lengthSelect").selectOption("10");
   await page.locator("#spartanMode").uncheck();
   await page.locator("#startButton").scrollIntoViewIfNeeded();
   await page.locator("#startButton").click();
@@ -242,7 +243,6 @@ test("mobile review can replay the Esperanto correct answer", async ({ page }) =
 
   const appUrl = process.env.MOBILE_APP_URL || "http://127.0.0.1:8765/mobile_app/";
   await page.goto(appUrl, { waitUntil: "networkidle" });
-  await page.locator("#lengthSelect").selectOption("10");
   await page.locator("#spartanMode").uncheck();
   await page.locator("#startButton").scrollIntoViewIfNeeded();
   await page.locator("#startButton").click();

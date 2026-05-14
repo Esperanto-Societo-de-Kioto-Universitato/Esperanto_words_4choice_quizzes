@@ -85,7 +85,6 @@ const DEFAULT_SETTINGS = {
   topic: "",
   subtopic: "",
   levels: [],
-  length: "all",
   audioMode: "prompt",
   spartanMode: true,
 };
@@ -143,7 +142,6 @@ const els = {
   topicSelect: document.querySelector("#topicSelect"),
   subtopicSelect: document.querySelector("#subtopicSelect"),
   levelChips: document.querySelector("#levelChips"),
-  lengthSelect: document.querySelector("#lengthSelect"),
   audioMode: document.querySelector("#audioMode"),
   spartanMode: document.querySelector("#spartanMode"),
   phaseLabel: document.querySelector("#phaseLabel"),
@@ -295,7 +293,6 @@ function bindEvents() {
     renderSentenceControls();
     saveSettings();
   });
-  els.lengthSelect.addEventListener("change", persistSettingsFromForm);
   els.audioMode.addEventListener("change", persistSettingsFromForm);
   els.spartanMode.addEventListener("change", persistSettingsFromForm);
 
@@ -690,12 +687,10 @@ function sanitizeSettings(value) {
   if (!["eo_to_ja", "ja_to_eo"].includes(settings.direction)) {
     settings.direction = DEFAULT_SETTINGS.direction;
   }
-  if (!["10", "20", "all"].includes(settings.length)) {
-    settings.length = DEFAULT_SETTINGS.length;
-  }
   if (!["prompt", "all", "off"].includes(settings.audioMode)) {
     settings.audioMode = DEFAULT_SETTINGS.audioMode;
   }
+  delete settings.length;
   settings.pos = String(settings.pos || DEFAULT_SETTINGS.pos);
   settings.groupId = String(settings.groupId || "");
   settings.topic = String(settings.topic || "");
@@ -982,12 +977,10 @@ function normalizeSettings() {
   if (!["eo_to_ja", "ja_to_eo"].includes(state.settings.direction)) {
     state.settings.direction = "eo_to_ja";
   }
-  if (!["10", "20", "all"].includes(state.settings.length)) {
-    state.settings.length = state.settings.mode === "sentence" ? "10" : "all";
-  }
   if (!["prompt", "all", "off"].includes(state.settings.audioMode)) {
     state.settings.audioMode = "prompt";
   }
+  delete state.settings.length;
   if (!hasAudioForMode(state.settings.mode)) {
     state.settings.audioMode = "off";
   }
@@ -1005,7 +998,7 @@ function persistSettingsFromForm() {
   state.settings.topic = els.topicSelect.value || state.settings.topic;
   state.settings.subtopic = els.subtopicSelect.value || state.settings.subtopic;
   state.settings.levels = getCheckedLevels();
-  state.settings.length = els.lengthSelect.value;
+  delete state.settings.length;
   state.settings.audioMode = els.audioMode.value;
   if (!hasAudioForMode(state.settings.mode)) {
     state.settings.audioMode = "off";
@@ -1019,12 +1012,6 @@ function switchMode(mode) {
     return;
   }
   state.settings.mode = mode;
-  if (mode === "sentence" && state.settings.length === "all") {
-    state.settings.length = "10";
-  }
-  if (mode === "vocab" && state.settings.length === "10") {
-    state.settings.length = "all";
-  }
   normalizeSettings();
   renderSetup();
   requestFrameHeightSync();
@@ -1042,7 +1029,6 @@ function renderSetup() {
   els.userName.value = state.settings.userName || "";
   els.directionSelect.value = state.settings.direction;
   els.seedInput.value = state.settings.seed;
-  els.lengthSelect.value = state.settings.length;
   els.audioMode.value = state.settings.audioMode;
   els.audioMode.disabled = !hasAudioForMode(mode);
   els.spartanMode.checked = Boolean(state.settings.spartanMode);
@@ -1248,7 +1234,7 @@ function buildVocabQuestions(settings, rng) {
   if (!group || group.entries.length < 4) {
     return [];
   }
-  const selectedEntries = limitEntries(group.entries, settings.length, rng);
+  const selectedEntries = shuffle([...group.entries], rng);
   return selectedEntries.map((entry) => buildQuestionFromEntry({
     mode: "vocab",
     correct: entry,
@@ -1267,7 +1253,7 @@ function buildSentenceQuestions(settings, rng) {
   if (pool.length < 4) {
     return [];
   }
-  const selectedEntries = limitEntries(pool, settings.length, rng);
+  const selectedEntries = shuffle([...pool], rng);
   return selectedEntries.map((entry) => buildQuestionFromEntry({
     mode: "sentence",
     correct: entry,
@@ -1304,18 +1290,6 @@ function buildQuestionFromEntry({ mode, correct, pool, stages, rng }) {
     answerIndex,
     options,
   };
-}
-
-function limitEntries(entries, length, rng) {
-  const shuffled = shuffle([...entries], rng);
-  if (length === "all") {
-    return shuffled;
-  }
-  const limit = Number(length);
-  if (!Number.isFinite(limit) || limit <= 0) {
-    return shuffled;
-  }
-  return shuffled.slice(0, Math.min(limit, shuffled.length));
 }
 
 function renderQuiz() {
@@ -1743,7 +1717,6 @@ function buildScoreSyncPayload(session, summary, retryMode = "") {
     topic: settings.topic || "",
     subtopic: settings.subtopic || "",
     levels: Array.isArray(settings.levels) ? settings.levels : [],
-    length: settings.length,
     startedAt: session.startedAt,
     completedAt: session.completedAt,
     ts: new Date().toISOString(),

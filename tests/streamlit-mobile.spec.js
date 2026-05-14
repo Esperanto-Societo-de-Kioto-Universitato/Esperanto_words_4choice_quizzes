@@ -9,7 +9,7 @@ test.use({
 });
 
 async function answerRemainingCorrectly(page, scope) {
-  for (let guard = 0; guard < 40; guard += 1) {
+  for (let guard = 0; guard < 120; guard += 1) {
     const session = await page.evaluate(() => JSON.parse(localStorage.getItem("esperanto-choice-mobile:session:v2")));
     if (session.status === "complete") {
       return;
@@ -38,6 +38,7 @@ test("Streamlit mobile entry uses the localStorage app and survives reload", asy
   await expect(mobileApp.locator("#setupView")).toHaveClass(/is-active/);
   await expect(mobileApp.locator("#audioMode")).toBeEnabled();
   await expect(mobileApp.locator("#audioMode")).toHaveValue("prompt");
+  await expect(mobileApp.locator("#lengthSelect")).toHaveCount(0);
 
   await mobileApp.locator("#modeSentence").click();
   await expect(mobileApp.locator("#modeSentence")).toHaveAttribute("aria-selected", "true");
@@ -110,6 +111,7 @@ test("Streamlit mobile entry uses the localStorage app and survives reload", asy
   expect(quizMetrics.scrollY).toBe(0);
 
   const startedSession = await page.evaluate(() => JSON.parse(localStorage.getItem("esperanto-choice-mobile:session:v2")));
+  expect(startedSession.settings).not.toHaveProperty("length");
   const answerIndex = startedSession.questions[startedSession.qIndex].answerIndex;
   const wrongIndex = (answerIndex + 1) % startedSession.questions[startedSession.qIndex].options.length;
   await mobileApp.locator(`.choice-button[data-index="${wrongIndex}"]`).click();
@@ -164,7 +166,6 @@ test("Streamlit mobile result and history stay readable", async ({ page }) => {
   await mobileApp.locator("#homeNav").click();
   await expect(mobileApp.locator("#setupView")).toHaveClass(/is-active/);
   await mobileApp.locator("#userName").fill("streamlit-score-test");
-  await mobileApp.locator("#lengthSelect").selectOption("10");
   await mobileApp.locator("#spartanMode").uncheck();
   await mobileApp.locator("#startButton").scrollIntoViewIfNeeded();
   await mobileApp.locator("#startButton").click();
@@ -231,7 +232,6 @@ test("Streamlit mobile review can replay the Esperanto correct answer", async ({
   const mobileApp = page.frameLocator("iframe[title*='esperanto_mobile_pwa']");
   await expect(mobileApp.locator("#startButton")).toBeEnabled({ timeout: 15000 });
   await mobileApp.locator("#homeNav").click();
-  await mobileApp.locator("#lengthSelect").selectOption("10");
   await mobileApp.locator("#spartanMode").uncheck();
   await mobileApp.locator("#startButton").scrollIntoViewIfNeeded();
   await mobileApp.locator("#startButton").click();
@@ -278,7 +278,6 @@ test("Streamlit mobile sentence prompt audio is served only for Esperanto prompt
   await mobileApp.locator("#modeSentence").click();
   await expect(mobileApp.locator("#modeSentence")).toHaveAttribute("aria-selected", "true");
   await mobileApp.locator("#audioMode").selectOption("all");
-  await mobileApp.locator("#lengthSelect").selectOption("10");
   await mobileApp.locator("#spartanMode").uncheck();
   const sentenceAudioUrlPattern = /\/component\/mobile_streamlit_bridge\.esperanto_mobile_pwa\/sentence-audio\/.+\.wav$/;
   const promptAudioResponsePromise = page.waitForResponse(
@@ -326,7 +325,6 @@ test("Streamlit mobile sentence choice audio is served only for Esperanto choice
   await expect(mobileApp.locator("#modeSentence")).toHaveAttribute("aria-selected", "true");
   await mobileApp.locator("#directionSelect").selectOption("ja_to_eo");
   await mobileApp.locator("#audioMode").selectOption("all");
-  await mobileApp.locator("#lengthSelect").selectOption("10");
   await mobileApp.locator("#spartanMode").uncheck();
   const earlyAudioRequests = [];
   const sentenceAudioUrlPattern = /\/component\/mobile_streamlit_bridge\.esperanto_mobile_pwa\/sentence-audio\/.+\.wav$/;
