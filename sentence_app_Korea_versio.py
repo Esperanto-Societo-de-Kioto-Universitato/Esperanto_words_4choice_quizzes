@@ -18,6 +18,7 @@ from score_append_utils import (
 )
 from score_row_utils import infer_mode, normalize_score_row, normalize_score_rows
 from mobile_streamlit_bridge import render_mobile_app_entry
+from classic_navigation import get_classic_quiz_mode, render_classic_mode_switch
 import vocab_grouping as vg
 
 # パス설정（単独アプリとして実行）
@@ -733,12 +734,12 @@ def show_rankings(stats_data, key_suffix: str = "", score_rows=None):
 
 def render_cross_language_footer(current_key: str):
     links = [
-        ("vocab_zh", "词汇版（中文）", "https://esperantowords4choicequizzes-cxina-versio.streamlit.app"),
-        ("sentence_zh", "例句版（中文）", "https://esperantowords4choicequizzes-fwvq3dnm2jq85gbaztjlyy.streamlit.app"),
-        ("vocab_ko", "어휘 버전(한국어)", "https://esperantowords4choicequizzes-korea-versio.streamlit.app"),
-        ("sentence_ko", "문장 버전(한국어)", "https://esperantowords4choicequizzes-korea-version-frazoj.streamlit.app"),
-        ("vocab_ja", "語彙版（日本語）", "https://esperantowords4choicequizzes-bzgev2astlasx4app3futb.streamlit.app"),
-        ("sentence_ja", "文章版（日本語）", "https://esperantowords4choicequizzes-tiexjo7fx5elylbsywxgxz.streamlit.app"),
+        ("vocab_zh", "词汇版（中文）", "https://esperanto-quiz-zh.streamlit.app/?quiz=vocab&classic=1"),
+        ("sentence_zh", "例句版（中文）", "https://esperanto-quiz-zh.streamlit.app/?quiz=sentence&classic=1"),
+        ("vocab_ko", "어휘 버전(한국어)", "https://esperanto-quiz-ko.streamlit.app/?quiz=vocab&classic=1"),
+        ("sentence_ko", "문장 버전(한국어)", "https://esperanto-quiz-ko.streamlit.app/?quiz=sentence&classic=1"),
+        ("vocab_ja", "語彙版（日本語）", "https://esperanto-quiz.streamlit.app/?quiz=vocab&classic=1"),
+        ("sentence_ja", "文章版（日本語）", "https://esperanto-quiz.streamlit.app/?quiz=sentence&classic=1"),
     ]
     foreign_links = [item for item in links if item[0] != current_key]
     link_html = " ・ ".join(
@@ -754,12 +755,18 @@ def render_cross_language_footer(current_key: str):
     )
 
 
-def main():
-    st.set_page_config(
-        page_title="에스페란토 예문 퀴즈",
-        page_icon="📘",
-        layout="centered",
-    )
+def main(*, set_page_config_once: bool = True):
+    if set_page_config_once:
+        st.set_page_config(
+            page_title="에스페란토 퀴즈",
+            page_icon="📘",
+            layout="centered",
+        )
+    if get_classic_quiz_mode(default="sentence") == "vocab":
+        from app_Korea_versio import main as vocab_main
+
+        vocab_main(set_page_config_once=False)
+        return
 
     is_mobile = is_mobile_client()
     if render_mobile_app_entry(is_mobile, source="sentence_ko", target_lang="ko", default_mode="sentence"):
@@ -1108,6 +1115,7 @@ def main():
 
     show_intro_block = not (compact_ui and bool(st.session_state.get("questions")))
     if show_intro_block:
+        render_classic_mode_switch("sentence", "ko")
         st.write("주제별 예문에서 4지선다로 출제합니다. 단어 버전보다 점수 계수를 약 2.0배로 조정했습니다.")
         with st.expander("점수 계산 규칙"):
             st.markdown(
@@ -1303,7 +1311,7 @@ def main():
 
         st.markdown("---")
         st.markdown(
-            "[💚 단어 퀴즈는 여기](https://esperantowords4choicequizzes-korea-versio.streamlit.app/)"
+            "[💚 단어 퀴즈는 여기](https://esperanto-quiz-ko.streamlit.app/?quiz=vocab&classic=1)"
         )
 
     normalized_sentence_user_name = str(st.session_state.get("sentence_user_name", "")).strip()

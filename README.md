@@ -134,7 +134,18 @@ npx playwright install chromium
 
 ## Streamlit版
 
-既存のPC向けStreamlitアプリは残しています。
+既存のPC向けStreamlitアプリは残しています。`app.py` 系をデプロイしたURLでも、PC/従来版では上部の「PC版モード」から単語版と例文版を切り替えられます。
+
+```text
+https://esperanto-quiz.streamlit.app/?quiz=vocab&classic=1
+https://esperanto-quiz.streamlit.app/?quiz=sentence&classic=1
+https://esperanto-quiz-ko.streamlit.app/?quiz=vocab&classic=1
+https://esperanto-quiz-ko.streamlit.app/?quiz=sentence&classic=1
+https://esperanto-quiz-zh.streamlit.app/?quiz=vocab&classic=1
+https://esperanto-quiz-zh.streamlit.app/?quiz=sentence&classic=1
+```
+
+単独ファイルとして起動する運用も引き続き可能です。
 
 ```bash
 streamlit run app.py
