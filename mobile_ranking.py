@@ -51,15 +51,15 @@ def load_mobile_rankings_request(payload):
     warning = ""
     if stats_rows is None:
         source = "scores_only"
-        warning = "累積ランキングはScoresログ集計から表示しています。"
+        warning = "ランキングを表示しました。累積は保存ログから再集計しています。"
     elif score_rows is None:
         source = "stats_only"
-        warning = "本日・今月ランキングはScoresログを取得できないため空表示です。"
+        warning = "累積ランキングを表示しました。本日・今月は保存ログを確認できないため未表示です。"
 
     return _ranking_result(
         payload,
         ok=True,
-        message=warning or "ランキングを更新しました。",
+        message=warning or "ランキングを表示しました。",
         source=source,
         rankings={
             "overall": overall_rows,

@@ -48,6 +48,20 @@ test("Streamlit mobile entry uses the localStorage app and survives reload", asy
   await expect(mobileApp.locator("#jaAppLink")).toHaveClass(/is-active/);
   await expect(mobileApp.locator("#classicAppLink")).toHaveAttribute("target", "_blank");
   await expect(mobileApp.locator("#classicAppLink")).toHaveAttribute("href", /esperanto-quiz\.streamlit\.app\/\?classic=1&quiz=vocab/);
+  const classicPopupPromise = page.waitForEvent("popup");
+  await mobileApp.locator("#classicAppLink").click();
+  const classicPopup = await classicPopupPromise;
+  await expect.poll(() => classicPopup.url(), { timeout: 5000 }).toMatch(
+    /https:\/\/esperanto-quiz\.streamlit\.app\/\?classic=1&quiz=vocab/,
+  );
+  await classicPopup.close();
+  const zhPopupPromise = page.waitForEvent("popup");
+  await mobileApp.locator("#zhAppLink").click();
+  const zhPopup = await zhPopupPromise;
+  await expect.poll(() => zhPopup.url(), { timeout: 5000 }).toMatch(
+    /https:\/\/esperanto-quiz-zh\.streamlit\.app\/\?mobile_app=1&quiz=vocab/,
+  );
+  await zhPopup.close();
   await mobileApp.locator("#directionSelect").selectOption("ja_to_eo");
   await expect(mobileApp.locator("#directionSelect")).toHaveValue("ja_to_eo");
   await mobileApp.locator("#directionSelect").selectOption("eo_to_ja");
@@ -200,9 +214,9 @@ test("Streamlit mobile result and history stay readable", async ({ page }) => {
   await mobileApp.locator("#historyNav").click();
   await expect(mobileApp.locator("#historyView")).toHaveClass(/is-active/);
   await expect(mobileApp.locator("#cloudRankingTitle")).toBeVisible();
-  await expect(mobileApp.locator("#rankingStatus")).not.toContainText("取得しています", { timeout: 25000 });
+  await expect(mobileApp.locator("#rankingStatus")).not.toHaveText(/読み込んでいます|取得しています/, { timeout: 25000 });
   await expect(mobileApp.locator("#rankingStatus")).toHaveText(
-    /ランキングを(更新|取得)|Scoresログ集計|Streamlit Cloud|Secrets|通信状態/,
+    /ランキングを(表示|更新|取得)|保存ログから再集計|Streamlit Cloud|Secrets|通信状態/,
     { timeout: 5000 },
   );
   await expect(mobileApp.locator("#historyList .history-item").first()).toContainText("単語");

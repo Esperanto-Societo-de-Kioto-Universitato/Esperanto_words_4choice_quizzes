@@ -69,6 +69,12 @@ python3 tools/build_mobile_data.py
 
 単語/例文JSONには、互換用の日本語訳に加えて `translations.ja`、`translations.zh`、`translations.ko` を含めます。例文データはCSV上の5000件をすべて含めます。同じエスペラント文・同じ翻訳の行も出題対象に残しつつ、4択の誤答候補では対象言語で同一表示の選択肢を避けます。
 
+スマホ版のJavaScriptやUIを変更した場合は、診断画面で反映状況を確認しやすくするため `APP_VERSION` も更新します。
+
+```bash
+npm run version:mobile -- 2026-05-19-mobile-quality-1
+```
+
 ## スマホ版で音声を使う場合
 
 Streamlit Cloud内蔵のスマホ版では、`mobile_app/audio/` と `mobile_app/sentence-audio/` の音声ファイルを直接再生します。Google Drive直リンクはスマホブラウザやiframe内で不安定になる場合があるため、現在は同一オリジン配信を優先し、`mobile_app/data/audio_manifest.json` はフォールバックとして使います。Streamlit CloudのSecrets追加は不要です。

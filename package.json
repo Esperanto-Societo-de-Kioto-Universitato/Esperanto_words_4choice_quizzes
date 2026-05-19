@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "version:mobile": "python3 tools/update_mobile_version.py",
     "validate:mobile-assets": "python3 tools/validate_mobile_assets.py",
     "validate:mobile-assets:quick": "python3 tools/validate_mobile_assets.py --quick",
     "test:unit": "python3 -m unittest discover -s tests -p 'test_*.py'",
