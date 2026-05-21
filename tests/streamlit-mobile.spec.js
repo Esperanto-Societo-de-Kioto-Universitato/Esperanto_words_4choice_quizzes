@@ -328,6 +328,18 @@ test("Streamlit mobile sentence prompt audio is served only for Esperanto prompt
   expect(errors).toEqual([]);
 });
 
+test("Streamlit mobile sentence entry applies the bridge default mode", async ({ page }) => {
+  const appUrl = new URL(process.env.STREAMLIT_APP_URL || "http://127.0.0.1:8501/");
+  appUrl.searchParams.set("quiz", "sentence");
+
+  await page.goto(appUrl.toString(), { waitUntil: "domcontentloaded" });
+  const mobileApp = page.frameLocator("iframe[title*='esperanto_mobile_pwa']");
+  await expect(mobileApp.locator("#startButton")).toBeEnabled({ timeout: 15000 });
+  await expect(mobileApp.locator("#modeSentence")).toHaveAttribute("aria-selected", "true");
+  await expect(mobileApp.locator("#classicAppLink")).toHaveAttribute("href", /classic=1&quiz=sentence/);
+  await expect(mobileApp.locator("#mobileAppLink")).toHaveAttribute("href", /mobile_app=1&quiz=sentence/);
+});
+
 test("Streamlit mobile sentence choice audio is served only for Esperanto choices", async ({ page }) => {
   const appUrl = process.env.STREAMLIT_APP_URL || "http://127.0.0.1:8501/";
   const errors = [];

@@ -1085,11 +1085,12 @@ function applyMobileConfig(config) {
   const previous = JSON.stringify(state.mobileConfig);
   state.mobileConfig = next;
   if (previous !== JSON.stringify(state.mobileConfig)) {
-    if (!isActiveSession(state.session) && !isCompleteSession(state.session)) {
+    const isIdle = !isActiveSession(state.session) && !isCompleteSession(state.session);
+    if (isIdle) {
       applyDefaultModeToIdleState();
     }
     applyStaticText();
-    if (state.currentView === "setup") {
+    if (isIdle && hasLoadedQuizData()) {
       renderSetup();
     } else if (state.currentView === "history") {
       renderHistory();
@@ -1103,6 +1104,10 @@ function applyDefaultModeToIdleState() {
   if (!isActiveSession(state.session) && !isCompleteSession(state.session)) {
     state.settings.mode = state.mobileConfig.defaultMode;
   }
+}
+
+function hasLoadedQuizData() {
+  return state.data.vocab.length >= 4 && state.data.sentences.length >= 4;
 }
 
 function applyStaticText() {
